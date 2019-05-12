@@ -22,6 +22,7 @@
         android:id="@+id/nav_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:theme="@style/AppTheme"
         android:background="@color/grey"
         android:scrollbarDefaultDelayBeforeFade="400"
         app:layout_constraintBottom_toBottomOf="parent"
