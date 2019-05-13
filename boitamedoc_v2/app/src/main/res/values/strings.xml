@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">"Boita'Medoc"</string>
+    <string name="title_accueil">Accueil</string>
+    <string name="title_traitement">Traitement</string>
+    <string name="title_boite">Boîte</string>
+    <string name="title_libre_service">Libre-Service</string>
+    <string name="title_profil">Profil</string>
+    <color name="grey">#F7F7F7</color>
+    <color name="grey2">#333333</color>
+</resources>
