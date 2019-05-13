@@ -5,6 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/colorPrimary"
-    app:theme="@style/AppTheme">
+    app:theme="@style/CustomToolbarStyle"
+    app:titleTextColor="#FFFFFF">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="false"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
+        android:foreground="@drawable/ic_stat_name" />
 
 </android.support.v7.widget.Toolbar>

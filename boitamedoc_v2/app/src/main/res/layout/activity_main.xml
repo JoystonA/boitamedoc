@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/CustomToolbarStyle"
         android:background="?android:attr/windowBackground"
         android:scrollbarDefaultDelayBeforeFade="400"
         app:layout_constraintBottom_toBottomOf="parent"

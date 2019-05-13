@@ -16,15 +16,15 @@
         android:icon="@drawable/ic_boite"
         android:title="@string/title_boite" />
 
-        <item
-            android:id="@+id/navigation_libre_service"
-            android:icon="@drawable/ic_libre_service"
-            android:title="@string/title_libre_service" />
+    <item
+        android:id="@+id/navigation_libre_service"
+        android:icon="@drawable/ic_libre_service"
+        android:title="@string/title_libre_service" />
 
-        <item
-            android:id="@+id/navigation_profil"
-            android:icon="@drawable/ic_profil"
-            android:title="@string/title_profil" />
+    <item
+        android:id="@+id/navigation_profil"
+        android:icon="@drawable/ic_profil"
+        android:title="@string/title_profil" />
 
 
 </menu>

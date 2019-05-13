@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
         navView.setOnNavigationItemSelectedListener(navListener);
         Toolbar toolbar = findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
+        setTitle("                    BOÎTA'MÉDOC               ");
+
     }
     private BottomNavigationView.OnNavigationItemSelectedListener navListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
