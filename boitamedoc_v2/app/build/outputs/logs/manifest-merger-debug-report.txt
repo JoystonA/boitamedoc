@@ -1,0 +1,170 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:2:1-23:12
+MERGED from [com.android.support:design:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\73d9d71c7c19f4af3649a35bb7ad64d6\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\6c38fa419f55c5470ea70d202b488ff1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\8109b39d8f35f1a3a95b713d3048526a\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\2b58772819ec48f2cd1e90203139bf7f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\532cb25f556e94de2df7e15920e1a01e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\b8baed0c8928b5dd7accb7e3a1fdbbba\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\d169d5a2a13303c8902dc87f04e7b91c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\0e7224a668e3d9bc51e726c0ca03f035\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\efe3097f1e70f49571ea7d39bcb38383\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\9fccf60adf27d40754495ffcdb9eb46b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\cacab9eca44ba7d0422d158f53c248b6\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\d6971f754e8567d24f2bd7c2e174c029\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\011f491d06189774515c308d64a7cf8d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\d760d6e2a46aaa1c01a6e781c76c9a55\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\c33da2392b80bd322fbb8a7a101f89e5\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\e7f981b953f0781ee2200f1987446de9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\9a338e549f76ebacb9b3c32d9519b793\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\21aa89e045366ace890f61e7e1eb769c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\e338a68e41ac717487854d82c221bf99\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\ac1cbd7ae0d291f95cb37761b665523f\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\6bfd5b22883a05ade5d4550fea358754\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\8079a676527846740d984f3761738652\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\4a5c67d81f87428bda36c11814123a16\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\3ad00d995b2e0811fbc06a0eaa54437f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\ab4191c55066658db64bbfd42dbd0c81\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\65764236a6f1c38666ba43a26cb2ba3d\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\9c8c5a4e65e0d4bc066573998e130898\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\27b784f8878321cc2760252509b4496c\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\4954582bb39954af9d5a5938a37a78c5\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\a0b8e9b6d6215b0643a76ab0602faa86\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\edb991b174007061ee0010b7dd99ddbd\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:2:1-23:12
+	package
+		ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:3:5-40
+		INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:2:1-23:12
+		INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:2:1-23:12
+		INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:5:5-21:19
+MERGED from [com.android.support:design:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\73d9d71c7c19f4af3649a35bb7ad64d6\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\73d9d71c7c19f4af3649a35bb7ad64d6\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\8109b39d8f35f1a3a95b713d3048526a\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\8109b39d8f35f1a3a95b713d3048526a\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\e338a68e41ac717487854d82c221bf99\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\e338a68e41ac717487854d82c221bf99\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\ac1cbd7ae0d291f95cb37761b665523f\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\ac1cbd7ae0d291f95cb37761b665523f\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\e338a68e41ac717487854d82c221bf99\AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:11:9-65
+activity#com.example.boitamedoc_v2.MainActivity
+ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:12:9-20:20
+	android:label
+		ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:14:13-45
+	android:name
+		ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:13:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:15:13-19:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:16:17-69
+	android:name
+		ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:16:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:18:17-77
+	android:name
+		ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml:18:27-74
+uses-sdk
+INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:design:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\73d9d71c7c19f4af3649a35bb7ad64d6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\73d9d71c7c19f4af3649a35bb7ad64d6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\6c38fa419f55c5470ea70d202b488ff1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\6c38fa419f55c5470ea70d202b488ff1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\8109b39d8f35f1a3a95b713d3048526a\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\8109b39d8f35f1a3a95b713d3048526a\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\2b58772819ec48f2cd1e90203139bf7f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\2b58772819ec48f2cd1e90203139bf7f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\532cb25f556e94de2df7e15920e1a01e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\532cb25f556e94de2df7e15920e1a01e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\b8baed0c8928b5dd7accb7e3a1fdbbba\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\b8baed0c8928b5dd7accb7e3a1fdbbba\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\d169d5a2a13303c8902dc87f04e7b91c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\d169d5a2a13303c8902dc87f04e7b91c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\0e7224a668e3d9bc51e726c0ca03f035\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\0e7224a668e3d9bc51e726c0ca03f035\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\efe3097f1e70f49571ea7d39bcb38383\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\efe3097f1e70f49571ea7d39bcb38383\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\9fccf60adf27d40754495ffcdb9eb46b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\9fccf60adf27d40754495ffcdb9eb46b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\cacab9eca44ba7d0422d158f53c248b6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\cacab9eca44ba7d0422d158f53c248b6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\d6971f754e8567d24f2bd7c2e174c029\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\d6971f754e8567d24f2bd7c2e174c029\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\011f491d06189774515c308d64a7cf8d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\011f491d06189774515c308d64a7cf8d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\d760d6e2a46aaa1c01a6e781c76c9a55\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\d760d6e2a46aaa1c01a6e781c76c9a55\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\c33da2392b80bd322fbb8a7a101f89e5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\c33da2392b80bd322fbb8a7a101f89e5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\e7f981b953f0781ee2200f1987446de9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\e7f981b953f0781ee2200f1987446de9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\9a338e549f76ebacb9b3c32d9519b793\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\9a338e549f76ebacb9b3c32d9519b793\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\21aa89e045366ace890f61e7e1eb769c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\21aa89e045366ace890f61e7e1eb769c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\e338a68e41ac717487854d82c221bf99\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\e338a68e41ac717487854d82c221bf99\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\ac1cbd7ae0d291f95cb37761b665523f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\ac1cbd7ae0d291f95cb37761b665523f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\6bfd5b22883a05ade5d4550fea358754\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\6bfd5b22883a05ade5d4550fea358754\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\8079a676527846740d984f3761738652\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\8079a676527846740d984f3761738652\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\4a5c67d81f87428bda36c11814123a16\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\4a5c67d81f87428bda36c11814123a16\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\3ad00d995b2e0811fbc06a0eaa54437f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\3ad00d995b2e0811fbc06a0eaa54437f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\ab4191c55066658db64bbfd42dbd0c81\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\ab4191c55066658db64bbfd42dbd0c81\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\65764236a6f1c38666ba43a26cb2ba3d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\65764236a6f1c38666ba43a26cb2ba3d\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\9c8c5a4e65e0d4bc066573998e130898\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\9c8c5a4e65e0d4bc066573998e130898\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\27b784f8878321cc2760252509b4496c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\27b784f8878321cc2760252509b4496c\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\4954582bb39954af9d5a5938a37a78c5\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\4954582bb39954af9d5a5938a37a78c5\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\a0b8e9b6d6215b0643a76ab0602faa86\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\a0b8e9b6d6215b0643a76ab0602faa86\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\edb991b174007061ee0010b7dd99ddbd\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\atjoy\.gradle\caches\transforms-2\files-2.1\edb991b174007061ee0010b7dd99ddbd\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\atjoy\mon_projet\boitamedoc_v2\app\src\main\AndroidManifest.xml

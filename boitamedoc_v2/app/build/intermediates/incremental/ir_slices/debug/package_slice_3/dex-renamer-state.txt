@@ -1,0 +1,4 @@
+#Mon May 13 08:52:40 CEST 2019
+base.0=C\:\\Users\\atjoy\\mon_projet\\boitamedoc_v2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\3
+path.0=classes.dex
+renamed.0=classes.dex
