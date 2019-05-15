@@ -46,7 +46,7 @@
                 android:gravity="bottom|center"
                 android:text="@string/name_gestionnaire"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="#333333"
+                android:textColor="@color/colorFont1"
                 android:textSize="14sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -67,7 +67,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/name_patient"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="#333333"
+                android:textColor="@color/colorFont1"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -93,10 +93,35 @@
         android:layout_alignParentStart="true"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center_horizontal"
+        android:layout_marginLeft="20px"
         android:text="@string/traitement_accueil"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#333333"
+        android:textColor="@color/colorFont1"
         android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/dernier_prise_de_medoc_accueil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="12sp"
+            android:layout_below="@id/traitement_accueil2"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/colorFont2"
+            android:text="nbr comprimés de name_medicament / name_periode \nnbr comprimé de name_medicament" />
+
+        <TextView
+            android:id="@+id/prise_dateheure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dernier_prise_de_medoc_accueil"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="Prise à heure, le date"
+            android:textColor="@color/colorFont1"
+            android:textSize="12sp" />
 
     </RelativeLayout>
 
@@ -121,7 +146,7 @@
             android:layout_marginLeft="20px"
             android:text="@string/agencement_boite_name_accueil"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#333333"
+            android:textColor="@color/colorFont1"
             android:textSize="16sp" />
 
         <TableLayout
