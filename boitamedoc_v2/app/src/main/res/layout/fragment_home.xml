@@ -106,18 +106,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/relative_layout_traitement"
+        android:background="@color/colorBackground"
         android:layout_marginBottom="10dp"
         android:orientation="vertical"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:text="Bonjour !"
-            android:textSize="16dp"/>
 
         <TextView
             android:id="@+id/agencement_boite_accueil"
@@ -125,7 +118,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:fontFamily="sans-serif-condensed-medium"
-            android:gravity="center_horizontal"
+            android:layout_marginLeft="20px"
             android:text="@string/agencement_boite_name_accueil"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#333333"
@@ -134,7 +127,9 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:layout_marginBottom="0dp">
+            android:layout_marginBottom="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true">
 
             <TableRow
                 android:id="@+id/tableRow1"
@@ -142,13 +137,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:padding="5dip">
+                android:padding="5dip"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true">
 
                 <Button
                     android:id="@+id/case1"
                     android:layout_width="0dp"
                     android:layout_height="91dp"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
                     android:layout_weight="1"
                     android:text="Case 1" />
 
@@ -157,6 +156,8 @@
                     android:layout_width="0dp"
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case1"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
                     android:layout_weight="1"
                     android:text="Case 2" />
 
@@ -165,6 +166,8 @@
                     android:layout_width="0dp"
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case2"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
                     android:layout_weight="1"
                     android:text="Case 3" />
 
@@ -173,6 +176,8 @@
                     android:layout_width="0dp"
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case3"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
                     android:layout_weight="1"
                     android:text="Case 4" />
             </TableRow>
@@ -189,6 +194,8 @@
                     android:layout_width="0dp"
                     android:layout_height="91dp"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
                     android:layout_weight="1"
                     android:text="Case 5" />
 
@@ -197,6 +204,8 @@
                     android:layout_width="0dp"
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case1"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
                     android:layout_weight="1"
                     android:text="Case 6" />
 
@@ -205,6 +214,8 @@
                     android:layout_width="0dp"
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case2"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
                     android:layout_weight="1"
                     android:text="Case 7" />
 
@@ -213,9 +224,18 @@
                     android:layout_width="0dp"
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case3"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
                     android:layout_weight="1"
                     android:text="Case 8" />
             </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dip"/>
         </TableLayout>
 
 
