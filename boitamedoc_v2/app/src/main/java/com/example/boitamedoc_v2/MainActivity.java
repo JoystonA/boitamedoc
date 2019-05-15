@@ -5,6 +5,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 
@@ -18,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
+        setTitle("BOÎTA'MÉDOC");
+}
+
+    //Création d'une barre de tâche en bas de l'application avec la redirection vers chaque pages
     }
     private BottomNavigationView.OnNavigationItemSelectedListener navListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -44,11 +49,20 @@ public class MainActivity extends AppCompatActivity {
             }
 
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
-
             return true;
         }
-    };
+    };//Fin de BottomNavigationView
 
+    //Création d'un menu sur la bar d'action en haut de l'application
+    /*@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }//Fin de OnCreateOptionMenu
 
-
+    //Redirection vers la page de setting
+    public boolean onOptionItemSelected(MenuItem item){
+        return super.onOptionsItemSelected(item);
+    }// Fin de onOptionItemSelected
+*/
 }
