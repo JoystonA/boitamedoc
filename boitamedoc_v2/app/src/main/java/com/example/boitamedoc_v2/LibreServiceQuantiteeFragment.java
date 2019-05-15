@@ -23,7 +23,7 @@ public class LibreServiceQuantiteeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_libreservice_choix, container, false);
 
         quantitee = v.findViewById(R.id.edit_quantitee_text);
-        validButton = v.findViewById(R.id.ValidButton);
+        validButton = v.findViewById(R.id.ModifButton);
         validButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 }
 
     //Création d'une barre de tâche en bas de l'application avec la redirection vers chaque pages
-    }
+
     private BottomNavigationView.OnNavigationItemSelectedListener navListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     };//Fin de BottomNavigationView
 
     //Création d'un menu sur la bar d'action en haut de l'application
-    /*@Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
@@ -64,5 +64,5 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionItemSelected(MenuItem item){
         return super.onOptionsItemSelected(item);
     }// Fin de onOptionItemSelected
-*/
+
 }

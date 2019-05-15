@@ -20,8 +20,6 @@ public class InfoCaseActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new InfoCaseFragment()).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
-        Toolbar toolbar = findViewById(R.id.app_bar);
-        setSupportActionBar(toolbar);
     }
     private BottomNavigationView.OnNavigationItemSelectedListener navListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
