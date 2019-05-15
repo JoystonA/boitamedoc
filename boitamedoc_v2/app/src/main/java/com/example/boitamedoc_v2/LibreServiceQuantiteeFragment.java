@@ -3,50 +3,50 @@ package com.example.boitamedoc_v2;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class LibreServiceQuantiteeFragment extends Fragment {
-    private EditText quantitee;
+    private TextInputLayout quantitee;
     private Button validButton;
+    private TextView test;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        quantitee = getView().findViewById(R.id.EditQuantitee);
-        validButton = getView().findViewById(R.id.ValidButton);
-        if(validButton ==null) {
-            validButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+        View v = inflater.inflate(R.layout.fragment_libreservice_choix, container, false);
 
-                }
-            });
-            quantitee.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+        quantitee = v.findViewById(R.id.edit_quantitee_text);
+        validButton = v.findViewById(R.id.ValidButton);
+        validButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!quantiteeIsOk()|| 1==1){
+                    return;
                 }
 
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    String quantiteeTxt = quantitee.getText().toString().trim();
+                String InputQuantitee = quantitee.getEditText().getText().toString().trim();
+                Toast.makeText(getActivity(), InputQuantitee, Toast.LENGTH_SHORT).show();
+            }
+        });
+        test = v.findViewById(R.id.txtTest);
+        return v;
+    }
 
-                    validButton.setEnabled(!quantiteeTxt.isEmpty());
-                }
+    private boolean quantiteeIsOk() {
+        String quantiteeInput = quantitee.getEditText().getText().toString().trim();
 
-                @Override
-                public void afterTextChanged(Editable s) {
-
-                }
-            });
+        if (quantiteeInput.isEmpty()) {
+            quantitee.setError("Rentrer quelque chose");
+            return false;
         }
-        return inflater.inflate(R.layout.fragment_libreservice_choix, container,false);
+        quantitee.setError(null);
+        return true;
     }
 }
