@@ -6,6 +6,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 
 //import android.widget.Toolbar;
@@ -20,8 +21,8 @@ public class InfoCaseActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new InfoCaseFragment()).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
-        //Toolbar toolbar = findViewById(R.id.app_bar);
-        //setSupportActionBar(toolbar);
+        setTitle("BOÎTA'MÉDOC");
+
     }
     private BottomNavigationView.OnNavigationItemSelectedListener navListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -53,6 +54,17 @@ public class InfoCaseActivity extends AppCompatActivity {
         }
     };
 
+    //Création d'un menu sur la bar d'action en haut de l'application
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }//Fin de OnCreateOptionMenu
+
+    //Redirection vers la page de setting
+    public boolean onOptionItemSelected(MenuItem item){
+        return super.onOptionsItemSelected(item);
+    }// Fin de onOptionItemSelected
 
 
 }

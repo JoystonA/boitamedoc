@@ -7,9 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v7.widget.Toolbar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,35 +19,35 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
         setTitle("BOÎTA'MÉDOC");
-}
+    }
 
     //Création d'une barre de tâche en bas de l'application avec la redirection vers chaque pages
     private BottomNavigationView.OnNavigationItemSelectedListener navListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment selectedFragment = null;
+                Fragment selectedFragment = null;
 
-            switch (item.getItemId()) {
-                case R.id.navigation_accueil:
-                    selectedFragment = new HomeFragment();
-                    break;
-                case R.id.navigation_traitement:
-                    selectedFragment = new TraitementFragment();
-                    break;
-                case R.id.navigation_boite:
-                    selectedFragment = new boiteFragment();
-                    break;
-                case R.id.navigation_libre_service:
-                    selectedFragment = new LibreServiceFragment();
-                    break;
-                case R.id.navigation_profil:
-                    selectedFragment = new ProfilFragment();
-                    break;
-            }
+                switch (item.getItemId()) {
+                    case R.id.navigation_accueil:
+                        selectedFragment = new HomeFragment();
+                        break;
+                    case R.id.navigation_traitement:
+                        selectedFragment = new TraitementFragment();
+                        break;
+                    case R.id.navigation_boite:
+                        selectedFragment = new boiteFragment();
+                        break;
+                    case R.id.navigation_libre_service:
+                        selectedFragment = new LibreServiceFragment();
+                        break;
+                    case R.id.navigation_profil:
+                        selectedFragment = new ProfilFragment();
+                        break;
+                }
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
-            return true;
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
+                return true;
         }
     };//Fin de BottomNavigationView
 
