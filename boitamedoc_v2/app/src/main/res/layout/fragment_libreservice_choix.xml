@@ -34,19 +34,6 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="309dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte et à  l’enfant à partir de 27 kg (soit à partir  d’environ 8 ans)."
-        android:textAlignment="center"
-        android:textSize="18sp" />
-
     <Button
         android:id="@+id/ValidButton"
         android:layout_width="wrap_content"
@@ -57,21 +44,8 @@
         android:layout_marginStart="105dp"
         android:layout_marginEnd="105dp"
         android:layout_marginBottom="0dp"
-        android:text="Modifier le Traitement" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="282dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="A quoi sert-il?"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:enabled="false"
+        android:text="Valider la prise" />
 
     <TextView
         android:id="@+id/DateTxt"
@@ -96,5 +70,17 @@
         android:fontFamily="sans-serif-condensed"
         android:text="Lot n1711716"
         android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/EditQuantitee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="154dp"
+        android:layout_marginTop="222dp"
+        android:fontFamily="sans-serif-condensed"
+        android:hint="Quantitee"
+        android:textSize="24sp" />
 
 </RelativeLayout>
