@@ -79,7 +79,7 @@
     <RelativeLayout
         android:id="@+id/relative_layout_traitement"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="130dp"
         android:layout_marginBottom="5dp"
         android:layout_below="@id/Frame_Principal_Accueil"
         android:orientation="vertical"
