@@ -11,6 +11,15 @@
     <color name="grey">#F7F7F7</color>
     <color name="grey2">#333333</color>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--Page d'accueil-->
+    <string name="name_gestionnaire">"Bienvenue name"</string>
+    <string name="name_patient">"Patient : name"</string>
+    <string name="agencement_boite_name_accueil">"Agencement de la boîte"</string>
+    <string name="traitement_accueil">"Traitement"</string>
+
+
+    <!--Boîte-->
+    <string name="infotext">Pour plus d\'information sur un médicament, Veuillez appuyer sur une case</string>
+
 </resources>

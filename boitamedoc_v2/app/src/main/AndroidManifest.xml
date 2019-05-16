@@ -24,6 +24,10 @@
             android:label="@string/app_name">
         </activity>
         <activity
+            android:name=".ParametreActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
             android:name=".LibreServiceQuantiteeActivity"
             android:label="@string/app_name">
         </activity>
