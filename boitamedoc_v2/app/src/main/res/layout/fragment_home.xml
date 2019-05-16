@@ -254,13 +254,6 @@
                     android:layout_weight="1"
                     android:text="Case 8" />
             </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="5dip"/>
         </TableLayout>
 
 

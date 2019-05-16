@@ -21,7 +21,7 @@ public class InfoCaseActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new InfoCaseFragment()).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
-        setTitle("BOÎTA'MÉDOC");
+        setTitle("Boîte de Médicament");
 
     }
     private BottomNavigationView.OnNavigationItemSelectedListener navListener

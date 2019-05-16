@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
 public class MainActivity extends AppCompatActivity{
 
     @Override
@@ -31,18 +32,24 @@ public class MainActivity extends AppCompatActivity{
                 switch (item.getItemId()) {
                     case R.id.navigation_accueil:
                         selectedFragment = new HomeFragment();
+                        setTitle("BOÎTA'MÉDOC");
+
                         break;
                     case R.id.navigation_traitement:
                         selectedFragment = new TraitementFragment();
+                        setTitle("Traitement");
                         break;
                     case R.id.navigation_boite:
                         selectedFragment = new boiteFragment();
+                        setTitle("Boîte de Médicament");
                         break;
                     case R.id.navigation_libre_service:
                         selectedFragment = new LibreServiceFragment();
+                        setTitle("Libre-Service");
                         break;
                     case R.id.navigation_profil:
                         selectedFragment = new ProfilFragment();
+                        setTitle("Profil");
                         break;
                 }
 
@@ -60,6 +67,10 @@ public class MainActivity extends AppCompatActivity{
 
     //Redirection vers la page de setting
     public boolean onOptionItemSelected(MenuItem item){
+        switch (item.getItemId()) {
+            case R.id.action_setting:
+               //Chargement de la page setting
+        }
         return super.onOptionsItemSelected(item);
     }// Fin de onOptionItemSelected
 }

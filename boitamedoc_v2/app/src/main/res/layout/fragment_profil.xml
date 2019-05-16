@@ -11,13 +11,6 @@
         android:layout_alignParentEnd="true"
         android:background="@color/colorBackground">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:text="bonjour"
-            android:textSize="16dp"/>
     </RelativeLayout>
 
     <LinearLayout
@@ -30,7 +23,7 @@
             android:layout_height="70dp"
             android:layout_marginTop="30dp"
             android:layout_weight="1"
-            android:background="#00D8FE"
+            android:background="@drawable/background"
             android:orientation="vertical">
 
             <TextView
