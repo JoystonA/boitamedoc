@@ -5,17 +5,18 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
+
 
 public class LibreServiceQuantiteeFragment extends Fragment {
     private TextInputLayout quantitee;
     private Button validButton;
-    private TextView test;
+    private String username;
+    private String password;
 
     @Nullable
     @Override
@@ -27,15 +28,17 @@ public class LibreServiceQuantiteeFragment extends Fragment {
         validButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!quantiteeIsOk()|| 1==1){
+                openPopUp();
+
+                if(!quantiteeIsOk()){
                     return;
                 }
 
+
+                // ICI FAUT FAIRE EN SORTE DE CREER UNE FONCTION QUI ASK LA BDD //
                 String InputQuantitee = quantitee.getEditText().getText().toString().trim();
-                Toast.makeText(getActivity(), InputQuantitee, Toast.LENGTH_SHORT).show();
             }
         });
-        test = v.findViewById(R.id.txtTest);
         return v;
     }
 
@@ -48,5 +51,19 @@ public class LibreServiceQuantiteeFragment extends Fragment {
         }
         quantitee.setError(null);
         return true;
+    }
+
+    public void openPopUp(){
+        popup popup = new popup();
+        popup.show(getActivity().getSupportFragmentManager(),"test popup");
+    }
+
+    public void setUsername(String p){
+        this.username= p;
+        Log.d("theo", "ApplyText/ Username "+ username);
+    }
+    public void setPassword(String p){
+       this.password= p;
+        Log.d("theo2", "ApplyText/ " + "Password "+password);
     }
 }

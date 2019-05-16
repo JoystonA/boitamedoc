@@ -20,6 +20,7 @@ public class LibreServiceFragment extends Fragment implements View.OnClickListen
     private Button Case7;
     private Button Case8;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

@@ -10,14 +10,17 @@ import android.view.MenuItem;
 
 //import android.widget.Toolbar;
 
-public class LibreServiceQuantiteeActivity extends AppCompatActivity {
+public class LibreServiceQuantiteeActivity extends AppCompatActivity implements popup.popupListener {
+//    private String username;
+//    private String password;
+    private LibreServiceQuantiteeFragment frag_create;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-       getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new LibreServiceQuantiteeFragment()).commit();
+        frag_create = new LibreServiceQuantiteeFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,frag_create).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
 
@@ -52,6 +55,11 @@ public class LibreServiceQuantiteeActivity extends AppCompatActivity {
         }
     };
 
-
-
+    @Override
+    public void applyTexts(String Username, String Password) {
+        //username=Username;
+        //password=Password;
+        frag_create.setUsername(Username);
+        frag_create.setPassword(Password);
+    }
 }
