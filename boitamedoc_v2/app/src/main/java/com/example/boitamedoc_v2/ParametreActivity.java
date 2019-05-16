@@ -10,16 +10,16 @@ import android.view.View;
 import android.widget.Button;
 
 
-abstract class ParametreActivity extends AppCompatActivity {
+public class ParametreActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_parametre);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_param,new InfoCaseFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_param, new InfoCaseFragment()).commit();
         Button setting = findViewById(R.id.action_setting);
-        setting.setOnClickListener(navListener);
+        //setting.setOnClickListener(navListener);
         //Toolbar toolbar = findViewById(R.id.app_bar);
         //setSupportActionBar(toolbar);
     }
@@ -48,9 +48,10 @@ abstract class ParametreActivity extends AppCompatActivity {
                     break;
             }
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
 
             return true;
 
-}// Fin de onOptionItemSelected
+        }// Fin de onOptionItemSelected
+    };
 }
