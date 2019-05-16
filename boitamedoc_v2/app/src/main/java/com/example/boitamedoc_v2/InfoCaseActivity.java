@@ -6,11 +6,21 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 
 //import android.widget.Toolbar;
 
-public class InfoCaseActivity extends AppCompatActivity {
+public class InfoCaseActivity extends AppCompatActivity implements popup.popupListener{
+    private String username;
+    private String password;
+
+    @Override
+    public void applyTexts(String Username, String Password) {
+        username = Username;
+        password = Password;
+        Log.d("théo", "applyTexts/ Username :" +username +" Password : " + password );
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
