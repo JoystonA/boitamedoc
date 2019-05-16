@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="#FFFFFF">
+
+    <RelativeLayout
+        android:id="@+id/name_modification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:text="@string/name_modification"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/name_traitement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name_modification"
+        android:background="@color/colorBackground">
+
+        <TextView
+            android:id="@+id/name_traitement_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="14sp"
+            android:text="@string/title_traitement"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/Relative_Layout_modif_medoc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_traitement"
+        android:background="@color/colorBackground"
+        android:layout_marginTop="15dp">
+
+        <TableLayout
+            android:id="@+id/tableLayout_modif_medoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp">
+
+            <TableRow>
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:padding="5dip">
+
+                <TextView
+                    android:id="@+id/name_legende_nbre_medoc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:text="@string/legende_nbre_medoc"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:id="@+id/name_legende_matin_traitement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:text="@string/legende_periode1"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:id="@+id/name_legende_midi_traitement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:text="@string/legende_periode2"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:id="@+id/name_legende_soir_traitement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:text="@string/legende_periode3"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:id="@+id/name_legende_nom_medicament"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:text="@string/legende_medicament"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+
+            </TableRow>
+
+
+            <TableRow>
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:padding="5dip">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/nbr_medicament"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    app:errorEnabled="true">
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberSigned"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <CheckBox
+                    android:id="@+id/checkBox_matin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"/>
+                <CheckBox
+                    android:id="@+id/checkBox_midi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"/>
+                <CheckBox
+                    android:id="@+id/checkBox_soir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"/>
+                <TextView
+                    android:id="@+id/name_medicament_modification_traitement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:textSize="14sp"
+                    android:text="name_médicament"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"/>
+
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/button_valider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:gravity="center|center_horizontal"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:text="Valider la modification"
+        android:onClick="confirmInput"></Button>
+
+
+</RelativeLayout>
