@@ -5,7 +5,7 @@
     <string name="title_boite">Boîte</string>
     <string name="title_libre_service">Libre-Service</string>
     <string name="title_profil">Profil</string>
-    <string name="infotext">Pour plus d\'informations sur un médicament, Veuillez appuyer sur une case</string>
+    <string name="txt">Pour plus d\'informations sur un médicament, Veuillez appuyer sur une case</string>
     <string name="libreservicetext">Veuillez choisir le médicament que vous voulez</string>
     <string name="title_settings">Settings</string>
     <color name="grey">#F7F7F7</color>

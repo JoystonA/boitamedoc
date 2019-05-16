@@ -12,9 +12,6 @@ import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
-    private String username;
-    private String password;
-
 
 
     @Override

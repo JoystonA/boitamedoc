@@ -1,5 +1,6 @@
 package com.example.boitamedoc_v2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -7,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 
 //import android.widget.Toolbar;
@@ -61,6 +63,28 @@ public class InfoCaseActivity extends AppCompatActivity implements popup.popupLi
         }
     };
 
+    //Création d'un menu sur la bar d'action en haut de l'application
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }//Fin de OnCreateOptionMenu
 
+    //Redirection vers la page de setting
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_setting :
+                openSetting();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void openSetting() {
+        Intent intent;
+        intent = new Intent(this, ParametreActivity.class);
+        startActivity(intent);
+    }
 
 }
