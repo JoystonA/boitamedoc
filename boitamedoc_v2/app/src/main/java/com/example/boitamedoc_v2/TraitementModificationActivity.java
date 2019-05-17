@@ -1,38 +1,31 @@
 package com.example.boitamedoc_v2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
 
 //import android.widget.Toolbar;
 
-public class TraitementModificationActivity extends AppCompatActivity {
-    private TextInputLayout nbre_medoc_modification;
-
+public class TraitementModificationActivity extends AppCompatActivity implements popup.popupListener {
+       private TraitementModificationFragment frag_create;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_modification_traitement);
-
-        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new TraitementModificationFragment()).commit();
+        setContentView(R.layout.activity_main);
+        frag_create = new TraitementModificationFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,frag_create).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
         setTitle("Traitement");
-        nbre_medoc_modification= findViewById(R.id.nbr_medicament);
+
 
     }
+    //Création d'une barre de tâche en bas de l'application avec la redirection vers chaque pages
     private BottomNavigationView.OnNavigationItemSelectedListener navListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
@@ -42,26 +35,30 @@ public class TraitementModificationActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_accueil:
                     selectedFragment = new HomeFragment();
+                    setTitle("BOÎTA'MÉDOC");
                     break;
                 case R.id.navigation_traitement:
                     selectedFragment = new TraitementFragment();
+                    setTitle("Traitement");
                     break;
                 case R.id.navigation_boite:
                     selectedFragment = new boiteFragment();
+                    setTitle("Boîte de Médicament");
                     break;
                 case R.id.navigation_libre_service:
                     selectedFragment = new LibreServiceFragment();
+                    setTitle("Libre-Service");
                     break;
                 case R.id.navigation_profil:
                     selectedFragment = new ProfilFragment();
+                    setTitle("Profil");
                     break;
             }
 
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
-
             return true;
         }
-    };
+    };//Fin de BottomNavigationView
 
     //Création d'un menu sur la bar d'action en haut de l'application
     @Override
@@ -71,33 +68,30 @@ public class TraitementModificationActivity extends AppCompatActivity {
     }//Fin de OnCreateOptionMenu
 
     //Redirection vers la page de setting
-    public boolean onOptionsItemSelected(MenuItem item){
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_setting :
+                openSetting();
+                return true;
+        }
         return super.onOptionsItemSelected(item);
-    }// Fin de onOptionItemSelected
-
-
-    private boolean validateNbrMedicatment() {
-        String nbrMedocInput = nbre_medoc_modification.getEditText().getText().toString().trim();
-        if(nbrMedocInput.isEmpty()){
-            nbre_medoc_modification.setError("Le champs est vide");
-            return false;
-        }
-        else{
-            nbre_medoc_modification.setError(null);
-            nbre_medoc_modification.setErrorEnabled(false);
-            return true;
-        }
     }
 
-
-    public void confirmInput(View v) {
-        if(!validateNbrMedicatment()) {
-            return;
-        }
-        String input= "Nombre de médicament :" +nbre_medoc_modification.getEditText().getText().toString();
-        input +="\n";
-        Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
+    private void openSetting() {
+        Intent intent;
+        intent = new Intent(this, ParametreActivity.class);
+        startActivity(intent);
     }
+
+    @Override
+    public void applyTexts(String Username, String Password) {
+        //username=Username;
+        //password=Password;
+        frag_create.setUsername(Username);
+        frag_create.setPassword(Password);
+    }
+
 }
 
 

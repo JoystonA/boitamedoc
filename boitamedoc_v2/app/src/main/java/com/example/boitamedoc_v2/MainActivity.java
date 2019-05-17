@@ -10,13 +10,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements popup.popupListener{
+    private TraitementFragment frag_mdp_traitment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity{
                     case R.id.navigation_accueil:
                         selectedFragment = new HomeFragment();
                         setTitle("BOÎTA'MÉDOC");
-
                         break;
                     case R.id.navigation_traitement:
                         selectedFragment = new TraitementFragment();
@@ -81,5 +80,15 @@ public class MainActivity extends AppCompatActivity{
         Intent intent;
         intent = new Intent(this, ParametreActivity.class);
         startActivity(intent);
+    }
+
+
+
+    @Override
+    public void applyTexts(String Username, String Password) {
+        //username=Username;
+        //password=Password;
+        frag_mdp_traitment.setUsername(Username);
+        frag_mdp_traitment.setPassword(Password);
     }
 }

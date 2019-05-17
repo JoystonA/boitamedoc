@@ -41,7 +41,7 @@
             android:layout_marginBottom="10dp"
             android:fontFamily="sans-serif-condensed-medium"
             android:text="@string/title_traitement"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
     </RelativeLayout>
 
 
@@ -138,7 +138,6 @@
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:inputType="numberSigned"/>
-
                 </android.support.design.widget.TextInputLayout>
 
                 <CheckBox
@@ -175,45 +174,70 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/Relative_Layout_modif_medoc"
+        android:background="#FFFFFF">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_medecin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            app:errorEnabled="true">
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapCharacters"
+                android:hint="Nom du Médecin"/>
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_date_debut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/input_medecin"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:errorEnabled="true">
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:hint="Date de début du traitement"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_date_fin"
+            android:layout_width="match_parent"
+            android:layout_below="@id/input_date_debut"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:errorEnabled="true">
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:hint="Date de fin du traitement"/>
+        </android.support.design.widget.TextInputLayout>
+
 
     </RelativeLayout>
 
 
 
     <Button
-        android:id="@+id/button_valider"
+        android:id="@+id/button_valider_modif_traitement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
-
-        android:layout_above="@id/nav_view"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:gravity="center|center_horizontal"
-
         android:text="Valider la modification"
         android:onClick="confirmInput"/>
-
-
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/nav_view"/>
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:theme="@style/CustomToolbarStyle"
-        android:background="?android:attr/windowBackground"
-        android:scrollbarDefaultDelayBeforeFade="400"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
-
 
 
 </RelativeLayout>
