@@ -1,38 +1,36 @@
 package com.example.boitamedoc_v2;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 //import android.widget.Toolbar;
 
-public class InfoCaseActivity extends AppCompatActivity implements popup.popupListener{
-    private String username;
-    private String password;
-
-    @Override
-    public void applyTexts(String Username, String Password) {
-        username = Username;
-        password = Password;
-        Log.d("théo", "applyTexts/ Username :" +username +" Password : " + password );
-    }
+public class TraitementModificationActivity extends AppCompatActivity {
+    private TextInputLayout nbre_medoc_modification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.fragment_modification_traitement);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new InfoCaseFragment()).commit();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new TraitementModificationFragment()).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
-        setTitle("Boîte de Médicament");
+        setTitle("Traitement");
+        nbre_medoc_modification= findViewById(R.id.nbr_medicament);
 
     }
     private BottomNavigationView.OnNavigationItemSelectedListener navListener
@@ -73,20 +71,36 @@ public class InfoCaseActivity extends AppCompatActivity implements popup.popupLi
     }//Fin de OnCreateOptionMenu
 
     //Redirection vers la page de setting
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.action_setting :
-                openSetting();
-                return true;
-        }
+    public boolean onOptionsItemSelected(MenuItem item){
         return super.onOptionsItemSelected(item);
+    }// Fin de onOptionItemSelected
+
+
+    private boolean validateNbrMedicatment() {
+        String nbrMedocInput = nbre_medoc_modification.getEditText().getText().toString().trim();
+        if(nbrMedocInput.isEmpty()){
+            nbre_medoc_modification.setError("Le champs est vide");
+            return false;
+        }
+        else{
+            nbre_medoc_modification.setError(null);
+            nbre_medoc_modification.setErrorEnabled(false);
+            return true;
+        }
     }
 
-    private void openSetting() {
-        Intent intent;
-        intent = new Intent(this, ParametreActivity.class);
-        startActivity(intent);
-    }
 
+    public void confirmInput(View v) {
+        if(!validateNbrMedicatment()) {
+            return;
+        }
+        String input= "Nombre de médicament :" +nbre_medoc_modification.getEditText().getText().toString();
+        input +="\n";
+        Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
+    }
 }
+
+
+
+
+

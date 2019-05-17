@@ -28,15 +28,13 @@ public class LibreServiceQuantiteeFragment extends Fragment {
         validButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openPopUp();
 
-                if(!quantiteeIsOk()){
-                    return;
+                if(quantiteeIsOk()){
+                    openPopUp();
+                    // ICI FAUT FAIRE EN SORTE DE CREER UNE FONCTION QUI ASK LA BDD //
+                    String InputQuantitee = quantitee.getEditText().getText().toString().trim();
                 }
-
-
-                // ICI FAUT FAIRE EN SORTE DE CREER UNE FONCTION QUI ASK LA BDD //
-                String InputQuantitee = quantitee.getEditText().getText().toString().trim();
+                return;
             }
         });
         return v;
@@ -46,7 +44,7 @@ public class LibreServiceQuantiteeFragment extends Fragment {
         String quantiteeInput = quantitee.getEditText().getText().toString().trim();
 
         if (quantiteeInput.isEmpty()) {
-            quantitee.setError("Rentrer quelque chose");
+            quantitee.setError("Rentrer quelque chose! ET QUE DES CHIFFRES");
             return false;
         }
         quantitee.setError(null);
