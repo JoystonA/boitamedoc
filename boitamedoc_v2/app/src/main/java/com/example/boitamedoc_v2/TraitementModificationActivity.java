@@ -24,12 +24,12 @@ public class TraitementModificationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.fragment_modification_traitement);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new TraitementModificationFragment()).commit();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new TraitementModificationFragment()).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
-        setTitle("Trait45ement");
+        setTitle("Traitement");
         nbre_medoc_modification= findViewById(R.id.nbr_medicament);
 
     }
