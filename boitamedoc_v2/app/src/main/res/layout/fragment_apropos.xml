@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="#F7F7F7"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F7F7F7"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:paddingLeft="30dp"
+            android:text="Version 1.0"
+            android:textAlignment="textStart"
+            android:textColor="#808080"
+            android:enabled="false"/>
+
+        <Button
+            android:id="@+id/politique"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F7F7F7"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:paddingLeft="30dp"
+            android:text="Politique de confidentialité"
+            android:textAlignment="textStart"
+            android:textColor="#808080" />
+
+        <Button
+            android:id="@+id/conditions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F7F7F7"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:paddingLeft="30dp"
+            android:text="Condition d'utilisation"
+            android:textAlignment="textStart"
+            android:textColor="#808080" />
+    </LinearLayout>
+</RelativeLayout>
