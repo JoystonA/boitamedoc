@@ -22,7 +22,7 @@ import com.google.android.gms.vision.barcode.BarcodeDetector;
 
 import java.io.IOException;
 
-public class ScannedBarcodeActivity extends AppCompatActivity {
+public class ScannedBarcodeActivity extends AppCompatActivity{
 
 
     SurfaceView surfaceView;
@@ -39,8 +39,13 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_barcode);
-
+        openPopUpInformation();
         initViews();
+    }
+
+    private void openPopUpInformation() {
+        popup_information popup = new popup_information();
+        popup.show(getSupportFragmentManager(),"Information");
     }
 
     private void initViews() {
@@ -135,6 +140,7 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
                                 btnAction.setText("ADD CONTENT TO THE MAIL");
                             } else {
                                 isEmail = false;
+                                btnAction.setEnabled(true);
                                 btnAction.setText("Valider");
                                 intentData = barcodes.valueAt(0).displayValue;
                                 txtBarcodeValue.setText("QR CODE DETECTE !");

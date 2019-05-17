@@ -12,7 +12,7 @@ import android.view.MenuItem;
 
 //import android.widget.Toolbar;
 
-public class LibreServiceQuantiteeActivity extends AppCompatActivity implements popup.popupListener {
+public class LibreServiceQuantiteeActivity extends AppCompatActivity implements popup_connexion.popupListener {
 //    private String username;
 //    private String password;
     private LibreServiceQuantiteeFragment frag_create;
@@ -85,8 +85,6 @@ public class LibreServiceQuantiteeActivity extends AppCompatActivity implements 
 
     @Override
     public void applyTexts(String Username, String Password) {
-        //username=Username;
-        //password=Password;
         frag_create.setUsername(Username);
         frag_create.setPassword(Password);
     }

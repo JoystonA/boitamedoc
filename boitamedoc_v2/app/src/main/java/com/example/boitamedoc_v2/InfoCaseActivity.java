@@ -13,7 +13,8 @@ import android.view.MenuItem;
 
 //import android.widget.Toolbar;
 
-public class InfoCaseActivity extends AppCompatActivity implements popup.popupListener{
+public class InfoCaseActivity extends AppCompatActivity implements  popup_connexion.popupListener,
+                                                                    popup_erreur.popupListener{
     private String username;
     private String password;
 
@@ -21,13 +22,20 @@ public class InfoCaseActivity extends AppCompatActivity implements popup.popupLi
     public void applyTexts(String Username, String Password) {
         username = Username;
         password = Password;
+
         if(username.equals("allo")&& password.equals("quoi")){
             openScanBarcode();
             return;
         }
         else{
-
+            openPopUpErreur();
+            return;
         }
+    }
+
+    private void openPopUpErreur() {
+        popup_erreur popup = new popup_erreur();
+        popup.show(getSupportFragmentManager(),"Erreur");
     }
 
     @Override

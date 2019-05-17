@@ -52,7 +52,7 @@ public class LibreServiceQuantiteeFragment extends Fragment {
     }
 
     public void openPopUp(){
-        popup popup = new popup();
+        popup_connexion popup = new popup_connexion();
         popup.show(getActivity().getSupportFragmentManager(),"test popup");
     }
 
