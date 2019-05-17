@@ -31,7 +31,6 @@ public class InfoCaseFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 openPopUp();
-                //openDataMatrix();
             }
         });
         return v;
@@ -41,9 +40,4 @@ public class InfoCaseFragment extends Fragment {
         popup popup = new popup();
         popup.show(getActivity().getSupportFragmentManager(),"test popup");
     }
-//    private void openDataMatrix(){
-//       Intent intent;
-//        intent = new Intent(getActivity(), DataMatrix.class);
-//       startActivity(intent);
-//    }
 }
