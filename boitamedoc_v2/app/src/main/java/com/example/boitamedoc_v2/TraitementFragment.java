@@ -39,21 +39,26 @@ public class TraitementFragment extends Fragment implements View.OnClickListener
         switch (V.getId()) {
             case R.id.button_modifier:
                 //openPopUp();
-                openTraitementPage();
+                openTraitementModifierPage();
                 break;
             case R.id.button_ajouter:
                 //openPopUp();
-                openTraitementPage();
+                openTraitementAjoutPage();
                 break;
         }
     }
 
-    public void openTraitementPage() {
+    public void openTraitementModifierPage() {
         Intent intent;
         intent = new Intent(getActivity(),TraitementModificationActivity.class);
         startActivity(intent);
     }
 
+    public void openTraitementAjoutPage() {
+        Intent intent;
+        intent = new Intent(getActivity(),TraitementAjoutActivity.class);
+        startActivity(intent);
+    }
 
     public void openPopUp(){
         popup popup = new popup();

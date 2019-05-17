@@ -27,10 +27,10 @@ public class TraitementModificationFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_modification_traitement, container, false);
 
-        nbre_medoc_modification= v.findViewById(R.id.nbr_medicament);
-        nom_medecin_modification= v.findViewById(R.id.input_medecin);
-        date_debut_modification= v.findViewById(R.id.input_date_debut);
-        date_fin_modification= v.findViewById(R.id.input_date_fin);
+        nbre_medoc_modification= v.findViewById(R.id.nbr_modif_medicament);
+        nom_medecin_modification= v.findViewById(R.id.input_modif_medecin);
+        date_debut_modification= v.findViewById(R.id.input_modif_date_debut);
+        date_fin_modification= v.findViewById(R.id.input_modif_date_fin);
 
         validButton = v.findViewById(R.id.button_valider_modif_traitement);
         validButton.setOnClickListener(new View.OnClickListener() {

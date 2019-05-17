@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp">
 
-            <TableRow>
+            <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -121,16 +121,13 @@
             </TableRow>
 
 
-            <TableRow>
+            <TableRow
                 android:id="@+id/tableRow2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:padding="5dip">
+                android:layout_height="wrap_content">
 
                 <android.support.design.widget.TextInputLayout
-                    android:id="@+id/nbr_medicament"
+                    android:id="@+id/nbr_modif_medicament"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     app:errorEnabled="true">
@@ -177,7 +174,7 @@
         android:background="#FFFFFF">
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_medecin"
+            android:id="@+id/input_modif_medecin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -193,10 +190,10 @@
 
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_date_debut"
+            android:id="@+id/input_modif_date_debut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/input_medecin"
+            android:layout_below="@id/input_modif_medecin"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             app:errorEnabled="true">
@@ -208,9 +205,9 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_date_fin"
+            android:id="@+id/input_modif_date_fin"
             android:layout_width="match_parent"
-            android:layout_below="@id/input_date_debut"
+            android:layout_below="@id/input_modif_date_debut"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
