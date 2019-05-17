@@ -21,7 +21,13 @@ public class InfoCaseActivity extends AppCompatActivity implements popup.popupLi
     public void applyTexts(String Username, String Password) {
         username = Username;
         password = Password;
-        Log.d("théo", "applyTexts/ Username :" +username +" Password : " + password );
+        if(username.equals("allo")&& password.equals("quoi")){
+            openScanBarcode();
+            return;
+        }
+        else{
+
+        }
     }
 
     @Override
@@ -87,4 +93,9 @@ public class InfoCaseActivity extends AppCompatActivity implements popup.popupLi
         startActivity(intent);
     }
 
+    private void openScanBarcode(){
+        Intent intent;
+        intent = new Intent(this, ScannedBarcodeActivity.class);
+        startActivity(intent);
+    }
 }
