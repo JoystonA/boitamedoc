@@ -32,7 +32,6 @@ public class ScannedBarcodeActivity extends AppCompatActivity{
     private static final int REQUEST_CAMERA_PERMISSION = 201;
     Button btnAction;
     String intentData = "";
-    boolean isEmail = false;
 
 
     @Override
@@ -51,20 +50,6 @@ public class ScannedBarcodeActivity extends AppCompatActivity{
     private void initViews() {
         txtBarcodeValue = findViewById(R.id.txtBarcodeValue);
         surfaceView = findViewById(R.id.surfaceView);
-        btnAction = findViewById(R.id.btnAction);
-
-
-        btnAction.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (intentData.length() > 0) {
-                    openAjoutMedo();
-                }
-
-
-            }
-        });
     }
 
     private void openAjoutMedo() {
@@ -136,14 +121,13 @@ public class ScannedBarcodeActivity extends AppCompatActivity{
                                 txtBarcodeValue.removeCallbacks(null);
                                 intentData = barcodes.valueAt(0).email.address;
                                 txtBarcodeValue.setText("QR CODE DETECTE !");
-                                isEmail = true;
                                 btnAction.setText("ADD CONTENT TO THE MAIL");
                             } else {
-                                isEmail = false;
-                                btnAction.setEnabled(true);
-                                btnAction.setText("Valider");
                                 intentData = barcodes.valueAt(0).displayValue;
                                 txtBarcodeValue.setText("QR CODE DETECTE !");
+                                if (intentData.length() > 0) {
+                                    openAjoutMedo();
+                                }
 
                             }
                         }
