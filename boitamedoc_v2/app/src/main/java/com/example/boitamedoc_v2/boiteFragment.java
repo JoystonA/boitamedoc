@@ -34,14 +34,14 @@ public class boiteFragment extends Fragment implements View.OnClickListener {
        Case7 = (Button) v.findViewById(R.id.case7);
        Case8 = (Button) v.findViewById(R.id.case8);
 
-        Case1.setOnClickListener(this);
-        Case2.setOnClickListener(this);
-        Case3.setOnClickListener(this);
-        Case4.setOnClickListener(this);
-        Case5.setOnClickListener(this);
-        Case6.setOnClickListener(this);
-        Case7.setOnClickListener(this);
-        Case8.setOnClickListener(this);
+      Case1.setOnClickListener(this);
+      Case2.setOnClickListener(this);
+      Case3.setOnClickListener(this);
+      Case4.setOnClickListener(this);
+      Case5.setOnClickListener(this);
+      Case6.setOnClickListener(this);
+      Case7.setOnClickListener(this);
+      Case8.setOnClickListener(this);
 
 
         return v;

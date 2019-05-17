@@ -1,13 +1,14 @@
 package com.example.boitamedoc_v2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-
 
 public class MainActivity extends AppCompatActivity{
 
@@ -66,11 +67,19 @@ public class MainActivity extends AppCompatActivity{
     }//Fin de OnCreateOptionMenu
 
     //Redirection vers la page de setting
-    public boolean onOptionItemSelected(MenuItem item){
-        switch (item.getItemId()) {
-            case R.id.action_setting:
-               //Chargement de la page setting
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_setting :
+                openSetting();
+                return true;
         }
         return super.onOptionsItemSelected(item);
-    }// Fin de onOptionItemSelected
+    }
+
+    private void openSetting() {
+        Intent intent;
+        intent = new Intent(this, ParametreActivity.class);
+        startActivity(intent);
+    }
 }
