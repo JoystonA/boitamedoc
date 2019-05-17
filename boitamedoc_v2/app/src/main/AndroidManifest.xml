@@ -64,6 +64,34 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
+        <activity
+            android:name=".CompteActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".MonPatientActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".PriseEnMainActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".FaqActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".AProposActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".PolitiqueActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".ConditionsActivity"
+            android:label="@string/app_name">
+        </activity>
     </application>
 
 </manifest>
