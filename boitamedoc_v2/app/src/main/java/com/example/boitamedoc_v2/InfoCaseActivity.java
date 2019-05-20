@@ -13,15 +13,13 @@ import android.view.MenuItem;
 
 //import android.widget.Toolbar;
 
-public class InfoCaseActivity extends AppCompatActivity implements popup.popupListener{
+public class InfoCaseActivity extends AppCompatActivity{
     private String username;
     private String password;
 
-    @Override
-    public void applyTexts(String Username, String Password) {
-        username = Username;
-        password = Password;
-        Log.d("théo", "applyTexts/ Username :" +username +" Password : " + password );
+    private void openPopUpErreur() {
+        popup_erreur popup = new popup_erreur();
+        popup.show(getSupportFragmentManager(),"Erreur");
     }
 
     @Override
@@ -88,5 +86,4 @@ public class InfoCaseActivity extends AppCompatActivity implements popup.popupLi
         intent = new Intent(this, ParametreActivity.class);
         startActivity(intent);
     }
-
 }

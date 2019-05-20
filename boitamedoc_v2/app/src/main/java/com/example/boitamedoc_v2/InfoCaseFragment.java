@@ -30,20 +30,15 @@ public class InfoCaseFragment extends Fragment {
         modifButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openPopUp();
-                //openDataMatrix();
+                openScanBarcode();;
             }
         });
         return v;
     }
 
-    public void openPopUp(){
-        popup popup = new popup();
-        popup.show(getActivity().getSupportFragmentManager(),"test popup");
+    private void openScanBarcode(){
+        Intent intent;
+        intent = new Intent(getActivity(), ScannedBarcodeActivity.class);
+        startActivity(intent);
     }
-//    private void openDataMatrix(){
-//       Intent intent;
-//        intent = new Intent(getActivity(), DataMatrix.class);
-//       startActivity(intent);
-//    }
 }

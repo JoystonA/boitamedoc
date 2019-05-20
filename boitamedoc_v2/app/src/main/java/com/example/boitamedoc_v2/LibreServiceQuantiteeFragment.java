@@ -30,7 +30,6 @@ public class LibreServiceQuantiteeFragment extends Fragment {
             public void onClick(View v) {
 
                 if(quantiteeIsOk()){
-                    openPopUp();
                     // ICI FAUT FAIRE EN SORTE DE CREER UNE FONCTION QUI ASK LA BDD //
                     String InputQuantitee = quantitee.getEditText().getText().toString().trim();
                 }
@@ -43,25 +42,11 @@ public class LibreServiceQuantiteeFragment extends Fragment {
     private boolean quantiteeIsOk() {
         String quantiteeInput = quantitee.getEditText().getText().toString().trim();
 
-        if (quantiteeInput.isEmpty()) {
+        if (quantiteeInput.isEmpty() || quantiteeInput.equals("0")) {
             quantitee.setError("Rentrer quelque chose! ET QUE DES CHIFFRES");
             return false;
         }
         quantitee.setError(null);
         return true;
-    }
-
-    public void openPopUp(){
-        popup popup = new popup();
-        popup.show(getActivity().getSupportFragmentManager(),"test popup");
-    }
-
-    public void setUsername(String p){
-        this.username= p;
-        Log.d("theo", "ApplyText/ Username "+ username);
-    }
-    public void setPassword(String p){
-       this.password= p;
-        Log.d("theo2", "ApplyText/ " + "Password "+password);
     }
 }

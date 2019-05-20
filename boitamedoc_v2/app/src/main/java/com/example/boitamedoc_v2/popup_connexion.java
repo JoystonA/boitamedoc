@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
-public class popup extends AppCompatDialogFragment {
+public class popup_connexion extends AppCompatDialogFragment {
     private EditText edit_username;
     private EditText edit_password;
     private popupListener listener;
@@ -34,14 +34,14 @@ public class popup extends AppCompatDialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.layout_popup, null);
         builder.setView(view)
-                .setTitle("Test")
-                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                .setTitle("Connexion")
+                .setNegativeButton("Annulé", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
                     }
                 })
-                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String username = edit_username.getText().toString();
