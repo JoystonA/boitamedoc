@@ -49,8 +49,20 @@ public class InscriptionActivity extends AppCompatActivity {
         String MDP = mdp.getText().toString();
         String ConfirmeMDP = confirmeMDP.getText().toString();
         String arg[] = {Nom,Prenom,LienPatient,Date,Email,MDP,ConfirmeMDP};
-        intent = new Intent(this, InfoCaseActivity.class).putExtra("inscription1",arg);
-        startActivity(intent);
-    }
+        if (Nom.isEmpty() | Prenom.isEmpty() | LienPatient.isEmpty() | Date.isEmpty() | Email.isEmpty() | MDP.isEmpty() | ConfirmeMDP.isEmpty()) {
+            nom.setError("Rentrer quelque chose.");
+            prenom.setError("Rentrer quelque chose.");
+            lienPatient.setError("Rentrer quelque chose.");
+            date.setError("Rentrer quelque chose.");
+            email.setError("Rentrer quelque chose.");
+            mdp.setError("Rentrer quelque chose.");
+            confirmeMDP.setError("Rentrer quelque chose.");
+        }
+        else{
+            intent = new Intent(this, InfoCaseActivity.class).putExtra("inscription1",arg);
+            startActivity(intent);
+        }
 
+    }
 }
+

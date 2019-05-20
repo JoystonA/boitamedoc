@@ -13,25 +13,9 @@ import android.view.MenuItem;
 
 //import android.widget.Toolbar;
 
-public class InfoCaseActivity extends AppCompatActivity implements  popup_connexion.popupListener,
-                                                                    popup_erreur.popupListener{
+public class InfoCaseActivity extends AppCompatActivity{
     private String username;
     private String password;
-
-    @Override
-    public void applyTexts(String Username, String Password) {
-        username = Username;
-        password = Password;
-
-        if(username.equals("allo")&& password.equals("quoi")){
-            openScanBarcode();
-            return;
-        }
-        else{
-            openPopUpErreur();
-            return;
-        }
-    }
 
     private void openPopUpErreur() {
         popup_erreur popup = new popup_erreur();
@@ -98,12 +82,6 @@ public class InfoCaseActivity extends AppCompatActivity implements  popup_connex
     private void openSetting() {
         Intent intent;
         intent = new Intent(this, ParametreActivity.class);
-        startActivity(intent);
-    }
-
-    private void openScanBarcode(){
-        Intent intent;
-        intent = new Intent(this, ScannedBarcodeActivity.class);
         startActivity(intent);
     }
 }
