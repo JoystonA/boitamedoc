@@ -21,5 +21,15 @@
 
     <!--Boîte-->
     <string name="infotext">Pour plus d\'information sur un médicament, Veuillez appuyer sur une case</string>
+    <string name="action_settings">Settings</string>
+
+    <!--Traitement-->
+    <string name="name_modification">Modification en cours</string>
+    <string name="legende_nbre_medoc">Nombre</string>
+    <string name="legende_periode1">Matin</string>
+    <string name="legende_periode2">Midi</string>
+    <string name="legende_periode3">Soir</string>
+    <string name="legende_medicament">Médicament</string>
+
 
 </resources>
