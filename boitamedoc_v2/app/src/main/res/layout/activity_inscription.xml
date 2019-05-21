@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="Prenom" />
+            android:hint="Nom" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="Nom" />
+            android:hint="Prénom" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -60,7 +60,7 @@
             android:id="@+id/edit_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="date"
             android:hint="Date de naissance" />
     </android.support.design.widget.TextInputLayout>
 
@@ -74,7 +74,7 @@
             android:id="@+id/edit_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:hint="Adresse Email" />
     </android.support.design.widget.TextInputLayout>
 
@@ -89,7 +89,7 @@
             android:id="@+id/edit_mdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mot de pass"
+            android:hint="Mot de passe"
             android:inputType="textPassword"/>
     </android.support.design.widget.TextInputLayout>
 
@@ -109,9 +109,12 @@
 
     <Button
         android:id="@+id/ValidButton"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:onClick="Validation"
         android:text="Valider"
-        android:onClick="Validation" />
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/ic_bouton"
+        android:textColor="#FFFFFF"/>
 </LinearLayout>

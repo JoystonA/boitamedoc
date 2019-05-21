@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="Prenom" />
+            android:hint="Nom" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="Nom" />
+            android:hint="Prénom" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -50,7 +50,7 @@
             android:id="@+id/edit_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="date"
             android:hint="Date de naissance" />
     </android.support.design.widget.TextInputLayout>
 
@@ -78,14 +78,17 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:textSize="18dp"
-        tools:text="apte?" />
+        android:text="Apte"
+        android:textColor="@color/colorFont2"/>
 
     <Button
         android:id="@+id/ValidButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:onClick="finish"
-        android:text="Valider"
+        android:text="Terminer l'inscription"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
         android:background="@drawable/ic_bouton"
         android:textColor="#FFFFFF" />
 </LinearLayout>

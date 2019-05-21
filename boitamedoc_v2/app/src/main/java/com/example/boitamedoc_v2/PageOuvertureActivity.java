@@ -41,12 +41,12 @@ public class PageOuvertureActivity extends AppCompatActivity {
 
     public void openInscription() {
         Intent intent;
-        intent = new Intent(this, MainActivity.class);
+        intent = new Intent(this, InscriptionActivity.class);
         startActivity(intent);
     }
     public void openSeConnecter() {
         Intent intent;
-        intent = new Intent(this, MainActivity.class);
+        intent = new Intent(this, ConnexionActivity.class);
         startActivity(intent);
     }
 }

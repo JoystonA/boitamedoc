@@ -20,7 +20,7 @@ public class InscriptionNumSécuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscriptionnumerosecu);
-        setTitle("BOÎTA'MÉDOC");
+        setTitle("Inscription Patient");
 
         NumSecu = findViewById(R.id.textedit_numSecu);
         textPatient = findViewById(R.id.textPatient);
