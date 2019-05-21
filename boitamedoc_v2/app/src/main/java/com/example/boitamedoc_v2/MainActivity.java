@@ -10,7 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements popup.popupListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +80,24 @@ public class MainActivity extends AppCompatActivity{
     private void openSetting() {
         Intent intent;
         intent = new Intent(this, ParametreActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void applyTexts(String Username, String Password) {
+
+        if(Username.equals("allo")&& Password.equals("quoi")){
+            openModifProfil();
+            return;
+        }
+        else{
+
+        }
+    }
+
+    private void openModifProfil() {
+        Intent intent;
+        intent = new Intent(this, ModifProfilActivity.class);
         startActivity(intent);
     }
 }
