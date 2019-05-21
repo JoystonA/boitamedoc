@@ -10,14 +10,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity implements popup.popupListener{
+public class MainActivity extends AppCompatActivity {
     private TraitementFragment frag_mdp_traitment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
         setTitle("BOÎTA'MÉDOC");
@@ -28,33 +28,33 @@ public class MainActivity extends AppCompatActivity implements popup.popupListen
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment selectedFragment = null;
+            Fragment selectedFragment = null;
 
-                switch (item.getItemId()) {
-                    case R.id.navigation_accueil:
-                        selectedFragment = new HomeFragment();
-                        setTitle("BOÎTA'MÉDOC");
-                        break;
-                    case R.id.navigation_traitement:
-                        selectedFragment = new TraitementFragment();
-                        setTitle("Traitement");
-                        break;
-                    case R.id.navigation_boite:
-                        selectedFragment = new boiteFragment();
-                        setTitle("Boîte de Médicament");
-                        break;
-                    case R.id.navigation_libre_service:
-                        selectedFragment = new LibreServiceFragment();
-                        setTitle("Libre-Service");
-                        break;
-                    case R.id.navigation_profil:
-                        selectedFragment = new ProfilFragment();
-                        setTitle("Profil");
-                        break;
-                }
+            switch (item.getItemId()) {
+                case R.id.navigation_accueil:
+                    selectedFragment = new HomeFragment();
+                    setTitle("BOÎTA'MÉDOC");
+                    break;
+                case R.id.navigation_traitement:
+                    selectedFragment = new TraitementFragment();
+                    setTitle("Traitement");
+                    break;
+                case R.id.navigation_boite:
+                    selectedFragment = new boiteFragment();
+                    setTitle("Boîte de Médicament");
+                    break;
+                case R.id.navigation_libre_service:
+                    selectedFragment = new LibreServiceFragment();
+                    setTitle("Libre-Service");
+                    break;
+                case R.id.navigation_profil:
+                    selectedFragment = new ProfilFragment();
+                    setTitle("Profil");
+                    break;
+            }
 
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
-                return true;
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+            return true;
         }
     };//Fin de BottomNavigationView
 
@@ -68,8 +68,8 @@ public class MainActivity extends AppCompatActivity implements popup.popupListen
     //Redirection vers la page de setting
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.action_setting :
+        switch (item.getItemId()) {
+            case R.id.action_setting:
                 openSetting();
                 return true;
         }
@@ -80,15 +80,5 @@ public class MainActivity extends AppCompatActivity implements popup.popupListen
         Intent intent;
         intent = new Intent(this, ParametreActivity.class);
         startActivity(intent);
-    }
-
-
-
-    @Override
-    public void applyTexts(String Username, String Password) {
-        //username=Username;
-        //password=Password;
-        frag_mdp_traitment.setUsername(Username);
-        frag_mdp_traitment.setPassword(Password);
     }
 }

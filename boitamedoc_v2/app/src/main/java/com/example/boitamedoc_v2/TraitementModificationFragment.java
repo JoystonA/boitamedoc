@@ -38,7 +38,6 @@ public class TraitementModificationFragment extends Fragment {
             public void onClick(View v) {
 
                 if(nbrMedocIsOk()|nomMedecinIsOk()|dateDebutIsOk()|dateFinIsOk()){
-                    openPopUp();
                     // ICI FAUT FAIRE EN SORTE DE CREER UNE FONCTION QUI ASK LA BDD //
                     String nbrMedocInput = nbre_medoc_modification.getEditText().getText().toString().trim();
                 }
@@ -90,11 +89,6 @@ public class TraitementModificationFragment extends Fragment {
         }
         date_fin_modification.setError(null);
         return true;
-    }
-
-    public void openPopUp(){
-        popup popup = new popup();
-        popup.show(getActivity().getSupportFragmentManager(),"test popup");
     }
 
     public void setUsername(String p){

@@ -59,18 +59,4 @@ public class TraitementFragment extends Fragment implements View.OnClickListener
         intent = new Intent(getActivity(),TraitementAjoutActivity.class);
         startActivity(intent);
     }
-
-    public void openPopUp(){
-        popup popup = new popup();
-        popup.show(getActivity().getSupportFragmentManager(),"test popup");
-    }
-
-    public void setUsername(String p){
-        this.username= p;
-        Log.d("theo", "ApplyText/ Username "+ username);
-    }
-    public void setPassword(String p){
-        this.password= p;
-        Log.d("theo2", "ApplyText/ " + "Password "+password);
-    }
 }
