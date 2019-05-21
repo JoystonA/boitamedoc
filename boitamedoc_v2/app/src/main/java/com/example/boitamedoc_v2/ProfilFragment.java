@@ -20,18 +20,6 @@ public class ProfilFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_profil, container, false);
 
         modifButton = (Button) v.findViewById(R.id.modifier_compte);
-        modifButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openPopUp();
-            }
-        });
         return v;
     }
-
-    public void openPopUp(){
-        popup popup = new popup();
-        popup.show(getActivity().getSupportFragmentManager(),"test popup");
-    }
-
 }

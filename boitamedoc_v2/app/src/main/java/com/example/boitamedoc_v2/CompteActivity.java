@@ -9,7 +9,7 @@ import android.widget.Button;
 import com.example.boitamedoc_v2.R;
 
 
-public class CompteActivity extends AppCompatActivity implements popup.popupListener{
+public class CompteActivity extends AppCompatActivity{
     private Button modifButton;
 
     @Override
@@ -18,30 +18,6 @@ public class CompteActivity extends AppCompatActivity implements popup.popupList
         setContentView(R.layout.fragment_compte);
 
         modifButton = (Button) findViewById(R.id.modifier_compte);
-        modifButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openPopUp();
-            }
-        });
-
-    }
-
-    public void openPopUp(){
-        popup popup = new popup();
-        popup.show(this.getSupportFragmentManager(),"test popup");
-    }
-
-    @Override
-    public void applyTexts(String Username, String Password) {
-
-        if(Username.equals("allo")&& Password.equals("quoi")){
-            openModifCompte();
-            return;
-        }
-        else{
-
-        }
     }
 
     private void openModifCompte() {
