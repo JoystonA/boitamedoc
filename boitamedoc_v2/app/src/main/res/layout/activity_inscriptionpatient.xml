@@ -76,9 +76,8 @@
     <Switch
         android:id="@+id/switch_apte"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:textSize="18dp"
-        tools:text="apte?" />
+        android:layout_height="50dp"
+        tools:text="Est-il apte?" />
 
     <Button
         android:id="@+id/ValidButton"
