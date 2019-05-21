@@ -7,30 +7,32 @@
 
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/log_username"
+        android:id="@+id/log_username_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
         app:errorEnabled="true">
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/log_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:hint="Identifiant"/>
     </android.support.design.widget.TextInputLayout>
 
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/log_password"
-        android:layout_below="@id/log_username"
+        android:id="@+id/log_password_text"
+        android:layout_below="@id/log_username_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
         app:errorEnabled="true">
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/log_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:hint="Mot de Passe"/>
     </android.support.design.widget.TextInputLayout>
 
@@ -47,8 +49,5 @@
         android:layout_gravity="center"
         android:background="@drawable/ic_bouton"
         android:textColor="#FFFFFF"/>
-
-
-
 
 </RelativeLayout>
