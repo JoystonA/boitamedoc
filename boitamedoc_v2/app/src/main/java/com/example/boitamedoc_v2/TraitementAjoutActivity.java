@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 //import android.widget.Toolbar;
 
-public class TraitementAjoutActivity extends AppCompatActivity implements popup.popupListener {
+public class TraitementAjoutActivity extends AppCompatActivity {
     private TraitementAjoutFragment frag_create;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,14 +82,6 @@ public class TraitementAjoutActivity extends AppCompatActivity implements popup.
         Intent intent;
         intent = new Intent(this, ParametreActivity.class);
         startActivity(intent);
-    }
-
-    @Override
-    public void applyTexts(String Username, String Password) {
-        //username=Username;
-        //password=Password;
-        frag_create.setUsername(Username);
-        frag_create.setPassword(Password);
     }
 
 }

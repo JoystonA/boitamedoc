@@ -12,6 +12,9 @@
     <color name="grey2">#333333</color>
 
 
+    <!--Page d'ouverture-->
+    <string name="se_connecter"><u>Se connecter</u></string>
+
     <!--Page d'accueil-->
     <string name="name_gestionnaire">"Bienvenue name"</string>
     <string name="name_patient">"Patient : name"</string>

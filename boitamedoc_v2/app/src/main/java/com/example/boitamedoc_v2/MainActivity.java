@@ -10,7 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity implements popup.popupListener{
+public class MainActivity extends AppCompatActivity {
     private TraitementFragment frag_mdp_traitment;
 
     @Override
@@ -80,15 +80,5 @@ public class MainActivity extends AppCompatActivity implements popup.popupListen
         Intent intent;
         intent = new Intent(this, ParametreActivity.class);
         startActivity(intent);
-    }
-
-
-
-    @Override
-    public void applyTexts(String Username, String Password) {
-        //username=Username;
-        //password=Password;
-        frag_mdp_traitment.setUsername(Username);
-        frag_mdp_traitment.setPassword(Password);
     }
 }
