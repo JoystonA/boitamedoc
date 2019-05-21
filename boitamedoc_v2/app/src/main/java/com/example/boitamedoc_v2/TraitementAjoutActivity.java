@@ -2,59 +2,61 @@ package com.example.boitamedoc_v2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity implements popup.popupListener{
-    private TraitementFragment frag_mdp_traitment;
+//import android.widget.Toolbar;
 
+public class TraitementAjoutActivity extends AppCompatActivity implements popup.popupListener {
+    private TraitementAjoutFragment frag_create;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
+        frag_create = new TraitementAjoutFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,frag_create).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
-        setTitle("BOÎTA'MÉDOC");
-    }
+        setTitle("Traitement");
 
+
+    }
     //Création d'une barre de tâche en bas de l'application avec la redirection vers chaque pages
     private BottomNavigationView.OnNavigationItemSelectedListener navListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment selectedFragment = null;
+            Fragment selectedFragment = null;
 
-                switch (item.getItemId()) {
-                    case R.id.navigation_accueil:
-                        selectedFragment = new HomeFragment();
-                        setTitle("BOÎTA'MÉDOC");
-                        break;
-                    case R.id.navigation_traitement:
-                        selectedFragment = new TraitementFragment();
-                        setTitle("Traitement");
-                        break;
-                    case R.id.navigation_boite:
-                        selectedFragment = new boiteFragment();
-                        setTitle("Boîte de Médicament");
-                        break;
-                    case R.id.navigation_libre_service:
-                        selectedFragment = new LibreServiceFragment();
-                        setTitle("Libre-Service");
-                        break;
-                    case R.id.navigation_profil:
-                        selectedFragment = new ProfilFragment();
-                        setTitle("Profil");
-                        break;
-                }
+            switch (item.getItemId()) {
+                case R.id.navigation_accueil:
+                    selectedFragment = new HomeFragment();
+                    setTitle("BOÎTA'MÉDOC");
+                    break;
+                case R.id.navigation_traitement:
+                    selectedFragment = new TraitementFragment();
+                    setTitle("Traitement");
+                    break;
+                case R.id.navigation_boite:
+                    selectedFragment = new boiteFragment();
+                    setTitle("Boîte de Médicament");
+                    break;
+                case R.id.navigation_libre_service:
+                    selectedFragment = new LibreServiceFragment();
+                    setTitle("Libre-Service");
+                    break;
+                case R.id.navigation_profil:
+                    selectedFragment = new ProfilFragment();
+                    setTitle("Profil");
+                    break;
+            }
 
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
-                return true;
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
+            return true;
         }
     };//Fin de BottomNavigationView
 
@@ -82,13 +84,17 @@ public class MainActivity extends AppCompatActivity implements popup.popupListen
         startActivity(intent);
     }
 
-
-
     @Override
     public void applyTexts(String Username, String Password) {
         //username=Username;
         //password=Password;
-        frag_mdp_traitment.setUsername(Username);
-        frag_mdp_traitment.setPassword(Password);
+        frag_create.setUsername(Username);
+        frag_create.setPassword(Password);
     }
+
 }
+
+
+
+
+

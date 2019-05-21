@@ -99,7 +99,8 @@
             android:id="@+id/EditQuantitee"
             android:layout_width="match_parent"
             android:hint="Quantitee"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"/>
     </android.support.design.widget.TextInputLayout>
 
 </RelativeLayout>

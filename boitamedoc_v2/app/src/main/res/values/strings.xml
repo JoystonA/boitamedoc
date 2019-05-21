@@ -25,6 +25,7 @@
 
     <!--Traitement-->
     <string name="name_modification">Modification en cours</string>
+    <string name="name_ajout">Ajout en cours</string>
     <string name="legende_nbre_medoc">Nombre</string>
     <string name="legende_periode1">Matin</string>
     <string name="legende_periode2">Midi</string>

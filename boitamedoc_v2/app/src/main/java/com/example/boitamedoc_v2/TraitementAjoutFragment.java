@@ -12,12 +12,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 
-public class TraitementModificationFragment extends Fragment {
+public class TraitementAjoutFragment extends Fragment {
 
-    private TextInputLayout nbre_medoc_modification;
-    private TextInputLayout nom_medecin_modification;
-    private TextInputLayout date_debut_modification;
-    private TextInputLayout date_fin_modification;
+    private TextInputLayout nbre_medoc_ajout;
+    private TextInputLayout nom_medecin_ajout;
+    private TextInputLayout date_debut_ajout;
+    private TextInputLayout date_fin_ajout;
     private Button validButton;
     private String username;
     private String password;
@@ -25,14 +25,14 @@ public class TraitementModificationFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_modification_traitement, container, false);
+        View v = inflater.inflate(R.layout.fragment_ajout_traitement, container, false);
 
-        nbre_medoc_modification= v.findViewById(R.id.nbr_modif_medicament);
-        nom_medecin_modification= v.findViewById(R.id.input_modif_medecin);
-        date_debut_modification= v.findViewById(R.id.input_modif_date_debut);
-        date_fin_modification= v.findViewById(R.id.input_modif_date_fin);
+        nbre_medoc_ajout= v.findViewById(R.id.nbr_ajout_medicament);
+        nom_medecin_ajout= v.findViewById(R.id.input_ajout_medecin);
+        date_debut_ajout= v.findViewById(R.id.input_ajout_date_debut);
+        date_fin_ajout= v.findViewById(R.id.input_ajout_date_fin);
 
-        validButton = v.findViewById(R.id.button_valider_modif_traitement);
+        validButton = v.findViewById(R.id.button_valider_ajout_traitement);
         validButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +40,7 @@ public class TraitementModificationFragment extends Fragment {
                 if(nbrMedocIsOk()|nomMedecinIsOk()|dateDebutIsOk()|dateFinIsOk()){
                     openPopUp();
                     // ICI FAUT FAIRE EN SORTE DE CREER UNE FONCTION QUI ASK LA BDD //
-                    String nbrMedocInput = nbre_medoc_modification.getEditText().getText().toString().trim();
+                    String nbrMedocInput = nbre_medoc_ajout.getEditText().getText().toString().trim();
                 }
                 return;
             }
@@ -49,46 +49,46 @@ public class TraitementModificationFragment extends Fragment {
     }
 
     private boolean nbrMedocIsOk() {
-        String nbrMedocInput = nbre_medoc_modification.getEditText().getText().toString().trim();
+        String nbrMedocInput = nbre_medoc_ajout.getEditText().getText().toString().trim();
 
         if (nbrMedocInput.isEmpty()) {
-            nbre_medoc_modification.setError("Le champs est vide");
+            nbre_medoc_ajout.setError("Le champs est vide");
             return false;
         }
-        nbre_medoc_modification.setError(null);
+        nbre_medoc_ajout.setError(null);
         return true;
     }
 
     private boolean nomMedecinIsOk() {
-        String nomMedecinInput = nom_medecin_modification.getEditText().getText().toString().trim();
+        String nomMedecinInput = nom_medecin_ajout.getEditText().getText().toString().trim();
 
         if (nomMedecinInput.isEmpty()) {
-            nom_medecin_modification.setError("Le champs est vide");
+            nom_medecin_ajout.setError("Le champs est vide");
             return false;
         }
-        nom_medecin_modification.setError(null);
+        nom_medecin_ajout.setError(null);
         return true;
     }
 
     private boolean dateDebutIsOk() {
-        String dateDebutInput = date_debut_modification.getEditText().getText().toString().trim();
+        String dateDebutInput = date_debut_ajout.getEditText().getText().toString().trim();
 
         if (dateDebutInput.isEmpty()) {
-            date_debut_modification.setError("Le champs est vide");
+            date_debut_ajout.setError("Le champs est vide");
             return false;
         }
-        date_debut_modification.setError(null);
+        date_debut_ajout.setError(null);
         return true;
     }
 
     private boolean dateFinIsOk() {
-        String dateFinInput = date_fin_modification.getEditText().getText().toString().trim();
+        String dateFinInput = date_fin_ajout.getEditText().getText().toString().trim();
 
         if (dateFinInput.isEmpty()) {
-            date_fin_modification.setError("Le champs est vide");
+            date_fin_ajout.setError("Le champs est vide");
             return false;
         }
-        date_fin_modification.setError(null);
+        date_fin_ajout.setError(null);
         return true;
     }
 
