@@ -14,7 +14,7 @@
             android:layout_height="70dp"
             android:layout_marginTop="30dp"
             android:layout_weight="1"
-            android:background="#00D8FE"
+            android:background="@drawable/background2"
             android:orientation="vertical">
 
             <TextView
@@ -24,7 +24,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:text="Anthony"
+                android:text="Paul"
                 android:textColor="#FFFFFFFF"
                 android:textSize="30sp" />
 
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:text="Patient"
+                android:text="Gestionnaire"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
 
@@ -53,7 +53,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:text="Numéro de Sécurité Social : 1 93 05 80 253 350 06" />
+                android:text="Lien avec patient : Fils" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -62,7 +62,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:text="Identifiant boîte : 01524012" />
+                android:text="Age : 30 ans" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -71,25 +71,8 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:text="Age : 55" />
+                android:text="Email : paul@gmail.com" />
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:text="Maladie : Choléstérol" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:text="Apte : Oui" />
         </LinearLayout>
 
         <RelativeLayout
@@ -99,14 +82,14 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/modifier_profil"
+                android:id="@+id/modifier_compte"
                 android:layout_width="228dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="0dp"
                 android:layout_weight="1"
-                android:text="Modifier le profil" />
+                android:text="Modifier le compte" />
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
