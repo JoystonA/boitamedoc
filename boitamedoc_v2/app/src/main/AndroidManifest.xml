@@ -33,7 +33,14 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
-
+        </activity>
+        <activity
+            android:name=".InscriptionNumSécuActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".InscriptionPatientActivity"
+            android:label="@string/app_name">
         </activity>
         <activity
             android:name=".InfoCaseActivity"
