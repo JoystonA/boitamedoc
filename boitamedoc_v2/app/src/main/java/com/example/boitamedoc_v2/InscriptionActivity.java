@@ -48,7 +48,6 @@ public class InscriptionActivity extends AppCompatActivity {
         String Email = email.getText().toString();
         String MDP = mdp.getText().toString();
         String ConfirmeMDP = confirmeMDP.getText().toString();
-        String arg[] = {Nom,Prenom,LienPatient,Date,Email,MDP,ConfirmeMDP};
         if (Nom.isEmpty() | Prenom.isEmpty() | LienPatient.isEmpty() | Date.isEmpty() | Email.isEmpty() | MDP.isEmpty() | ConfirmeMDP.isEmpty()) {
             nom.setError("Rentrer quelque chose.");
             prenom.setError("Rentrer quelque chose.");
@@ -59,8 +58,22 @@ public class InscriptionActivity extends AppCompatActivity {
             confirmeMDP.setError("Rentrer quelque chose.");
         }
         else{
-            intent = new Intent(this, InfoCaseActivity.class).putExtra("inscription1",arg);
-            startActivity(intent);
+            nom.setError(null);
+            prenom.setError(null);
+            lienPatient.setError(null);
+            date.setError(null);
+            email.setError(null);
+            mdp.setError(null);
+            confirmeMDP.setError(null);
+
+            if(MDP.equals(ConfirmeMDP)) {
+                intent = new Intent(this, InscriptionNumSécuActivity.class);
+                startActivity(intent);
+            }
+            else{
+                mdp.setError("Mote de passe différent!");
+                confirmeMDP.setError("Mote de passe différent !");
+            }
         }
 
     }
