@@ -14,6 +14,7 @@
 
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -22,7 +23,7 @@
         android:theme="@style/CustomToolbarStyle"
         android:screenOrientation="portrait">
         <activity
-            android:name=".PageOuvertureActivity"
+            android:name=".NotificationActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -31,6 +32,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".NotificationReveiver">
+        </receiver>
+
+        <activity
+            android:name=".PageOuvertureActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity
             android:name=".InscriptionActivity"
             android:label="@string/app_name"
