@@ -99,7 +99,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/modifier_profil"
+                android:id="@+id/modifier_compte"
                 android:layout_width="228dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"

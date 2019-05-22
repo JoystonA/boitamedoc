@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 //import android.widget.Toolbar;
 
-public class TraitementModificationActivity extends AppCompatActivity{
+public class TraitementModificationActivity extends AppCompatActivity {
        private TraitementModificationFragment frag_create;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +83,7 @@ public class TraitementModificationActivity extends AppCompatActivity{
         intent = new Intent(this, ParametreActivity.class);
         startActivity(intent);
     }
+
 }
 
 

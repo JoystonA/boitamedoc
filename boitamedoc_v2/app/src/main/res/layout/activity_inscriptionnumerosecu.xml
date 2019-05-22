@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.circularreveal.CircularRevealRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -35,12 +35,16 @@
 
     <Button
         android:id="@+id/ValidNumButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/textPatient"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/ic_bouton"
-        android:text="Valider"
         android:onClick="ValidNum"
+        android:text="Valider"
         android:textColor="#FFFFFF" />
-</android.support.design.circularreveal.CircularRevealRelativeLayout>
+</RelativeLayout>

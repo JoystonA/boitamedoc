@@ -19,8 +19,6 @@ public class TraitementAjoutFragment extends Fragment {
     private TextInputLayout date_debut_ajout;
     private TextInputLayout date_fin_ajout;
     private Button validButton;
-    private String username;
-    private String password;
 
     @Nullable
     @Override
@@ -90,4 +88,5 @@ public class TraitementAjoutFragment extends Fragment {
         date_fin_ajout.setError(null);
         return true;
     }
+
 }

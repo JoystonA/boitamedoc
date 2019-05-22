@@ -1,120 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:orientation="vertical"
     android:padding="16dp">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_nom_text"
+    <TextView
+        android:id="@+id/textView24"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Modification en cours"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         app:errorEnabled="true">
+
+
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_nom"
+            android:id="@+id/profil_nom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:fontFamily="sans-serif-condensed-medium"
             android:hint="Nom" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_prenom_text"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="50dp"
         app:errorEnabled="true">
+
+
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_prenom"
+            android:id="@+id/profil_prenom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:fontFamily="sans-serif-condensed-medium"
             android:hint="Prénom" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_lienPatient_text"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="50dp"
         app:errorEnabled="true">
+
+
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_lienPatient"
+            android:id="@+id/profil_lien"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:fontFamily="sans-serif-condensed-medium"
             android:hint="Lien avec le patient" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_date_text"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="50dp"
         app:errorEnabled="true">
+
+
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_date"
+            android:id="@+id/profil_naissance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"
+            android:fontFamily="sans-serif-condensed-medium"
             android:hint="Date de naissance" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_email_text"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="50dp"
         app:errorEnabled="true">
+
+
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_email"
+            android:id="@+id/profil_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:hint="Adresse Email" />
+            android:fontFamily="sans-serif-condensed-medium"
+            android:hint="Email" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_mdp_text"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
         app:errorEnabled="true">
 
+
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_mdp"
+            android:id="@+id/profil_ancien_mdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mot de passe"
-            android:inputType="textPassword"/>
+            android:fontFamily="sans-serif-condensed-medium"
+            android:hint="Ancien mot de passe" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_confirme_text"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="50dp"
         app:errorEnabled="true">
+
+
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_confirmeMDP"
+            android:id="@+id/profil_nouveau_mdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:hint="Nouveau mot de passe" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:errorEnabled="true">
+
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/profil_confirmer_mdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Confirmation du mot de passe"
-            android:inputType="textPassword"/>
+            android:fontFamily="sans-serif-condensed-medium"
+            android:hint="Comfirmer nouveau mot de passe" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:id="@+id/ValidButton"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:onClick="Validation"
-        android:text="Valider"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:background="@drawable/ic_bouton"
-        android:textColor="#FFFFFF"/>
-</LinearLayout>
+        android:id="@+id/valider_modif_compte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Valider" />
+
+</android.support.v7.widget.LinearLayoutCompat>
+

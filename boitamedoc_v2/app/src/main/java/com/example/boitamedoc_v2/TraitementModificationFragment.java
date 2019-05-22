@@ -19,8 +19,6 @@ public class TraitementModificationFragment extends Fragment {
     private TextInputLayout date_debut_modification;
     private TextInputLayout date_fin_modification;
     private Button validButton;
-    private String username;
-    private String password;
 
     @Nullable
     @Override
@@ -91,12 +89,4 @@ public class TraitementModificationFragment extends Fragment {
         return true;
     }
 
-    public void setUsername(String p){
-        this.username= p;
-        Log.d("theo", "ApplyText/ Username "+ username);
-    }
-    public void setPassword(String p){
-        this.password= p;
-        Log.d("theo2", "ApplyText/ " + "Password "+password);
-    }
 }

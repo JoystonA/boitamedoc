@@ -27,7 +27,7 @@ public class InscriptionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscription);
-        setTitle("BOÎTA'MÉDOC");
+        setTitle("Inscription Gestionnnaire");
 
         nom = findViewById(R.id.edit_nom);
         prenom = findViewById(R.id.edit_prenom);

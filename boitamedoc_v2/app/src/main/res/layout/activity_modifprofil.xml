@@ -1,94 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+<android.support.v7.widget.LinearLayoutCompat xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    >
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_nom_text"
+    <TextView
+        android:id="@+id/textView24"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Modification en cours"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:errorEnabled="true">
 
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_nom"
+            android:id="@+id/compte_nom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:fontFamily="sans-serif-condensed-medium"
             android:hint="Nom" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_prenom_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0"
         app:errorEnabled="true">
 
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_prenom"
+            android:id="@+id/compte_prenom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:fontFamily="sans-serif-condensed-medium"
             android:hint="Prénom" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_date_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true">
+
+
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_date"
+            android:id="@+id/compte_naissance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"
+            android:fontFamily="sans-serif-condensed-medium"
             android:hint="Date de naissance" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_maladie_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true">
+
+
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_maladie"
+            android:id="@+id/compte_maladie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:fontFamily="sans-serif-condensed-medium"
             android:hint="Maladie" />
     </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:id="@+id/edit_secu"
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textSize="18dp" />
+        android:layout_height="wrap_content"
+        app:errorEnabled="true">
+
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/compte_num_secu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:hint="Numéro Sécurité Sociale" />
+    </android.support.design.widget.TextInputLayout>
 
     <Switch
         android:id="@+id/switch_apte"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:textSize="18dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="Apte"
-        android:textColor="@color/colorFont2"/>
+        android:textColor="#808080"
+        android:textSize="18sp" />
 
     <Button
-        android:id="@+id/ValidButton"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:onClick="finish"
-        android:text="Terminer l'inscription"
+        android:id="@+id/valider_modif_compte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:layout_gravity="center"
-        android:background="@drawable/ic_bouton"
-        android:textColor="#FFFFFF" />
-</LinearLayout>
+        android:text="Valider" />
+
+</android.support.v7.widget.LinearLayoutCompat>
+
