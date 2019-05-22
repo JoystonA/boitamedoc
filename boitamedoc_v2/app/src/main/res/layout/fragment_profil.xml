@@ -115,7 +115,8 @@
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="0dp"
                 android:layout_weight="1"
-                android:text="Modifier le profil" />
+                android:text="Modifier le profil"
+                android:onClick="openModifProfil"/>
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

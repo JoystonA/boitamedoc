@@ -9,15 +9,19 @@ import android.widget.Button;
 import com.example.boitamedoc_v2.R;
 
 
-public class CompteActivity extends AppCompatActivity{
-    private Button modifButton;
+public class CompteActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_compte);
+        Button modifButton = findViewById(R.id.modifier_compte);
+        modifButton.setOnClickListener(this);
+    }
 
-        modifButton = (Button) findViewById(R.id.modifier_compte);
+    @Override
+    public void onClick(View v) {
+        openModifCompte();
     }
 
     private void openModifCompte() {
