@@ -29,6 +29,7 @@ public class InfoCaseActivity extends AppCompatActivity{
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new InfoCaseFragment()).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
+        navView.setSelectedItemId(R.id.navigation_boite);
         navView.setOnNavigationItemSelectedListener(navListener);
         setTitle("Boîte de Médicament");
 
@@ -42,18 +43,23 @@ public class InfoCaseActivity extends AppCompatActivity{
             switch (item.getItemId()) {
                 case R.id.navigation_accueil:
                     selectedFragment = new HomeFragment();
+                    setTitle("BOÎTA'MÉDOC");
                     break;
                 case R.id.navigation_traitement:
                     selectedFragment = new TraitementFragment();
+                    setTitle("Traitement");
                     break;
                 case R.id.navigation_boite:
                     selectedFragment = new boiteFragment();
+                    setTitle("Boîte de Médicament");
                     break;
                 case R.id.navigation_libre_service:
                     selectedFragment = new LibreServiceFragment();
+                    setTitle("Libre-Service");
                     break;
                 case R.id.navigation_profil:
                     selectedFragment = new ProfilFragment();
+                    setTitle("Profil");
                     break;
             }
 

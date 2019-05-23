@@ -20,6 +20,7 @@ public class TraitementAjoutActivity extends AppCompatActivity {
         frag_create = new TraitementAjoutFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,frag_create).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
+        navView.setSelectedItemId(R.id.navigation_traitement);
         navView.setOnNavigationItemSelectedListener(navListener);
         setTitle("Traitement");
 
