@@ -49,7 +49,7 @@
 
 
     <RelativeLayout
-        android:id="@+id/Relative_Layout_name_medoc_"
+        android:id="@+id/Relative_Layout_name_medoc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/name_traitement"
@@ -102,10 +102,10 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/Relative_Layout_modif_medoc_matin"
+        android:id="@+id/Relative_Layout_modif_medoc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/Relative_Layout_name_medoc_"
+        android:layout_below="@id/Relative_Layout_name_medoc"
         android:background="@color/colorBackground"
         android:layout_marginTop="10dp">
 
@@ -268,7 +268,7 @@
         android:id="@+id/Relative_Layout_modif_medecin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/Relative_Layout_modif_medoc_matin"
+        android:layout_below="@id/Relative_Layout_modif_medoc"
         android:background="#FFFFFF">
 
         <android.support.design.widget.TextInputLayout

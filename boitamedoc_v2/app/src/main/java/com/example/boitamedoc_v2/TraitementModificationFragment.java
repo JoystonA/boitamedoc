@@ -35,10 +35,8 @@ public class TraitementModificationFragment extends Fragment {
 
         nbre_medoc_modification_matin= v.findViewById(R.id.nbr_modif_medicament_matin);
         checkBox_verification_matin=(CheckBox)v.findViewById(R.id.checkBox_matin);
-
         nbre_medoc_modification_midi= v.findViewById(R.id.nbr_modif_medicament_midi);
         checkBox_verification_midi=(CheckBox)v.findViewById(R.id.checkBox_midi);
-
         nbre_medoc_modification_soir= v.findViewById(R.id.nbr_modif_medicament_soir);
         checkBox_verification_soir=(CheckBox)v.findViewById(R.id.checkBox_soir);
 
