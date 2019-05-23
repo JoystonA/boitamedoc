@@ -51,29 +51,38 @@
 
         <Button
             android:id="@+id/button_modifier"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
             android:layout_alignBottom="@id/name_medecin_heure_date"
             android:layout_alignParentEnd="true"
             android:text="Modifier"
+            android:textColor="#FFFFFF"
             android:background="@drawable/ic_bouton"/>
 
         <Button
             android:id="@+id/button_supprimer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
             android:layout_below="@id/button_modifier"
             android:layout_alignParentEnd="true"
-            android:text="Supprimer"/>
+            android:text="Supprimer"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_bouton"
+            android:layout_marginBottom="10dp"/>
 
     </RelativeLayout>
 
     <Button
         android:id="@+id/button_ajouter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:text="+" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/ic_bouton"/>
 
 </RelativeLayout>

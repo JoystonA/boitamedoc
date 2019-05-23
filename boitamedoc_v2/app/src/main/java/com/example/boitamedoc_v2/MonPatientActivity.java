@@ -11,6 +11,7 @@ public class MonPatientActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_monpatient);
+        setTitle("Mon Patient");
 
     }
 }

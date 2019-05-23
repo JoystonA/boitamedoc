@@ -109,13 +109,15 @@
 
             <Button
                 android:id="@+id/modifier_compte"
-                android:layout_width="228dp"
-                android:layout_height="match_parent"
+                android:layout_width="275dp"
+                android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerInParent="true"
-                android:layout_marginBottom="0dp"
+                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:text="Modifier le profil" />
+                android:text="Modifier le profil"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/ic_bouton"/>
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

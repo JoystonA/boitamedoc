@@ -53,6 +53,9 @@ public class ParametreActivity extends AppCompatActivity implements View.OnClick
             case R.id.a_propos:
                 openSettingAPropos();
                 break;
+            case R.id.deconnexion:
+                disconnect();
+                break;
         }
     }
 
@@ -83,6 +86,12 @@ public class ParametreActivity extends AppCompatActivity implements View.OnClick
     private void openSettingAPropos() {
         Intent intent;
         intent = new Intent(this, AProposActivity.class);
+        startActivity(intent);
+    }
+
+    private void disconnect() {
+        Intent intent;
+        intent = new Intent(this, ConnexionActivity.class);
         startActivity(intent);
     }
 

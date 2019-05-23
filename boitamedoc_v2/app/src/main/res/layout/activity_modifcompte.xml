@@ -131,10 +131,12 @@
 
     <Button
         android:id="@+id/valider_modif_compte"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:layout_marginTop="50dp"
-        android:text="Valider" />
+        android:text="Valider"
+        android:background="@drawable/ic_bouton"
+        android:textColor="#FFFFFF"/>
 
 </android.support.v7.widget.LinearLayoutCompat>
 
