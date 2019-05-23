@@ -68,21 +68,22 @@
             android:text="Supprimer"
             android:textColor="#FFFFFF"
             android:layout_marginTop="10dp"
-            android:background="@drawable/ic_bouton"
+            android:background="@drawable/ic_bouton_rouge"
             android:layout_marginBottom="10dp"/>
 
     </RelativeLayout>
 
     <Button
         android:id="@+id/button_ajouter"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="10dp"
         android:text="+"
+        android:textSize="28sp"
         android:textColor="#FFFFFF"
-        android:background="@drawable/ic_bouton"/>
+        android:background="@drawable/ic_bouton_circulaire"/>
 
 </RelativeLayout>
