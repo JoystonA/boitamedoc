@@ -41,6 +41,7 @@ public class NotificationActivity extends AppCompatActivity {
 
         Notification notification = new NotificationCompat.Builder(this, App.CHANNEL_1_ID)
                 .setSmallIcon(R.drawable.ic_notif)
+                .setWhen(System.currentTimeMillis())
                 .setStyle(new NotificationCompat.BigTextStyle()
                     .bigText(message)
                     .setBigContentTitle("Votre prise de médicament de 9 h 30")

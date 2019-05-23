@@ -12,6 +12,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+
 
     <application
         android:name=".App"
@@ -23,7 +27,7 @@
         android:theme="@style/CustomToolbarStyle"
         android:screenOrientation="portrait">
         <activity
-            android:name=".NotificationActivity"
+            android:name=".PageOuvertureActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -38,7 +42,7 @@
         </receiver>
 
         <activity
-            android:name=".PageOuvertureActivity"
+            android:name=".NotificationActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
         </activity>
