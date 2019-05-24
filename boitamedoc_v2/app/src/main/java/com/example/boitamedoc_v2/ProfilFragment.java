@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class ProfilFragment extends Fragment implements View.OnClickListener {
+public class ProfilFragment extends Fragment {
     private Button modifButton;
 
     @Nullable
@@ -18,6 +18,7 @@ public class ProfilFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_profil, container, false);
+
         modifButton = (Button) v.findViewById(R.id.modifier_compte);
         modifButton.setOnClickListener(this);
         return v;
