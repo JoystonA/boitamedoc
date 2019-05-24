@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
-        android:text="BOÎTA'MEDOC"
+        android:text="BOÎTA'MÉDOC"
         android:textColor="@color/colorFont1"
         android:textSize="30sp"
         android:textAlignment="center" />
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:fontFamily="sans-serif-condensed"
             android:text="Vous avez déjà un compte ? "
             android:textColor="@color/colorFont1" />

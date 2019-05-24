@@ -135,7 +135,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/scroll_view_traitement"
         android:background="@color/colorBackground"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="10dp"
         android:orientation="vertical"
         android:layout_alignParentBottom="true"
