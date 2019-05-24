@@ -13,7 +13,7 @@ public class CompteActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_compte);
+        setContentView(R.layout.activity_main);
         Button modifButton = findViewById(R.id.modifier_compte);
         modifButton.setOnClickListener(this);
         setTitle("Mon Compte");
