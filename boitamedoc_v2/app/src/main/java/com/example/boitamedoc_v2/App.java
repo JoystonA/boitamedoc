@@ -1,52 +1,54 @@
 package com.example.boitamedoc_v2;
 
 import android.app.Application;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.os.Build;
+import android.os.StrictMode;
+import android.util.Log;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 public class App extends Application {
-    public static final String URL_BDD = "https://phpmyadmin.cluster021.hosting.ovh.net/";
-    public static final String user = "boitamedmxadmin";
+    public static final String URL_BDD = "jdbc:mysql://185.31.40.18:3306/boitamedmxadmin_databases";
+    public static final String user = "184284";
     public static final String pawd = "E3esieeboitamx2019";
-    public static Connection  conn;
-
+    public static Connection conn;
+    public static final String CHANNEL_1_ID = "channel1";
 
     @Override
     public void onCreate() {
         super.onCreate();
+        createNotificationChannels();
         try {
-            conn = DriverManager.getConnection(URL_BDD, user, pawd);
-            //Création d'un objet Statement
-            Statement state = conn.createStatement();
-            //L'objet ResultSet contient le résultat de la requête SQL
-            ResultSet result = state.executeQuery("SELECT * FROM medicament WHERE id_medoc='3400921600506'");
-            //On récupère les MetaData
-            ResultSetMetaData resultMeta = result.getMetaData();
+            Class.forName("com.mysql.jdbc.Driver");
+            Log.d("test", "DRIVER OK");
 
-            System.out.println("\n**********************************");
-            //On affiche le nom des colonnes
-            for(int i = 1; i <= resultMeta.getColumnCount(); i++)
-                System.out.print("\t" + resultMeta.getColumnName(i).toUpperCase() + "\t *");
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            Log.d("test", "THREAD OK");
 
-            System.out.println("\n**********************************");
-
-            while(result.next()){
-                for(int i = 1; i <= resultMeta.getColumnCount(); i++)
-                    System.out.print("\t" + result.getObject(i).toString() + "\t |");
-
-                System.out.println("\n---------------------------------");
-
-            }
-
-            result.close();
-            state.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+            //conn = DriverManager.getConnection(URL_BDD, user, pawd);
+            Log.d("test", "Connexion réussie" + conn);
+        } catch (Exception e) {
+            Log.d("test", "onCreate: " + e.getMessage() + " || " + e.getCause() + " || " + e.getClass());
         }
+    }
 
+    private void createNotificationChannels() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel1 = new NotificationChannel(
+                    CHANNEL_1_ID,
+                    "Channel1",
+                    NotificationManager.IMPORTANCE_HIGH
+
+            );
+            channel1.setDescription("Notification de Prise de Médicament");
+
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel1);
+
+        }
     }
 }

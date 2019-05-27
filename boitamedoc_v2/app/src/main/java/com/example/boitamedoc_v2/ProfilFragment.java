@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class ProfilFragment extends Fragment {
+public class ProfilFragment extends Fragment implements View.OnClickListener {
     private Button modifButton;
 
     @Nullable

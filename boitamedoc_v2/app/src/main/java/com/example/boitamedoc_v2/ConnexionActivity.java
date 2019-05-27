@@ -3,11 +3,15 @@ package com.example.boitamedoc_v2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+import com.example.boitamedoc_v2.myrequest.MyRequest;
 
 
 public class ConnexionActivity extends AppCompatActivity {
@@ -15,6 +19,10 @@ public class ConnexionActivity extends AppCompatActivity {
     private EditText identifiant;
     private EditText motDePasse;
     private Button boutonConnexion;
+
+    private TextInputLayout til_username, til_password;
+    private RequestQueue queue;
+    private MyRequest request;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +45,10 @@ public class ConnexionActivity extends AppCompatActivity {
                 }
             }
         });
+
+        til_username = (TextInputLayout) findViewById(R.id.log_username_text);
+        til_password = (TextInputLayout) findViewById(R.id.log_password_text);
+
     }
 
     private void openApplication(){
