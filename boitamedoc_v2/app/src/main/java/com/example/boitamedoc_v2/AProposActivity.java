@@ -20,6 +20,7 @@ public class AProposActivity extends AppCompatActivity implements View.OnClickLi
 
         Politique.setOnClickListener(this);
         Conditions.setOnClickListener(this);
+        setTitle("A Propos");
     }
 
     @Override

@@ -19,6 +19,7 @@ public class MonPatientActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_monpatient);
+        setTitle("Mon Patient");
 
         //add_Button = (Button) findViewById(R.id.button7);
         //add_Button.setOnClickListener(new View.OnClickListener() {

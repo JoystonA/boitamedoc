@@ -28,8 +28,8 @@ public class NotificationActivity extends AppCompatActivity {
         textViewPosologie = findViewById(R.id.text_posologie);
     }
 
-    public void envoieSurChannel1(View v){
-        String message = textViewPosologie.getText().toString();
+     public void envoieSurChannel1(View v){
+       String message = textViewPosologie.getText().toString();
 
         Intent MainIntent = new Intent(this, NotificationActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(this,0,MainIntent,PendingIntent.FLAG_UPDATE_CURRENT);
@@ -37,7 +37,7 @@ public class NotificationActivity extends AppCompatActivity {
         Intent broadcastIntent = new Intent(this, NotificationReveiver.class);
         broadcastIntent.putExtra("toastMessage",message);
 
-        PendingIntent actionIntent = PendingIntent.getBroadcast(this,0,MainIntent,0);
+        PendingIntent actionIntent = PendingIntent.getBroadcast(this,0,broadcastIntent,0);
 
         Notification notification = new NotificationCompat.Builder(this, App.CHANNEL_1_ID)
                 .setSmallIcon(R.drawable.ic_notif)
@@ -54,5 +54,8 @@ public class NotificationActivity extends AppCompatActivity {
                 .setOnlyAlertOnce(true)
                 .build();
         notificationManager.notify(1,notification);
+        NotificationReveiver.scheduleNotification(this,1000,"Posologie","");
     }
+
+
 }

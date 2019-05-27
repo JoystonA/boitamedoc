@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
-        android:text="BOÎTA'MEDOC"
+        android:text="BOÎTA'MÉDOC"
         android:textColor="@color/colorFont1"
         android:textSize="30sp"
         android:textAlignment="center" />
@@ -51,17 +51,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:fontFamily="sans-serif-condensed"
             android:text="Vous avez déjà un compte ? "
             android:textColor="@color/colorFont1" />
 
         <Button
             android:id="@+id/button_se_connecter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
-            android:background="#FFFFFF"
+            android:background="@drawable/ic_fond_blanc_01_01"
             android:fontFamily="sans-serif-condensed"
             android:text="@string/se_connecter" />
 

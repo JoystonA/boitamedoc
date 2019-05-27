@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity{
 
 
@@ -20,6 +22,9 @@ public class MainActivity extends AppCompatActivity{
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
+        NotificationReveiver.scheduleNotification(this,10,"Posologie","");
+        Date now = new Date();
+        System.out.println(now);
         setTitle("BOÎTA'MÉDOC");
     }
 

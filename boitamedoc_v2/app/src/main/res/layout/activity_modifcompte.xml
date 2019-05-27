@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent">
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:padding="16dp">
 
     <TextView
         android:id="@+id/textView24"
@@ -64,12 +68,14 @@
         app:errorEnabled="true">
 
 
-        <android.support.design.widget.TextInputEditText
+        <com.santalu.maskedittext.MaskEditText
             android:id="@+id/profil_naissance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed-medium"
-            android:hint="Date de naissance" />
+            android:inputType="date"
+            android:hint="Date de naissance"
+            app:met_mask="##/##/####"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -83,6 +89,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed-medium"
+            android:inputType="textEmailAddress"
             android:hint="Email" />
     </android.support.design.widget.TextInputLayout>
 
@@ -131,10 +138,14 @@
 
     <Button
         android:id="@+id/valider_modif_compte"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:layout_marginTop="50dp"
-        android:text="Valider" />
+        android:text="Valider"
+        android:layout_gravity="center"
+        android:background="@drawable/ic_bouton"
+        android:textColor="#FFFFFF"/>
 
 </android.support.v7.widget.LinearLayoutCompat>
 
+</ScrollView>
