@@ -15,29 +15,30 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class NotificationActivity extends AppCompatActivity {
-    private NotificationManagerCompat notificationManager;
-    private TextView textViewPosologie;
+    public TextView textViewPosologie;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
 
-        notificationManager = NotificationManagerCompat.from(this);
-
         textViewPosologie = findViewById(R.id.text_posologie);
     }
 
+
+
+
+/*
      public void envoieSurChannel1(View v){
        String message = textViewPosologie.getText().toString();
 
         Intent MainIntent = new Intent(this, NotificationActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(this,0,MainIntent,PendingIntent.FLAG_UPDATE_CURRENT);
 
-        Intent broadcastIntent = new Intent(this, NotificationReveiver.class);
-        broadcastIntent.putExtra("toastMessage",message);
+        //Intent broadcastIntent = new Intent(this, NotificationReceiver.class);
+        //broadcastIntent.putExtra("toastMessage",message);
 
-        PendingIntent actionIntent = PendingIntent.getBroadcast(this,0,broadcastIntent,0);
+        //PendingIntent actionIntent = PendingIntent.getBroadcast(this,0,broadcastIntent,0);
 
         Notification notification = new NotificationCompat.Builder(this, App.CHANNEL_1_ID)
                 .setSmallIcon(R.drawable.ic_notif)
@@ -54,8 +55,7 @@ public class NotificationActivity extends AppCompatActivity {
                 .setOnlyAlertOnce(true)
                 .build();
         notificationManager.notify(1,notification);
-        NotificationReveiver.scheduleNotification(this,1000,"Posologie","");
     }
-
+*/
 
 }

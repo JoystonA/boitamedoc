@@ -9,10 +9,19 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.GregorianCalendar;
+
+import static java.lang.Thread.sleep;
 
 public class MainActivity extends AppCompatActivity{
+
+    public TextView textViewPosologie;
+    private SimpleDateFormat d = new SimpleDateFormat ("dd/MM/yyyy" );
+    private SimpleDateFormat h = new SimpleDateFormat ("hh:mm");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +30,14 @@ public class MainActivity extends AppCompatActivity{
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
-        NotificationReveiver.scheduleNotification(this,10,"Posologie","");
-        Date now = new Date();
-        System.out.println(now);
+        //textViewPosologie = findViewById(R.id.text_posologie);
+        //String message = textViewPosologie.getText().toString();
+        //recupheure();
+        NotificationReceiver.scheduleNotification(this,"Votre prise de médicament de 9 h 30","test",13,58);
         setTitle("BOÎTA'MÉDOC");
     }
 
-    //Création d'une barre de tâche en bas de l'application avec la redirection vers chaque pages
+    //Création d'une barre de tâche en bas de l'application avec la redirection vers chaque page.
     private BottomNavigationView.OnNavigationItemSelectedListener navListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
@@ -85,4 +95,12 @@ public class MainActivity extends AppCompatActivity{
         intent = new Intent(this, ParametreActivity.class);
         startActivity(intent);
     }
+
+    private void recupheure(){
+            Date currentTime_1 = new Date();
+            String dateString = d.format(currentTime_1);
+            String heureString = h.format(currentTime_1);
+            System.out.println(heureString);
+    }
+
 }
