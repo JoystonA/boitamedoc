@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.android.volley.RequestQueue;
+import com.example.boitamedoc_v2.myrequest.MyRequest;
+
 public class InscriptionActivity extends AppCompatActivity {
     private EditText nom;
     private EditText prenom;
@@ -21,6 +24,8 @@ public class InscriptionActivity extends AppCompatActivity {
     private EditText mdp;
     private EditText confirmeMDP;
     private Button   ValidButton;
+    private RequestQueue queue;
+    private MyRequest request;
 
 
     @Override
@@ -37,6 +42,9 @@ public class InscriptionActivity extends AppCompatActivity {
         mdp =findViewById(R.id.edit_mdp);
         confirmeMDP =findViewById(R.id.edit_confirmeMDP);
         ValidButton = findViewById(R.id.ValidButton);
+
+        queue = VolleySingleton.getInstance(this).getRequestQueue();
+        request = new MyRequest(this, queue);
     }
 
     public void Validation(View v){
@@ -69,6 +77,8 @@ public class InscriptionActivity extends AppCompatActivity {
             if(MDP.equals(ConfirmeMDP)) {
                 intent = new Intent(this, InscriptionNumSécuActivity.class);
                 startActivity(intent);
+
+                request.register(Nom, Prenom, LienPatient, Date, Email, MDP, ConfirmeMDP);
             }
             else{
                 mdp.setError("Mote de passe différent!");
