@@ -6,7 +6,7 @@
     android:padding="16dp">
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_numSecu"
+        android:id="@+id/inscrip_num_secu_patient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -16,7 +16,7 @@
         app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/textedit_numSecu"
+            android:id="@+id/inscrip_num_secu_patient_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberSigned"
@@ -27,7 +27,7 @@
         android:id="@+id/textPatient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_numSecu"
+        android:layout_below="@+id/inscrip_num_secu_patient"
         android:textAlignment="center"
         android:textSize="18dp"
         android:layout_marginTop="149dp"

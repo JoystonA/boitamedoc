@@ -22,7 +22,7 @@ public class InscriptionNumSécuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inscriptionnumerosecu);
         setTitle("Inscription Patient");
 
-        NumSecu = findViewById(R.id.textedit_numSecu);
+        NumSecu = findViewById(R.id.inscrip_num_secu_patient_edit);
         textPatient = findViewById(R.id.textPatient);
         NumSecu.addTextChangedListener(new TextWatcher() {
             @Override

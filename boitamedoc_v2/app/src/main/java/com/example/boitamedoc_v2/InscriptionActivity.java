@@ -29,13 +29,13 @@ public class InscriptionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inscription);
         setTitle("Inscription Gestionnnaire");
 
-        nom = findViewById(R.id.edit_nom);
-        prenom = findViewById(R.id.edit_prenom);
-        lienPatient =findViewById(R.id.edit_lienPatient);
-        date =findViewById(R.id.edit_date);
-        email =findViewById(R.id.edit_email);
-        mdp =findViewById(R.id.edit_mdp);
-        confirmeMDP =findViewById(R.id.edit_confirmeMDP);
+        nom = findViewById(R.id.inscrip_nom_gestionnaire_edit);
+        prenom = findViewById(R.id.inscrip_prenom_gestionnaire_edit);
+        lienPatient =findViewById(R.id.inscrip_lienPatient_gestionnaire_edit);
+        date =findViewById(R.id.inscrip_date_gestionnaire_edit);
+        email =findViewById(R.id.inscrip_email_gestionnaire_edit);
+        mdp =findViewById(R.id.inscrip_mdp_gestionnaire_edit);
+        confirmeMDP =findViewById(R.id.inscrip_confirm_mdp_gestionnaire_edit);
         ValidButton = findViewById(R.id.ValidButton);
     }
 

@@ -86,9 +86,10 @@ public class NotificationReceiver extends BroadcastReceiver {
         calendar.set(Calendar.HOUR_OF_DAY, hour);
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.AM_PM, Calendar.PM);
+        //calendar.set(Calendar.AM_PM, Calendar.PM);
         Date pm = calendar.getTime();
-
+        System.out.println(pm);
+        System.out.println(temp);
         if (pm.after(temp)) {
 
             Intent intent = new Intent(context, NotificationReceiver.class);

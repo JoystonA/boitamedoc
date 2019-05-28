@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity{
         //textViewPosologie = findViewById(R.id.text_posologie);
         //String message = textViewPosologie.getText().toString();
         //recupheure();
-        NotificationReceiver.scheduleNotification(this,"Votre prise de médicament de 9 h 30","test",13,58);
+        NotificationReceiver.scheduleNotification(this,"Votre prise de médicament de 9 h 30","test",9,32);
         setTitle("BOÎTA'MÉDOC");
     }
 
