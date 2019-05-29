@@ -20,6 +20,8 @@ import static java.lang.Thread.sleep;
 public class MainActivity extends AppCompatActivity{
 
     public TextView textViewPosologie;
+    public static String Title_Notification;
+    public static String Message_Notification;
     private SimpleDateFormat d = new SimpleDateFormat ("dd/MM/yyyy" );
     private SimpleDateFormat h = new SimpleDateFormat ("hh:mm");
 
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity{
         //textViewPosologie = findViewById(R.id.text_posologie);
         //String message = textViewPosologie.getText().toString();
         //recupheure();
-        NotificationReceiver.scheduleNotification(this,"Votre prise de médicament de 9 h 30","test",9,32);
+        createNotification1();
         setTitle("BOÎTA'MÉDOC");
     }
 
@@ -96,11 +98,25 @@ public class MainActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
-    private void recupheure(){
-            Date currentTime_1 = new Date();
-            String dateString = d.format(currentTime_1);
-            String heureString = h.format(currentTime_1);
-            System.out.println(heureString);
+    /*private void recupheure() {
+        Date currentTime_1 = new Date();
+        String dateString = d.format(currentTime_1);
+        String heureString = h.format(currentTime_1);
+        System.out.println(heureString);
+    }*/
+
+    private void createNotification1(){
+        Title_Notification="Votre prise de médicament de 9h30";
+        Message_Notification="name_medicament";
+        NotificationReceiver.scheduleNotification(this,Title_Notification,Message_Notification,15,57);
+        NotificationReceiver.cancelNotification(this);
+    }
+
+    private void createNotification2(){
+        Title_Notification="Votre prise de médicament de 22h30";
+        Message_Notification="name_medicament\nname_medicament";
+        NotificationReceiver.scheduleNotification(this,Title_Notification,Message_Notification,13,26);
+        NotificationReceiver.cancelNotification(this);
     }
 
 }

@@ -32,7 +32,7 @@ public class InscriptionNumSécuActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(NumSecu.getText().toString().trim().equals("123456789")){
+                if(NumSecu.getText().toString().trim().equals("1 23 45 67 890 000 00")){
                     textPatient.setText("M. DUPONT André");
                     isKnown=true;
                 }
