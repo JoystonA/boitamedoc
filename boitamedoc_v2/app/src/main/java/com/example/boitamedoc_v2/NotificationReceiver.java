@@ -21,6 +21,7 @@ public class NotificationReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         createNotification(context,getTitle(),getMessage());
+        //createNotification2(context,getTitle(),getMessage());
     }
 
 
@@ -69,7 +70,30 @@ public class NotificationReceiver extends BroadcastReceiver {
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(42, notification);
     }
+/*
+    public static void createNotification2(Context context, String title, String message){
+        Intent MainIntent = new Intent(context, NotificationActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(context, 42, MainIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
+        Notification notification = new NotificationCompat.Builder(context, App.CHANNEL_2_ID)
+                .setSmallIcon(R.drawable.ic_notif)
+                .setWhen(System.currentTimeMillis())
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(message)
+                        .setBigContentTitle(title)
+                        .setSummaryText("Posologie"))
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .setColor(Color.rgb(55, 24, 188))
+                .setContentIntent(contentIntent)
+                .setAutoCancel(true)
+                .setOnlyAlertOnce(true)
+                .build();
+        // Show notification
+        NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(42, notification);
+    }
+*/
     public static void cancelNotification(Context context) {
         Intent intent = new Intent(context, NotificationReceiver.class);
         PendingIntent pending = PendingIntent.getBroadcast(context, 42, intent, PendingIntent.FLAG_UPDATE_CURRENT);

@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity{
         //String message = textViewPosologie.getText().toString();
         //recupheure();
         createNotification1();
+        //createNotification2();
         setTitle("BOÎTA'MÉDOC");
     }
 
@@ -108,15 +109,17 @@ public class MainActivity extends AppCompatActivity{
     private void createNotification1(){
         Title_Notification="Votre prise de médicament de 9h30";
         Message_Notification="name_medicament";
-        NotificationReceiver.scheduleNotification(this,Title_Notification,Message_Notification,15,57);
-        NotificationReceiver.cancelNotification(this);
+        //NotificationReceiver.createNotification(this,Title_Notification,Message_Notification);
+        NotificationReceiver.scheduleNotification(this,Title_Notification,Message_Notification,12,55);
+        //NotificationReceiver.cancelNotification(this);
     }
-
-    private void createNotification2(){
-        Title_Notification="Votre prise de médicament de 22h30";
-        Message_Notification="name_medicament\nname_medicament";
-        NotificationReceiver.scheduleNotification(this,Title_Notification,Message_Notification,13,26);
-        NotificationReceiver.cancelNotification(this);
+/*
+    private void createNotification2() {
+        Title_Notification = "Votre prise de médicament de 22h30";
+        Message_Notification = "name_medicament\nname_medicament";
+        NotificationReceiver.createNotification2(this,Title_Notification,Message_Notification);
+        //NotificationReceiver.scheduleNotification2(this, Title_Notification, Message_Notification, 15, 10);
+       // NotificationReceiver.cancelNotification(this);
     }
-
+*/
 }
