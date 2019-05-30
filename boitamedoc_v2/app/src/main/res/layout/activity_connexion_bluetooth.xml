@@ -18,9 +18,15 @@
         android:text="LED ON" />
 
     <Button
-        android:id="@+id/off"
+    android:id="@+id/off"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="LED OFF" />
+
+    <Button
+        android:id="@+id/accueil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="LED OFF" />
+        android:text="Retour Accueil" />
 
 </LinearLayout>

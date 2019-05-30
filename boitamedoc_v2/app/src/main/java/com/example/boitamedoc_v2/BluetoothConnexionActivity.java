@@ -18,11 +18,12 @@ public class BluetoothConnexionActivity extends AppCompatActivity {
     final String ON = "1";
     final String OFF = "0";
 
-    BluetoothSPP bluetooth;
+    static BluetoothSPP bluetooth;
 
     Button connect;
     Button on;
     Button off;
+    Button accueil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class BluetoothConnexionActivity extends AppCompatActivity {
         connect = (Button) findViewById(R.id.connect);
         on = (Button) findViewById(R.id.on);
         off = (Button) findViewById(R.id.off);
+        accueil = (Button) findViewById(R.id.accueil);
 
         if (!bluetooth.isBluetoothAvailable()) {
             Toast.makeText(getApplicationContext(), "Bluetooth non disponible !", Toast.LENGTH_SHORT).show();
@@ -80,6 +82,15 @@ public class BluetoothConnexionActivity extends AppCompatActivity {
             }
         });
 
+        accueil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //bluetooth.connect("00:06:66:6D:F1:75");
+                //onDestroy();
+                openAccueil();
+            }
+        });
+
     }
 
     public void onStart() {
@@ -114,6 +125,12 @@ public class BluetoothConnexionActivity extends AppCompatActivity {
                 finish();
             }
         }
+    }
+
+    public void openAccueil() {
+        Intent intent;
+        intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
 
