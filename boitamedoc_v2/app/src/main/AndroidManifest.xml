@@ -3,6 +3,7 @@
     package="com.example.boitamedoc_v2">
 
     <uses-feature
+        android:usesCleartextTraffic="true"
         android:name="android.hardware.camera"
         android:required="true" />
 
@@ -165,6 +166,7 @@
         </activity>
 
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
     </application>
 
 </manifest>

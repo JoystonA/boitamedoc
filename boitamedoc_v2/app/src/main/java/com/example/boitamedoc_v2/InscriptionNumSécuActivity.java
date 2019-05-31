@@ -10,11 +10,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.RequestQueue;
+import com.example.boitamedoc_v2.myrequest.MyRequest;
+
 public class InscriptionNumSécuActivity extends AppCompatActivity {
     private TextView textPatient;
-    private EditText NumSecu;
+    public EditText NumSecu;
     private boolean isKnown=false;
-
+    private RequestQueue queue;
+    private MyRequest request;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,32 +26,45 @@ public class InscriptionNumSécuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inscriptionnumerosecu);
         setTitle("Inscription Patient");
 
+        queue = VolleySingleton.getInstance(this).getRequestQueue();
+        request = new MyRequest(this, queue);
+
         NumSecu = findViewById(R.id.textedit_numSecu);
+        Button Button = findViewById(R.id.ValidNumButton);
         textPatient = findViewById(R.id.textPatient);
         NumSecu.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(NumSecu.getText().toString().trim().equals("123456789")){
-                    textPatient.setText("M. DUPONT André");
-                    isKnown=true;
-                }
-                else{
-                    textPatient.setText("Le patient n'est pas connue dans notre base de données");
-                }
             }
 
             @Override
             public void afterTextChanged(Editable s) {
+                textPatient.setText("Veuillez rentrer un numéro");
+                isKnown = false;
+                Button.setEnabled(false);
+                if(NumSecu.getText().toString().length()==15) {
+                        String[] retour  = request.checkNumSecu(NumSecu.getText().toString().trim(), new MyRequest.NumSecuCallback() {
+                            @Override
+                            public void onSucces(String nom, String prenom) {
+                                textPatient.setText(nom + " " + prenom);
+                                Button.setEnabled(true);
+                                isKnown=true;
+                            }
+
+                            @Override
+                            public void onError(String message) {
+                                textPatient.setText("Pas connue dans la base de donnée");
+                                Button.setEnabled(true);
+                            }
+                        });
+                    }
 
             }
         });
-
-        String num = NumSecu.getText().toString();
     }
 
     public void ValidNum(View v){
@@ -64,6 +81,9 @@ public class InscriptionNumSécuActivity extends AppCompatActivity {
     public boolean textOk(){
         if(NumSecu.getText().toString().isEmpty()){
             NumSecu.setError("Vous devez taper un numéro");
+        }
+        else if(NumSecu.getText().toString().length()!=15){
+            NumSecu.setError("Ceci n'est pas un bon numéro !");
             return false;
         }
         NumSecu.setError(null);
