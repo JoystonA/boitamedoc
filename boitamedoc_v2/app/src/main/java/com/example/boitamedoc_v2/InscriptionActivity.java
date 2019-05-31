@@ -6,12 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import com.android.volley.RequestQueue;
-import com.example.boitamedoc_v2.myrequest.MyRequest;
-
-import java.util.Map;
 
 public class InscriptionActivity extends AppCompatActivity {
     private EditText nom;
@@ -24,7 +18,6 @@ public class InscriptionActivity extends AppCompatActivity {
     private Button   ValidButton;
     private RequestQueue queue;
     private MyRequest request;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

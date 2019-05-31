@@ -3,9 +3,7 @@ package com.example.boitamedoc_v2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SwitchCompat;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -70,7 +68,7 @@ public class InscriptionPatientActivity extends AppCompatActivity {
         String Maladie = maladie.getText().toString();
         String NumSecu = numSecu.getText().toString();
         String IsApte = isApte.getText().toString();
-        request.register(Nom, Prenom, Date, Maladie, NumSecu, IsApte);
+        //request.register(Nom, Prenom, Date, Maladie, NumSecu, IsApte);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
