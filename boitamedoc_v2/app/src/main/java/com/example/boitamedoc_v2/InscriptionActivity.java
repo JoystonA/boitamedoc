@@ -4,10 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.example.boitamedoc_v2.myrequest.MyRequest;
+
+import java.util.Map;
 
 public class InscriptionActivity extends AppCompatActivity {
     private EditText nom;
@@ -17,6 +21,7 @@ public class InscriptionActivity extends AppCompatActivity {
     private EditText email;
     private EditText mdp;
     private EditText confirmeMDP;
+    private Button   ValidButton;
     private RequestQueue queue;
     private MyRequest request;
 
@@ -34,6 +39,7 @@ public class InscriptionActivity extends AppCompatActivity {
         email =findViewById(R.id.edit_email);
         mdp =findViewById(R.id.edit_mdp);
         confirmeMDP =findViewById(R.id.edit_confirmeMDP);
+        ValidButton = findViewById(R.id.ValidButton);
 
         queue = VolleySingleton.getInstance(this).getRequestQueue();
         request = new MyRequest(this, queue);
@@ -72,8 +78,8 @@ public class InscriptionActivity extends AppCompatActivity {
                 startActivity(intent);
             }
             else{
-                mdp.setError("Mote de passe différent!");
-                confirmeMDP.setError("Mote de passe différent !");
+                mdp.setError("Mot de passe différent!");
+                confirmeMDP.setError("Mot de passe différent !");
             }
         }
 

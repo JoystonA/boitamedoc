@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.android.volley.RequestQueue;
+import com.example.boitamedoc_v2.myrequest.MyRequest;
+
 public class InscriptionPatientActivity extends AppCompatActivity {
     private EditText nom;
     private EditText prenom;
@@ -17,6 +20,8 @@ public class InscriptionPatientActivity extends AppCompatActivity {
     private EditText maladie;
     private TextView numSecu;
     private Switch isApte;
+    private RequestQueue queue;
+    private MyRequest request;
 
 
     @Override
@@ -27,11 +32,13 @@ public class InscriptionPatientActivity extends AppCompatActivity {
 
         nom = findViewById(R.id.edit_nom);
         prenom = findViewById(R.id.edit_prenom);
-        date =findViewById(R.id.edit_date);
+        date = findViewById(R.id.edit_date);
         maladie = findViewById(R.id.edit_maladie);
         numSecu = findViewById(R.id.edit_secu);
         numSecu.setText("Numéro de sécurité social : "+ getIntent().getStringExtra("numSecu"));
         isApte = findViewById(R.id.switch_apte);
+        queue = VolleySingleton.getInstance(this).getRequestQueue();
+        request = new MyRequest(this, queue);
     }
 
     public void finish(View v){
@@ -57,6 +64,13 @@ public class InscriptionPatientActivity extends AppCompatActivity {
     }
 
     void openMainActivity(){
+        String Nom = nom.getText().toString();
+        String Prenom = prenom.getText().toString();
+        String Date = date.getText().toString();
+        String Maladie = maladie.getText().toString();
+        String NumSecu = numSecu.getText().toString();
+        String IsApte = isApte.getText().toString();
+        request.register(Nom, Prenom, Date, Maladie, NumSecu, IsApte);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
