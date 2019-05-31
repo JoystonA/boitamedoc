@@ -1,21 +1,23 @@
 package com.example.boitamedoc_v2;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
-import static java.lang.Thread.sleep;
+import app.akexorcist.bluetotohspp.library.BluetoothSPP;
+import app.akexorcist.bluetotohspp.library.BluetoothState;
+import app.akexorcist.bluetotohspp.library.DeviceList;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity{
     private SimpleDateFormat d = new SimpleDateFormat ("dd/MM/yyyy" );
     private SimpleDateFormat h = new SimpleDateFormat ("hh:mm");
 
+    //static BluetoothSPP bluetooth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +36,28 @@ public class MainActivity extends AppCompatActivity{
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
-        //textViewPosologie = findViewById(R.id.text_posologie);
-        //String message = textViewPosologie.getText().toString();
-        //recupheure();
         createNotification1();
-        //createNotification2();
         setTitle("BOÎTA'MÉDOC");
+        //App.bluetooth_main.autoConnect("BoitaMedoc");
+        /*bluetooth = new BluetoothSPP(this);
+        if (!bluetooth.isBluetoothAvailable()) {
+            Toast.makeText(getApplicationContext(), "Bluetooth non disponible !", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+        bluetooth.connect("00:06:66:6D:F1:75");
+        bluetooth.setBluetoothConnectionListener(new BluetoothSPP.BluetoothConnectionListener() {
+            public void onDeviceConnected(String name, String address) {
+                Toast.makeText(getApplicationContext(),"Connecté à " + name,Toast.LENGTH_SHORT).show();
+            }
+
+            public void onDeviceDisconnected() {
+                Toast.makeText(getApplicationContext(),"Connexion perdu",Toast.LENGTH_SHORT).show();
+            }
+
+            public void onDeviceConnectionFailed() {
+                Toast.makeText(getApplicationContext(),"Impossible de se connecter",Toast.LENGTH_SHORT).show();
+            }
+        });*/
     }
 
     //Création d'une barre de tâche en bas de l'application avec la redirection vers chaque page.
@@ -122,4 +142,39 @@ public class MainActivity extends AppCompatActivity{
        // NotificationReceiver.cancelNotification(this);
     }
 */
+
+/*
+    public void onStart() {
+        super.onStart();
+        if (!bluetooth.isBluetoothEnabled()) {
+            bluetooth.enable();
+        } else {
+            if (!bluetooth.isServiceAvailable()) {
+                bluetooth.setupService();
+                bluetooth.startService(BluetoothState.DEVICE_OTHER);
+            }
+        }
+    }
+
+
+    public void onDestroy() {
+        super.onDestroy();
+        bluetooth.stopService();
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == BluetoothState.REQUEST_CONNECT_DEVICE) {
+            if (resultCode == Activity.RESULT_OK)
+                bluetooth.connect(data);
+        } else if (requestCode == BluetoothState.REQUEST_ENABLE_BT) {
+            if (resultCode == Activity.RESULT_OK) {
+                bluetooth.setupService();
+            } else {
+                Toast.makeText(getApplicationContext()
+                        , "Bluetooth désactivé !"
+                        , Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }
+    }*/
 }

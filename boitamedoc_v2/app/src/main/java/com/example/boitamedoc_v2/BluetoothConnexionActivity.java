@@ -17,8 +17,7 @@ public class BluetoothConnexionActivity extends AppCompatActivity {
 
     final String ON = "1";
     final String OFF = "0";
-
-    static BluetoothSPP bluetooth;
+    //static BluetoothSPP bluetooth;
 
     Button connect;
     Button on;
@@ -30,21 +29,23 @@ public class BluetoothConnexionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connexion_bluetooth);
 
-        bluetooth = new BluetoothSPP(this);
+        //bluetooth = App.bluetooth_main;
 
         connect = (Button) findViewById(R.id.connect);
         on = (Button) findViewById(R.id.on);
         off = (Button) findViewById(R.id.off);
         accueil = (Button) findViewById(R.id.accueil);
 
-        if (!bluetooth.isBluetoothAvailable()) {
+        if (!App.bluetooth_main.isBluetoothAvailable()) {
             Toast.makeText(getApplicationContext(), "Bluetooth non disponible !", Toast.LENGTH_SHORT).show();
             finish();
         }
 
-        bluetooth.setBluetoothConnectionListener(new BluetoothSPP.BluetoothConnectionListener() {
+        App.bluetooth_main.setBluetoothConnectionListener(new BluetoothSPP.BluetoothConnectionListener() {
             public void onDeviceConnected(String name, String address) {
                 connect.setText("Connecté à " + name);
+                Toast.makeText(getApplicationContext(),"Connecté à " + name,Toast.LENGTH_SHORT).show();
+
             }
 
             public void onDeviceDisconnected() {
@@ -59,26 +60,28 @@ public class BluetoothConnexionActivity extends AppCompatActivity {
         connect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (bluetooth.getServiceState() == BluetoothState.STATE_CONNECTED) {
+                /*if (bluetooth.getServiceState() == BluetoothState.STATE_CONNECTED) {
                     bluetooth.disconnect();
                 } else {
                     Intent intent = new Intent(getApplicationContext(), DeviceList.class);
                     startActivityForResult(intent, BluetoothState.REQUEST_CONNECT_DEVICE);
-                }
+                }*/
+                App.bluetooth_main.autoConnect("BoitaMedoc");
+                boolean connection =App.bluetooth_main.isAutoConnecting();
             }
         });
 
         on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bluetooth.send(ON, true);
+                App.bluetooth_main.send(ON, true);
             }
         });
 
         off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bluetooth.send(OFF, true);
+                App.bluetooth_main.send(OFF, true);
             }
         });
 
@@ -90,17 +93,18 @@ public class BluetoothConnexionActivity extends AppCompatActivity {
                 openAccueil();
             }
         });
-
+        App.bluetooth_main.autoConnect("BoitaMedoc");
+        boolean connection =App.bluetooth_main.isAutoConnecting();
     }
 
     public void onStart() {
         super.onStart();
-        if (!bluetooth.isBluetoothEnabled()) {
-            bluetooth.enable();
+        if (!App.bluetooth_main.isBluetoothEnabled()) {
+            App.bluetooth_main.enable();
         } else {
-            if (!bluetooth.isServiceAvailable()) {
-                bluetooth.setupService();
-                bluetooth.startService(BluetoothState.DEVICE_OTHER);
+            if (!App.bluetooth_main.isServiceAvailable()) {
+                App.bluetooth_main.setupService();
+                App.bluetooth_main.startService(BluetoothState.DEVICE_OTHER);
             }
         }
     }
@@ -108,16 +112,16 @@ public class BluetoothConnexionActivity extends AppCompatActivity {
 
     public void onDestroy() {
         super.onDestroy();
-        bluetooth.stopService();
+        App.bluetooth_main.stopService();
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == BluetoothState.REQUEST_CONNECT_DEVICE) {
             if (resultCode == Activity.RESULT_OK)
-                bluetooth.connect(data);
+                App.bluetooth_main.connect(data);
         } else if (requestCode == BluetoothState.REQUEST_ENABLE_BT) {
             if (resultCode == Activity.RESULT_OK) {
-                bluetooth.setupService();
+                App.bluetooth_main.setupService();
             } else {
                 Toast.makeText(getApplicationContext()
                         , "Bluetooth désactivé !"

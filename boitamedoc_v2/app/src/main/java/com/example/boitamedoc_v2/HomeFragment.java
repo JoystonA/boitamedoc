@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import app.akexorcist.bluetotohspp.library.BluetoothSPP;
+
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
     private Button Case1;
@@ -20,6 +22,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private Button Case6;
     private Button Case7;
     private Button Case8;
+
+    BluetoothSPP bluetooth;
 
     @Nullable
     @Override
@@ -45,6 +49,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Case7.setOnClickListener(this);
         Case8.setOnClickListener(this);
 
+        //bluetooth=MainActivity.bluetooth;
 
         return v;
 
