@@ -25,7 +25,7 @@ public class FaqActivity extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.fragment_faq);
         setTitle("Foire aux Questions");
 
-        //bluetooth=BluetoothConnexionActivity.App.bluetooth_main;
+        bluetooth=App.bluetooth_main;
         on = (Button) findViewById(R.id.on2);
         off = (Button) findViewById(R.id.off2);
 
