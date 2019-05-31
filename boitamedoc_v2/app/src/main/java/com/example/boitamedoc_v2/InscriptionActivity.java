@@ -2,16 +2,15 @@ package com.example.boitamedoc_v2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import com.android.volley.RequestQueue;
-import com.example.boitamedoc_v2.myrequest.MyRequest;
-
-import java.util.Map;
 
 public class InscriptionActivity extends AppCompatActivity {
     private EditText nom;
@@ -22,8 +21,6 @@ public class InscriptionActivity extends AppCompatActivity {
     private EditText mdp;
     private EditText confirmeMDP;
     private Button   ValidButton;
-    private RequestQueue queue;
-    private MyRequest request;
 
 
     @Override

@@ -37,61 +37,62 @@
             <Button
                 android:id="@+id/case1"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="91dp"
                 android:layout_weight="1"
                 android:text="Case 1" />
 
             <Button
                 android:id="@+id/case2"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="91dp"
                 android:layout_weight="1"
                 android:text="Case 2" />
 
             <Button
                 android:id="@+id/case3"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="91dp"
                 android:layout_weight="1"
                 android:text="Case 3" />
 
             <Button
                 android:id="@+id/case4"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="91dp"
                 android:layout_weight="1"
                 android:text="Case 4" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
 
             <Button
                 android:id="@+id/case5"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="91dp"
                 android:layout_weight="1"
                 android:text="Case 5" />
 
             <Button
                 android:id="@+id/case6"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="91dp"
                 android:layout_weight="1"
                 android:text="Case 6" />
 
             <Button
                 android:id="@+id/case7"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="91dp"
                 android:layout_weight="1"
                 android:text="Case 7" />
 
             <Button
                 android:id="@+id/case8"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="91dp"
                 android:layout_weight="1"
                 android:text="Case 8" />
         </TableRow>

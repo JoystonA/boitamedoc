@@ -24,6 +24,10 @@ public class MyRequest {
 
     private Context context;
     private RequestQueue queue;
+    private String url_debut ="https://www.boitamedoc.com/test/";
+    private String[] returnReponse={null,null,null};
+    private boolean attRep;
+
 
     public MyRequest(Context context, RequestQueue queue) {
         this.context = context;
@@ -32,18 +36,18 @@ public class MyRequest {
 
     public void register(final String str_nom, final String str_prenom, final String str_lienPatient, final String str_date, final String str_email, final String str_MDP, final String str_confirmMdp){
 
-        String url = "https://www.boitamedoc.com/connexion/inscription_gestionnaire.php";
-        //String url = "http://127.0.0.1/test/test.php";
+        String url = url_debut + "test.php";
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("APP", response);
+
             }
         }, new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError error){
+            public void onErrorResponse(VolleyError error) {
                 Log.d("APP", "ERROR = " + error);
+
             }
         }){
             @Override
@@ -52,54 +56,66 @@ public class MyRequest {
                 Map<String, String> map = new HashMap<>();
                 map.put("nom", str_nom);
                 map.put("prenom", str_prenom);
-                map.put("lienPatient", str_lienPatient);
+                map.put("lien_patient", str_lienPatient);
                 map.put("date", str_date);
                 map.put("email", str_email);
                 map.put("mdp", str_MDP);
-                map.put("confirmeMDP", str_confirmMdp);
+                map.put("confirme mdp", str_confirmMdp);
 
                 return map;
             }
         };
-
         queue.add(request);
-
     }
 
+    public String[] checkNumSecu(final String numSecu, NumSecuCallback Callback) {
+        String url = url_debut + "CheckNumSecu.php";
+        attRep = false;
+            StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 
-    public void register(final String str_nom, final String str_prenom, final String str_date, final String str_maladie, final String str_numSecu, final String str_apte){
+                @Override
+                public void onResponse(String response) {
 
-        String url = "https://www.boitamedoc.com/connexion/inscription_patient.php";
-        //String url = "http://127.0.0.1/test/test.php";
+                    Log.d("APP", "on Response :" + response);
+                    try {
+                        Log.d("APP", "onResponse:  " + response);
+                    JSONObject json = new JSONObject(response);
+                    boolean connue = json.getBoolean("connue");
+                    if (connue) {
+                        JSONObject message = json.getJSONObject("message");
+                        Callback.onSucces(message.getString("nom"),message.getString("prenom"));
+                    }
+                    else{
+                        Callback.onError("Unknonw");
+                    }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    //Log.d("APP", response);
 
-        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d("APP", response);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error){
-                Log.d("APP", "ERROR = " + error);
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.d("APP", "ERROR = " + error);
 
-                Map<String, String> map = new HashMap<>();
-                map.put("nom", str_nom);
-                map.put("prenom", str_prenom);
-                map.put("date", str_date);
-                map.put("maladie", str_maladie);
-                map.put("numSecu", str_numSecu);
-                map.put("apte", str_apte);
+                }
+            }) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> map = new HashMap<>();
+                    map.put("numSecu", numSecu);
+                    return map;
+                }
+            };
+            queue.add(request);
+            return returnReponse;
+        }
 
-                return map;
-            }
-        };
 
-        queue.add(request);
+        public interface NumSecuCallback{
+        void onSucces(String nom, String prenom);
+        void onError(String message);
 
-    }
-
+        }
 }

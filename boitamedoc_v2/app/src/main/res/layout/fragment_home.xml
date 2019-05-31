@@ -29,7 +29,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="60dp"
-                app:srcCompat="@mipmap/ic_logo_application_foreground" />
+                app:srcCompat="@mipmap/ic_logo_page_home" />
 
         </RelativeLayout>
 
@@ -76,62 +76,66 @@
     </RelativeLayout>
 
     <!--Barre d'information sur la dernière prises de médicament-->
-    <RelativeLayout
-        android:id="@+id/relative_layout_traitement"
+    <ScrollView
+        android:id="@+id/scroll_view_traitement"
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_marginBottom="5dp"
-        android:layout_below="@id/Frame_Principal_Accueil"
-        android:orientation="vertical"
-        android:background="@color/colorBackground">
+        android:layout_below="@id/Frame_Principal_Accueil">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:orientation="vertical"
+            android:background="@color/colorBackground">
 
 
-        <TextView
-            android:id="@+id/traitement_accueil2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:gravity="center_horizontal"
-            android:layout_marginLeft="20px"
-            android:text="@string/traitement_accueil"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/colorFont1"
-            android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/traitement_accueil2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="20px"
+                android:text="@string/traitement_accueil"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorFont1"
+                android:textSize="16sp"/>
 
-        <TextView
-            android:id="@+id/dernier_prise_de_medoc_accueil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:textSize="12sp"
-            android:layout_below="@id/traitement_accueil2"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="30dp"
-            android:textColor="@color/colorFont2"
-            android:text="nbr comprimés de name_medicament / name_periode \nnbr comprimé de name_medicament" />
+            <TextView
+                android:id="@+id/dernier_prise_de_medoc_accueil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                android:layout_below="@id/traitement_accueil2"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/colorFont2"
+                android:text="nbr comprimés de name_medicament / name_periode \nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament" />
 
-        <TextView
-            android:id="@+id/prise_dateheure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/dernier_prise_de_medoc_accueil"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="5dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:text="Prise à heure, le date"
-            android:textColor="@color/colorFont1"
-            android:textSize="12sp" />
+            <TextView
+                android:id="@+id/prise_dateheure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dernier_prise_de_medoc_accueil"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="Prise à heure, le date"
+                android:textColor="@color/colorFont1"
+                android:textSize="12sp" />
 
-    </RelativeLayout>
-
+        </RelativeLayout>
+    </ScrollView>
     <!--Barre d'information sur l'agencement de la boîte-->
     <RelativeLayout
         android:id="@+id/relative_layout_agencement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/relative_layout_traitement"
+        android:layout_below="@id/scroll_view_traitement"
         android:background="@color/colorBackground"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="10dp"
         android:orientation="vertical"
         android:layout_alignParentBottom="true"

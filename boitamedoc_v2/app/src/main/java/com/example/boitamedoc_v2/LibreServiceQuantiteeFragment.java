@@ -43,7 +43,7 @@ public class LibreServiceQuantiteeFragment extends Fragment {
         String quantiteeInput = quantitee.getEditText().getText().toString().trim();
 
         if (quantiteeInput.isEmpty() || quantiteeInput.equals("0")) {
-            quantitee.setError("Rentrer quelque chose! ET QUE DES CHIFFRES");
+            quantitee.setError("Rentrer quelque chose!");
             return false;
         }
         quantitee.setError(null);
