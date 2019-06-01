@@ -36,6 +36,7 @@ public class App extends Application {
         System.out.println("state = " + state2);
         bluetooth_main.connect("00:06:66:6D:F1:75");
 
+
         bluetooth_main.setBluetoothConnectionListener(new BluetoothSPP.BluetoothConnectionListener() {
             public void onDeviceConnected(String name, String address) {
                 Toast.makeText(getApplicationContext(),"Connecté à " + name,Toast.LENGTH_SHORT).show();
@@ -49,6 +50,10 @@ public class App extends Application {
                 Toast.makeText(getApplicationContext(),"Impossible de se connecter",Toast.LENGTH_SHORT).show();
             }
         });
+
+        /*if(bluetooth_main.getState!=3){
+            while(state2!=3){bluetooth_main.connect("00:06:66:6D:F1:75");}
+        }*/
     }
     private void createNotificationChannels(){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
@@ -88,22 +93,6 @@ public class App extends Application {
                 bluetooth_main.startService(BluetoothState.DEVICE_OTHER);
             }
         }
-    }
-
-    public void messageConnexion(){
-        bluetooth_main.setBluetoothConnectionListener(new BluetoothSPP.BluetoothConnectionListener() {
-            public void onDeviceConnected(String name, String address) {
-                Toast.makeText(getApplicationContext(),"Connecté à " + name,Toast.LENGTH_SHORT).show();
-            }
-            public void onDeviceDisconnected()
-            {
-                Toast.makeText(getApplicationContext(),"Connexion perdu",Toast.LENGTH_SHORT).show();
-            }
-
-            public void onDeviceConnectionFailed() {
-                Toast.makeText(getApplicationContext(),"Impossible de se connecter",Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
 }

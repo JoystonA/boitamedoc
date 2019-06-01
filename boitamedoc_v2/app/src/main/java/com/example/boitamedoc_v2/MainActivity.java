@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity{
         navView.setOnNavigationItemSelectedListener(navListener);
         createNotification1();
         setTitle("BOÎTA'MÉDOC");
+
+
         //App.bluetooth_main.autoConnect("BoitaMedoc");
         /*bluetooth = new BluetoothSPP(this);
         if (!bluetooth.isBluetoothAvailable()) {

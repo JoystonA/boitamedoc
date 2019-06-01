@@ -5,12 +5,17 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
+
 
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
@@ -22,8 +27,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private Button Case6;
     private Button Case7;
     private Button Case8;
+    public static TextView Connexion;
 
-    BluetoothSPP bluetooth;
 
     @Nullable
     @Override
@@ -39,6 +44,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Case6 = (Button) v.findViewById(R.id.case6);
         Case7 = (Button) v.findViewById(R.id.case7);
         Case8 = (Button) v.findViewById(R.id.case8);
+        Connexion = (TextView) v.findViewById(R.id.ConnexionBoiteInfo);
 
         Case1.setOnClickListener(this);
         Case2.setOnClickListener(this);
@@ -49,7 +55,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Case7.setOnClickListener(this);
         Case8.setOnClickListener(this);
 
-        //bluetooth=MainActivity.bluetooth;
+
+        if(App.bluetooth_main.getServiceState()==3){Connexion.setText("Boîte Connecté");}
+        else{
+            Connexion.setText("Impossible de se connecter à la boite !");
+            App.bluetooth_main.connect("00:06:66:6D:F1:75");
+            if(App.bluetooth_main.getServiceState()==3){Connexion.setText("Boîte Connecté");}
+            //Connexion.setText("Recherche en cours ...");
+            //Bouton à faire avec la connexion
+            }
 
         return v;
 
@@ -90,4 +104,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         intent = new Intent(getActivity(), InfoCaseActivity.class);
         startActivity(intent);
     }
+
+
+
 }
