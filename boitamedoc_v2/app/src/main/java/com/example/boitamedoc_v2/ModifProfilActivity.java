@@ -60,6 +60,10 @@ public class ModifProfilActivity extends AppCompatActivity {
             date.setError("Le champs est vide");
             return false;
         }
+        if(date_patient.length()!=10){
+            date.setError("La date est invalide");
+            return false;
+        }
         date.setError(null);
         return true;
     }
@@ -76,6 +80,10 @@ public class ModifProfilActivity extends AppCompatActivity {
         String numSecu_patient = numSecu.getText().toString().trim();
         if(numSecu_patient.isEmpty()) {
             numSecu.setError("Le champs est vide");
+            return false;
+        }
+        if(numSecu.length()!=21){
+            numSecu.setError("Le numéro est incorrect");
             return false;
         }
         numSecu.setError(null);

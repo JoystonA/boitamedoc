@@ -46,43 +46,6 @@ public class InscriptionActivity extends AppCompatActivity {
             openInscriptionNumSecuActivity();
         }
     }
-        /*Intent intent;
-        String Nom = nom.getText().toString();
-        String Prenom = prenom.getText().toString();
-        String LienPatient = lienPatient.getText().toString();
-        String Date = date.getText().toString();
-        String Email = email.getText().toString();
-        String MDP = mdp.getText().toString();
-        String ConfirmeMDP = confirmeMDP.getText().toString();
-        if (Nom.isEmpty() | Prenom.isEmpty() | LienPatient.isEmpty() | Date.isEmpty() | Email.isEmpty() | MDP.isEmpty() | ConfirmeMDP.isEmpty()) {
-            nom.setError("Rentrer quelque chose.");
-            prenom.setError("Rentrer quelque chose.");
-            lienPatient.setError("Rentrer quelque chose.");
-            date.setError("Rentrer quelque chose.");
-            email.setError("Rentrer quelque chose.");
-            mdp.setError("Rentrer quelque chose.");
-            confirmeMDP.setError("Rentrer quelque chose.");
-        }
-        else{
-            nom.setError(null);
-            prenom.setError(null);
-            lienPatient.setError(null);
-            date.setError(null);
-            email.setError(null);
-            mdp.setError(null);
-            confirmeMDP.setError(null);
-
-            if(MDP.equals(ConfirmeMDP)) {
-                intent = new Intent(this, InscriptionNumSécuActivity.class);
-                startActivity(intent);
-            }
-            else{
-                mdp.setError("Mote de passe différent!");
-                confirmeMDP.setError("Mote de passe différent !");
-            }
-
-
-    }*/
 
     public boolean nomisOk() {
         String nom_gestionnaire = nom.getText().toString().trim();
@@ -115,6 +78,10 @@ public class InscriptionActivity extends AppCompatActivity {
         String date_gestionnaire = date.getText().toString().trim();
         if(date_gestionnaire.isEmpty()) {
             date.setError("Le champs est vide");
+            return false;
+        }
+        if(date_gestionnaire.length()!=10){
+            date.setError("La date est invalide");
             return false;
         }
         date.setError(null);

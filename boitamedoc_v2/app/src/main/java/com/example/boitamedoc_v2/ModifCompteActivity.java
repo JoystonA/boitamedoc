@@ -78,6 +78,10 @@ public class ModifCompteActivity extends AppCompatActivity {
             date.setError("Le champs est vide");
             return false;
         }
+        if(date_gestionnaire.length()!=10){
+            date.setError("La date est invalide");
+            return false;
+        }
         date.setError(null);
         return true;
     }

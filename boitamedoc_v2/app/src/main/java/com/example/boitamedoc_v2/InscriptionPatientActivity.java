@@ -64,6 +64,10 @@ public class InscriptionPatientActivity extends AppCompatActivity {
             date.setError("Le champs est vide");
             return false;
         }
+        if(date_patient.length()!=10){
+            date.setError("La date est invalide");
+            return false;
+        }
         date.setError(null);
         return true;
     }

@@ -52,6 +52,7 @@ public class TraitementModificationFragment extends Fragment {
                 if(nbrMedocMatinIsOk()|nbrMedocMidiIsOk()|nbrMedocSoirIsOk()|nomMedecinIsOk()|dateDebutIsOk()|dateFinIsOk()){
                     // ICI FAUT FAIRE EN SORTE DE CREER UNE FONCTION QUI ASK LA BDD //
                     String nbrMedocInput_matin = nbre_medoc_modification_matin.getEditText().getText().toString().trim();
+
                 }
                 return;
             }

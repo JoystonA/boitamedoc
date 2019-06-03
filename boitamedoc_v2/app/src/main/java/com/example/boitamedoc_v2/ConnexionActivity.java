@@ -31,6 +31,7 @@ public class ConnexionActivity extends AppCompatActivity {
                 if(identifiant.getText().toString().equals("admin")&&motDePasse.getText().toString().equals("admin")){
                     Toast.makeText(getApplicationContext(),"Chargement en cours...",Toast.LENGTH_SHORT).show();
                     openApplication();
+                    ConnexionActivity.this.finish();
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Identifiant ou mot de passe erroné !",Toast.LENGTH_SHORT).show();

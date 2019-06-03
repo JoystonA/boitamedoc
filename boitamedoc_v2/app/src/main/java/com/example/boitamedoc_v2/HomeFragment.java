@@ -126,7 +126,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                         se_connecter_bluetooth();
 
                     }
-                }, 5000);
+                }, 3000);
             }
         });
     }

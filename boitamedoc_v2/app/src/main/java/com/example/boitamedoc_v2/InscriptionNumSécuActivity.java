@@ -47,7 +47,6 @@ public class InscriptionNumSécuActivity extends AppCompatActivity {
             }
         });
 
-        String num = NumSecu.getText().toString();
     }
 
     public void ValidNum(View v){
@@ -62,8 +61,13 @@ public class InscriptionNumSécuActivity extends AppCompatActivity {
     }
 
     public boolean textOk(){
-        if(NumSecu.getText().toString().isEmpty()){
+        String numSecu = NumSecu.getText().toString();
+        if(numSecu.isEmpty()){
             NumSecu.setError("Vous devez taper un numéro");
+            return false;
+        }
+        if(numSecu.length()!=21){
+            NumSecu.setError("Le numéro est incorrect");
             return false;
         }
         NumSecu.setError(null);
