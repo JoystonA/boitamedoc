@@ -76,9 +76,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View V) {
         switch (V.getId()) {
-            case R.id.ConnexionBoiteInfo:
-                se_connecter_bluetooth();
-                break;
             case R.id.case1:
                 openInfoCase();
                 break;

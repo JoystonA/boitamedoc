@@ -2,12 +2,20 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/swipelayout"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <!--
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <RelativeLayout
         android:id="@+id/name_legende_connexion_boite"
         android:layout_width="match_parent"
@@ -29,281 +37,266 @@
     </RelativeLayout>
 
 
--->
     <!--Barre d'accueil avec le nom du gestionnaire, patient et le logo-->
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-   <android.support.v4.widget.SwipeRefreshLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent">
-        <RelativeLayout
+
+    <RelativeLayout
         android:id="@+id/Frame_Principal_Accueil"
+        android:layout_below="@id/name_legende_connexion_boite"
         android:layout_width="wrap_content"
-        android:layout_height="150dp"
+        android:layout_height="140dp"
         android:gravity="center">
 
-        <TextView
-            android:id="@+id/ConnexionBoiteInfo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center_horizontal"
-            android:text="@string/boite_connexion"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/colorFont2"
-            android:textSize="12sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                    <RelativeLayout
+                    android:id="@+id/Frame_Layout_Logo"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="210dp"
+                    android:layout_marginTop="0dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
-            android:id="@+id/Frame_Layout_Logo"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginLeft="210dp"
-            android:layout_marginTop="0dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="60dp"
+                        app:srcCompat="@mipmap/ic_logo_page_home" />
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="60dp"
-                app:srcCompat="@mipmap/ic_logo_page_home" />
+                </RelativeLayout>
 
-        </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/Frame_Layout_Bienvenue"
+                    android:layout_width="200dp"
+                    android:layout_height="75dp">
 
-        <RelativeLayout
-            android:id="@+id/Frame_Layout_Bienvenue"
-            android:layout_width="200dp"
-            android:layout_height="75dp">
+                    <TextView
+                        android:id="@+id/Name_User"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="sans-serif-condensed-medium"
+                        android:gravity="bottom|center"
+                        android:text="@string/name_gestionnaire"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textColor="@color/colorFont1"
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/Name_User"
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="75dp"
+                    android:layout_alignEnd="@id/Frame_Layout_Bienvenue"
+                    android:layout_marginTop="75dp">
+
+                    <TextView
+                        android:id="@+id/Name_Patient"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center_horizontal"
+                        android:text="@string/name_patient"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textColor="@color/colorFont1"
+                        android:textSize="12sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        <!--Barre d'information sur la dernière prises de médicament-->
+            <RelativeLayout
+                android:id="@+id/dernier_prise_de_medoc_accueil_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:gravity="bottom|center"
-                android:text="@string/name_gestionnaire"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/colorFont1"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="130dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                android:background="@color/colorBackground"
+                android:layout_below="@id/Frame_Principal_Accueil">
 
-        </RelativeLayout>
 
+                <TextView
+                    android:id="@+id/traitement_accueil2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:gravity="center_horizontal"
+                    android:layout_marginLeft="20px"
+                    android:text="@string/traitement_accueil"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorFont1"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/dernier_prise_de_medoc_accueil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="12sp"
+                    android:layout_below="@id/traitement_accueil2"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="@color/colorFont2"
+                    android:text="nbr comprimés de name_medicament / name_periode \nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\n" />
+
+                <TextView
+                    android:id="@+id/prise_dateheure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dernier_prise_de_medoc_accueil"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="Prise à heure, le date"
+                    android:textColor="@color/colorFont1"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+
+        <!--Barre d'information sur l'agencement de la boîte-->
         <RelativeLayout
-            android:layout_width="200dp"
-            android:layout_height="75dp"
-            android:layout_alignEnd="@id/Frame_Layout_Bienvenue"
-            android:layout_marginTop="75dp">
-
-            <TextView
-                android:id="@+id/Name_Patient"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center_horizontal"
-                android:text="@string/name_patient"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/colorFont1"
-                android:textSize="12sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </RelativeLayout>
-        </RelativeLayout>
-   </android.support.v4.widget.SwipeRefreshLayout>
-    <!--Barre d'information sur la dernière prises de médicament-->
-    <ScrollView
-        android:id="@+id/scroll_view_traitement"
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_marginBottom="5dp"
-        android:layout_below="@id/Frame_Layout_Logo">
-        <RelativeLayout
+            android:id="@+id/relative_layout_agencement"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:orientation="vertical"
-            android:background="@color/colorBackground">
-
-
-            <TextView
-                android:id="@+id/traitement_accueil2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:gravity="center_horizontal"
-                android:layout_marginLeft="20px"
-                android:text="@string/traitement_accueil"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/colorFont1"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:id="@+id/dernier_prise_de_medoc_accueil"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:textSize="12sp"
-                android:layout_below="@id/traitement_accueil2"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:textColor="@color/colorFont2"
-                android:text="nbr comprimés de name_medicament / name_periode \nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament\nnbr comprimé de name_medicament" />
-
-            <TextView
-                android:id="@+id/prise_dateheure"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/dernier_prise_de_medoc_accueil"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:text="Prise à heure, le date"
-                android:textColor="@color/colorFont1"
-                android:textSize="12sp" />
-
-        </RelativeLayout>
-    </ScrollView>
-
-    <!--Barre d'information sur l'agencement de la boîte-->
-    <RelativeLayout
-        android:id="@+id/relative_layout_agencement"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/scroll_view_traitement"
-        android:background="@color/colorBackground"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true">
-
-        <TextView
-            android:id="@+id/agencement_boite_accueil"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:layout_marginLeft="20px"
-            android:text="@string/agencement_boite_name_accueil"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/colorFont1"
-            android:textSize="16sp" />
-
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginBottom="0dp"
+            android:layout_below="@id/dernier_prise_de_medoc_accueil_layout"
+            android:background="@color/colorBackground"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true">
 
-            <TableRow
-                android:id="@+id/tableRow1"
+            <TextView
+                android:id="@+id/agencement_boite_accueil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:padding="5dip"
+                android:layout_alignParentStart="true"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:layout_marginLeft="20px"
+                android:text="@string/agencement_boite_name_accueil"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorFont1"
+                android:textSize="16sp" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginBottom="0dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true">
 
-                <Button
-                    android:id="@+id/case1"
-                    android:layout_width="0dp"
-                    android:layout_height="91dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
+                <TableRow
+                    android:id="@+id/tableRow1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:padding="5dip"
                     android:layout_alignParentBottom="true"
-                    android:layout_weight="1"
-                    android:text="Case 1" />
+                    android:layout_alignParentEnd="true">
 
-                <Button
-                    android:id="@+id/case2"
-                    android:layout_width="0dp"
-                    android:layout_height="91dp"
-                    android:layout_toEndOf="@+id/case1"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_weight="1"
-                    android:text="Case 2" />
+                    <Button
+                        android:id="@+id/case1"
+                        android:layout_width="0dp"
+                        android:layout_height="91dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_weight="1"
+                        android:text="Case 1" />
 
-                <Button
-                    android:id="@+id/case3"
-                    android:layout_width="0dp"
-                    android:layout_height="91dp"
-                    android:layout_toEndOf="@+id/case2"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_weight="1"
-                    android:text="Case 3" />
+                    <Button
+                        android:id="@+id/case2"
+                        android:layout_width="0dp"
+                        android:layout_height="91dp"
+                        android:layout_toEndOf="@+id/case1"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_weight="1"
+                        android:text="Case 2" />
 
-                <Button
-                    android:id="@+id/case4"
-                    android:layout_width="0dp"
-                    android:layout_height="91dp"
-                    android:layout_toEndOf="@+id/case3"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_weight="1"
-                    android:text="Case 4" />
-            </TableRow>
+                    <Button
+                        android:id="@+id/case3"
+                        android:layout_width="0dp"
+                        android:layout_height="91dp"
+                        android:layout_toEndOf="@+id/case2"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_weight="1"
+                        android:text="Case 3" />
 
-            <TableRow
-                android:id="@+id/tableRow2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="5dip">
+                    <Button
+                        android:id="@+id/case4"
+                        android:layout_width="0dp"
+                        android:layout_height="91dp"
+                        android:layout_toEndOf="@+id/case3"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_weight="1"
+                        android:text="Case 4" />
+                </TableRow>
 
-                <Button
-                    android:id="@+id/case5"
-                    android:layout_width="0dp"
-                    android:layout_height="91dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_weight="1"
-                    android:text="Case 5" />
+                <TableRow
+                    android:id="@+id/tableRow2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dip">
 
-                <Button
-                    android:id="@+id/case6"
-                    android:layout_width="0dp"
-                    android:layout_height="91dp"
-                    android:layout_toEndOf="@+id/case1"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_weight="1"
-                    android:text="Case 6" />
+                    <Button
+                        android:id="@+id/case5"
+                        android:layout_width="0dp"
+                        android:layout_height="91dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_weight="1"
+                        android:text="Case 5" />
 
-                <Button
-                    android:id="@+id/case7"
-                    android:layout_width="0dp"
-                    android:layout_height="91dp"
-                    android:layout_toEndOf="@+id/case2"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_weight="1"
-                    android:text="Case 7" />
+                    <Button
+                        android:id="@+id/case6"
+                        android:layout_width="0dp"
+                        android:layout_height="91dp"
+                        android:layout_toEndOf="@+id/case1"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_weight="1"
+                        android:text="Case 6" />
 
-                <Button
-                    android:id="@+id/case8"
-                    android:layout_width="0dp"
-                    android:layout_height="91dp"
-                    android:layout_toEndOf="@+id/case3"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_weight="1"
-                    android:text="Case 8" />
-            </TableRow>
-        </TableLayout>
+                    <Button
+                        android:id="@+id/case7"
+                        android:layout_width="0dp"
+                        android:layout_height="91dp"
+                        android:layout_toEndOf="@+id/case2"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_weight="1"
+                        android:text="Case 7" />
 
+                    <Button
+                        android:id="@+id/case8"
+                        android:layout_width="0dp"
+                        android:layout_height="91dp"
+                        android:layout_toEndOf="@+id/case3"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_weight="1"
+                        android:text="Case 8" />
+                </TableRow>
+            </TableLayout>
+
+
+        </RelativeLayout>
 
     </RelativeLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 </RelativeLayout>
