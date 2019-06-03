@@ -21,8 +21,8 @@
             android:id="@+id/edit_nom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Nom" />
+            android:hint="Nom"
+            android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -37,8 +37,8 @@
             android:id="@+id/edit_prenom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Prénom" />
+            android:hint="Prénom"
+            android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -46,12 +46,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true">
+
         <android.support.design.widget.TextInputEditText
             android:id="@+id/edit_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"
-            android:hint="Date de naissance" />
+            android:hint="Date de naissance"
+            android:inputType="date" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -59,12 +60,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true">
+
         <android.support.design.widget.TextInputEditText
             android:id="@+id/edit_maladie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Maladie" />
+            android:hint="Maladie"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Numéro Sécurité Social :"
+            android:textSize="18sp" />
     </android.support.design.widget.TextInputLayout>
 
     <TextView
@@ -77,9 +87,9 @@
         android:id="@+id/switch_apte"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:textSize="18dp"
         android:text="Apte"
-        android:textColor="@color/colorFont2"/>
+        android:textColor="@color/colorFont2"
+        android:textSize="18dp" />
 
     <Button
         android:id="@+id/ValidButton"

@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.android.volley.RequestQueue;
+import com.example.boitamedoc_v2.myrequest.MyRequest;
+
 public class InscriptionActivity extends AppCompatActivity {
     private EditText nom;
     private EditText prenom;
@@ -66,9 +69,9 @@ public class InscriptionActivity extends AppCompatActivity {
             confirmeMDP.setError(null);
 
             if(MDP.equals(ConfirmeMDP)) {
-                request.register(Nom, Prenom, LienPatient, Date, Email, MDP, ConfirmeMDP);
                 intent = new Intent(this, InscriptionNumSécuActivity.class);
                 startActivity(intent);
+                request.registerGestionnaire(Nom, Prenom, LienPatient, Date, Email, MDP, ConfirmeMDP);
             }
             else{
                 mdp.setError("Mot de passe différent!");

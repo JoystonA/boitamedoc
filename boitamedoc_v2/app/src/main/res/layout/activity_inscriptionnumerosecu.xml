@@ -19,8 +19,8 @@
             android:id="@+id/textedit_numSecu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberSigned"
-            android:hint="Numéro de Sécurité social" />
+            android:hint="Numéro de Sécurité social"
+            android:inputType="numberSigned" />
     </android.support.design.widget.TextInputLayout>
 
     <TextView
@@ -28,10 +28,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edit_numSecu"
-        android:textAlignment="center"
-        android:textSize="18dp"
         android:layout_marginTop="149dp"
-        android:text="Veuillez rentrer le numéro de Sécurité Social" />
+        android:text="Veuillez rentrer le numéro de Sécurité Social"
+        android:textAlignment="center"
+        android:textSize="18dp" />
 
     <Button
         android:id="@+id/ValidNumButton"

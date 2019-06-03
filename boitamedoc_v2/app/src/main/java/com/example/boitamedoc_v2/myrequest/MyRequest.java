@@ -22,7 +22,7 @@ public class MyRequest {
 
     private Context context;
     private RequestQueue queue;
-    private String url_debut ="https://www.boitamedoc.com/test/";
+    private String url_debut ="https://www.boitamedoc.com/connexion/";
     private String[] returnReponse={null,null,null};
     private boolean attRep;
 
@@ -32,14 +32,14 @@ public class MyRequest {
         this.queue = queue;
     }
 
-    public void register(final String str_nom, final String str_prenom, final String str_lienPatient, final String str_date, final String str_email, final String str_MDP, final String str_confirmMdp){
+    public void registerGestionnaire(final String str_nom, final String str_prenom, final String str_lienPatient, final String str_date, final String str_email, final String str_MDP, final String str_confirmMdp){
 
         String url = url_debut + "inscription_gestionnaire.php";
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("APP", "onResponse: "+response) ;
+                Log.d("APP", "onResponse: " + response) ;
             }
         }, new Response.ErrorListener() {
             @Override
@@ -54,17 +54,51 @@ public class MyRequest {
                 Map<String, String> map = new HashMap<>();
                 map.put("nom", str_nom);
                 map.put("prenom", str_prenom);
-                map.put("lien_patient", str_lienPatient);
+                map.put("lienPatient", str_lienPatient);
                 map.put("date", str_date);
                 map.put("email", str_email);
                 map.put("mdp", str_MDP);
-                map.put("confirme mdp", str_confirmMdp);
+                map.put("confirmeMDP", str_confirmMdp);
 
                 return map;
             }
         };
         queue.add(request);
     }
+
+    public void registerPatient(final String str_nom, final String str_prenom, final String str_date, final String str_maladie, final String str_num_secu, final String str_apte){
+
+        String url = url_debut + "inscription_patient.php";
+
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("APP", "onResponse: " + response) ;
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> map = new HashMap<>();
+                map.put("nom", str_nom);
+                map.put("prenom", str_prenom);
+                map.put("date", str_date);
+                map.put("maladie", str_maladie);
+                map.put("numSecu", str_num_secu);
+                map.put("apte", str_apte);
+
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
 
     public String[] checkNumSecu(final String numSecu, NumSecuCallback Callback) {
         String url = url_debut + "CheckNumSecu.php";
