@@ -39,6 +39,7 @@ public class FaqActivity extends AppCompatActivity implements View.OnClickListen
         switch (v.getId()) {
             case R.id.on2:
                 bluetooth.send(ON, true);
+                bluetooth.send("2 comprimés de Doliprane | CASE 1", true);
                 break;
 
             case R.id.off2:
