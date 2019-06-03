@@ -2,9 +2,11 @@ package com.example.boitamedoc_v2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -27,7 +29,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private Button Case6;
     private Button Case7;
     private Button Case8;
-    public static TextView Connexion;
+    private TextView Connexion;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
 
     @Nullable
@@ -45,6 +48,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Case7 = (Button) v.findViewById(R.id.case7);
         Case8 = (Button) v.findViewById(R.id.case8);
         Connexion = (TextView) v.findViewById(R.id.ConnexionBoiteInfo);
+        swipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.swipelayout);
 
         Case1.setOnClickListener(this);
         Case2.setOnClickListener(this);
@@ -56,14 +60,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Case8.setOnClickListener(this);
 
 
-        if(App.bluetooth_main.getServiceState()==3){Connexion.setText("Boîte Connecté");}
-        else{
+        if (App.bluetooth_main.getServiceState() == 3) {
+            Connexion.setText("Boîte Connecté");
+            swipe_null();
+        }
+        else {
             Connexion.setText("Impossible de se connecter à la boite !");
-            App.bluetooth_main.connect("00:06:66:6D:F1:75");
-            if(App.bluetooth_main.getServiceState()==3){Connexion.setText("Boîte Connecté");}
-            //Connexion.setText("Recherche en cours ...");
-            //Bouton à faire avec la connexion
-            }
+            swipe_connexion();
+        }
 
         return v;
 
@@ -72,6 +76,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View V) {
         switch (V.getId()) {
+            case R.id.ConnexionBoiteInfo:
+                se_connecter_bluetooth();
+                break;
             case R.id.case1:
                 openInfoCase();
                 break;
@@ -105,6 +112,53 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         startActivity(intent);
     }
 
+    public void swipe_connexion(){
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(true);
+                (new Handler()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+
+                        int min = 65;
+                        int max = 95;
 
 
+                        se_connecter_bluetooth();
+
+                    }
+                }, 5000);
+            }
+        });
+    }
+
+    public void swipe_null(){
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(true);
+                (new Handler()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+
+                        int min = 65;
+                        int max = 95;
+
+                        Connexion.setText("Boîte Connecté");
+                    }
+                }, 100);
+            }
+        });
+    }
+
+    public void se_connecter_bluetooth() {
+        Connexion.setText("Recherche en cours ...");
+        App.bluetooth_main.connect("00:06:66:6D:F1:75");
+        if (App.bluetooth_main.getServiceState() == 3) {
+            Connexion.setText("Boîte Connecté");
+        }
+    }
 }

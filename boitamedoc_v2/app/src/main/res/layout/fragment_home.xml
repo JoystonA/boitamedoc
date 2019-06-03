@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipelayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+    <!--
     <RelativeLayout
         android:id="@+id/name_legende_connexion_boite"
         android:layout_width="match_parent"
@@ -26,14 +29,32 @@
     </RelativeLayout>
 
 
-
+-->
     <!--Barre d'accueil avec le nom du gestionnaire, patient et le logo-->
-    <RelativeLayout
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+   <android.support.v4.widget.SwipeRefreshLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+        <RelativeLayout
         android:id="@+id/Frame_Principal_Accueil"
         android:layout_width="wrap_content"
         android:layout_height="150dp"
-        android:gravity="center"
-        android:layout_below="@id/name_legende_connexion_boite">
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/ConnexionBoiteInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_horizontal"
+            android:text="@string/boite_connexion"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorFont2"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <RelativeLayout
             android:id="@+id/Frame_Layout_Logo"
@@ -95,15 +116,15 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         </RelativeLayout>
-    </RelativeLayout>
-
+        </RelativeLayout>
+   </android.support.v4.widget.SwipeRefreshLayout>
     <!--Barre d'information sur la dernière prises de médicament-->
     <ScrollView
         android:id="@+id/scroll_view_traitement"
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_marginBottom="5dp"
-        android:layout_below="@id/Frame_Principal_Accueil">
+        android:layout_below="@id/Frame_Layout_Logo">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="130dp"
@@ -150,6 +171,7 @@
 
         </RelativeLayout>
     </ScrollView>
+
     <!--Barre d'information sur l'agencement de la boîte-->
     <RelativeLayout
         android:id="@+id/relative_layout_agencement"
