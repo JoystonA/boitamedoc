@@ -37,4 +37,26 @@
     <string name="legende_medicament">Médicament</string>
 
 
+    <!--FAQ-->
+    <string name="legende_foire_aux_questions">FOIRE AUX QUESTIONS</string>
+    <string name="faq_1">Doit-on avoir un compte personnel pour utiliser l\'application Boita\'Médoc?</string>
+    <string name="faq_1_reponse">Oui</string>
+    <string name="faq_2">Que permet de faire l\'application Boîta\'Médoc précisément ?</string>
+    <string name="faq_2_reponse">Notre application Boîta\'Médoc permet de suivre un traitement médical sans oubli et sans se tromper de médicament.</string>
+    <string name="faq_3">Comment fonctionne l\'application Boîta\'Médoc ?</string>
+    <string name="faq_3_reponse">Il suffit d\'ouvrir la page traitement afin de rentrer les traitements principaux puis d\'aller sur la boîte afin de l\'agencer en y mettant les médicaments suivants les explications décrites.</string>
+    <string name="faq_4">A quel type de personne est destinée cette boîte de médicament ?</string>
+    <string name="faq_4_reponse">Elle est destinée à tous types de personnes qui a un traitement médicamenteux. Généralement, plus on vieillit, plus nous serions contraint à prendre des médicaments.</string>
+    <string name="faq_5">Combien de traitement puis-je mettre dans l\'application ?</string>
+    <string name="faq_5_reponse">Au maximum, vous pourrez agencer huit différents traitements d\'un médicament.</string>
+    <string name="faq_6">Peut-on avoir le nombre de comprimés au niveau de l\'application ?</string>
+    <string name="faq_6_reponse">Oui, cela est faisable. Il faut simplement se rendre sur la page Boîte pour découvrir cela !</string>
+    <string name="faq_7">Peut-on ouvrir un compartiment sans qu\'on ait un traitement ?</string>
+    <string name="faq_7_reponse">Oui, grâce à la page Libre-Service.</string>
+    <string name="faq_8">Vos données personnelles sont-ils partager à des entreprises tierces ?</string>
+    <string name="faq_8_reponse">Non, du tout. Toutes les informations que vous rentrez au sein de l\'application reste uniquement chez Boîta\'Medoc, sur nos serveurs sécurisés.</string>
+    <string name="faq_9">Y-a-t-il un abonnement à souscrire pour profiter de notre application ?</string>
+    <string name="faq_9_reponse">Non, du moment que vous aurez acheté la boîte de médicament, vous pourrez profiter pleinement de l\'application Boîta\'Médoc.</string>
+
+
 </resources>
