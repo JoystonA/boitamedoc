@@ -12,6 +12,9 @@ import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,14 +35,60 @@ public class MyRequest {
         this.queue = queue;
     }
 
-    public void register(final String str_nom, final String str_prenom, final String str_lienPatient, final String str_date, final String str_email, final String str_MDP, final String str_confirmMdp){
+    public void register(final String str_nom, final String str_prenom, final String str_lienPatient, final String str_date, final String str_email, final String str_MDP, final String str_confirmMdp, InscripGerantCallback callback){
 
         String url = url_debut + "inscription_gestionnaire.php";
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("APP", "onResponse: "+response) ;
+                boolean errors[]={false,false,false};
+                if(response!=null){
+                    Log.d("APP", "onResponse: "+response) ;
+                }
+
+                try {
+                    JSONObject reponse = new JSONObject(response);
+                    boolean error = reponse.getBoolean("error");
+                    if(error){
+                        try {
+                            JSONObject message = reponse.getJSONObject("message");
+                            try {
+                                if (!message.getString("nom").equals(null)){
+                                    errors[0] = true;
+                                }
+                            }
+                            catch (Exception e){
+                            }
+                            try {
+                                if (!message.getString("prenom").equals(null)){
+                                    errors[1] = true;
+                                }
+                            }
+                            catch (Exception e){
+                            }
+                            try {
+                                if (!message.getString("email").equals(null)){
+                                    errors[2] = true;
+                                }
+                            }
+                            catch (Exception e){
+                            }
+                        }
+                        catch (Exception e){
+
+                        }// Try get Message
+                        callback.onError(errors);
+                    }
+                    else{
+                        callback.onSucces("Ca a marché");
+                    }
+                }
+                catch(Exception e){
+
+                }// TRY get JSON RESPONSE
+
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -52,14 +101,23 @@ public class MyRequest {
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 Map<String, String> map = new HashMap<>();
+                String date_ok =str_date;
                 map.put("nom", str_nom);
                 map.put("prenom", str_prenom);
                 map.put("lien_patient", str_lienPatient);
-                map.put("date", str_date);
                 map.put("email", str_email);
                 map.put("mdp", str_MDP);
-                map.put("confirme mdp", str_confirmMdp);
-
+                map.put("confirmeMDP", str_confirmMdp);
+                SimpleDateFormat tempo = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    Date d = tempo.parse(str_date);
+                    tempo.applyPattern("yyyy/MM/dd");
+                    date_ok = tempo.format(d);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                Log.d("APP", "getParams: " + date_ok);
+                map.put("date", date_ok);
                 return map;
             }
         };
@@ -114,6 +172,10 @@ public class MyRequest {
         public interface NumSecuCallback{
         void onSucces(String nom, String prenom);
         void onError(String message);
-
         }
+
+    public interface InscripGerantCallback{
+        void onSucces(String message);
+        void onError(boolean errors[]);
+    }
 }

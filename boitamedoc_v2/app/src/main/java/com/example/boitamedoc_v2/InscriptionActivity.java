@@ -67,11 +67,29 @@ public class InscriptionActivity extends AppCompatActivity {
             email.setError(null);
             mdp.setError(null);
             confirmeMDP.setError(null);
+            intent = new Intent(this, InscriptionNumSécuActivity.class);
 
             if(MDP.equals(ConfirmeMDP)) {
-                request.register(Nom, Prenom, LienPatient, Date, Email, MDP, ConfirmeMDP);
-                intent = new Intent(this, InscriptionNumSécuActivity.class);
-                startActivity(intent);
+                request.register(Nom, Prenom, LienPatient, Date, Email, MDP, ConfirmeMDP,new MyRequest.InscripGerantCallback(){
+                    @Override
+                    public void onSucces(String message) {
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onError(boolean errors[]) {
+                        if(errors[0]) {
+                            nom.setError("Nom Incorrecte");
+                        }
+                        if(errors[1]) {
+                            prenom.setError("Prneom Incorrecte");
+                        }
+                        if(errors[2]) {
+                            email.setError("Email Incorrecte");
+                        }
+                    }
+                });
+
             }
             else{
                 mdp.setError("Mot de passe différent!");

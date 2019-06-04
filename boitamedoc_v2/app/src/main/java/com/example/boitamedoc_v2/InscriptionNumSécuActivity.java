@@ -33,39 +33,39 @@ public class InscriptionNumSécuActivity extends AppCompatActivity {
         Button Button = findViewById(R.id.ValidNumButton);
         textPatient = findViewById(R.id.textPatient);
         NumSecu.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+        }
 
-            @Override
-            public void afterTextChanged(Editable s) {
-                textPatient.setText("Veuillez rentrer un numéro");
-                isKnown = false;
-                Button.setEnabled(false);
-                if(NumSecu.getText().toString().length()==15) {
-                        String[] retour  = request.checkNumSecu(NumSecu.getText().toString().trim(), new MyRequest.NumSecuCallback() {
-                            @Override
-                            public void onSucces(String nom, String prenom) {
-                                textPatient.setText(nom + " " + prenom);
-                                Button.setEnabled(true);
-                                isKnown=true;
-                            }
-
-                            @Override
-                            public void onError(String message) {
-                                textPatient.setText("Pas connue dans la base de donnée");
-                                Button.setEnabled(true);
-                            }
-                        });
+        @Override
+        public void afterTextChanged(Editable s) {
+            textPatient.setText("Veuillez rentrer un numéro");
+            isKnown = false;
+            Button.setEnabled(false);
+            if(NumSecu.getText().toString().length()==15) {
+                request.checkNumSecu(NumSecu.getText().toString().trim(), new MyRequest.NumSecuCallback() {
+                    @Override
+                    public void onSucces(String nom, String prenom) {
+                        textPatient.setText(nom + " " + prenom);
+                        Button.setEnabled(true);
+                        isKnown=true;
                     }
 
+                    @Override
+                    public void onError(String message) {
+                        textPatient.setText("Pas connue dans la base de donnée");
+                        Button.setEnabled(true);
+                    }
+                });
             }
-        });
-    }
+
+        }
+    });
+}
 
     public void ValidNum(View v){
         if(textOk()) {
