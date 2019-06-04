@@ -99,6 +99,36 @@ public class MyRequest {
         queue.add(request);
     }
 
+    public void connexion(String email, String mdp){
+
+        String url = url_debut + "connexion.php";
+
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("APP", "onResponse: " + response) ;
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> map = new HashMap<>();
+                map.put("email", email);
+                map.put("mdp", mdp);
+
+                return map;
+            }
+        };
+        queue.add(request);
+
+    }
+
 
     public String[] checkNumSecu(final String numSecu, NumSecuCallback Callback) {
         String url = url_debut + "CheckNumSecu.php";
