@@ -72,7 +72,7 @@ public class InscriptionActivity extends AppCompatActivity {
             if(MDP.equals(ConfirmeMDP)) {
                 request.register(Nom, Prenom, LienPatient, Date, Email, MDP, ConfirmeMDP,new MyRequest.InscripGerantCallback(){
                     @Override
-                    public void onSucces(String message) {
+                    public void onSucces(int message) {
                         startActivity(intent);
                     }
 

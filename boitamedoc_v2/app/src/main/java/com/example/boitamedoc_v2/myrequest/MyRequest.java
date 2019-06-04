@@ -18,6 +18,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.example.boitamedoc_v2.App.id_gestionnaire;
+
 /**
  * Created by ipsaous on 25/09/2015.
  */
@@ -49,10 +51,13 @@ public class MyRequest {
 
                 try {
                     JSONObject reponse = new JSONObject(response);
+                    JSONObject message = reponse.getJSONObject("message");
+                    id_gestionnaire =  Integer.parseInt(message.getString("ID"));
+                    Log.d("APP", "onResponse: " + id_gestionnaire);
                     boolean error = reponse.getBoolean("error");
                     if(error){
                         try {
-                            JSONObject message = reponse.getJSONObject("message");
+
                             try {
                                 if (!message.getString("nom").equals(null)){
                                     errors[0] = true;
@@ -76,12 +81,13 @@ public class MyRequest {
                             }
                         }
                         catch (Exception e){
-
+                            Log.d("APP", "onResponse: "+ e.getMessage());
                         }// Try get Message
                         callback.onError(errors);
                     }
                     else{
-                        callback.onSucces("Ca a marché");
+                        Log.d("APP", "onResponse all pass: " + id_gestionnaire);
+                        if(id_gestionnaire != Integer.MAX_VALUE)callback.onSucces(id_gestionnaire);
                     }
                 }
                 catch(Exception e){
@@ -116,7 +122,6 @@ public class MyRequest {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                Log.d("APP", "getParams: " + date_ok);
                 map.put("date", date_ok);
                 return map;
             }
@@ -175,7 +180,7 @@ public class MyRequest {
         }
 
     public interface InscripGerantCallback{
-        void onSucces(String message);
+        void onSucces(int id_gestion);
         void onError(boolean errors[]);
     }
 }
