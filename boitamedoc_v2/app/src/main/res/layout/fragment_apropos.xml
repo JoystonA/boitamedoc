@@ -23,17 +23,6 @@
             android:enabled="false"/>
 
         <Button
-            android:id="@+id/politique"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#F7F7F7"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:paddingLeft="30dp"
-            android:text="Politique de confidentialité"
-            android:textAlignment="textStart"
-            android:textColor="#808080" />
-
-        <Button
             android:id="@+id/conditions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

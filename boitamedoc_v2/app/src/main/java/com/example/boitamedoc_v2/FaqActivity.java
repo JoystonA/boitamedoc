@@ -10,30 +10,30 @@ import com.example.boitamedoc_v2.R;
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 
 
-public class FaqActivity extends AppCompatActivity implements View.OnClickListener {
-
+public class FaqActivity extends AppCompatActivity  {
+/*
     BluetoothSPP bluetooth;
     final String ON = "1";
     final String OFF = "0";
 
     Button on;
-    Button off;
+    Button off;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_faq);
         setTitle("Foire aux Questions");
-
+/*
         bluetooth=App.bluetooth_main;
         on = (Button) findViewById(R.id.on2);
         off = (Button) findViewById(R.id.off2);
 
         on.setOnClickListener(this);
         off.setOnClickListener(this);
-
+*/
     }
-
+/*
     @Override
         public void onClick(View v) {
         switch (v.getId()) {
@@ -50,7 +50,7 @@ public class FaqActivity extends AppCompatActivity implements View.OnClickListen
 
 
 
-    }
+    }*/
 }
 
 
