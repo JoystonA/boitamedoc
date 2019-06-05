@@ -29,36 +29,70 @@ public class InscriptionPatientActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inscriptionpatient);
         setTitle("Inscription Patient");
 
-        nom = findViewById(R.id.edit_nom);
-        prenom = findViewById(R.id.edit_prenom);
-        date = findViewById(R.id.edit_date);
-        maladie = findViewById(R.id.edit_maladie);
-        numSecu = findViewById(R.id.edit_secu);
+        nom = findViewById(R.id.inscrip_nom_patient);
+        prenom = findViewById(R.id.inscrip_prenom_patient_edit);
+        date =findViewById(R.id.inscrip_date_patient_edit);
+        maladie = findViewById(R.id.inscrip_maladie_patient_edit);
+        numSecu = findViewById(R.id.inscrip_num_secu_patient_text);
         numSecu.setText(getIntent().getStringExtra("numSecu"));
-        isApte = findViewById(R.id.switch_apte);
+        isApte = findViewById(R.id.inscrip_switch_apte_patient);
         queue = VolleySingleton.getInstance(this).getRequestQueue();
         request = new MyRequest(this, queue);
     }
 
     public void finish(View v){
-        if(textisOk()){
+        if(nomisOk()&prenomisOk()&dateisOk()&maladieisOk()&numSecuisOk()){
             openMainActivity();
         }
     }
 
-    public boolean textisOk(){
-        if (nom.getText().toString().trim().isEmpty() | prenom.getText().toString().trim().isEmpty() |
-                date.getText().toString().trim().isEmpty() | maladie.getText().toString().trim().isEmpty() | numSecu.getText().toString().trim().isEmpty()) {
-            nom.setError("Rentrez quelque chose");
-            prenom.setError("Rentrez quelque chose");
-            date.setError("Rentrez quelque chose");
-            maladie.setError("Rentrez quelque chose");
+    public boolean nomisOk() {
+        String nom_patient = nom.getText().toString().trim();
+        if(nom_patient.isEmpty()) {
+            nom.setError("Le champs est vide");
             return false;
         }
         nom.setError(null);
+        return true;
+    }
+    public boolean prenomisOk() {
+        String prenom_patient = prenom.getText().toString().trim();
+        if(prenom_patient.isEmpty()) {
+            prenom.setError("Le champs est vide");
+            return false;
+        }
         prenom.setError(null);
+        return true;
+    }
+    public boolean dateisOk() {
+        String date_patient = date.getText().toString().trim();
+        if(date_patient.isEmpty()) {
+            date.setError("Le champs est vide");
+            return false;
+        }
+        if(date_patient.length()!=10){
+            date.setError("La date est invalide");
+            return false;
+        }
         date.setError(null);
+        return true;
+    }
+    public boolean maladieisOk() {
+        String maladie_patient = maladie.getText().toString().trim();
+        if(maladie_patient.isEmpty()) {
+            maladie.setError("Le champs est vide");
+            return false;
+        }
         maladie.setError(null);
+        return true;
+    }
+    public boolean numSecuisOk() {
+        String numSecu_patient = numSecu.getText().toString().trim();
+        if(numSecu_patient.isEmpty()) {
+            numSecu.setError("Le champs est vide");
+            return false;
+        }
+        numSecu.setError(null);
         return true;
     }
 

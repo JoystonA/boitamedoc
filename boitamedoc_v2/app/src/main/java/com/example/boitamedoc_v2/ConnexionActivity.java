@@ -65,6 +65,7 @@ public class ConnexionActivity extends AppCompatActivity {
                 public void onSucces(int message) {
                     pb_loader.setVisibility(View.GONE);
                     startActivity(intent);
+                    ConnexionActivity.this.finish();
                     Toast.makeText(getApplicationContext(), "Vous vous êtes bien connecté !", Toast.LENGTH_SHORT).show();
                 }
 

@@ -26,6 +26,7 @@ public class InscriptionNumSécuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inscriptionnumerosecu);
         setTitle("Inscription Patient");
 
+        NumSecu = findViewById(R.id.inscrip_num_secu_patient_edit);
         queue = VolleySingleton.getInstance(this).getRequestQueue();
         request = new MyRequest(this, queue);
 
@@ -67,6 +68,7 @@ public class InscriptionNumSécuActivity extends AppCompatActivity {
     });
 }
 
+
     public void ValidNum(View v){
         if(textOk()) {
             if (isKnown == false){
@@ -79,11 +81,13 @@ public class InscriptionNumSécuActivity extends AppCompatActivity {
     }
 
     public boolean textOk(){
-        if(NumSecu.getText().toString().isEmpty()){
+        String numSecu = NumSecu.getText().toString();
+        if(numSecu.isEmpty()){
             NumSecu.setError("Vous devez taper un numéro");
+            return false;
         }
-        else if(NumSecu.getText().toString().length()!=15){
-            NumSecu.setError("Ceci n'est pas un bon numéro !");
+        if(numSecu.length()!=21){
+            NumSecu.setError("Le numéro est incorrect");
             return false;
         }
         NumSecu.setError(null);

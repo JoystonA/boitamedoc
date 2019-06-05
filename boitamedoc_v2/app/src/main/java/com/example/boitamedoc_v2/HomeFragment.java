@@ -2,13 +2,22 @@ package com.example.boitamedoc_v2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import app.akexorcist.bluetotohspp.library.BluetoothSPP;
+
 
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
@@ -20,6 +29,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private Button Case6;
     private Button Case7;
     private Button Case8;
+    private TextView Connexion;
+    private SwipeRefreshLayout swipeRefreshLayout;
+
 
     @Nullable
     @Override
@@ -35,6 +47,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Case6 = (Button) v.findViewById(R.id.case6);
         Case7 = (Button) v.findViewById(R.id.case7);
         Case8 = (Button) v.findViewById(R.id.case8);
+        Connexion = (TextView) v.findViewById(R.id.ConnexionBoiteInfo);
+        swipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.swipelayout);
 
         Case1.setOnClickListener(this);
         Case2.setOnClickListener(this);
@@ -45,6 +59,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Case7.setOnClickListener(this);
         Case8.setOnClickListener(this);
 
+
+        if (App.bluetooth_main.getServiceState() == 3) {
+            Connexion.setText("Boîte Connecté");
+            swipe_null();
+        }
+        else {
+            Connexion.setText("Impossible de se connecter à la boite !");
+            swipe_connexion();
+        }
 
         return v;
 
@@ -84,5 +107,55 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Intent intent;
         intent = new Intent(getActivity(), InfoCaseActivity.class);
         startActivity(intent);
+    }
+
+    public void swipe_connexion(){
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(true);
+                (new Handler()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+
+                        int min = 65;
+                        int max = 95;
+
+
+                        se_connecter_bluetooth();
+
+                    }
+                }, 3000);
+            }
+        });
+    }
+
+    public void swipe_null(){
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(true);
+                (new Handler()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+
+                        int min = 65;
+                        int max = 95;
+
+                        Connexion.setText("Boîte Connecté");
+                    }
+                }, 100);
+            }
+        });
+    }
+
+    public void se_connecter_bluetooth() {
+        Connexion.setText("Recherche en cours ...");
+        App.bluetooth_main.connect("00:06:66:6D:F1:75");
+        if (App.bluetooth_main.getServiceState() == 3) {
+            Connexion.setText("Boîte Connecté");
+        }
     }
 }

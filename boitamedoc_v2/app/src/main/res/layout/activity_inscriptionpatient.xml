@@ -10,7 +10,7 @@
     android:padding="16dp">
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_nom_text"
+        android:id="@+id/inscrip_patient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
@@ -18,15 +18,15 @@
 
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_nom"
+            android:id="@+id/inscrip_nom_patient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nom"
-            android:inputType="text" />
+            android:inputType="text"
+            android:hint="Nom" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_prenom_text"
+        android:id="@+id/inscrip_prenom_patient_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
@@ -34,42 +34,42 @@
 
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_prenom"
+            android:id="@+id/inscrip_prenom_patient_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Prénom"
-            android:inputType="text" />
+            android:inputType="text"
+            android:hint="Prénom" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_date_text"
+        android:id="@+id/inscrip_date_patient_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_date"
+        <com.santalu.maskedittext.MaskEditText
+            android:id="@+id/inscrip_date_patient_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="date"
             android:hint="Date de naissance"
-            android:inputType="date" />
+            app:met_mask="##/##/####"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_maladie_text"
+        android:id="@+id/inscrip_maladie_patient_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_maladie"
+            android:id="@+id/inscrip_maladie_patient_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Maladie"
             android:inputType="text" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/name_legende_num_secu_inscrip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -78,18 +78,18 @@
     </android.support.design.widget.TextInputLayout>
 
     <TextView
-        android:id="@+id/edit_secu"
+        android:id="@+id/inscrip_num_secu_patient_text"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textSize="18dp" />
 
     <Switch
-        android:id="@+id/switch_apte"
+        android:id="@+id/inscrip_switch_apte_patient"
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:textSize="18dp"
         android:text="Apte"
-        android:textColor="@color/colorFont2"
-        android:textSize="18dp" />
+        android:textColor="@color/colorFont2"/>
 
     <Button
         android:id="@+id/ValidButton"
