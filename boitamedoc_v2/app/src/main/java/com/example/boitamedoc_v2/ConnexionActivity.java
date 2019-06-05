@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,11 +19,9 @@ import com.mysql.cj.x.protobuf.MysqlxNotice;
 
 public class ConnexionActivity extends AppCompatActivity {
 
-    private Button boutonConnexion;
     private TextInputLayout til_email, til_mdp;
     private RequestQueue queue;
     private MyRequest request;
-    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,30 +31,47 @@ public class ConnexionActivity extends AppCompatActivity {
 
         til_email = (TextInputLayout) findViewById(R.id.log_username_text);
         til_mdp = (TextInputLayout) findViewById(R.id.log_password_text);
-        boutonConnexion = (Button) findViewById(R.id.ValidButton_connexion);
-
         queue = VolleySingleton.getInstance(this).getRequestQueue();
         request = new MyRequest(this, queue);
-        sessionManager = new SessionManager(this);
-
-        boutonConnexion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = til_email.getEditText().getText().toString().trim();
-                String mdp = til_mdp.getEditText().getText().toString().trim();
-                if(email.length() > 0 && mdp.length() > 0) {
-                    request.connexion(email, mdp);
-                }
-
-            }
-        });
-
 
     }
 
-    private void openApplication(){
+
+    public void ValidationConnexion(View v){
         Intent intent;
-        intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        String Email = til_email.getEditText().getText().toString();
+        String MDP = til_mdp.getEditText().getText().toString();
+        if (Email.isEmpty() && !MDP.isEmpty()) {
+            til_email.setError("Rentrer quelque chose");
+            til_mdp.setError(null);
+        }
+        else if(MDP.isEmpty() && !Email.isEmpty()){
+            til_mdp.setError("Rentrer quelque chose");
+            til_email.setError(null);
+        }
+        else if (Email.isEmpty() && MDP.isEmpty()) {
+            til_email.setError("Rentrer quelque chose");
+            til_mdp.setError("Rentrer quelque chose");
+        }
+        else{
+            til_email.setError(null);
+            til_mdp.setError(null);
+            intent = new Intent(this, MainActivity.class);
+
+            request.connexion(Email, MDP, new MyRequest.ConnexionCallback(){
+                @Override
+                public void onSucces(int message) {
+                    startActivity(intent);
+                }
+
+                @Override
+                public void onError(boolean errors) {
+                    Log.d("APP", "onError: " + errors);
+                    til_email.setError("Email ou mot de passe incorrect");
+
+                    }
+            });
+        }
+
     }
 }
