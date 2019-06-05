@@ -3,6 +3,7 @@ package com.example.boitamedoc_v2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
@@ -62,15 +63,33 @@ public class InscriptionPatientActivity extends AppCompatActivity {
     }
 
     void openMainActivity(){
+        Intent intent = new Intent(this, MainActivity.class);
         String Nom = nom.getText().toString();
         String Prenom = prenom.getText().toString();
         String Date = date.getText().toString();
         String Maladie = maladie.getText().toString();
         String NumSecu = numSecu.getText().toString();
         String IsApte = isApte.getText().toString();
-        request.registerPatient(Nom, Prenom, Date, Maladie, NumSecu, IsApte);
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        request.registerPatient(Nom, Prenom, Date, Maladie, NumSecu, IsApte,new MyRequest.InscripPatientCallback(){
+            @Override
+            public void onSucces(int id_patient) {
+                startActivity(intent);
+            }
+
+            @Override
+            public void onError(boolean[] errors) {
+                Log.d("APP", "onError: " + errors[0]+" " +errors[1]);
+                if(errors[0]) {
+                    Log.d("APP", "onError: nom dedans");
+                    nom.setError("Nom Incorrecte");
+                }
+                if(errors[1]) {
+                    Log.d("APP", "onError: prenom dedans");
+                    prenom.setError("Prneom Incorrecte");
+                }
+
+            }
+        });
     }
 }
 

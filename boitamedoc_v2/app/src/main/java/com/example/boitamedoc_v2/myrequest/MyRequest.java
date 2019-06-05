@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.example.boitamedoc_v2.App.id_gestionnaire;
+import static com.example.boitamedoc_v2.App.id_patient;
 
 /**
  * Created by ipsaous on 25/09/2015.
@@ -51,8 +52,6 @@ public class MyRequest {
                 try {
                     JSONObject reponse = new JSONObject(response);
                     JSONObject message = reponse.getJSONObject("message");
-                    id_gestionnaire =  Integer.parseInt(message.getString("ID"));
-                    Log.d("APP", "onResponse: " + id_gestionnaire);
                     boolean error = reponse.getBoolean("error");
                     if(error){
                         try {
@@ -85,6 +84,7 @@ public class MyRequest {
                         callback.onError(errors);
                     }
                     else{
+                        id_gestionnaire =  Integer.parseInt(message.getString("ID"));
                         Log.d("APP", "onResponse all pass: " + id_gestionnaire);
                         if(id_gestionnaire != Integer.MAX_VALUE)callback.onSucces(id_gestionnaire);
                     }
@@ -112,7 +112,18 @@ public class MyRequest {
                 map.put("lien_patient", str_lienPatient);
                 map.put("email", str_email);
                 map.put("mdp", str_MDP);
+                map.put("email", str_email);
+                map.put("mdp", str_MDP);
                 map.put("confirmeMDP", str_confirmMdp);
+                SimpleDateFormat tempo = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    Date d = tempo.parse(str_date);
+                    tempo.applyPattern("yyyy/MM/dd");
+                    date_ok = tempo.format(d);
+                } catch (ParseException e) {
+                    Log.d("APP", "getParams: Date nul chiant JPP");
+                }
+                map.put("date", date_ok);
 
                 return map;
             }
@@ -120,14 +131,53 @@ public class MyRequest {
         queue.add(request);
     }
 
-    public void registerPatient(final String str_nom, final String str_prenom, final String str_date, final String str_maladie, final String str_num_secu, final String str_apte){
+    public void registerPatient(final String str_nom, final String str_prenom, final String str_date, final String str_maladie, final String str_num_secu, final String str_apte, final InscripPatientCallback callback){
 
         String url = url_debut + "inscription_patient.php";
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("APP", "onResponse: " + response) ;
+                boolean errors[]={false,false};
+                if(response!=null){
+                    Log.d("APP", "onResponse: "+response) ;
+                }
+                try {
+                    JSONObject reponse = new JSONObject(response);
+                    JSONObject message = reponse.getJSONObject("message");
+                    boolean error = reponse.getBoolean("error");
+                    if(error){
+                        try {
+                            try {
+                                if (!message.getString("nom").equals(null)){
+                                    errors[0] = true;
+                                }
+                            }
+                            catch (Exception e){
+                            }
+                            try {
+                                if (!message.getString("prenom").equals(null)){
+                                    errors[1] = true;
+                                }
+                            }
+                            catch (Exception e){
+                            }
+                        }
+                        catch (Exception e){
+                            Log.d("APP", "onResponse: "+ e.getMessage());
+                        }// Try get Message
+                        Log.d("APP", "onResponse: "+errors[0] + " " + errors[1] );
+                        callback.onError(errors);
+                    }
+                    else{
+                        id_patient =  Integer.parseInt(message.getString("ID"));
+                        Log.d("APP", "onResponse all pass: " + id_patient);
+                        if(id_patient != Integer.MAX_VALUE)callback.onSucces(id_patient);
+                    }
+                }
+                catch(Exception e){
+
+                }
             }
         }, new Response.ErrorListener() {
             @Override
@@ -173,26 +223,14 @@ public class MyRequest {
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 Map<String, String> map = new HashMap<>();
-                map.put("email", email);
-                map.put("mdp", mdp);
 
-                map.put("confirmeMDP", str_confirmMdp);
-                SimpleDateFormat tempo = new SimpleDateFormat("dd/MM/yyyy");
-                try {
-                    Date d = tempo.parse(str_date);
-                    tempo.applyPattern("yyyy/MM/dd");
-                    date_ok = tempo.format(d);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                map.put("date", date_ok);
                 return map;
             }
         };
         queue.add(request);
     }
 
-    public String[] checkNumSecu(final String numSecu, NumSecuCallback Callback) {
+    public void checkNumSecu(final String numSecu, NumSecuCallback Callback) {
         String url = url_debut + "CheckNumSecu.php";
         attRep = false;
             StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -233,8 +271,7 @@ public class MyRequest {
                 }
             };
             queue.add(request);
-            return returnReponse;
-        }
+    }
 
 
         public interface NumSecuCallback{
@@ -244,6 +281,11 @@ public class MyRequest {
 
     public interface InscripGerantCallback{
         void onSucces(int id_gestion);
+        void onError(boolean errors[]);
+    }
+
+    public interface InscripPatientCallback{
+        void onSucces(int id_patient);
         void onError(boolean errors[]);
     }
 }

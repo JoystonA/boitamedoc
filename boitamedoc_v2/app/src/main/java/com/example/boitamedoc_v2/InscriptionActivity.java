@@ -3,6 +3,7 @@ package com.example.boitamedoc_v2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -78,6 +79,7 @@ public class InscriptionActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(boolean errors[]) {
+                        Log.d("APP", "onError: " + errors[0]+" " +errors[1] +" " +errors[2]);
                         if(errors[0]) {
                             nom.setError("Nom Incorrecte");
                         }
