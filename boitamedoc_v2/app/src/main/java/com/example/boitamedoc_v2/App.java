@@ -19,7 +19,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        createNotificationChannels();
+        createNotificationChannel();
         bluetooth_main = new BluetoothSPP(this);
         bluetooth_main.startService(true);
         int state = bluetooth_main.getServiceState();
@@ -55,32 +55,20 @@ public class App extends Application {
             while(state2!=3){bluetooth_main.connect("00:06:66:6D:F1:75");}
         }*/
     }
-    private void createNotificationChannels(){
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            NotificationChannel channel1 = new NotificationChannel(
-                    CHANNEL_1_ID,
-                    "Channel1",
-                    NotificationManager.IMPORTANCE_HIGH
 
-            );
-            channel1.setDescription("Notification de Prise de Médicament");
-
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel1);
-
-        }
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            NotificationChannel channel2 = new NotificationChannel(
-                    CHANNEL_2_ID,
-                    "Channel2",
-                    NotificationManager.IMPORTANCE_HIGH
-
-            );
-            channel2.setDescription("Notification de Prise de Médicament");
-
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel2);
-
+    private void createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Channel1";
+            String description = "Notification de Prise de Médicament";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_1_ID, name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
         }
     }
 
