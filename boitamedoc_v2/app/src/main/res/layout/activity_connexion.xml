@@ -36,6 +36,19 @@
             android:hint="Mot de Passe"/>
     </android.support.design.widget.TextInputLayout>
 
+
+    <ProgressBar
+        android:id="@+id/pb_loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ValidButton_connexion"
+        android:layout_alignStart="@+id/ValidButton_connexion"
+        android:layout_alignEnd="@+id/ValidButton_connexion"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="80dp"
+        android:visibility="invisible" />
+
     <Button
         android:id="@+id/ValidButton_connexion"
         android:layout_width="250dp"

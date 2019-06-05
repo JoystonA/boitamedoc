@@ -222,23 +222,23 @@ public class MyRequest {
                 Log.d("APP", "onResponse: " + response) ;
 
                 if(response!=null){
-                    Log.d("APP", "onResponse: "+response) ;
+                    Log.d("APP", "onResponse: " + response) ;
                 }
                 try {
                     JSONObject reponse = new JSONObject(response);
-                    JSONObject message = reponse.getJSONObject("message");
                     boolean error = reponse.getBoolean("error");
                     if(error){
                         callback.onError(error);
                     }
                     else{
+                        JSONObject message = reponse.getJSONObject("message");
                         id_gestionnaire =  Integer.parseInt(message.getString("id_gestionnaire"));
                         Log.d("APP", "onResponse all pass: " + id_gestionnaire);
                         if(id_gestionnaire != Integer.MAX_VALUE)callback.onSucces(id_gestionnaire);
                     }
                 }
                 catch(Exception e){
-
+                    Log.d("APP", "onResponse: " + e.getMessage());
                 }// TRY get JSON RESPONSE
 
             }
