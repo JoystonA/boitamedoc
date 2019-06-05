@@ -51,7 +51,7 @@
             android:id="@+id/edit_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Date de naissance"
+            android:hint="Date de naissance (DD/M/AAAA)"
             android:inputType="date" />
     </android.support.design.widget.TextInputLayout>
 

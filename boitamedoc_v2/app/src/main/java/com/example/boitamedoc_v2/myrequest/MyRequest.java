@@ -190,13 +190,22 @@ public class MyRequest {
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 Map<String, String> map = new HashMap<>();
+                String date_ok =str_date;
                 map.put("nom", str_nom);
                 map.put("prenom", str_prenom);
                 map.put("date", str_date);
                 map.put("maladie", str_maladie);
                 map.put("numSecu", str_num_secu);
                 map.put("apte", str_apte);
-
+                SimpleDateFormat tempo = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    Date d = tempo.parse(str_date);
+                    tempo.applyPattern("yyyy/MM/dd");
+                    date_ok = tempo.format(d);
+                } catch (ParseException e) {
+                    Log.d("APP", "getParams: Date nul chiant JPP");
+                }
+                map.put("date", date_ok);
                 return map;
             }
         };
