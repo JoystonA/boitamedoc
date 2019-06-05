@@ -113,6 +113,70 @@ public class MyRequest {
                 map.put("email", str_email);
                 map.put("mdp", str_MDP);
                 map.put("confirmeMDP", str_confirmMdp);
+
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
+    public void registerPatient(final String str_nom, final String str_prenom, final String str_date, final String str_maladie, final String str_num_secu, final String str_apte){
+
+        String url = url_debut + "inscription_patient.php";
+
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("APP", "onResponse: " + response) ;
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> map = new HashMap<>();
+                map.put("nom", str_nom);
+                map.put("prenom", str_prenom);
+                map.put("date", str_date);
+                map.put("maladie", str_maladie);
+                map.put("numSecu", str_num_secu);
+                map.put("apte", str_apte);
+
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
+    public void connexion(String email, String mdp){
+
+        String url = url_debut + "connexion.php";
+
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("APP", "onResponse: " + response) ;
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> map = new HashMap<>();
+                map.put("email", email);
+                map.put("mdp", mdp);
+
+                map.put("confirmeMDP", str_confirmMdp);
                 SimpleDateFormat tempo = new SimpleDateFormat("dd/MM/yyyy");
                 try {
                     Date d = tempo.parse(str_date);

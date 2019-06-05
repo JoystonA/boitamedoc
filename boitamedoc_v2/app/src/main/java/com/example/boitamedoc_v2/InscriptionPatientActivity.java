@@ -33,7 +33,7 @@ public class InscriptionPatientActivity extends AppCompatActivity {
         date = findViewById(R.id.edit_date);
         maladie = findViewById(R.id.edit_maladie);
         numSecu = findViewById(R.id.edit_secu);
-        numSecu.setText("Numéro de sécurité social : "+ getIntent().getStringExtra("numSecu"));
+        numSecu.setText(getIntent().getStringExtra("numSecu"));
         isApte = findViewById(R.id.switch_apte);
         queue = VolleySingleton.getInstance(this).getRequestQueue();
         request = new MyRequest(this, queue);
@@ -68,7 +68,7 @@ public class InscriptionPatientActivity extends AppCompatActivity {
         String Maladie = maladie.getText().toString();
         String NumSecu = numSecu.getText().toString();
         String IsApte = isApte.getText().toString();
-        //request.register(Nom, Prenom, Date, Maladie, NumSecu, IsApte);
+        request.registerPatient(Nom, Prenom, Date, Maladie, NumSecu, IsApte);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
