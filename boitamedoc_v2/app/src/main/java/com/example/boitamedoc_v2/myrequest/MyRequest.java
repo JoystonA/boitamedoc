@@ -48,7 +48,6 @@ public class MyRequest {
                 if(response!=null){
                     Log.d("APP", "onResponse: "+response) ;
                 }
-
                 try {
                     JSONObject reponse = new JSONObject(response);
                     JSONObject message = reponse.getJSONObject("message");
