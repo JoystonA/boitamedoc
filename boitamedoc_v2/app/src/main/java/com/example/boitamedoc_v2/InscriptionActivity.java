@@ -123,10 +123,15 @@ public class InscriptionActivity extends AppCompatActivity {
         return true;
     }
 
-    public void mdpequalsisOk() {
-        String mdp_gestionnaire = mdp.getText().toString().trim();
-        String confirmmdp_gestionnaire = confirmeMDP.getText().toString().trim();
-        if (mdp_gestionnaire.equals(confirmmdp_gestionnaire)) {
+    public boolean mdpequalsisOk() {
+        String Nom = nom.getText().toString().trim();
+        String Prenom = prenom.getText().toString().trim();
+        String LienPatient = lienPatient.getText().toString().trim();
+        String Date = date.getText().toString().trim();
+        String Email = email.getText().toString().trim();
+        String MDP = mdp.getText().toString().trim();
+        String ConfirmeMDP = confirmeMDP.getText().toString().trim();
+        if (MDP.equals(ConfirmeMDP)) {
             request.register(Nom, Prenom, LienPatient, Date, Email, MDP, ConfirmeMDP, new MyRequest.InscripGerantCallback() {
                 @Override
                 public void onSucces(int message) {
@@ -147,10 +152,11 @@ public class InscriptionActivity extends AppCompatActivity {
                     }
                 }
             });
-
+            return false;
         } else {
             mdp.setError("Mote de passe différent!");
             confirmeMDP.setError("Mote de passe différent !");
+            return true;
         }
     }
 

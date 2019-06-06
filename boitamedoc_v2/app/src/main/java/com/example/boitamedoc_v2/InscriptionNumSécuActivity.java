@@ -26,11 +26,9 @@ public class InscriptionNumSécuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inscriptionnumerosecu);
         setTitle("Inscription Patient");
 
-        NumSecu = findViewById(R.id.inscrip_num_secu_patient_edit);
         queue = VolleySingleton.getInstance(this).getRequestQueue();
         request = new MyRequest(this, queue);
-
-        NumSecu = findViewById(R.id.textedit_numSecu);
+        NumSecu = findViewById(R.id.inscrip_num_secu_patient_edit);
         Button Button = findViewById(R.id.ValidNumButton);
         textPatient = findViewById(R.id.textPatient);
         NumSecu.addTextChangedListener(new TextWatcher() {

@@ -5,21 +5,46 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.os.Build;
 import android.widget.Toast;
+import android.os.StrictMode;
+import android.util.Log;
+
+import java.sql.Connection;
 
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 import app.akexorcist.bluetotohspp.library.BluetoothState;
 
 public class App extends Application {
-
+    public static final String URL_BDD = "jdbc:mysql://185.31.40.18:3306/boitamedmxadmin_databases";
+    public static final String user = "184284";
+    public static final String pawd = "E3esieeboitamx2019";
+    public static int id_gestionnaire;
+    public static int id_patient;
+    public static Connection conn;
     static BluetoothSPP bluetooth_main;
     public static final String CHANNEL_1_ID = "channel1";
-    public static final String CHANNEL_2_ID = "channel1";
 
     @Override
     public void onCreate() {
         super.onCreate();
-
+        //Notification
         createNotificationChannels();
+
+        //Connexion BDD
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Log.d("test", "DRIVER OK");
+
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            Log.d("test", "THREAD OK");
+
+            //conn = DriverManager.getConnection(URL_BDD, user, pawd);
+            Log.d("test", "Connexion réussie" + conn);
+        } catch (Exception e) {
+            Log.d("test", "onCreate: " + e.getMessage() + " || " + e.getCause() + " || " + e.getClass());
+        }
+
+        //Bluetooth
         bluetooth_main = new BluetoothSPP(this);
         bluetooth_main.startService(true);
         int state = bluetooth_main.getServiceState();
@@ -67,19 +92,6 @@ public class App extends Application {
 
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel1);
-
-        }
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            NotificationChannel channel2 = new NotificationChannel(
-                    CHANNEL_2_ID,
-                    "Channel2",
-                    NotificationManager.IMPORTANCE_HIGH
-
-            );
-            channel2.setDescription("Notification de Prise de Médicament");
-
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel2);
 
         }
     }
