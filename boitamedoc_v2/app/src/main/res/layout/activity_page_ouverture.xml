@@ -1,69 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:orientation="vertical"
-    android:padding="16dp">
-
-    <ImageView
-        android:id="@+id/logo_page_ouverture"
-        android:layout_width="255dp"
-        android:layout_height="268dp"
-        android:layout_gravity="center"
-        app:srcCompat="@mipmap/ic_logo_application_foreground" />
-
-    <TextView
-        android:id="@+id/text_nom"
+    android:layout_height="wrap_content">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="BOÎTA'MÉDOC"
-        android:textColor="@color/colorFont1"
-        android:textSize="30sp"
-        android:textAlignment="center" />
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/text_slogan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="La prise de médicament devient un moment de plaisir ! "
-        android:textColor="@color/colorFont1"
-        android:textAlignment="center"/>
 
-    <Button
-        android:id="@+id/button_inscrire"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:text="Inscrivez-vous"
-        android:background="@drawable/ic_bouton"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="#FFFFFF"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"/>
+        <ImageView
+            android:id="@+id/logo_page_ouverture"
+            android:layout_width="255dp"
+            android:layout_height="268dp"
+            android:layout_gravity="center"
+            app:srcCompat="@mipmap/ic_logo_application_foreground" />
 
         <TextView
-            android:id="@+id/text_question_compte"
-            android:layout_width="wrap_content"
+            android:id="@+id/text_nom"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Vous avez déjà un compte ? "
-            android:textColor="@color/colorFont1" />
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="BOÎTA'MÉDOC"
+            android:textColor="@color/colorFont1"
+            android:textSize="30sp"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/text_slogan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="La prise de médicament devient un moment de plaisir ! "
+            android:textColor="@color/colorFont1"
+            android:textAlignment="center"/>
 
         <Button
-            android:id="@+id/button_se_connecter"
-            android:layout_width="150dp"
+            android:id="@+id/button_inscrire"
+            android:layout_width="250dp"
             android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:background="@drawable/ic_fond_blanc_01_01"
+            android:text="Inscrivez-vous"
+            android:background="@drawable/ic_bouton"
             android:fontFamily="sans-serif-condensed"
-            android:text="@string/se_connecter" />
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"/>
+
+            <TextView
+                android:id="@+id/text_question_compte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Vous avez déjà un compte ? "
+                android:textColor="@color/colorFont1" />
+
+            <Button
+                android:id="@+id/button_se_connecter"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_fond_blanc_01_01"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/se_connecter" />
 
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -5,15 +5,13 @@
     android:viewportWidth="500"
     android:viewportHeight="500">
   <path
-      android:pathData="M332.51,490.67H89c-58.74,0 -98.4,-78.9 -75.38,-150L99.35,76.18c12.87,-39.73 42.54,-65.51 75.38,-65.51H413.65c58.06,0 97.7,77.23 76,148L408.49,423.23C396,464 365.92,490.67 332.51,490.67Z"
-      android:strokeWidth="5"
-      android:fillColor="#00000000">
-    <aapt:attr name="android:strokeColor">
+      android:pathData="M143.33,12.67L357.33,12.67A133,133 0,0 1,490.33 145.67L490.33,355A133,133 0,0 1,357.33 488L143.33,488A133,133 0,0 1,10.33 355L10.33,145.67A133,133 0,0 1,143.33 12.67z">
+    <aapt:attr name="android:fillColor">
       <gradient 
-          android:startY="493.17"
-          android:startX="251.33"
-          android:endY="8.17"
-          android:endX="251.33"
+          android:startY="488"
+          android:startX="250.33"
+          android:endY="12.67"
+          android:endX="250.33"
           android:type="linear">
         <item android:offset="0" android:color="#FF3718BC"/>
         <item android:offset="1" android:color="#665C36FF"/>
