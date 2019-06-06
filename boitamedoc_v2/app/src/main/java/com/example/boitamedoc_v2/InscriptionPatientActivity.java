@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ public class InscriptionPatientActivity extends AppCompatActivity {
     private EditText maladie;
     private TextView numSecu;
     private Switch isApte;
+    private ProgressBar pb_loader;
     private RequestQueue queue;
     private MyRequest request;
 
@@ -36,6 +38,7 @@ public class InscriptionPatientActivity extends AppCompatActivity {
         numSecu = findViewById(R.id.inscrip_num_secu_patient_text);
         numSecu.setText(getIntent().getStringExtra("numSecu"));
         isApte = findViewById(R.id.inscrip_switch_apte_patient);
+        pb_loader = (ProgressBar) findViewById(R.id.pb_loader);
         queue = VolleySingleton.getInstance(this).getRequestQueue();
         request = new MyRequest(this, queue);
     }
@@ -97,6 +100,7 @@ public class InscriptionPatientActivity extends AppCompatActivity {
     }
 
     void openMainActivity(){
+        pb_loader.setVisibility(View.VISIBLE);
         Intent intent = new Intent(this, MainActivity.class);
         String Nom = nom.getText().toString();
         String Prenom = prenom.getText().toString();
@@ -108,6 +112,7 @@ public class InscriptionPatientActivity extends AppCompatActivity {
             @Override
             public void onSucces(int id_patient) {
                 startActivity(intent);
+                pb_loader.setVisibility(View.GONE);
             }
 
             @Override
@@ -121,6 +126,7 @@ public class InscriptionPatientActivity extends AppCompatActivity {
                     Log.d("APP", "onError: prenom dedans");
                     prenom.setError("Prneom Incorrecte");
                 }
+                pb_loader.setVisibility(View.GONE);
 
             }
         });

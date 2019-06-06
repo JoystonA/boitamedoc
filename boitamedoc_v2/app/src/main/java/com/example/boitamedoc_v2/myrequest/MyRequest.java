@@ -54,7 +54,6 @@ public class MyRequest {
                     boolean error = reponse.getBoolean("error");
                     if(error){
                         try {
-
                             try {
                                 if (!message.getString("nom").equals(null)){
                                     errors[0] = true;

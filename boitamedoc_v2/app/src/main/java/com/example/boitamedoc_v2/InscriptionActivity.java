@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+
 import com.santalu.maskedittext.MaskEditText;
 
 import com.android.volley.RequestQueue;
@@ -23,6 +25,7 @@ public class InscriptionActivity extends AppCompatActivity {
     private Button ValidButton;
     private RequestQueue queue;
     private MyRequest request;
+    private ProgressBar pb_loader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,14 +41,50 @@ public class InscriptionActivity extends AppCompatActivity {
         mdp = findViewById(R.id.inscrip_mdp_gestionnaire_edit);
         confirmeMDP = findViewById(R.id.inscrip_confirm_mdp_gestionnaire_edit);
         ValidButton = findViewById(R.id.ValidButton);
+        pb_loader = (ProgressBar) findViewById(R.id.pb_loader);
 
         queue = VolleySingleton.getInstance(this).getRequestQueue();
         request = new MyRequest(this, queue);
     }
 
     public void Validation(View v) {
-        if (nomisOk() & prenomisOk() & lienisOk() & dateisOk() & emailisOk() & mdpisOk() & confirmmdpisOk() & mdpequalsisOk()) {
-            openInscriptionNumSecuActivity();
+        if (nomisOk() & prenomisOk() & lienisOk() & dateisOk() & emailisOk() & mdpisOk() & confirmmdpisOk()) {
+            pb_loader.setVisibility(View.VISIBLE);
+            String Nom = nom.getText().toString();
+            String Prenom = prenom.getText().toString();
+            String LienPatient = lienPatient.getText().toString();
+            String Date = date.getText().toString();
+            String Email = email.getText().toString();
+            String MDP = mdp.getText().toString();
+            String ConfirmeMDP = confirmeMDP.getText().toString();
+            if (MDP.equals(ConfirmeMDP)) {
+                request.register(Nom, Prenom, LienPatient, Date, Email, MDP, ConfirmeMDP, new MyRequest.InscripGerantCallback() {
+                    @Override
+                    public void onSucces(int message) {
+                        openInscriptionNumSecuActivity();
+                        pb_loader.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onError(boolean errors[]) {
+                        Log.d("APP", "onError: " + errors[0] + " " + errors[1] + " " + errors[2]);
+                        if (errors[0]) {
+                            nom.setError("Nom Incorrecte");
+                        }
+                        if (errors[1]) {
+                            prenom.setError("Prenom Incorrecte");
+                        }
+                        if (errors[2]) {
+                            email.setError("Email Incorrecte");
+                        }
+                        pb_loader.setVisibility(View.GONE);
+                    }
+                });
+            } else {
+                mdp.setError("Mot de passe différent !");
+                confirmeMDP.setError("Mot de passe différent !");
+                pb_loader.setVisibility(View.GONE);
+            }
         }
     }
 
@@ -123,47 +162,10 @@ public class InscriptionActivity extends AppCompatActivity {
         return true;
     }
 
-    public boolean mdpequalsisOk() {
-        String Nom = nom.getText().toString().trim();
-        String Prenom = prenom.getText().toString().trim();
-        String LienPatient = lienPatient.getText().toString().trim();
-        String Date = date.getText().toString().trim();
-        String Email = email.getText().toString().trim();
-        String MDP = mdp.getText().toString().trim();
-        String ConfirmeMDP = confirmeMDP.getText().toString().trim();
-        if (MDP.equals(ConfirmeMDP)) {
-            request.register(Nom, Prenom, LienPatient, Date, Email, MDP, ConfirmeMDP, new MyRequest.InscripGerantCallback() {
-                @Override
-                public void onSucces(int message) {
-                    openInscriptionNumSecuActivity();
-                }
-
-                @Override
-                public void onError(boolean errors[]) {
-                    Log.d("APP", "onError: " + errors[0] + " " + errors[1] + " " + errors[2]);
-                    if (errors[0]) {
-                        nom.setError("Nom Incorrecte");
-                    }
-                    if (errors[1]) {
-                        prenom.setError("Prneom Incorrecte");
-                    }
-                    if (errors[2]) {
-                        email.setError("Email Incorrecte");
-                    }
-                }
-            });
-            return false;
-        } else {
-            mdp.setError("Mote de passe différent!");
-            confirmeMDP.setError("Mote de passe différent !");
-            return true;
-        }
-    }
 
     void openInscriptionNumSecuActivity() {
         Intent intent = new Intent(this, InscriptionNumSécuActivity.class);
         startActivity(intent);
     }
 }
-
 
