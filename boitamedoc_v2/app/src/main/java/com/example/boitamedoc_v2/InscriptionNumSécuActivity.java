@@ -19,6 +19,7 @@ public class InscriptionNumSécuActivity extends AppCompatActivity {
     private boolean isKnown=false;
     private RequestQueue queue;
     private MyRequest request;
+    private Intent intentOpenMainAct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class InscriptionNumSécuActivity extends AppCompatActivity {
         NumSecu = findViewById(R.id.textedit_numSecu);
         Button Button = findViewById(R.id.ValidNumButton);
         textPatient = findViewById(R.id.textPatient);
+        intentOpenMainAct = new Intent(this, MainActivity.class);
         NumSecu.addTextChangedListener(new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -51,6 +53,7 @@ public class InscriptionNumSécuActivity extends AppCompatActivity {
                     @Override
                     public void onSucces(String nom, String prenom) {
                         textPatient.setText(nom + " " + prenom);
+                        intentOpenMainAct.putExtra("patient",nom +"  "+ prenom);
                         Button.setEnabled(true);
                         isKnown=true;
                     }
@@ -91,8 +94,7 @@ public class InscriptionNumSécuActivity extends AppCompatActivity {
     }
 
     void openMainActivity(){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        startActivity(intentOpenMainAct);
     }
     void openInscripPatient(){
         Intent intent = new Intent(this, InscriptionPatientActivity.class).putExtra("numSecu",NumSecu.getText().toString().trim());

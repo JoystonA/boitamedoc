@@ -1,19 +1,14 @@
 package com.example.boitamedoc_v2;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
 import com.example.boitamedoc_v2.myrequest.MyRequest;
-import com.mysql.cj.x.protobuf.MysqlxNotice;
 
 
 public class ConnexionActivity extends AppCompatActivity {
@@ -22,8 +17,6 @@ public class ConnexionActivity extends AppCompatActivity {
     private TextInputLayout til_email, til_mdp;
     private RequestQueue queue;
     private MyRequest request;
-    private SessionManager sessionManager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +29,6 @@ public class ConnexionActivity extends AppCompatActivity {
 
         queue = VolleySingleton.getInstance(this).getRequestQueue();
         request = new MyRequest(this, queue);
-        sessionManager = new SessionManager(this);
 
         boutonConnexion.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,11 +2,10 @@ package com.example.boitamedoc_v2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -24,7 +23,6 @@ public class MainActivity extends AppCompatActivity{
         navView.setOnNavigationItemSelectedListener(navListener);
         NotificationReveiver.scheduleNotification(this,10,"Posologie","");
         Date now = new Date();
-        System.out.println(now);
         setTitle("BOÎTA'MÉDOC");
     }
 
@@ -86,4 +84,5 @@ public class MainActivity extends AppCompatActivity{
         intent = new Intent(this, ParametreActivity.class);
         startActivity(intent);
     }
+
 }

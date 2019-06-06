@@ -12,6 +12,9 @@ import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.example.boitamedoc_v2.myrequest.MyRequest;
 
+import static com.example.boitamedoc_v2.App.id_gestionnaire;
+import static com.example.boitamedoc_v2.App.id_patient;
+
 public class InscriptionPatientActivity extends AppCompatActivity {
     private EditText nom;
     private EditText prenom;
@@ -72,7 +75,8 @@ public class InscriptionPatientActivity extends AppCompatActivity {
         String IsApte = isApte.getText().toString();
         request.registerPatient(Nom, Prenom, Date, Maladie, NumSecu, IsApte,new MyRequest.InscripPatientCallback(){
             @Override
-            public void onSucces(int id_patient) {
+            public void onSucces(String nom,String prenom) {
+                request.AjoutPatient(id_patient,id_gestionnaire);
                 startActivity(intent);
             }
 
