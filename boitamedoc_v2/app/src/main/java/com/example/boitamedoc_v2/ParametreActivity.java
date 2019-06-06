@@ -20,6 +20,7 @@ public class ParametreActivity extends AppCompatActivity implements View.OnClick
         Button Prise_en_main = findViewById(R.id.prise_en_main);
         Button Faq = findViewById(R.id.faq);
         Button A_propos = findViewById(R.id.a_propos);
+        Button Demo = findViewById(R.id.mode_demo);
         Button Deconnexion = findViewById(R.id.deconnexion);
 
         Compte.setOnClickListener(this);
@@ -27,6 +28,7 @@ public class ParametreActivity extends AppCompatActivity implements View.OnClick
         Prise_en_main.setOnClickListener(this);
         Faq.setOnClickListener(this);
         A_propos.setOnClickListener(this);
+        Demo.setOnClickListener(this);
         Deconnexion.setOnClickListener(this);
 
     }
@@ -53,6 +55,11 @@ public class ParametreActivity extends AppCompatActivity implements View.OnClick
             case R.id.a_propos:
                 openSettingAPropos();
                 break;
+
+            case R.id.mode_demo:
+                openDemo();
+                break;
+
             case R.id.deconnexion:
                 disconnect();
                 break;
@@ -86,6 +93,12 @@ public class ParametreActivity extends AppCompatActivity implements View.OnClick
     private void openSettingAPropos() {
         Intent intent;
         intent = new Intent(this, AProposActivity.class);
+        startActivity(intent);
+    }
+
+    private void openDemo() {
+        Intent intent;
+        intent = new Intent(this, ModeDemoActivity.class);
         startActivity(intent);
     }
 

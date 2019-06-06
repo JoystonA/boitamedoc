@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     android:theme="@style/CustomToolbarStyle">
 
 
@@ -24,17 +23,19 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:fontFamily="sans-serif-condensed-medium"
             android:textSize="18sp"
             android:text="A 9 H 30"
             android:textColor="@color/colorFont1"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:fontFamily="sans-serif-condensed-medium"
+            android:background="@color/colorBackground"
             android:textSize="14sp"
             android:text="Posologie de ce jour"
             android:textColor="@color/colorFont1"/>
@@ -49,6 +50,7 @@
         android:layout_marginBottom="10dp"
         android:orientation="vertical">
 
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -61,7 +63,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
                 android:fontFamily="sans-serif-condensed"
-                android:text="name_medicament 1\nfggeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee\nfefeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+                android:text="name_medicament 1\nname_medicament 1\nname_medicament 1\nname_medicament 1\nname_medicament 1"
                 android:textColor="@color/colorFont2"
                 android:textSize="14sp" />
         </ScrollView>
@@ -94,6 +96,7 @@
                     android:layout_width="0dp"
                     android:layout_height="91dp"
                     android:layout_alignParentStart="true"
+                    android:background="@drawable/bouton_case_medoc"
                     android:layout_weight="1"
                     android:text="Case 1" />
 
@@ -102,6 +105,7 @@
                     android:layout_width="0dp"
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case1"
+                    android:background="@drawable/bouton_case_medoc"
                     android:layout_weight="1"
                     android:text="Case 2" />
 
@@ -110,6 +114,7 @@
                     android:layout_width="0dp"
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case2"
+                    android:background="@drawable/bouton_case_medoc"
                     android:layout_weight="1"
                     android:text="Case 3" />
 
@@ -118,6 +123,7 @@
                     android:layout_width="0dp"
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case3"
+                    android:background="@drawable/bouton_case_medoc"
                     android:layout_weight="1"
                     android:text="Case 4" />
             </TableRow>
@@ -134,6 +140,7 @@
                     android:layout_width="0dp"
                     android:layout_height="91dp"
                     android:layout_alignParentStart="true"
+                    android:background="@drawable/bouton_case_medoc"
                     android:layout_weight="1"
                     android:text="Case 5" />
 
@@ -142,6 +149,7 @@
                     android:layout_width="0dp"
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case1"
+                    android:background="@drawable/bouton_case_medoc"
                     android:layout_weight="1"
                     android:text="Case 6" />
 
@@ -150,6 +158,7 @@
                     android:layout_width="0dp"
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case2"
+                    android:background="@drawable/bouton_case_medoc"
                     android:layout_weight="1"
                     android:text="Case 7" />
 
@@ -158,6 +167,7 @@
                     android:layout_width="0dp"
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case3"
+                    android:background="@drawable/bouton_case_medoc"
                     android:layout_weight="1"
                     android:text="Case 8" />
             </TableRow>
@@ -166,8 +176,12 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ic_bouton"
+        android:textColor="#FFFFFF"
         android:text="Valider la prise"
         android:onClick="envoieSurChannel1"/>
 

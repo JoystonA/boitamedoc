@@ -33,6 +33,7 @@ public class LibreServiceQuantiteeFragment extends Fragment {
                 if(quantiteeIsOk()){
                     // ICI FAUT FAIRE EN SORTE DE CREER UNE FONCTION QUI ASK LA BDD //
                     //String InputQuantitee = quantitee.getEditText().getText().toString().trim();
+                    App.bluetooth_main.send("1", true);
                     App.bluetooth_main.send("2 comprimés de Doliprane | CASE 1", true);
                     openLibreServiceQuantiteeActivity();
                 }
