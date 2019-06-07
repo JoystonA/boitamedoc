@@ -307,7 +307,8 @@
                         android:layout_weight="1"
                         android:text="Case 8"
                         android:background="@drawable/bouton_case_medoc"
-                        android:fontFamily="sans-serif-condensed-medium"/>
+                        android:fontFamily="sans-serif-condensed-medium"
+                        />
                 </TableRow>
             </TableLayout>
 
