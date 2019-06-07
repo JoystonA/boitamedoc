@@ -5,13 +5,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 public class boiteFragment extends Fragment implements View.OnClickListener {
+    //private Button ConnexionBoite;
     private Button Case1;
     private Button Case2;
     private Button Case3;
@@ -25,6 +25,7 @@ public class boiteFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_boite, container, false);
 
+       //ConnexionBoite = (Button) v.findViewById(R.id.bouton_connexion_boite);
        Case1 = (Button) v.findViewById(R.id.case1);
        Case2 = (Button) v.findViewById(R.id.case2);
        Case3 = (Button) v.findViewById(R.id.case3);
@@ -34,6 +35,7 @@ public class boiteFragment extends Fragment implements View.OnClickListener {
        Case7 = (Button) v.findViewById(R.id.case7);
        Case8 = (Button) v.findViewById(R.id.case8);
 
+      //ConnexionBoite.setOnClickListener(this);
       Case1.setOnClickListener(this);
       Case2.setOnClickListener(this);
       Case3.setOnClickListener(this);
@@ -51,6 +53,9 @@ public class boiteFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View V) {
         switch (V.getId()) {
+            /*case R.id.bouton_connexion_boite:
+                openConnexionBoite();
+                break;*/
             case R.id.case1:
                 openInfoCase();
                 break;
@@ -82,5 +87,4 @@ public class boiteFragment extends Fragment implements View.OnClickListener {
         Intent intent;
         intent = new Intent(getActivity(), InfoCaseActivity.class);
         startActivity(intent);
-    }
-}
+    }}

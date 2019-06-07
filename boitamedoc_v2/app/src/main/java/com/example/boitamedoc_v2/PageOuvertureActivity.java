@@ -31,9 +31,11 @@ public class PageOuvertureActivity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.button_inscrire:
                     openInscription();
+                    PageOuvertureActivity.this.finish();
                     break;
                 case R.id.button_se_connecter:
                     openSeConnecter();
+                    PageOuvertureActivity.this.finish();
                     break;
             }
         }

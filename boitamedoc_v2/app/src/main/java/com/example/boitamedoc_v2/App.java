@@ -13,15 +13,19 @@ public class App extends Application {
     public static final String URL_BDD = "jdbc:mysql://185.31.40.18:3306/boitamedmxadmin_databases";
     public static final String user = "184284";
     public static final String pawd = "E3esieeboitamx2019";
-    public static int id_gestionnaire;
-    public static int id_patient;
+    public static String id_gestionnaire;
+    public static String id_patient;
+    public static String id_boite;
     public static Connection conn;
     public static final String CHANNEL_1_ID = "channel1";
 
     @Override
     public void onCreate() {
         super.onCreate();
+        //Notification
         createNotificationChannels();
+
+        //Connexion BDD
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Log.d("test", "DRIVER OK");
@@ -35,10 +39,10 @@ public class App extends Application {
         } catch (Exception e) {
             Log.d("test", "onCreate: " + e.getMessage() + " || " + e.getCause() + " || " + e.getClass());
         }
-    }
 
-    private void createNotificationChannels() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+    }
+    private void createNotificationChannels(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             NotificationChannel channel1 = new NotificationChannel(
                     CHANNEL_1_ID,
                     "Channel1",
@@ -52,4 +56,5 @@ public class App extends Application {
 
         }
     }
+
 }

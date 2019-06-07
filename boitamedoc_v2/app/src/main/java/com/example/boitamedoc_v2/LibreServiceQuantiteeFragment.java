@@ -1,11 +1,11 @@
 package com.example.boitamedoc_v2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +31,8 @@ public class LibreServiceQuantiteeFragment extends Fragment {
 
                 if(quantiteeIsOk()){
                     // ICI FAUT FAIRE EN SORTE DE CREER UNE FONCTION QUI ASK LA BDD //
-                    String InputQuantitee = quantitee.getEditText().getText().toString().trim();
+                    //String InputQuantitee = quantitee.getEditText().getText().toString().trim();
+                    openLibreServiceQuantiteeActivity();
                 }
                 return;
             }
@@ -48,5 +49,11 @@ public class LibreServiceQuantiteeFragment extends Fragment {
         }
         quantitee.setError(null);
         return true;
+    }
+
+    private void openLibreServiceQuantiteeActivity() {
+        Intent intent;
+        intent = new Intent(getActivity(), MainActivity.class);
+        startActivity(intent);
     }
 }

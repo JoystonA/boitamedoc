@@ -2,18 +2,25 @@ package com.example.boitamedoc_v2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class MainActivity extends AppCompatActivity{
 
+    public TextView textViewPosologie;
+    public static String Title_Notification;
+    public static String Message_Notification;
+    private SimpleDateFormat d = new SimpleDateFormat ("dd/MM/yyyy" );
+    private SimpleDateFormat h = new SimpleDateFormat ("hh:mm");
+
+    //static BluetoothSPP bluetooth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +29,11 @@ public class MainActivity extends AppCompatActivity{
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
-        NotificationReveiver.scheduleNotification(this,10,"Posologie","");
-        Date now = new Date();
-        System.out.println(now);
+        createNotification1();
         setTitle("BOÎTA'MÉDOC");
     }
 
-    //Création d'une barre de tâche en bas de l'application avec la redirection vers chaque pages
+    //Création d'une barre de tâche en bas de l'application avec la redirection vers chaque page.
     private BottomNavigationView.OnNavigationItemSelectedListener navListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
@@ -85,5 +90,11 @@ public class MainActivity extends AppCompatActivity{
         Intent intent;
         intent = new Intent(this, ParametreActivity.class);
         startActivity(intent);
+    }
+
+    private void createNotification1(){
+        Title_Notification="Votre prise de médicament de 9h30";
+        Message_Notification="name_medicament";
+        NotificationReceiver.scheduleNotification(this,Title_Notification,Message_Notification,12,55);
     }
 }

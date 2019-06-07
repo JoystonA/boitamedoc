@@ -9,14 +9,14 @@
     android:padding="16dp">
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_nom_text"
+        android:id="@+id/inscrip_nom_gestionnaire_text"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_nom"
+            android:id="@+id/inscrip_nom_gestionnaire_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -24,14 +24,14 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_prenom_text"
+        android:id="@+id/inscrip_prenom_gestionnaire_text"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_prenom"
+            android:id="@+id/inscrip_prenom_gestionnaire_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -39,13 +39,13 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_lienPatient_text"
+        android:id="@+id/inscrip_lienPatient_gestionnaire_text"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         app:errorEnabled="true">
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_lienPatient"
+            android:id="@+id/inscrip_lienPatient_gestionnaire_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -53,27 +53,28 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_date_text"
+        android:id="@+id/inscrip_date_gestionnaire_text"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         app:errorEnabled="true">
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_date"
+        <com.santalu.maskedittext.MaskEditText
+            android:id="@+id/inscrip_date_gestionnaire_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="date"
-            android:hint="Date de naissance (DD/MM/AAAA)" />
+            android:hint="Date de naissance (DD/MM/AAAA)"
+            app:met_mask="##/##/####"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_email_text"
+        android:id="@+id/inscrip_email_gestionnaire_text"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         app:errorEnabled="true">
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_email"
+            android:id="@+id/inscrip_email_gestionnaire_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -81,14 +82,14 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_mdp_text"
+        android:id="@+id/inscrip_mdp_gestionnaire_text"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_mdp"
+            android:id="@+id/inscrip_mdp_gestionnaire_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mot de passe"
@@ -96,13 +97,13 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_confirme_text"
+        android:id="@+id/inscrip_confirm_mdp_gestionnaire_text"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         app:errorEnabled="true">
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edit_confirmeMDP"
+            android:id="@+id/inscrip_confirm_mdp_gestionnaire_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirmation du mot de passe"
@@ -119,4 +120,13 @@
         android:layout_gravity="center"
         android:background="@drawable/ic_bouton"
         android:textColor="#FFFFFF"/>
+
+    <ProgressBar
+        android:id="@+id/pb_loader"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

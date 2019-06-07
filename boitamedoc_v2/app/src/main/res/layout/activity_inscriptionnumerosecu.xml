@@ -6,7 +6,7 @@
     android:padding="16dp">
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edit_numSecu"
+        android:id="@+id/inscrip_num_secu_patient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -15,23 +15,24 @@
         android:layout_marginTop="50dp"
         app:errorEnabled="true">
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/textedit_numSecu"
+        <com.santalu.maskedittext.MaskEditText
+            android:id="@+id/inscrip_num_secu_patient_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="numberSigned"
             android:hint="Numéro de Sécurité social"
-            android:inputType="numberSigned" />
+            app:met_mask="# ## ## ## ### ### ##"/>
     </android.support.design.widget.TextInputLayout>
 
     <TextView
         android:id="@+id/textPatient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_numSecu"
-        android:layout_marginTop="149dp"
-        android:text="Veuillez rentrer le numéro de Sécurité Social"
+        android:layout_below="@+id/inscrip_num_secu_patient"
         android:textAlignment="center"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        android:layout_marginTop="149dp"
+        android:text="Veuillez rentrer le numéro de Sécurité Social" />
 
     <Button
         android:id="@+id/ValidNumButton"
@@ -48,4 +49,18 @@
         android:enabled="false"
         android:text="Valider"
         android:textColor="#FFFFFF" />
+
+    <ProgressBar
+        android:id="@+id/pb_loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ValidNumButton"
+        android:layout_alignStart="@+id/ValidNumButton"
+        android:layout_alignEnd="@+id/ValidNumButton"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="55dp"
+        android:visibility="invisible" />
 </RelativeLayout>

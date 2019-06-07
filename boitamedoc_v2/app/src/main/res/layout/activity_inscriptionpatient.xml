@@ -51,7 +51,7 @@
             android:id="@+id/edit_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Date de naissance"
+            android:hint="Date de naissance (DD/M/AAAA)"
             android:inputType="date" />
     </android.support.design.widget.TextInputLayout>
 
@@ -101,4 +101,13 @@
         android:layout_gravity="center"
         android:background="@drawable/ic_bouton"
         android:textColor="#FFFFFF" />
+
+    <ProgressBar
+        android:id="@+id/pb_loader"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

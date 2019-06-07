@@ -29,9 +29,6 @@ public class MyRequest {
     private Context context;
     private RequestQueue queue;
     private String url_debut ="https://www.boitamedoc.com/test/";
-    private String[] returnReponse={null,null,null};
-    private boolean attRep;
-
 
     public MyRequest(Context context, RequestQueue queue) {
         this.context = context;
@@ -46,6 +43,7 @@ public class MyRequest {
             @Override
             public void onResponse(String response) {
                 boolean errors[]={false,false,false};
+                String rep="";
                 if(response!=null){
                     Log.d("APP", "onResponse: "+response) ;
                 }
@@ -73,6 +71,7 @@ public class MyRequest {
                             try {
                                 if (!message.getString("email").equals(null)){
                                     errors[2] = true;
+                                    rep = message.getString("email");
                                 }
                             }
                             catch (Exception e){
@@ -81,12 +80,12 @@ public class MyRequest {
                         catch (Exception e){
                             Log.d("APP", "onResponse: "+ e.getMessage());
                         }// Try get Message
-                        callback.onError(errors);
+                        callback.onError(errors,rep);
                     }
                     else{
-                        id_gestionnaire =  Integer.parseInt(message.getString("ID"));
+                        id_gestionnaire =  message.getString("ID");
                         Log.d("APP", "onResponse all pass: " + id_gestionnaire);
-                        if(id_gestionnaire != Integer.MAX_VALUE)callback.onSucces(id_gestionnaire);
+                        if(id_gestionnaire != null)callback.onSucces(id_gestionnaire);
                     }
                 }
                 catch(Exception e){
@@ -170,9 +169,9 @@ public class MyRequest {
                         callback.onError(errors);
                     }
                     else{
-                        id_patient =  Integer.parseInt(message.getString("ID"));
-                        Log.d("APP", "onResponse all pass: " + id_patient);
-                        if(id_patient != Integer.MAX_VALUE)callback.onSucces(id_patient);
+                        id_patient =  message.getString("ID");
+                        callback.onSucces(message.getString("prenom"),message.getString("nom"));
+
                     }
                 }
                 catch(Exception e){
@@ -192,18 +191,26 @@ public class MyRequest {
                 Map<String, String> map = new HashMap<>();
                 map.put("nom", str_nom);
                 map.put("prenom", str_prenom);
-                map.put("date", str_date);
+                String date_ok =str_date;
                 map.put("maladie", str_maladie);
                 map.put("numSecu", str_num_secu);
                 map.put("apte", str_apte);
-
+                SimpleDateFormat tempo = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    Date d = tempo.parse(str_date);
+                    tempo.applyPattern("yyyy/MM/dd");
+                    date_ok = tempo.format(d);
+                } catch (ParseException e) {
+                    Log.d("APP", "getParams: Date nul chiant JPP");
+                }
+                map.put("date", date_ok);
                 return map;
             }
         };
         queue.add(request);
     }
 
-    public void connexion(String email, String mdp){
+    public void connexion(final String str_email, final String str_mdp, final ConnexionCallback callback){
 
         String url = url_debut + "connexion.php";
 
@@ -211,6 +218,27 @@ public class MyRequest {
             @Override
             public void onResponse(String response) {
                 Log.d("APP", "onResponse: " + response) ;
+
+                if(response!=null){
+                    Log.d("APP", "onResponse: " + response) ;
+                }
+                try {
+                    JSONObject reponse = new JSONObject(response);
+                    boolean error = reponse.getBoolean("error");
+                    if(error){
+                        callback.onError(error);
+                    }
+                    else{
+                        JSONObject message = reponse.getJSONObject("message");
+                        id_gestionnaire =  message.getString("id_gestionnaire");
+                        id_patient = message.getString("id_patient");
+                        callback.onSucces(id_gestionnaire);
+                    }
+                }
+                catch(Exception e){
+                    Log.d("APP", "onResponse: " + e.getMessage());
+                }// TRY get JSON RESPONSE
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -223,6 +251,8 @@ public class MyRequest {
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 Map<String, String> map = new HashMap<>();
+                map.put("email", str_email);
+                map.put("mdp", str_mdp);
 
                 return map;
             }
@@ -232,8 +262,7 @@ public class MyRequest {
 
     public void checkNumSecu(final String numSecu, NumSecuCallback Callback) {
         String url = url_debut + "CheckNumSecu.php";
-        attRep = false;
-            StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 
                 @Override
                 public void onResponse(String response) {
@@ -245,12 +274,14 @@ public class MyRequest {
                     boolean connue = json.getBoolean("connue");
                     if (connue) {
                         JSONObject message = json.getJSONObject("message");
+                        id_patient = message.getString("id_patient");
                         Callback.onSucces(message.getString("nom"),message.getString("prenom"));
                     }
                     else{
                         Callback.onError("Unknonw");
                     }
                     } catch (Exception e) {
+                        Log.d("APP", "onResponse: ERREUR " + e.getMessage());
                         e.printStackTrace();
                     }
                     //Log.d("APP", response);
@@ -273,19 +304,156 @@ public class MyRequest {
             queue.add(request);
     }
 
+    public void recupPatient(String id_patient, recupPatientCallback Callback) {
+        String url = url_debut + "RecupPatient.php";
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 
-        public interface NumSecuCallback{
+            @Override
+            public void onResponse(String response) {
+
+                Log.d("APP", "on Response :" + response);
+                try {
+                    JSONObject json = new JSONObject(response);
+                    boolean connue = json.getBoolean("connue");
+                    if (connue) {
+                        JSONObject message = json.getJSONObject("message");
+                        Callback.onSucces(message.getString("nom"),message.getString("prenom"));
+                    }
+                    else{
+                        Callback.onError(true);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                //Log.d("APP", response);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("id_patient", id_patient);
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
+    public void recupGerant(String id_gerant, recupGerantCallback Callback) {
+        String url = url_debut + "RecupGerant.php";
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+
+                Log.d("APP", "on Response :" + response);
+                try {
+                    JSONObject json = new JSONObject(response);
+                    boolean connue = json.getBoolean("connue");
+                    if (connue) {
+                        JSONObject message = json.getJSONObject("message");
+                        Callback.onSucces(message.getString("nom"),message.getString("prenom"));
+                    }
+                    else{
+                        Callback.onError(true);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                //Log.d("APP", response);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("id_gerant", id_gestionnaire);
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
+    public void AjoutPatient(String id_patient,String id_gerant) {
+        String url = url_debut + "AjoutPatient.php";
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.d("APP", "on Response AjourPatient:" + response);
+                try {
+                    JSONObject json = new JSONObject(response);
+                    boolean error = json.getBoolean("error");
+                    if (!error) {
+                        Log.d("APP", "onResponse: INSERTION OKOKOKOK");
+                    }
+                    else{
+                        Log.d("APP", "onResponse: ERREUR DANS LINSERTION");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                //Log.d("APP", response);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("id_gerant", id_gerant);
+                Log.d("APP", "getParams: " + id_gerant + " "+ id_patient);
+                map.put("id_patient", id_patient);
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
+    public interface recupPatientCallback{
+        void onSucces(String nom, String prenom);
+        void onError(boolean error);
+    }
+
+    public interface recupGerantCallback{
+        void onSucces(String nom, String prenom);
+        void onError(boolean error);
+    }
+
+    public interface NumSecuCallback{
         void onSucces(String nom, String prenom);
         void onError(String message);
         }
 
     public interface InscripGerantCallback{
-        void onSucces(int id_gestion);
-        void onError(boolean errors[]);
+        void onSucces(String id_gestion);
+        void onError(boolean errors[],String rep);
     }
 
     public interface InscripPatientCallback{
-        void onSucces(int id_patient);
+        void onSucces(String nom,String prenom);
         void onError(boolean errors[]);
+    }
+
+    public interface ConnexionCallback{
+        void onSucces(String id_gestion);
+        void onError(boolean error);
     }
 }
