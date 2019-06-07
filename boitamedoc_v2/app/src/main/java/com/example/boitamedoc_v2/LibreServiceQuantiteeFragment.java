@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +32,6 @@ public class LibreServiceQuantiteeFragment extends Fragment {
                 if(quantiteeIsOk()){
                     // ICI FAUT FAIRE EN SORTE DE CREER UNE FONCTION QUI ASK LA BDD //
                     //String InputQuantitee = quantitee.getEditText().getText().toString().trim();
-                    App.bluetooth_main.send("2 comprimés de Doliprane | CASE 1", true);
                     openLibreServiceQuantiteeActivity();
                 }
                 return;

@@ -62,7 +62,7 @@ public class ConnexionActivity extends AppCompatActivity {
 
             request.connexion(Email, MDP, new MyRequest.ConnexionCallback(){
                 @Override
-                public void onSucces(int message) {
+                public void onSucces(String message) {
                     pb_loader.setVisibility(View.GONE);
                     startActivity(intent);
                     ConnexionActivity.this.finish();

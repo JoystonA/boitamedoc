@@ -43,6 +43,7 @@ public class MyRequest {
             @Override
             public void onResponse(String response) {
                 boolean errors[]={false,false,false};
+                String rep="";
                 if(response!=null){
                     Log.d("APP", "onResponse: "+response) ;
                 }
@@ -70,6 +71,7 @@ public class MyRequest {
                             try {
                                 if (!message.getString("email").equals(null)){
                                     errors[2] = true;
+                                    rep = message.getString("email");
                                 }
                             }
                             catch (Exception e){
@@ -78,7 +80,7 @@ public class MyRequest {
                         catch (Exception e){
                             Log.d("APP", "onResponse: "+ e.getMessage());
                         }// Try get Message
-                        callback.onError(errors);
+                        callback.onError(errors,rep);
                     }
                     else{
                         id_gestionnaire =  message.getString("ID");
@@ -168,6 +170,7 @@ public class MyRequest {
                     }
                     else{
                         id_patient =  message.getString("ID");
+                        callback.onSucces(message.getString("prenom"),message.getString("nom"));
 
                     }
                 }
@@ -227,9 +230,9 @@ public class MyRequest {
                     }
                     else{
                         JSONObject message = reponse.getJSONObject("message");
-                        id_gestionnaire =  Integer.parseInt(message.getString("id_gestionnaire"));
-                        Log.d("APP", "onResponse all pass: " + id_gestionnaire);
-                        if(id_gestionnaire != Integer.MAX_VALUE)callback.onSucces(id_gestionnaire);
+                        id_gestionnaire =  message.getString("id_gestionnaire");
+                        id_patient = message.getString("id_patient");
+                        callback.onSucces(id_gestionnaire);
                     }
                 }
                 catch(Exception e){
@@ -389,7 +392,7 @@ public class MyRequest {
 
             @Override
             public void onResponse(String response) {
-                Log.d("APP", "on Response :" + response);
+                Log.d("APP", "on Response AjourPatient:" + response);
                 try {
                     JSONObject json = new JSONObject(response);
                     boolean error = json.getBoolean("error");
@@ -415,7 +418,8 @@ public class MyRequest {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<>();
-                map.put("id_gerant", id_gestionnaire);
+                map.put("id_gerant", id_gerant);
+                Log.d("APP", "getParams: " + id_gerant + " "+ id_patient);
                 map.put("id_patient", id_patient);
                 return map;
             }
@@ -440,7 +444,7 @@ public class MyRequest {
 
     public interface InscripGerantCallback{
         void onSucces(String id_gestion);
-        void onError(boolean errors[]);
+        void onError(boolean errors[],String rep);
     }
 
     public interface InscripPatientCallback{
@@ -449,7 +453,7 @@ public class MyRequest {
     }
 
     public interface ConnexionCallback{
-        void onSucces(int id_gestion);
+        void onSucces(String id_gestion);
         void onError(boolean error);
     }
 }

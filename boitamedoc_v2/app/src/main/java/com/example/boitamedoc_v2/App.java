@@ -4,14 +4,10 @@ import android.app.Application;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.os.Build;
-import android.widget.Toast;
 import android.os.StrictMode;
 import android.util.Log;
 
 import java.sql.Connection;
-
-import app.akexorcist.bluetotohspp.library.BluetoothSPP;
-import app.akexorcist.bluetotohspp.library.BluetoothState;
 
 public class App extends Application {
     public static final String URL_BDD = "jdbc:mysql://185.31.40.18:3306/boitamedmxadmin_databases";
@@ -19,8 +15,8 @@ public class App extends Application {
     public static final String pawd = "E3esieeboitamx2019";
     public static String id_gestionnaire;
     public static String id_patient;
+    public static String id_boite;
     public static Connection conn;
-    static BluetoothSPP bluetooth_main;
     public static final String CHANNEL_1_ID = "channel1";
 
     @Override
