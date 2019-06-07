@@ -13,6 +13,9 @@ import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.example.boitamedoc_v2.myrequest.MyRequest;
 
+import static com.example.boitamedoc_v2.App.id_gestionnaire;
+import static com.example.boitamedoc_v2.App.id_patient;
+
 public class InscriptionPatientActivity extends AppCompatActivity {
     private EditText nom;
     private EditText prenom;
@@ -31,13 +34,13 @@ public class InscriptionPatientActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inscriptionpatient);
         setTitle("Inscription Patient");
 
-        nom = findViewById(R.id.inscrip_nom_patient);
-        prenom = findViewById(R.id.inscrip_prenom_patient_edit);
-        date =findViewById(R.id.inscrip_date_patient_edit);
-        maladie = findViewById(R.id.inscrip_maladie_patient_edit);
-        numSecu = findViewById(R.id.inscrip_num_secu_patient_text);
+        nom = findViewById(R.id.edit_nom);
+        prenom = findViewById(R.id.edit_prenom);
+        date =findViewById(R.id.edit_date);
+        maladie = findViewById(R.id.edit_maladie);
+        numSecu = findViewById(R.id.edit_secu);
         numSecu.setText(getIntent().getStringExtra("numSecu"));
-        isApte = findViewById(R.id.inscrip_switch_apte_patient);
+        isApte = findViewById(R.id.switch_apte);
         pb_loader = (ProgressBar) findViewById(R.id.pb_loader);
         queue = VolleySingleton.getInstance(this).getRequestQueue();
         request = new MyRequest(this, queue);
@@ -110,7 +113,9 @@ public class InscriptionPatientActivity extends AppCompatActivity {
         String IsApte = isApte.getText().toString();
         request.registerPatient(Nom, Prenom, Date, Maladie, NumSecu, IsApte,new MyRequest.InscripPatientCallback(){
             @Override
-            public void onSucces(int id_patient) {
+            public void onSucces(String nom,String prenom) {
+                Log.d("APP", "onSucces: OK POUR LINSTANT");
+                request.AjoutPatient(id_patient,id_gestionnaire);
                 startActivity(intent);
                 pb_loader.setVisibility(View.GONE);
             }

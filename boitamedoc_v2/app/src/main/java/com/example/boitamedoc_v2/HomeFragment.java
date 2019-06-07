@@ -2,22 +2,20 @@ package com.example.boitamedoc_v2;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import app.akexorcist.bluetotohspp.library.BluetoothSPP;
+import com.android.volley.RequestQueue;
+import com.example.boitamedoc_v2.myrequest.MyRequest;
 
+import static com.example.boitamedoc_v2.App.id_gestionnaire;
+import static com.example.boitamedoc_v2.App.id_patient;
 
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
@@ -29,9 +27,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private Button Case6;
     private Button Case7;
     private Button Case8;
-    private TextView Connexion;
-    private SwipeRefreshLayout swipeRefreshLayout;
-
+    private TextView name_user;
+    private TextView name_patient;
+    private TextView dernier_prise_de_medoc_accueil;
+    private RequestQueue queue;
+    private MyRequest request;
 
     @Nullable
     @Override
@@ -47,9 +47,36 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Case6 = (Button) v.findViewById(R.id.case6);
         Case7 = (Button) v.findViewById(R.id.case7);
         Case8 = (Button) v.findViewById(R.id.case8);
-        Connexion = (TextView) v.findViewById(R.id.ConnexionBoiteInfo);
-        swipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.swipelayout);
+        name_user = (TextView) v.findViewById(R.id.Name_User);
+        dernier_prise_de_medoc_accueil = (TextView) v.findViewById(R.id.dernier_prise_de_medoc_accueil);
+        name_patient = (TextView) v.findViewById(R.id.Name_Patient);
+        queue = VolleySingleton.getInstance(getActivity()).getRequestQueue();
+        request = new MyRequest(getActivity(), queue);
+        request.recupPatient(id_patient, new MyRequest.recupPatientCallback() {
+             @Override
+             public void onSucces(String nom_Patient, String prenom_Patient) {
+                  name_patient.setText(nom_Patient + " " + prenom_Patient);
+             }
+             @Override
+             public void onError(boolean error) {
+                 name_patient.setText("ERREUR ERREUR");
+             }
+        });
+        ///////////////////////////////////////////////////////////////////////
 
+        request.recupGerant(id_gestionnaire, new MyRequest.recupGerantCallback() {
+            @Override
+            public void onSucces(String nom, String prenom) {
+                name_user.setText("Bienvenue "+prenom);
+            }
+
+            @Override
+            public void onError(boolean error) {
+                name_user.setText("ERREUR ERREUR");
+            }
+        });
+
+        ///////////////////////////////////////////////////////////////////////
         Case1.setOnClickListener(this);
         Case2.setOnClickListener(this);
         Case3.setOnClickListener(this);
@@ -58,6 +85,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Case6.setOnClickListener(this);
         Case7.setOnClickListener(this);
         Case8.setOnClickListener(this);
+
 
         return v;
 

@@ -60,13 +60,13 @@ public class InscriptionActivity extends AppCompatActivity {
             if (MDP.equals(ConfirmeMDP)) {
                 request.register(Nom, Prenom, LienPatient, Date, Email, MDP, ConfirmeMDP, new MyRequest.InscripGerantCallback() {
                     @Override
-                    public void onSucces(int message) {
+                    public void onSucces(String message) {
                         openInscriptionNumSecuActivity();
                         pb_loader.setVisibility(View.GONE);
                     }
 
                     @Override
-                    public void onError(boolean errors[]) {
+                    public void onError(boolean errors[],String rep) {
                         Log.d("APP", "onError: " + errors[0] + " " + errors[1] + " " + errors[2]);
                         if (errors[0]) {
                             nom.setError("Nom Incorrecte");
@@ -75,7 +75,8 @@ public class InscriptionActivity extends AppCompatActivity {
                             prenom.setError("Prenom Incorrecte");
                         }
                         if (errors[2]) {
-                            email.setError("Email Incorrecte");
+                            email.setError(rep);
+
                         }
                         pb_loader.setVisibility(View.GONE);
                     }
