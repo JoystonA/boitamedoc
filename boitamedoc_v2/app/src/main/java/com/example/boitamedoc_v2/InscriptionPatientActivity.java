@@ -85,7 +85,7 @@ public class InscriptionPatientActivity extends AppCompatActivity {
                 }
                 if(errors[1]) {
                     Log.d("APP", "onError: prenom dedans");
-                    prenom.setError("Prneom Incorrecte");
+                    prenom.setError("Preneom Incorrecte");
                 }
 
             }
