@@ -58,7 +58,6 @@
                 android:id="@+id/tableRow1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:padding="5dip">
 
@@ -68,7 +67,9 @@
                     android:layout_height="91dp"
                     android:layout_alignParentStart="true"
                     android:layout_weight="1"
-                    android:text="Case 1" />
+                    android:text="Case 1"
+                    android:background="@drawable/ic_bouton_case_vf_01"
+                    android:fontFamily="sans-serif-condensed-medium"/>
 
                 <Button
                     android:id="@+id/case2"
@@ -76,7 +77,9 @@
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case1"
                     android:layout_weight="1"
-                    android:text="Case 2" />
+                    android:text="Case 2"
+                    android:background="@drawable/ic_bouton_case_vf_01"
+                    android:fontFamily="sans-serif-condensed-medium"/>
 
                 <Button
                     android:id="@+id/case3"
@@ -84,7 +87,9 @@
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case2"
                     android:layout_weight="1"
-                    android:text="Case 3" />
+                    android:text="Case 3"
+                    android:background="@drawable/ic_bouton_case_vf_01"
+                    android:fontFamily="sans-serif-condensed-medium"/>
 
                 <Button
                     android:id="@+id/case4"
@@ -92,7 +97,9 @@
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case3"
                     android:layout_weight="1"
-                    android:text="Case 4" />
+                    android:text="Case 4"
+                    android:background="@drawable/ic_bouton_case_vf_01"
+                    android:fontFamily="sans-serif-condensed-medium"/>
             </TableRow>
 
             <TableRow
@@ -108,7 +115,9 @@
                     android:layout_height="91dp"
                     android:layout_alignParentStart="true"
                     android:layout_weight="1"
-                    android:text="Case 5" />
+                    android:text="Case 5"
+                    android:background="@drawable/ic_bouton_case_vf_01"
+                    android:fontFamily="sans-serif-condensed-medium"/>
 
                 <Button
                     android:id="@+id/case6"
@@ -116,7 +125,9 @@
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case1"
                     android:layout_weight="1"
-                    android:text="Case 6" />
+                    android:text="Case 6"
+                    android:background="@drawable/ic_bouton_case_vf_01"
+                    android:fontFamily="sans-serif-condensed-medium"/>
 
                 <Button
                     android:id="@+id/case7"
@@ -124,7 +135,9 @@
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case2"
                     android:layout_weight="1"
-                    android:text="Case 7" />
+                    android:text="Case 7"
+                    android:background="@drawable/ic_bouton_case_vf_01"
+                    android:fontFamily="sans-serif-condensed-medium"/>
 
                 <Button
                     android:id="@+id/case8"
@@ -132,7 +145,9 @@
                     android:layout_height="91dp"
                     android:layout_toEndOf="@+id/case3"
                     android:layout_weight="1"
-                    android:text="Case 8" />
+                    android:text="Case 8"
+                    android:background="@drawable/ic_bouton_case_vf_01"
+                    android:fontFamily="sans-serif-condensed-medium"/>
             </TableRow>
         </TableLayout>
     </RelativeLayout>

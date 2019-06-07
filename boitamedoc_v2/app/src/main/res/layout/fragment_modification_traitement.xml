@@ -88,8 +88,8 @@
                 android:gravity="center"
                 android:padding="5dip">
 
-                <TextView
-                    android:id="@+id/name_medicament_modification_traitement"
+                <Spinner
+                    android:id="@+id/spinner_medicament_modification_traitement"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"

@@ -118,6 +118,7 @@ public class MyRequest {
                     tempo.applyPattern("yyyy/MM/dd");
                     date_ok = tempo.format(d);
                 } catch (ParseException e) {
+                    Log.d("APP", "getParams: Date nul chiant JPP");
                 }
                 map.put("date", date_ok);
 
@@ -185,10 +186,9 @@ public class MyRequest {
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 Map<String, String> map = new HashMap<>();
-                String date_ok =str_date;
                 map.put("nom", str_nom);
                 map.put("prenom", str_prenom);
-                map.put("date", str_date);
+                String date_ok =str_date;
                 map.put("maladie", str_maladie);
                 map.put("numSecu", str_num_secu);
                 map.put("apte", str_apte);
@@ -207,7 +207,7 @@ public class MyRequest {
         queue.add(request);
     }
 
-    public void connexion(String email, String mdp){
+    public void connexion(final String str_email, final String str_mdp, final ConnexionCallback callback){
 
         String url = url_debut + "connexion.php";
 
@@ -215,6 +215,27 @@ public class MyRequest {
             @Override
             public void onResponse(String response) {
                 Log.d("APP", "onResponse: " + response) ;
+
+                if(response!=null){
+                    Log.d("APP", "onResponse: " + response) ;
+                }
+                try {
+                    JSONObject reponse = new JSONObject(response);
+                    boolean error = reponse.getBoolean("error");
+                    if(error){
+                        callback.onError(error);
+                    }
+                    else{
+                        JSONObject message = reponse.getJSONObject("message");
+                        id_gestionnaire =  Integer.parseInt(message.getString("id_gestionnaire"));
+                        Log.d("APP", "onResponse all pass: " + id_gestionnaire);
+                        if(id_gestionnaire != Integer.MAX_VALUE)callback.onSucces(id_gestionnaire);
+                    }
+                }
+                catch(Exception e){
+                    Log.d("APP", "onResponse: " + e.getMessage());
+                }// TRY get JSON RESPONSE
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -227,6 +248,8 @@ public class MyRequest {
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 Map<String, String> map = new HashMap<>();
+                map.put("email", str_email);
+                map.put("mdp", str_mdp);
 
                 return map;
             }
@@ -425,4 +448,8 @@ public class MyRequest {
         void onError(boolean errors[]);
     }
 
+    public interface ConnexionCallback{
+        void onSucces(int id_gestion);
+        void onError(boolean error);
+    }
 }

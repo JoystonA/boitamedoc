@@ -37,6 +37,7 @@ public class TraitementFragment extends Fragment implements View.OnClickListener
         switch (V.getId()) {
             case R.id.button_modifier:
                 openTraitementModifierPage();
+
                 break;
             case R.id.button_ajouter:
                 openTraitementAjoutPage();

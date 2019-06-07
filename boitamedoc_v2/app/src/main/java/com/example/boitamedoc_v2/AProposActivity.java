@@ -15,10 +15,8 @@ public class AProposActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_apropos);
 
-        Button Politique = findViewById(R.id.politique);
         Button Conditions = findViewById(R.id.conditions);
 
-        Politique.setOnClickListener(this);
         Conditions.setOnClickListener(this);
         setTitle("A Propos");
     }
@@ -26,21 +24,11 @@ public class AProposActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.politique:
-                openAProposPolitique();
-                break;
-
-            case R.id.conditions:
+             case R.id.conditions:
                 openAProposConditions();
                 break;
 
         }
-    }
-
-    private void openAProposPolitique() {
-        Intent intent;
-        intent = new Intent(this, PolitiqueActivity.class);
-        startActivity(intent);
     }
 
     private void openAProposConditions() {

@@ -1,5 +1,6 @@
 package com.example.boitamedoc_v2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -31,7 +32,9 @@ public class LibreServiceQuantiteeFragment extends Fragment {
 
                 if(quantiteeIsOk()){
                     // ICI FAUT FAIRE EN SORTE DE CREER UNE FONCTION QUI ASK LA BDD //
-                    String InputQuantitee = quantitee.getEditText().getText().toString().trim();
+                    //String InputQuantitee = quantitee.getEditText().getText().toString().trim();
+                    App.bluetooth_main.send("2 comprimés de Doliprane | CASE 1", true);
+                    openLibreServiceQuantiteeActivity();
                 }
                 return;
             }
@@ -48,5 +51,11 @@ public class LibreServiceQuantiteeFragment extends Fragment {
         }
         quantitee.setError(null);
         return true;
+    }
+
+    private void openLibreServiceQuantiteeActivity() {
+        Intent intent;
+        intent = new Intent(getActivity(), MainActivity.class);
+        startActivity(intent);
     }
 }
