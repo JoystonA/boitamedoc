@@ -89,10 +89,5 @@ public class boiteFragment extends Fragment implements View.OnClickListener {
         intent = new Intent(getActivity(), InfoCaseActivity.class);
         startActivity(intent);
     }
-/*
-    public void openConnexionBoite() {
-        Intent intent;
-        intent = new Intent(getActivity(), BluetoothConnexionActivity.class);
-        startActivity(intent);
-    }*/
+
 }
