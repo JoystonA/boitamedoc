@@ -91,7 +91,7 @@
                 android:textColor="#FFFFFF"
                 android:layout_weight="1"
                 android:text="Modifier le compte"
-                android:background="@drawable/ic_bouton"/>
+                android:background="@drawable/bouton"/>
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

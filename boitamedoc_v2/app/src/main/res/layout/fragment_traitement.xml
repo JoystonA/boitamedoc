@@ -57,7 +57,7 @@
             android:layout_alignParentEnd="true"
             android:text="Modifier"
             android:textColor="#FFFFFF"
-            android:background="@drawable/ic_bouton"/>
+            android:background="@drawable/bouton"/>
 
         <Button
             android:id="@+id/button_supprimer"
@@ -68,7 +68,7 @@
             android:text="Supprimer"
             android:textColor="#FFFFFF"
             android:layout_marginTop="10dp"
-            android:background="@drawable/ic_bouton_rouge"
+            android:background="@drawable/bouton_rouge"
             android:layout_marginBottom="10dp"/>
 
     </RelativeLayout>
@@ -84,6 +84,6 @@
         android:text="+"
         android:textSize="28sp"
         android:textColor="#FFFFFF"
-        android:background="@drawable/ic_bouton_circulaire"/>
+        android:background="@drawable/bouton_circulaire"/>
 
 </RelativeLayout>

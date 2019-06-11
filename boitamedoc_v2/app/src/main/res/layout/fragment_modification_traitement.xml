@@ -337,7 +337,7 @@
         android:layout_alignParentBottom="true"
         android:text="Valider la modification"
         android:onClick="confirmInput"
-        android:background="@drawable/ic_bouton"
+        android:background="@drawable/bouton"
         android:textColor="#FFFFFF"/>
 
 

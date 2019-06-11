@@ -117,7 +117,7 @@
                 android:layout_weight="1"
                 android:text="Modifier le profil"
                 android:textColor="#FFFFFF"
-                android:background="@drawable/ic_bouton"/>
+                android:background="@drawable/bouton"/>
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
