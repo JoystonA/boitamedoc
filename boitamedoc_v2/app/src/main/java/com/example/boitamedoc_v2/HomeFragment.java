@@ -27,6 +27,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private Button Case6;
     private Button Case7;
     private Button Case8;
+    private Intent intent;
     private TextView name_user;
     private TextView name_patient;
     private TextView dernier_prise_de_medoc_accueil;
@@ -47,6 +48,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Case6 = (Button) v.findViewById(R.id.case6);
         Case7 = (Button) v.findViewById(R.id.case7);
         Case8 = (Button) v.findViewById(R.id.case8);
+        intent = new Intent(getActivity(), InfoCaseActivity.class);
         name_user = (TextView) v.findViewById(R.id.Name_User);
         dernier_prise_de_medoc_accueil = (TextView) v.findViewById(R.id.dernier_prise_de_medoc_accueil);
         name_patient = (TextView) v.findViewById(R.id.Name_Patient);
@@ -95,35 +97,42 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public void onClick(View V) {
         switch (V.getId()) {
             case R.id.case1:
+                intent.putExtra("num","1");
                 openInfoCase();
                 break;
             case R.id.case2:
+                intent.putExtra("num","2");
                 openInfoCase();
                 break;
             case R.id.case3:
+                intent.putExtra("num","3");
                 openInfoCase();
                 break;
             case R.id.case4:
+                intent.putExtra("num","4");
                 openInfoCase();
                 break;
             case R.id.case5:
+                intent.putExtra("num","5");
                 openInfoCase();
                 break;
             case R.id.case6:
+                intent.putExtra("num","6");
                 openInfoCase();
                 break;
             case R.id.case7:
+                intent.putExtra("num","7");
                 openInfoCase();
                 break;
             case R.id.case8:
+                intent.putExtra("num","8");
                 openInfoCase();
+
                 break;
         }
     }
 
     public void openInfoCase() {
-        Intent intent;
-        intent = new Intent(getActivity(), InfoCaseActivity.class);
         startActivity(intent);
     }
 }

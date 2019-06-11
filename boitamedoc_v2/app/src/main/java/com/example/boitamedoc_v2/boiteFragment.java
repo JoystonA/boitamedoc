@@ -20,6 +20,8 @@ public class boiteFragment extends Fragment implements View.OnClickListener {
     private Button Case6;
     private Button Case7;
     private Button Case8;
+    private Intent intent;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -44,9 +46,8 @@ public class boiteFragment extends Fragment implements View.OnClickListener {
       Case6.setOnClickListener(this);
       Case7.setOnClickListener(this);
       Case8.setOnClickListener(this);
-
-
-        return v;
+      intent = new Intent(getActivity(), InfoCaseActivity.class);
+      return v;
 
     }
 
@@ -57,34 +58,40 @@ public class boiteFragment extends Fragment implements View.OnClickListener {
                 openConnexionBoite();
                 break;*/
             case R.id.case1:
+                intent.putExtra("num","1");
                 openInfoCase();
                 break;
             case R.id.case2:
+                intent.putExtra("num","2");
                 openInfoCase();
                 break;
             case R.id.case3:
+                intent.putExtra("num","3");
                 openInfoCase();
                 break;
             case R.id.case4:
+                intent.putExtra("num","4");
                 openInfoCase();
                 break;
             case R.id.case5:
+                intent.putExtra("num","5");
                 openInfoCase();
                 break;
             case R.id.case6:
+                intent.putExtra("num","6");
                 openInfoCase();
                 break;
             case R.id.case7:
+                intent.putExtra("num","7");
                 openInfoCase();
                 break;
             case R.id.case8:
+                intent.putExtra("num","8");
                 openInfoCase();
                 break;
         }
     }
 
     public void openInfoCase() {
-        Intent intent;
-        intent = new Intent(getActivity(), InfoCaseActivity.class);
         startActivity(intent);
     }}

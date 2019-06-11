@@ -1,41 +1,93 @@
 package com.example.boitamedoc_v2;
 
+import android.net.ParseException;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
 
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
+import com.android.volley.RequestQueue;
+import com.example.boitamedoc_v2.myrequest.MyRequest;
 
-import static com.example.boitamedoc_v2.App.conn;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class AjoutMedocActivity extends AppCompatActivity {
-    private TextView testTxt;
+    private TextView id_medoc_txt;
+    private TextView num_lot_txt;
+    private TextView name_medoc;
+    private TextView date_txt;
+    private String qr_code;
+    private String id_medoc;
+    private String num_lot;
+    private String date;
+    private String date_ok;
+    private String numCase;
+    private RequestQueue queue;
+    private MyRequest request;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajoutmedoc);
+        numCase = this.getIntent().getStringExtra("numCase");
+        id_medoc_txt = (TextView) findViewById(R.id.id_medoc);
+        name_medoc = findViewById(R.id.nom_medoc);
+        num_lot_txt = (TextView) findViewById(R.id.num_lot);
+        date_txt = (TextView) findViewById(R.id.date_exp);
+        qr_code = getIntent().getStringExtra("value");
+        queue = VolleySingleton.getInstance(this).getRequestQueue();
+        request = new MyRequest(this, queue);
+        decoupe_qr_code(qr_code);
 
-    testTxt = (TextView) findViewById(R.id.testTxt);
-        try {
-            Statement state = conn.createStatement();
-
-            ResultSet result = state.executeQuery("SELECT COUNT(*) FROM boitamedmxadmin.medicament");
-
-            ResultSetMetaData resultMeta = result.getMetaData();
-            while(result.next()){
-                testTxt.setText("Test"+ result.getObject(0).toString() );
+        request.recupMedoc(id_medoc, new MyRequest.recupMedocInfoCallback() {
+            @Override
+            public void onSucces(JSONObject message) {
+                try {
+                    name_medoc.setText("Nom du médicament :\n"+ message.getString("nom"));
+                    Log.d("APP", "onSucces: " + numCase);
+                    request.insetMedoc(numCase,id_medoc,date_ok,num_lot)   ;
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-        } catch (SQLException e) {
+
+            @Override
+            public void onError() {
+                name_medoc.setText("Nom du médicament :\n" + "Médicament inconnu");
+            }
+        });
+
+    }
+
+
+    public void decoupe_qr_code(String qr_code){
+        int length = qr_code.length();
+        id_medoc=qr_code.substring(4,17);
+        num_lot=qr_code.substring(27,length);
+        date="20"+qr_code.substring(19,25);
+
+
+        id_medoc_txt.setText("ID du médicament : "+id_medoc);
+        num_lot_txt.setText("Numéro de lot : "+num_lot);
+
+        SimpleDateFormat tempo = new SimpleDateFormat("yyyyMMdd");
+        try {
+            Date d = tempo.parse(date);
+            tempo.applyPattern("dd/MM/yyyy");
+            date_ok = tempo.format(d);
+        } catch (ParseException e) {
+            Log.d("APP", "getParams: Date nul chiant JPP");
+        } catch (java.text.ParseException e) {
             e.printStackTrace();
         }
-       // if(getIntent().getStringExtra("value")!= null) {
-       // testTxt.setText("QRCODE = "+ getIntent().getStringExtra("value"));
+
+        date_txt.setText("Date d'expiration : "+date_ok);
     }
-    //else testTxt.setText("CA MARCHE PAS");
-    //}
+
 
 }
+
