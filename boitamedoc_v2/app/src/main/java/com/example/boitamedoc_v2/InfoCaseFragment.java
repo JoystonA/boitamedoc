@@ -20,6 +20,7 @@ import org.json.JSONObject;
 public class InfoCaseFragment extends Fragment {
     private TextView scrolltxt;
     private TextView nameMedic;
+    private TextView nb_comprimes;
     private TextView num_lot;
     private TextView date_exp;
     private Button modifButton;
@@ -37,6 +38,7 @@ public class InfoCaseFragment extends Fragment {
         scrolltxt = (TextView) v.findViewById(R.id.descrip_medoc);
         nameMedic = v.findViewById(R.id.MediTxt);
         num_lot = v.findViewById(R.id.LotTxt);
+        nb_comprimes = v.findViewById(R.id.nb_comprimes);
         date_exp = v.findViewById(R.id.DateTxt);
         modifButton= (Button) v.findViewById(R.id.ModifButton);
         TextView casetxt =  v.findViewById(R.id.CaseTxt);
@@ -53,6 +55,10 @@ public class InfoCaseFragment extends Fragment {
                     scrolltxt.setText("Description :\n" + message.getString("definition"));
                     date_exp.setText("Date exp :" + message.getString("date"));
                     num_lot.setText("Numéro de lot :" + message.getString("num_lot"));
+                    if(message.getString("nbr_comprimes").equals("1")|| message.getString("nbr_comprimes").equals("0"))
+                        nb_comprimes.setText(message.getString("nbr_comprimes") + " Comprime");
+                    else
+                        nb_comprimes.setText(message.getString("nbr_comprimes") + " Comprimes");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
