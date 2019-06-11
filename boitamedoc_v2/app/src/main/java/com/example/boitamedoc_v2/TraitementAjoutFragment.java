@@ -79,6 +79,8 @@ public class TraitementAjoutFragment extends Fragment implements OnItemSelectedL
                 if(nbrMedocMatinIsOk()|nbrMedocMidiIsOk()|nbrMedocSoirIsOk()|nomMedecinIsOk()|dateDebutIsOk()|dateFinIsOk()){
                     // ICI FAUT FAIRE EN SORTE DE CREER UNE FONCTION QUI ASK LA BDD //
                     String nbrMedocInput_matin_ajout = nbre_medoc_ajout_matin.getEditText().getText().toString().trim();
+                    TraitementFragment.nbrTraitementAjout++;
+                    //Retourner sur le fragment Traitement
                 }
                 return;
             }
