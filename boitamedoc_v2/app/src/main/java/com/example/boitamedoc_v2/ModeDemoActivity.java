@@ -49,4 +49,9 @@ public class ModeDemoActivity extends AppCompatActivity implements View.OnClickL
                 break;
         }
     }
+
+    /* public void recupMessage(){
+        App.bluetooth_main.
+
+    }*/
 }

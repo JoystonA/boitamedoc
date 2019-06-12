@@ -19,6 +19,8 @@ public class LibreServiceFragment extends Fragment implements View.OnClickListen
     private Button Case6;
     private Button Case7;
     private Button Case8;
+    public static int CaseLibreService=0;
+    public static String CaseNameLibreService;
 
 
     @Nullable
@@ -52,27 +54,43 @@ public class LibreServiceFragment extends Fragment implements View.OnClickListen
     public void onClick(View V) {
         switch (V.getId()) {
             case R.id.case1:
+                CaseLibreService=1;
+                CaseNameLibreService= Case1.getText().toString();
                 openLibreServiceQuantitee();
                 break;
             case R.id.case2:
+                CaseLibreService=2;
+                CaseNameLibreService= Case2.getText().toString();
                 openLibreServiceQuantitee();
                 break;
             case R.id.case3:
+                CaseLibreService=3;
+                CaseNameLibreService= Case3.getText().toString();
                 openLibreServiceQuantitee();
                 break;
             case R.id.case4:
+                CaseLibreService=4;
+                CaseNameLibreService= Case4.getText().toString();
                 openLibreServiceQuantitee();
                 break;
             case R.id.case5:
+                CaseLibreService=5;
+                CaseNameLibreService= Case5.getText().toString();
                 openLibreServiceQuantitee();
                 break;
             case R.id.case6:
+                CaseLibreService=6;
+                CaseNameLibreService= Case6.getText().toString();
                 openLibreServiceQuantitee();
                 break;
             case R.id.case7:
+                CaseLibreService=7;
+                CaseNameLibreService= Case7.getText().toString();
                 openLibreServiceQuantitee();
                 break;
             case R.id.case8:
+                CaseLibreService=8;
+                CaseNameLibreService= Case8.getText().toString();
                 openLibreServiceQuantitee();
                 break;
         }

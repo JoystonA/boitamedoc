@@ -1,6 +1,5 @@
 package com.example.boitamedoc_v2;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import app.akexorcist.bluetotohspp.library.BluetoothState;
+import app.akexorcist.bluetotohspp.library.DeviceList;
 
 
 public class ConnexionActivity extends AppCompatActivity {
@@ -30,6 +32,7 @@ public class ConnexionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(identifiant.getText().toString().equals("admin")&&motDePasse.getText().toString().equals("admin")){
                     Toast.makeText(getApplicationContext(),"Chargement en cours...",Toast.LENGTH_SHORT).show();
+                    //connexionBluetooth();
                     openApplication();
                     ConnexionActivity.this.finish();
                 }
@@ -44,5 +47,9 @@ public class ConnexionActivity extends AppCompatActivity {
         Intent intent;
         intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void connexionBluetooth(){
+        App.bluetooth_main.connect("00:06:66:6D:F1:75"); //A voir si on laisse ici...
     }
 }

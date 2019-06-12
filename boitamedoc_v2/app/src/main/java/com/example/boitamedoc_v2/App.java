@@ -20,6 +20,7 @@ public class App extends Application {
         super.onCreate();
 
         createNotificationChannel();
+
         bluetooth_main = new BluetoothSPP(this);
         bluetooth_main.startService(true);
         int state = bluetooth_main.getServiceState();
@@ -50,15 +51,9 @@ public class App extends Application {
                 Toast.makeText(getApplicationContext(),"Impossible de se connecter",Toast.LENGTH_SHORT).show();
             }
         });
-
-        /*if(bluetooth_main.getState!=3){
-            while(state2!=3){bluetooth_main.connect("00:06:66:6D:F1:75");}
-        }*/
     }
 
     private void createNotificationChannel() {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "Channel1";
             String description = "Notification de Prise de Médicament";
@@ -82,5 +77,4 @@ public class App extends Application {
             }
         }
     }
-
 }
