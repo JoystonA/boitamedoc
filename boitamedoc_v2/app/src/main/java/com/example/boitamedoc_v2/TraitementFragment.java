@@ -5,23 +5,27 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.android.volley.RequestQueue;
+import com.example.boitamedoc_v2.myrequest.MyRequest;
+
 
 public class TraitementFragment extends Fragment implements View.OnClickListener {
     private Button Case_Modifier;
     private Button Case_Ajouter;
-
+    private RequestQueue queue;
+    private MyRequest request;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_traitement, container, false);
+        queue = VolleySingleton.getInstance(getActivity()).getRequestQueue();
+        request = new MyRequest(getActivity(), queue);
 
         Case_Modifier = (Button) v.findViewById(R.id.button_modifier);
         Case_Ajouter = (Button) v.findViewById(R.id.button_ajouter);

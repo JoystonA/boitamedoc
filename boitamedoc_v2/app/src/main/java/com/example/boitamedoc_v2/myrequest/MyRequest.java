@@ -205,6 +205,77 @@ public class MyRequest {
                     Log.d("APP", "getParams: Date nul chiant JPP");
                 }
                 map.put("date", date_ok);
+                JSONObject json = new JSONObject();
+                try {
+                    json.put("traitement_1", new JSONObject()
+                            .put("id_medoc", "0")
+                            .put("matin", "0")
+                            .put("midi", "0")
+                            .put("soir", "0")
+                            .put("nom_medecin", "")
+                            .put("Date_debut", 0000 - 00 - 00)
+                            .put("Date_fin", 0000 - 00 - 00))
+                            .put("traitement_2", new JSONObject()
+                                    .put("id_medoc", "0")
+                                    .put("matin", "0")
+                                    .put("midi", "0")
+                                    .put("soir", "0")
+                                    .put("nom_medecin", "")
+                                    .put("Date_debut", 0000 - 00 - 00)
+                                    .put("Date_fin", 0000 - 00 - 00))
+                            .put("traitement_3", new JSONObject()
+                                    .put("id_medoc", "0")
+                                    .put("matin", "0")
+                                    .put("midi", "0")
+                                    .put("soir", "0")
+                                    .put("nom_medecin", "")
+                                    .put("Date_debut", 0000 - 00 - 00)
+                                    .put("Date_fin", 0000 - 00 - 00))
+                            .put("traitement_4", new JSONObject()
+                                    .put("id_medoc", "0")
+                                    .put("matin", "0")
+                                    .put("midi", "0")
+                                    .put("soir", "0")
+                                    .put("nom_medecin", "")
+                                    .put("Date_debut", 0000 - 00 - 00)
+                                    .put("Date_fin", 0000 - 00 - 00))
+                            .put("traitement_5", new JSONObject()
+                                    .put("id_medoc", "0")
+                                    .put("matin", "0")
+                                    .put("midi", "0")
+                                    .put("soir", "0")
+                                    .put("nom_medecin", "")
+                                    .put("Date_debut", 0000 - 00 - 00)
+                                    .put("Date_fin", 0000 - 00 - 00))
+                            .put("traitement_6", new JSONObject()
+                                    .put("id_medoc", "0")
+                                    .put("matin", "0")
+                                    .put("midi", "0")
+                                    .put("soir", "0")
+                                    .put("nom_medecin", "")
+                                    .put("Date_debut", 0000 - 00 - 00)
+                                    .put("Date_fin", 0000 - 00 - 00))
+                            .put("traitement_7", new JSONObject()
+                                    .put("id_medoc", "0")
+                                    .put("matin", "0")
+                                    .put("midi", "0")
+                                    .put("soir", "0")
+                                    .put("nom_medecin", "")
+                                    .put("Date_debut", 0000 - 00 - 00)
+                                    .put("Date_fin", 0000 - 00 - 00))
+                            .put("traitement_8", new JSONObject()
+                                    .put("id_medoc", "0")
+                                    .put("matin", "0")
+                                    .put("midi", "0")
+                                    .put("soir", "0")
+                                    .put("nom_medecin", "")
+                                    .put("Date_debut", 0000 - 00 - 00)
+                                    .put("Date_fin", 0000 - 00 - 00));
+                }
+                catch (Exception e){
+                    Log.d("APP", "getParams: C'est la merde ");
+                }
+                map.put("traitement",json.toString());
                 return map;
             }
         };
@@ -312,7 +383,7 @@ public class MyRequest {
             @Override
             public void onResponse(String response) {
 
-                //Log.d("APP", "on Response :" + response);
+                Log.d("APP", "on Response :" + response);
                 try {
                     JSONObject json = new JSONObject(response);
                     boolean connue = json.getBoolean("connue");
@@ -567,6 +638,51 @@ public class MyRequest {
         queue.add(request);
     }
 
+    public void TraitementTest(traitementTestCallback Callback) {
+        String url = url_debut + "traitementTest.php";
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.d("APP", "on Response TraitementTest :" + response);
+                JSONObject JSONtraitement;
+                String tempo;
+                try {
+                    JSONObject json = new JSONObject(response);
+                    boolean error = json.getBoolean("error");
+                    if (!error) {
+                        tempo = json.getString("traitement");
+                        Log.d("APP", tempo);
+                        JSONtraitement = new JSONObject(tempo);
+                        Log.d("APP", "onResponse: if " + JSONtraitement);
+                        Callback.onSucces(JSONtraitement);
+                    }
+                    else{
+                        Callback.onError();
+                        Log.d("APP", "onResponse: else " + json.getString("message"));
+                    }
+                }
+                catch (Exception e) {
+                    Log.d("APP", "onResponse: catch Myrequest " + e.getMessage() + " "+e.getClass());
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("id_patient", id_patient);
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
     public interface recupPatientCallback{
         void onSucces(JSONObject message);
         void onError(boolean error);
@@ -599,6 +715,11 @@ public class MyRequest {
 
     public interface recupMedocInfoCallback{
         void onSucces(JSONObject message);
+        void onError();
+    }
+
+    public interface traitementTestCallback{
+        void onSucces(JSONObject JSONTraitement);
         void onError();
     }
 }

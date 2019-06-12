@@ -70,7 +70,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                      Log.d("APP", "onSucces: C'esst pas normal "+e.getMessage());
                  }
                   name_patient.setText(nom_Patient + " " + prenom_Patient);
-                  dernier_prise.setText(last_take);
+                 if(!last_take.equals("null"))
+                     dernier_prise.setText(last_take);
              }
              @Override
              public void onError(boolean error) {
