@@ -1,15 +1,18 @@
 package com.example.boitamedoc_v2;
 
+import android.content.Intent;
 import android.net.ParseException;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AjoutMedocActivity extends AppCompatActivity {
+public class AjoutMedocActivity extends AppCompatActivity implements View.OnClickListener{
     private TextView id_medoc_txt;
     private TextView num_lot_txt;
     private TextView date_txt;
@@ -18,16 +21,32 @@ public class AjoutMedocActivity extends AppCompatActivity {
     private String num_lot;
     private String date;
     private String date_ok;
+    private Button AjoutMedoc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajoutmedoc);
+        setTitle("Boîte de médicament");
         id_medoc_txt = (TextView) findViewById(R.id.id_medoc);
         num_lot_txt = (TextView) findViewById(R.id.num_lot);
         date_txt = (TextView) findViewById(R.id.date_exp);
+        AjoutMedoc = (Button) findViewById(R.id.validMedoc);
+
         qr_code = getIntent().getStringExtra("value");
+        AjoutMedoc.setOnClickListener(this);
+
         decoupe_qr_code(qr_code);
+    }
+
+
+    @Override
+    public void onClick(View V) {
+        switch (V.getId()) {
+            case R.id.validMedoc:
+                openCalibrageActivity();
+                break;
+        }
     }
 
 
@@ -53,6 +72,13 @@ public class AjoutMedocActivity extends AppCompatActivity {
         }
 
         date_txt.setText("Date d'expiration : "+date_ok);
+    }
+
+
+    public void openCalibrageActivity(){
+        Intent intent;
+        intent = new Intent(this, CalibrageActivity.class);
+        startActivity(intent);
     }
 
 

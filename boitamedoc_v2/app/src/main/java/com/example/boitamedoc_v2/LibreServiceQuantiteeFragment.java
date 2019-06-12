@@ -34,7 +34,9 @@ public class LibreServiceQuantiteeFragment extends Fragment {
                     // ICI FAUT FAIRE EN SORTE DE CREER UNE FONCTION QUI ASK LA BDD //
                     String quantiteeInput = quantitee.getEditText().getText().toString().trim();
                     App.bluetooth_main.send(Integer.toString(LibreServiceFragment.CaseLibreService), true);
-                    App.bluetooth_main.send(quantiteeInput+ "comprimé(s) de " + LibreServiceFragment.CaseNameLibreService, true);
+                    System.out.println(Integer.toString(LibreServiceFragment.CaseLibreService));
+                    App.bluetooth_main.send(quantiteeInput+ " comprimé(s) de " + LibreServiceFragment.CaseNameLibreService, true);
+                    System.out.println(quantiteeInput+ "comprimé(s) de " + LibreServiceFragment.CaseNameLibreService);
                     openLibreServiceQuantiteeActivity();
                 }
                 return;
@@ -48,6 +50,7 @@ public class LibreServiceQuantiteeFragment extends Fragment {
 
         if (quantiteeInput.isEmpty() || quantiteeInput.equals("0")) {
             quantitee.setError("Rentrer quelque chose!");
+            //Limité avec le nombre de médicament des cases.
             return false;
         }
         quantitee.setError(null);

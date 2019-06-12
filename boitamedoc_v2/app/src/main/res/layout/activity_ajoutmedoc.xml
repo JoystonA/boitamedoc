@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/activity_horizontal_margin"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:orientation="vertical">
 
     <TextView
         android:id="@+id/name_legende_scan"
@@ -37,14 +41,14 @@
         android:fontFamily="sans-serif-condensed-medium"/>
 
     <TextView
-    android:id="@+id/date_exp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Date d'expiration"
-    android:layout_marginStart="10dp"
-    android:textSize="14sp"
-    android:textColor="@color/colorFont2"
-    android:fontFamily="sans-serif-condensed-medium"/>
+        android:id="@+id/date_exp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date d'expiration"
+        android:layout_marginStart="10dp"
+        android:textSize="14sp"
+        android:textColor="@color/colorFont2"
+        android:fontFamily="sans-serif-condensed-medium"/>
 
     <TextView
         android:id="@+id/nom_medoc"
@@ -57,5 +61,20 @@
         android:textColor="@color/colorFont2"
         android:fontFamily="sans-serif-condensed-medium"/>
 
+    </LinearLayout>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/validMedoc"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:onClick="ValidationMedicament"
+        android:text="Valider le médicament"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginEnd="75dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bouton"
+        android:textColor="#FFFFFF"/>
+</RelativeLayout>

@@ -38,6 +38,7 @@ public class ScannedBarcodeActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_barcode);
+        setTitle("Boîte de médicament");
         openPopUpInformation();
         initViews();
     }
