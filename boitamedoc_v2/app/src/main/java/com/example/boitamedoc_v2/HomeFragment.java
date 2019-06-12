@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.example.boitamedoc_v2.myrequest.MyRequest;
+
+import org.json.JSONObject;
 
 import static com.example.boitamedoc_v2.App.id_gestionnaire;
 import static com.example.boitamedoc_v2.App.id_patient;
@@ -30,7 +33,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private Intent intent;
     private TextView name_user;
     private TextView name_patient;
-    private TextView dernier_prise_de_medoc_accueil;
+    private TextView dernier_prise;
     private RequestQueue queue;
     private MyRequest request;
 
@@ -50,14 +53,24 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Case8 = (Button) v.findViewById(R.id.case8);
         intent = new Intent(getActivity(), InfoCaseActivity.class);
         name_user = (TextView) v.findViewById(R.id.Name_User);
-        dernier_prise_de_medoc_accueil = (TextView) v.findViewById(R.id.dernier_prise_de_medoc_accueil);
+        dernier_prise = (TextView) v.findViewById(R.id.dernier_prise_de_medoc_accueil);
         name_patient = (TextView) v.findViewById(R.id.Name_Patient);
         queue = VolleySingleton.getInstance(getActivity()).getRequestQueue();
         request = new MyRequest(getActivity(), queue);
         request.recupPatient(id_patient, new MyRequest.recupPatientCallback() {
              @Override
-             public void onSucces(String nom_Patient, String prenom_Patient) {
+             public void onSucces(JSONObject message) {
+                 String nom_Patient = "ERREUR",prenom_Patient="ERREUR",last_take="ERREUR";
+                 try {
+                     nom_Patient = message.getString("nom");
+                     prenom_Patient = message.getString("prenom");
+                     last_take = message.getString("last_take");
+                 }
+                 catch (Exception e){
+                     Log.d("APP", "onSucces: C'esst pas normal "+e.getMessage());
+                 }
                   name_patient.setText(nom_Patient + " " + prenom_Patient);
+                  dernier_prise.setText(last_take);
              }
              @Override
              public void onError(boolean error) {

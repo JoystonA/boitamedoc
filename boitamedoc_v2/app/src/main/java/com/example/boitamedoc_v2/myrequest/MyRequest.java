@@ -318,7 +318,7 @@ public class MyRequest {
                     boolean connue = json.getBoolean("connue");
                     if (connue) {
                         JSONObject message = json.getJSONObject("message");
-                        Callback.onSucces(message.getString("nom"),message.getString("prenom"));
+                        Callback.onSucces(message);
                     }
                     else{
                         Callback.onError(true);
@@ -568,7 +568,7 @@ public class MyRequest {
     }
 
     public interface recupPatientCallback{
-        void onSucces(String nom, String prenom);
+        void onSucces(JSONObject message);
         void onError(boolean error);
     }
 
