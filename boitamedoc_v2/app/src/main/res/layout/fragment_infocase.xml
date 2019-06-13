@@ -25,7 +25,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/patient_age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
@@ -78,15 +78,16 @@
         android:text="Lot n1711716"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_below="@id/textView5"
-        android:layout_height="200dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte et à  l’enfant à partir de 27 kg (soit à partir  d’environ 8 ans).Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/LotTxt"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-condensed"
+            android:scrollbars="vertical"
+            android:text="Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte et à  l’enfant à partir de 27 kg (soit à partir  d’environ 8 ans).Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
 Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
 Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
 Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
@@ -117,9 +118,8 @@ Traitement symptomatique des douleurs  d’intensité légère à modérée et/o
 v
 Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
 "
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:scrollbars="vertical"/>
+            android:textAlignment="center"
+            android:textSize="18sp" />
 
 </LinearLayout>
 

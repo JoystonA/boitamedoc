@@ -18,6 +18,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.example.boitamedoc_v2.App.id_boite;
 import static com.example.boitamedoc_v2.App.id_gestionnaire;
 import static com.example.boitamedoc_v2.App.id_patient;
 
@@ -28,7 +29,7 @@ public class MyRequest {
 
     private Context context;
     private RequestQueue queue;
-    private String url_debut ="https://www.boitamedoc.com/test/";
+    private String url_debut ="https://www.boitamedoc.com/connexion/";
 
     public MyRequest(Context context, RequestQueue queue) {
         this.context = context;
@@ -53,7 +54,6 @@ public class MyRequest {
                     boolean error = reponse.getBoolean("error");
                     if(error){
                         try {
-
                             try {
                                 if (!message.getString("nom").equals(null)){
                                     errors[0] = true;
@@ -427,6 +427,361 @@ public class MyRequest {
         queue.add(request);
     }
 
+    public void recupCompte(String id_gerant, recupCompteCallback Callback) {
+        String url = url_debut + "RecupCompte.php";
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+
+                Log.d("APP", "on Response :" + response);
+                try {
+                    JSONObject json = new JSONObject(response);
+                    boolean connue = json.getBoolean("connue");
+                    if (connue) {
+                        JSONObject message = json.getJSONObject("message");
+                        Callback.onSucces(message.getString("nom"), message.getString("prenom"), message.getString("lienPatient"), message.getString("date"), message.getString("email"));
+                    }
+                    else{
+                        Callback.onError(true);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                //Log.d("APP", response);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("id_gerant", id_gerant);
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
+    public void modifCompte(String id_gerant, final String str_nom, final String str_prenom, final String str_lienPatient, final String str_date, final String str_email, final String str_old_MDP, final String str_MDP, final String str_confirmMdp, modifCompteCallback callback){
+
+        String url = url_debut + "ModifCompte.php";
+
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                boolean errors[]={false,false,false,false};
+                String rep_email="";
+                String rep_mdp="";
+                if(response!=null){
+                    Log.d("APP", "onResponse: "+response) ;
+                }
+                try {
+                    JSONObject reponse = new JSONObject(response);
+                    boolean error = reponse.getBoolean("error");
+                    if(error){
+                        try {
+                            JSONObject message = reponse.getJSONObject("message");
+                            try {
+                                if (!message.getString("nom").equals(null)){
+                                    errors[0] = true;
+                                }
+                            }
+                            catch (Exception e){
+                            }
+                            try {
+                                if (!message.getString("prenom").equals(null)){
+                                    errors[1] = true;
+                                }
+                            }
+                            catch (Exception e){
+                            }
+                            try {
+                                if (!message.getString("email").equals(null)){
+                                    errors[2] = true;
+                                    rep_email = message.getString("email");
+                                }
+                            }
+                            catch (Exception e){
+                            }
+
+                            try {
+                                if (!message.getString("mdp").equals(null)){
+                                    errors[3] = true;
+                                    rep_mdp = message.getString("mdp");
+                                }
+                            }
+                            catch (Exception e){
+                            }
+                        }
+                        catch (Exception e){
+                            Log.d("APP", "onResponse: "+ e.getMessage());
+                        }// Try get Message
+                        callback.onError(errors, rep_email, rep_mdp);
+                    }
+                    else{
+                        Log.d("APP", "onResponse: callback");
+                        callback.onSucces();
+                    }
+                }
+                catch(Exception e){
+                    Log.d("APP", "onResponse: "+e.getMessage());
+                }// TRY get JSON RESPONSE
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> map = new HashMap<>();
+                String date_ok =str_date;
+                map.put("id_gerant", id_gerant);
+                map.put("nom", str_nom);
+                map.put("prenom", str_prenom);
+                map.put("lien_patient", str_lienPatient);
+                map.put("old_mdp", str_old_MDP);
+                map.put("email", str_email);
+                map.put("mdp", str_MDP);
+                map.put("confirmeMDP", str_confirmMdp);
+                SimpleDateFormat tempo = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    Date d = tempo.parse(str_date);
+                    tempo.applyPattern("yyyy/MM/dd");
+                    date_ok = tempo.format(d);
+                } catch (ParseException e) {
+                    Log.d("APP", "getParams: Date nul chiant JPP");
+                }
+                map.put("date", date_ok);
+
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
+    public void recupProfil(String id_patient, recupProfilCallback Callback) {
+        String url = url_debut + "RecupProfil.php";
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+
+                Log.d("APP", "on Response :" + response);
+                try {
+                    JSONObject json = new JSONObject(response);
+                    boolean connue = json.getBoolean("connue");
+                    if (connue) {
+                        JSONObject message = json.getJSONObject("message");
+                        Callback.onSucces(message.getString("nom"), message.getString("prenom"), message.getString("numero_securite_social"), message.getString("id_boite"), message.getString("date"), message.getString("maladie"), message.getInt("apte"));
+                    }
+                    else{
+                        Callback.onError(true);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                //Log.d("APP", response);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("id_patient", id_patient);
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
+    public void modifProfil(String id_patient, final String str_nom, final String str_prenom, final String str_date, final String str_maladie, final String str_apte, modifProfilCallback callback){
+
+        String url = url_debut + "ModifProfil.php";
+
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                boolean errors[]={false,false};
+                if(response!=null){
+                    Log.d("APP", "onResponse: "+response) ;
+                }
+                try {
+                    JSONObject reponse = new JSONObject(response);
+                    boolean error = reponse.getBoolean("error");
+                    if(error){
+                        try {
+                            JSONObject message = reponse.getJSONObject("message");
+                            try {
+                                if (!message.getString("nom").equals(null)){
+                                    errors[0] = true;
+                                }
+                            }
+                            catch (Exception e){
+                            }
+                            try {
+                                if (!message.getString("prenom").equals(null)){
+                                    errors[1] = true;
+                                }
+                            }
+                            catch (Exception e){
+                            }
+
+                        }
+                        catch (Exception e){
+                            Log.d("APP", "onResponse: "+ e.getMessage());
+                        }// Try get Message
+                        callback.onError(errors);
+                    }
+                    else{
+                        Log.d("APP", "onResponse: appel de la fonction callback");
+                        callback.onSucces();
+                    }
+                }
+                catch(Exception e){
+
+                }// TRY get JSON RESPONSE
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> map = new HashMap<>();
+                String date_ok =str_date;
+                map.put("id_patient", id_patient);
+                map.put("nom", str_nom);
+                map.put("prenom", str_prenom);
+                map.put("maladie", str_maladie);
+                map.put("apte", str_apte);
+                SimpleDateFormat tempo = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    Date d = tempo.parse(str_date);
+                    tempo.applyPattern("yyyy/MM/dd");
+                    date_ok = tempo.format(d);
+                } catch (ParseException e) {
+                    Log.d("APP", "getParams: Date nul chiant JPP");
+                }
+                map.put("date", date_ok);
+
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
+    public void recupMedoc(String id_medoc, recupMedocInfoCallback Callback) {
+        String url = url_debut + "RecupMedicament.php";
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                Log.d("APP", "on Response :" + response);
+                try {
+                    JSONObject json = new JSONObject(response);
+                    boolean connue = json.getBoolean("connue");
+                    if (connue) {
+                        JSONObject message = json.getJSONObject("message");
+                        Callback.onSucces(message);
+                    }
+                    else{
+                        Callback.onError();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                //Log.d("APP", response);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("id_medoc", id_medoc);
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
+    public void recupMedocInfo(String id_case, recupMedocInfoCallback Callback) {
+        String url = url_debut + "RecupMedocInfo.php";
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+
+                Log.d("APP", "on Response :" + response);
+                try {
+                    JSONObject json = new JSONObject(response);
+                    boolean error = json.getBoolean("erreur");
+                    if (!error) {
+                        JSONObject message = json.getJSONObject("message");
+                        Callback.onSucces(message);
+                    }
+                    else{
+                        Callback.onError();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                //Log.d("APP", response);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("id_boite", id_boite);
+                map.put("id_case1", id_case);
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
+
+    public interface recupMedocInfoCallback{
+        void onSucces(JSONObject message);
+        void onError();
+    }
+
     public interface recupPatientCallback{
         void onSucces(String nom, String prenom);
         void onError(boolean error);
@@ -455,5 +810,25 @@ public class MyRequest {
     public interface ConnexionCallback{
         void onSucces(String id_gestion);
         void onError(boolean error);
+    }
+
+    public interface recupCompteCallback{
+        void onSucces(String nom, String prenom, String lienPatient, String date, String email);
+        void onError(boolean error);
+    }
+
+    public interface modifCompteCallback{
+        void onSucces();
+        void onError(boolean errors[], String rep_email, String rep_mdp);
+    }
+
+    public interface recupProfilCallback{
+        void onSucces(String nom, String prenom, String numero_securite_social, String id_boite, String date, String maladie, int apte);
+        void onError(boolean error);
+    }
+
+    public interface modifProfilCallback{
+        void onSucces();
+        void onError(boolean errors[]);
     }
 }

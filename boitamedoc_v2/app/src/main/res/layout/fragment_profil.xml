@@ -33,7 +33,6 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:text="Anthony"
                 android:textColor="#FFFFFFFF"
                 android:textSize="30sp" />
 
@@ -61,8 +60,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="10dp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:text="Numéro de Sécurité Social : 1 93 05 80 253 350 06" />
+                android:fontFamily="sans-serif-condensed-medium" />
 
             <TextView
                 android:id="@+id/num_id_boite_patient"
@@ -70,17 +68,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginBottom="10dp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:text="Identifiant boîte : 01524012" />
+                android:fontFamily="sans-serif-condensed-medium" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/patient_age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginBottom="10dp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:text="Age : 55" />
+                android:fontFamily="sans-serif-condensed-medium" />
 
             <TextView
                 android:id="@+id/name_maladie_patient"
@@ -88,8 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginBottom="10dp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:text="Maladie : Choléstérol" />
+                android:fontFamily="sans-serif-condensed-medium" />
 
             <TextView
                 android:id="@+id/apte_patient"
@@ -97,8 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginBottom="10dp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:text="Apte : Oui" />
+                android:fontFamily="sans-serif-condensed-medium" />
         </LinearLayout>
 
         <RelativeLayout

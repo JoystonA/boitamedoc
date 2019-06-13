@@ -15,7 +15,7 @@ public class App extends Application {
     public static final String pawd = "E3esieeboitamx2019";
     public static String id_gestionnaire;
     public static String id_patient;
-    public static String id_boite;
+    public static String id_boite = "0";
     public static Connection conn;
     public static final String CHANNEL_1_ID = "channel1";
 
