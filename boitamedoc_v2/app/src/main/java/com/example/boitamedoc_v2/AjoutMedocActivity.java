@@ -56,7 +56,7 @@ public class AjoutMedocActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onError() {
+            public void onError(JSONObject message) {
                 name_medoc.setText("Nom du médicament :\n" + "Médicament inconnu");
             }
         });

@@ -515,13 +515,13 @@ public class MyRequest {
                         if(!message.getString("id_medoc").equals("0"))
                             Callback.onSucces(message);
                         else
-                            Callback.onError();
+                            Callback.onError(message);
                     }
                     else{
-                        Callback.onError();
+                        Callback.onError(message);
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    Log.d("APP", "onResponse: " +e.getMessage());
                 }
                 //Log.d("APP", response);
 
@@ -559,7 +559,7 @@ public class MyRequest {
                         Callback.onSucces(message);
                     }
                     else{
-                        Callback.onError();
+                        Callback.onError(json);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -638,13 +638,12 @@ public class MyRequest {
         queue.add(request);
     }
 
-    public void TraitementTest(traitementTestCallback Callback) {
-        String url = url_debut + "traitementTest.php";
+    public void RecupTrait(traitementTestCallback Callback) {
+        String url = url_debut + "recupTrait.php";
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                Log.d("APP", "on Response TraitementTest :" + response);
                 JSONObject JSONtraitement;
                 String tempo;
                 try {
@@ -652,9 +651,8 @@ public class MyRequest {
                     boolean error = json.getBoolean("error");
                     if (!error) {
                         tempo = json.getString("traitement");
-                        Log.d("APP", tempo);
                         JSONtraitement = new JSONObject(tempo);
-                        Log.d("APP", "onResponse: if " + JSONtraitement);
+                    //    Log.d("APP", "onResponse: if " + JSONtraitement);
                         Callback.onSucces(JSONtraitement);
                     }
                     else{
@@ -677,6 +675,43 @@ public class MyRequest {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<>();
                 map.put("id_patient", id_patient);
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
+    public void insertTrait(JSONObject traitement) {
+        String url = url_debut + "insertTrait.php";
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject json = new JSONObject(response);
+                    boolean error = json.getBoolean("error");
+                    if(error)
+                    {
+                        String message = json.getString("message");
+                        Log.d("APP", "onResponse: "+ message);
+                    }
+                }
+                catch(Exception e){
+
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("id_patient",id_patient);
+                map.put("traitement",traitement.toString());
                 return map;
             }
         };
@@ -715,7 +750,7 @@ public class MyRequest {
 
     public interface recupMedocInfoCallback{
         void onSucces(JSONObject message);
-        void onError();
+        void onError(JSONObject message);
     }
 
     public interface traitementTestCallback{

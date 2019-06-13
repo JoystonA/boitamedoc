@@ -65,7 +65,7 @@ public class InfoCaseFragment extends Fragment {
             }
 
             @Override
-            public void onError() {
+            public void onError(JSONObject message) {
                 scrolltxt.setText("Description :\n" );
                 nameMedic.setText("Il n'y a pas de medicalment dans cette case");
             }
