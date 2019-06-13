@@ -44,6 +44,7 @@ public class AjoutMedocActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View V) {
         switch (V.getId()) {
             case R.id.validMedoc:
+                App.bluetooth_main.send("36",true);
                 openCalibrageActivity();
                 break;
         }
