@@ -984,7 +984,7 @@ public class MyRequest {
         queue.add(request);
     }
 
-    public void recupMedoc(String id_medoc, recupMedocInfoCallback Callback) {
+   /* public void recupMedoc(String id_medoc, recupMedocInfoCallback Callback) {
         String url = url_debut + "RecupMedicament.php";
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -1022,9 +1022,9 @@ public class MyRequest {
             }
         };
         queue.add(request);
-    }
+    }*/
 
-    public void recupMedocInfo(String id_case, recupMedocInfoCallback Callback) {
+    /*public void recupMedocInfo(String id_case, recupMedocInfoCallback Callback) {
         String url = url_debut + "RecupMedocInfo.php";
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 
@@ -1040,7 +1040,7 @@ public class MyRequest {
                         Callback.onSucces(message);
                     }
                     else{
-                        Callback.onError();
+                        Callback.onError(json);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -1064,13 +1064,8 @@ public class MyRequest {
             }
         };
         queue.add(request);
-    }
+    }*/
 
-
-    public interface recupMedocInfoCallback{
-        void onSucces(JSONObject message);
-        void onError();
-    }
 
     public interface recupPatientCallback{
         void onSucces(JSONObject message);
