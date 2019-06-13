@@ -94,4 +94,5 @@ public class boiteFragment extends Fragment implements View.OnClickListener {
 
     public void openInfoCase() {
         startActivity(intent);
-    }}
+    }
+}
