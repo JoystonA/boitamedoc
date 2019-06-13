@@ -26,8 +26,16 @@ public class CalibrageActivity extends AppCompatActivity {
         App.bluetooth_main.setOnDataReceivedListener(new BluetoothSPP.OnDataReceivedListener() {
             public void onDataReceived(byte[] data, String message) {
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-                masseUnComprimé.setText(message+" g");
+                float masse = Float.parseFloat(message);
+                float masse_mg = masse/100;
+                String masse_mg_string=Float.toString(masse_mg);
+                masseUnComprimé.setText("Le comprimé pèse "+masse_mg_string+" mg");
             }
         });
     }
+
+    /*public void calculNbrComprimé(String message){
+
+
+    }*/
 }
