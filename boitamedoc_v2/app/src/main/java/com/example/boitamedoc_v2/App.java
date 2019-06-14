@@ -11,11 +11,9 @@ import java.sql.Connection;
 
 public class App extends Application {
     public static final String URL_BDD = "jdbc:mysql://185.31.40.18:3306/boitamedmxadmin_databases";
-    public static final String user = "184284";
-    public static final String pawd = "E3esieeboitamx2019";
     public static String id_gestionnaire;
     public static String id_patient;
-    public static String id_boite;
+    public static String id_boite="0";
     public static Connection conn;
     public static final String CHANNEL_1_ID = "channel1";
 

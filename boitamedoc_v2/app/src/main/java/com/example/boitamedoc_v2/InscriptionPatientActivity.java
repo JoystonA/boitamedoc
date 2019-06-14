@@ -23,6 +23,8 @@ public class InscriptionPatientActivity extends AppCompatActivity {
     private EditText maladie;
     private TextView numSecu;
     private Switch isApte;
+    private Boolean switchState;
+    private String Apte;
     private ProgressBar pb_loader;
     private RequestQueue queue;
     private MyRequest request;
@@ -42,6 +44,7 @@ public class InscriptionPatientActivity extends AppCompatActivity {
         numSecu.setText(getIntent().getStringExtra("numSecu"));
         isApte = findViewById(R.id.switch_apte);
         pb_loader = (ProgressBar) findViewById(R.id.pb_loader);
+
         queue = VolleySingleton.getInstance(this).getRequestQueue();
         request = new MyRequest(this, queue);
     }
@@ -110,8 +113,16 @@ public class InscriptionPatientActivity extends AppCompatActivity {
         String Date = date.getText().toString();
         String Maladie = maladie.getText().toString();
         String NumSecu = numSecu.getText().toString();
-        String IsApte = isApte.getText().toString();
-        request.registerPatient(Nom, Prenom, Date, Maladie, NumSecu, IsApte,new MyRequest.InscripPatientCallback(){
+        switchState = isApte.isChecked();
+
+        if(switchState == true){
+            Apte = "1";
+        }
+        else{
+            Apte = "0";
+        }
+
+        request.registerPatient(Nom, Prenom, Date, Maladie, NumSecu, Apte, new MyRequest.InscripPatientCallback(){
             @Override
             public void onSucces(String nom,String prenom) {
                 Log.d("APP", "onSucces: OK POUR LINSTANT");
@@ -129,7 +140,7 @@ public class InscriptionPatientActivity extends AppCompatActivity {
                 }
                 if(errors[1]) {
                     Log.d("APP", "onError: prenom dedans");
-                    prenom.setError("Preneom Incorrecte");
+                    prenom.setError("Prenom Incorrecte");
                 }
                 pb_loader.setVisibility(View.GONE);
 

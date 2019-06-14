@@ -20,7 +20,7 @@
     <string name="name_patient">"Patient : name"</string>
     <string name="boite_connexion">Boite Connecté</string>
     <string name="agencement_boite_name_accueil">"Agencement de la boîte"</string>
-    <string name="traitement_accueil">"Traitement"</string>
+    <string name="traitement_accueil">"Dernière Prise"</string>
 
 
     <!--Boîte-->

@@ -105,7 +105,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed-medium"
-            android:hint="Ancien mot de passe" />
+            android:hint="Ancien mot de passe"
+            android:inputType="textPassword"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -119,7 +120,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="sans-serif-condensed-medium"
-            android:hint="Nouveau mot de passe" />
+            android:hint="Nouveau mot de passe"
+            android:inputType="textPassword"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -133,7 +135,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed-medium"
-            android:hint="Comfirmer nouveau mot de passe" />
+            android:hint="Comfirmer nouveau mot de passe"
+            android:inputType="textPassword"/>
     </android.support.design.widget.TextInputLayout>
 
     <Button

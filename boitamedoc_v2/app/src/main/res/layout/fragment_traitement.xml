@@ -1,89 +1,584 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
     <RelativeLayout
-        android:id="@+id/traitement_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBackground"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/title_traitement"
+        <RelativeLayout
+            android:id="@+id/traitement_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Traitement pendant nbr jours"
-            android:textColor="@color/colorFont1"
-            android:textSize="16sp" />
+            android:background="@color/colorBackground"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp">
 
-        <TextView
-            android:id="@+id/traitement_patient"
+            <TextView
+                android:id="@+id/title_traitement1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/colorFont1"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/traitement_patient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_traitement1"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="nbr comprimé de name_medicament (name_periode)"
+                android:textColor="@color/colorFont2"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/name_medecin_heure_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/traitement_patient"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/colorFont1"
+                android:textSize="12sp"
+                android:text="Prescrit par le Dr. name le date \nDate de fin : date"/>
+
+            <Button
+                android:id="@+id/button_modifier"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_alignBottom="@id/name_medecin_heure_date"
+                android:layout_alignParentEnd="true"
+                android:text="Modifier"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/ic_bouton"/>
+
+            <Button
+                android:id="@+id/button_supprimer"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/button_modifier"
+                android:layout_alignParentEnd="true"
+                android:text="Supprimer"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_bouton_rouge"
+                android:layout_marginBottom="10dp"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/traitement_layout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/title_traitement"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="18dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="nbr comprimé de name_medicament (name_periode)"
-            android:textColor="@color/colorFont2"
-            android:textSize="12sp" />
-        
-        <TextView
-            android:id="@+id/name_medecin_heure_date"
+            android:layout_below="@id/traitement_layout"
+            android:background="@color/colorBackground"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/title_traitement2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Traitement pendant nbr jours"
+                android:textColor="@color/colorFont1"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/traitement_patient2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_traitement2"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="nbr comprimé de name_medicament (name_periode)"
+                android:textColor="@color/colorFont2"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/name_medecin_heure_date2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/traitement_patient2"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/colorFont1"
+                android:textSize="12sp"
+                android:text="Prescrit par le Dr. name le date \nDate de fin : date"/>
+
+            <Button
+                android:id="@+id/button_modifier2"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_alignBottom="@id/name_medecin_heure_date2"
+                android:layout_alignParentEnd="true"
+                android:text="Modifier"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/ic_bouton"/>
+
+            <Button
+                android:id="@+id/button_supprimer2"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/button_modifier2"
+                android:layout_alignParentEnd="true"
+                android:text="Supprimer"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_bouton_rouge"
+                android:layout_marginBottom="10dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/traitement_layout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/traitement_patient"
-            android:layout_marginLeft="30dp"
+            android:layout_below="@id/traitement_layout2"
+            android:background="@color/colorBackground"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/title_traitement3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Traitement pendant nbr jours"
+                android:textColor="@color/colorFont1"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/traitement_patient3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_traitement3"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="nbr comprimé de name_medicament (name_periode)"
+                android:textColor="@color/colorFont2"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/name_medecin_heure_date3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/traitement_patient3"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/colorFont1"
+                android:textSize="12sp"
+                android:text="Prescrit par le Dr. name le date \nDate de fin : date"/>
+
+            <Button
+                android:id="@+id/button_modifier3"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_alignBottom="@id/name_medecin_heure_date3"
+                android:layout_alignParentEnd="true"
+                android:text="Modifier"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/ic_bouton"/>
+
+            <Button
+                android:id="@+id/button_supprimer3"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/button_modifier3"
+                android:layout_alignParentEnd="true"
+                android:text="Supprimer"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_bouton_rouge"
+                android:layout_marginBottom="10dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/traitement_layout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/traitement_layout3"
+            android:background="@color/colorBackground"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/title_traitement4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Traitement pendant nbr jours"
+                android:textColor="@color/colorFont1"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/traitement_patient4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_traitement4"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="nbr comprimé de name_medicament (name_periode)"
+                android:textColor="@color/colorFont2"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/name_medecin_heure_date4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/traitement_patient4"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/colorFont1"
+                android:textSize="12sp"
+                android:text="Prescrit par le Dr. name le date \nDate de fin : date"/>
+
+            <Button
+                android:id="@+id/button_modifier4"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_alignBottom="@id/name_medecin_heure_date4"
+                android:layout_alignParentEnd="true"
+                android:text="Modifier"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/ic_bouton"/>
+
+            <Button
+                android:id="@+id/button_supprimer4"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/button_modifier4"
+                android:layout_alignParentEnd="true"
+                android:text="Supprimer"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_bouton_rouge"
+                android:layout_marginBottom="10dp"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/traitement_layout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/traitement_layout4"
+            android:background="@color/colorBackground"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/title_traitement5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Traitement pendant nbr jours"
+                android:textColor="@color/colorFont1"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/traitement_patient5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_traitement5"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="nbr comprimé de name_medicament (name_periode)"
+                android:textColor="@color/colorFont2"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/name_medecin_heure_date5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/traitement_patient5"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/colorFont1"
+                android:textSize="12sp"
+                android:text="Prescrit par le Dr. name le date \nDate de fin : date"/>
+
+            <Button
+                android:id="@+id/button_modifier5"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_alignBottom="@id/name_medecin_heure_date5"
+                android:layout_alignParentEnd="true"
+                android:text="Modifier"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/ic_bouton"/>
+
+            <Button
+                android:id="@+id/button_supprimer5"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/button_modifier5"
+                android:layout_alignParentEnd="true"
+                android:text="Supprimer"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_bouton_rouge"
+                android:layout_marginBottom="10dp"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/traitement_layout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/traitement_layout5"
+            android:background="@color/colorBackground"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/title_traitement6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Traitement pendant nbr jours"
+                android:textColor="@color/colorFont1"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/traitement_patient6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_traitement6"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="nbr comprimé de name_medicament (name_periode)"
+                android:textColor="@color/colorFont2"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/name_medecin_heure_date6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/traitement_patient6"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/colorFont1"
+                android:textSize="12sp"
+                android:text="Prescrit par le Dr. name le date \nDate de fin : date"/>
+
+            <Button
+                android:id="@+id/button_modifier6"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_alignBottom="@id/name_medecin_heure_date6"
+                android:layout_alignParentEnd="true"
+                android:text="Modifier"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/ic_bouton"/>
+
+            <Button
+                android:id="@+id/button_supprimer6"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/button_modifier6"
+                android:layout_alignParentEnd="true"
+                android:text="Supprimer"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_bouton_rouge"
+                android:layout_marginBottom="10dp"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/traitement_layout7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/traitement_layout6"
+            android:background="@color/colorBackground"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/title_traitement7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Traitement pendant nbr jours"
+                android:textColor="@color/colorFont1"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/traitement_patient7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_traitement7"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="nbr comprimé de name_medicament (name_periode)"
+                android:textColor="@color/colorFont2"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/name_medecin_heure_date7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/traitement_patient7"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/colorFont1"
+                android:textSize="12sp"
+                android:text="Prescrit par le Dr. name le date \nDate de fin : date"/>
+
+            <Button
+                android:id="@+id/button_modifier7"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_alignBottom="@id/name_medecin_heure_date7"
+                android:layout_alignParentEnd="true"
+                android:text="Modifier"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/ic_bouton"/>
+
+            <Button
+                android:id="@+id/button_supprimer7"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/button_modifier7"
+                android:layout_alignParentEnd="true"
+                android:text="Supprimer"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_bouton_rouge"
+                android:layout_marginBottom="10dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/traitement_layout8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/traitement_layout7"
+            android:background="@color/colorBackground"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/title_traitement8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Traitement pendant nbr jours"
+                android:textColor="@color/colorFont1"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/traitement_patient8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_traitement8"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="nbr comprimé de name_medicament (name_periode)"
+                android:textColor="@color/colorFont2"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/name_medecin_heure_date8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/traitement_patient8"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/colorFont1"
+                android:textSize="12sp"
+                android:text="Prescrit par le Dr. name le date \nDate de fin : date"/>
+
+            <Button
+                android:id="@+id/button_modifier8"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_alignBottom="@id/name_medecin_heure_date8"
+                android:layout_alignParentEnd="true"
+                android:text="Modifier"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/ic_bouton"/>
+
+            <Button
+                android:id="@+id/button_supprimer8"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/button_modifier8"
+                android:layout_alignParentEnd="true"
+                android:text="Supprimer"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_bouton_rouge"
+                android:layout_marginBottom="10dp"/>
+
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/button_ajouter"
+            android:layout_below="@id/traitement_layout8"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="sans-serif-condensed"
-            android:textColor="@color/colorFont1"
-            android:textSize="12sp"
-            android:text="Prescrit par le Dr. name le date \nDate de fin : date"/>
-
-        <Button
-            android:id="@+id/button_modifier"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:layout_alignBottom="@id/name_medecin_heure_date"
-            android:layout_alignParentEnd="true"
-            android:text="Modifier"
+            android:layout_marginEnd="10dp"
+            android:text="+"
+            android:textSize="28sp"
             android:textColor="#FFFFFF"
-            android:background="@drawable/ic_bouton"/>
-
-        <Button
-            android:id="@+id/button_supprimer"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:layout_below="@id/button_modifier"
-            android:layout_alignParentEnd="true"
-            android:text="Supprimer"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ic_bouton_rouge"
-            android:layout_marginBottom="10dp"/>
-
+            android:background="@drawable/ic_bouton_circulaire"/>
     </RelativeLayout>
+</ScrollView>
 
-    <Button
-        android:id="@+id/button_ajouter"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="10dp"
-        android:text="+"
-        android:textSize="28sp"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/ic_bouton_circulaire"/>
 
-</RelativeLayout>

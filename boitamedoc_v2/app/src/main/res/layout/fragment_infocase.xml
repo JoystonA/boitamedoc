@@ -10,21 +10,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-    <TextView
-        android:id="@+id/CaseTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="0dp"
-        android:layout_gravity="center"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="Case ?"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
-    <TextView
+        <TextView
+            android:id="@+id/CaseTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_horizontal|center_vertical"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <TextView
+            android:id="@+id/nb_comprimes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="18sp"
+            />
+
+        <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,88 +50,53 @@
         android:textStyle="bold" />
 
 
-    <TextView
-        android:id="@+id/MediTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="DOLIPRANE"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/MediTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
 
+        <TextView
+            android:id="@+id/DateTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/LotTxt"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="0dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/DateTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/LotTxt"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="0dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Exp. 11/65"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/LotTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/MediTxt"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="0dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/LotTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/MediTxt"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="0dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Lot n1711716"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_below="@id/textView5"
-        android:layout_height="200dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte et à  l’enfant à partir de 27 kg (soit à partir  d’environ 8 ans).Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-v
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-v
-Traitement symptomatique des douleurs  d’intensité légère à modérée et/ou des états  fébriles. Cette présentation est réservée à l’adulte
-"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:scrollbars="vertical"/>
+        <TextView
+            android:id="@+id/descrip_medoc"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/textView5"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-condensed"
+            android:scrollbars="vertical"
+            android:textAlignment="center"
+            android:textSize="18sp" />
 
 </LinearLayout>
 
