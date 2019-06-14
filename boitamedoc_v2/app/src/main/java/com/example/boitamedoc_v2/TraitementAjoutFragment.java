@@ -1,5 +1,6 @@
 package com.example.boitamedoc_v2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -96,7 +97,7 @@ public class TraitementAjoutFragment extends Fragment implements OnItemSelectedL
                     else medoc_matin = "0";
                     if (checkBox_verification_midi_ajout.isChecked()) medoc_midi= nbre_medoc_ajout_midi.getEditText().getText().toString().trim();
                     else medoc_midi ="0";
-                    if (checkBox_verification_matin_ajout.isChecked()) medoc_soir= nbre_medoc_ajout_soir.getEditText().getText().toString().trim();
+                    if (checkBox_verification_soir_ajout.isChecked()) medoc_soir= nbre_medoc_ajout_soir.getEditText().getText().toString().trim();
                     else medoc_soir ="0";
                     request.RecupTrait(new MyRequest.traitementTestCallback() {
                         @Override
@@ -117,6 +118,7 @@ public class TraitementAjoutFragment extends Fragment implements OnItemSelectedL
                                         .put("Date_fin",reverseDate(date_fin_ajout.getEditText().getText().toString().trim()));
                                 JSONTraitement.put("traitement_"+trait_num,traitement_change);
                                 request.insertTrait(JSONTraitement);
+                                openTraitementActivity();
                             }
                             catch (Exception e){
 
@@ -281,6 +283,12 @@ public class TraitementAjoutFragment extends Fragment implements OnItemSelectedL
                 }
             });
         }
+    }
+
+    public void openTraitementActivity() {
+        Intent intent;
+        intent = new Intent(getActivity(), MainActivity.class);
+        startActivity(intent);
     }
 
 }// END CLASS

@@ -583,6 +583,46 @@ public class MyRequest {
         queue.add(request);
     }
 
+    public void recupMedoc(String id_medoc,int i, recupMedocCallback Callback) {
+        String url = url_debut + "RecupMedicament.php";
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                Log.d("APP", "on Response :" + response);
+                try {
+                    JSONObject json = new JSONObject(response);
+                    boolean connue = json.getBoolean("connue");
+                    if (connue) {
+                        JSONObject message = json.getJSONObject("message");
+                        Callback.onSucces(message,i);
+                    }
+                    else{
+                        Callback.onError(json);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                //Log.d("APP", response);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("id_medoc", id_medoc);
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
     public void insetMedoc(String id_case, String id_medoc,String date,String lot) {
         String url = url_debut + "insertMedoc.php";
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -984,89 +1024,6 @@ public class MyRequest {
         queue.add(request);
     }
 
-   /* public void recupMedoc(String id_medoc, recupMedocInfoCallback Callback) {
-        String url = url_debut + "RecupMedicament.php";
-        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-
-                Log.d("APP", "on Response :" + response);
-                try {
-                    JSONObject json = new JSONObject(response);
-                    boolean connue = json.getBoolean("connue");
-                    if (connue) {
-                        JSONObject message = json.getJSONObject("message");
-                        Callback.onSucces(message);
-                    }
-                    else{
-                        Callback.onError();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                //Log.d("APP", response);
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("APP", "ERROR = " + error);
-
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> map = new HashMap<>();
-                map.put("id_medoc", id_medoc);
-                return map;
-            }
-        };
-        queue.add(request);
-    }*/
-
-    /*public void recupMedocInfo(String id_case, recupMedocInfoCallback Callback) {
-        String url = url_debut + "RecupMedocInfo.php";
-        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-
-            @Override
-            public void onResponse(String response) {
-
-                Log.d("APP", "on Response :" + response);
-                try {
-                    JSONObject json = new JSONObject(response);
-                    boolean error = json.getBoolean("erreur");
-                    if (!error) {
-                        JSONObject message = json.getJSONObject("message");
-                        Callback.onSucces(message);
-                    }
-                    else{
-                        Callback.onError(json);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                //Log.d("APP", response);
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("APP", "ERROR = " + error);
-
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> map = new HashMap<>();
-                map.put("id_boite", id_boite);
-                map.put("id_case1", id_case);
-                return map;
-            }
-        };
-        queue.add(request);
-    }*/
-
-
     public interface recupPatientCallback{
         void onSucces(JSONObject message);
         void onError(boolean error);
@@ -1126,4 +1083,10 @@ public class MyRequest {
         void onSucces();
         void onError(boolean errors[]);
     }
+
+    public interface recupMedocCallback{
+        void onSucces(JSONObject message,int i);
+        void onError(JSONObject message);
+    }
+
 }
