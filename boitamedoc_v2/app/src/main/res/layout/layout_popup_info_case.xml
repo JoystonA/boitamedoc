@@ -6,10 +6,9 @@
 
 
     <TextView
-        android:id="@+"
+        android:id="@+id/text_info_case"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ATTENTION !
-        Il n'y pas assez de médicament"
+        android:text=" "
         android:textAlignment="center"/>
 </RelativeLayout>

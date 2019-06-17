@@ -14,7 +14,7 @@ import android.widget.Button;
 
 
 public class LibreServiceQuantiteeFragment extends Fragment {
-    private TextInputLayout quantitee;
+    private static TextInputLayout quantitee;
     private Button validButton;
     private String username;
     private String password;
@@ -58,4 +58,9 @@ public class LibreServiceQuantiteeFragment extends Fragment {
         popup_info_case popup = new popup_info_case();
         popup.show(getActivity().getSupportFragmentManager(),"Information");
     }
+
+    public static String getNbrComprime(){
+        return quantitee.getEditText().getText().toString().trim();
+    }
+
 }
