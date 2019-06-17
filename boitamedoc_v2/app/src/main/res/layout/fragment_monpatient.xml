@@ -1,21 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground">
+    android:background="#FFFFFF">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView11"
+        <RelativeLayout
+            android:id="@+id/but_lay_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:text="EN COURS"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-    </LinearLayout>
-</RelativeLayout>
+            android:background="@color/colorBackground"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/but_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_bouton"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/but_lay_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/but_lay_1"
+            android:background="@color/colorBackground"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/but_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_bouton"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/but_lay_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/but_lay_2"
+            android:background="@color/colorBackground"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/but_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_bouton"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/but_lay_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/but_lay_3"
+            android:background="@color/colorBackground"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/but_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_bouton"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/but_lay_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/but_lay_4"
+            android:background="@color/colorBackground"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/but_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_bouton"
+                />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/add_Button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@id/but_lay_5"
+            android:layout_marginEnd="10dp"
+            android:text="+"
+            android:textSize="28sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/ic_bouton_circulaire"/>
+    </RelativeLayout>
+</ScrollView>
+
+

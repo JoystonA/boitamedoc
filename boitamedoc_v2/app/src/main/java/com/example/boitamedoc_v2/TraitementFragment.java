@@ -344,6 +344,7 @@ public class TraitementFragment extends Fragment implements View.OnClickListener
         intent = new Intent(getActivity(), TraitementAjoutActivity.class).putExtra("num_trait",Integer.toString(i+1));
         startActivity(intent);
     }
+
     public void affichageDynamiqueTraitement(){
         int compte = 0;
         for(int i=0;i<trait_connue.length;i++){
