@@ -10,11 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-//import android.widget.Toolbar;
 
 public class LibreServiceQuantiteeActivity extends AppCompatActivity {
-//    private String username;
-//    private String password;
     private LibreServiceQuantiteeFragment frag_create;
 
     @Override

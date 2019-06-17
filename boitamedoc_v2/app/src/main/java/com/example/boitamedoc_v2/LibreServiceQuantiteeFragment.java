@@ -33,11 +33,8 @@ public class LibreServiceQuantiteeFragment extends Fragment {
                 if(quantiteeIsOk()){
                     // ICI FAUT FAIRE EN SORTE DE CREER UNE FONCTION QUI ASK LA BDD //
                     String quantiteeInput = quantitee.getEditText().getText().toString().trim();
-                    App.bluetooth_main.send(Integer.toString(LibreServiceFragment.CaseLibreService), true);
-                    System.out.println(Integer.toString(LibreServiceFragment.CaseLibreService));
-                    App.bluetooth_main.send(quantiteeInput+ " comprimé(s) de " + LibreServiceFragment.CaseNameLibreService, true);
-                    System.out.println(quantiteeInput+ "comprimé(s) de " + LibreServiceFragment.CaseNameLibreService);
-                    openLibreServiceQuantiteeActivity();
+                    App.bluetooth_main.send("Case "+Integer.toString(LibreServiceFragment.CaseLibreService)+ "|" + quantiteeInput+ " comprime(s) de " + LibreServiceFragment.CaseNameLibreService, true);
+                    openPopUpInfoCase();
                 }
                 return;
             }
@@ -57,9 +54,8 @@ public class LibreServiceQuantiteeFragment extends Fragment {
         return true;
     }
 
-    private void openLibreServiceQuantiteeActivity() {
-        Intent intent;
-        intent = new Intent(getActivity(), MainActivity.class);
-        startActivity(intent);
+    private void openPopUpInfoCase() {
+        popup_info_case popup = new popup_info_case();
+        popup.show(getActivity().getSupportFragmentManager(),"Information");
     }
 }
