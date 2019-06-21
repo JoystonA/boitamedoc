@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -13,14 +14,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 import java.util.Calendar;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
+import app.akexorcist.bluetotohspp.library.BluetoothSPP;
+import app.akexorcist.bluetotohspp.library.BluetoothState;
+import app.akexorcist.bluetotohspp.library.DeviceList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
+    public TextView textViewPosologie;
     public static String Title_Notification;
     public static String Message_Notification;
+    private SimpleDateFormat d = new SimpleDateFormat ("dd/MM/yyyy" );
+    private SimpleDateFormat h = new SimpleDateFormat ("hh:mm");
+
+    //static BluetoothSPP bluetooth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };//Fin de BottomNavigationView
 
-    //Création d'un menu sur la bar d'action en haut de l'application
+    //Création d'un menu sur la barre d'action en haut de l'application
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);

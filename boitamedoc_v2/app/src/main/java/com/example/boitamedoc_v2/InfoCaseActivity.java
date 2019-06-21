@@ -14,8 +14,6 @@ import android.view.MenuItem;
 //import android.widget.Toolbar;
 
 public class InfoCaseActivity extends AppCompatActivity{
-    private String username;
-    private String password;
 
     private void openPopUpErreur() {
         popup_erreur popup = new popup_erreur();

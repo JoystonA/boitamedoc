@@ -3,12 +3,18 @@ package com.example.boitamedoc_v2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SwitchCompat;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
+
+import com.android.volley.RequestQueue;
+import com.example.boitamedoc_v2.myrequest.MyRequest;
+
+import static com.example.boitamedoc_v2.App.id_gestionnaire;
+import static com.example.boitamedoc_v2.App.id_patient;
 
 public class InscriptionPatientActivity extends AppCompatActivity {
     private EditText nom;
@@ -17,6 +23,11 @@ public class InscriptionPatientActivity extends AppCompatActivity {
     private EditText maladie;
     private TextView numSecu;
     private Switch isApte;
+    private Boolean switchState;
+    private String Apte;
+    private ProgressBar pb_loader;
+    private RequestQueue queue;
+    private MyRequest request;
 
 
     @Override
@@ -25,13 +36,17 @@ public class InscriptionPatientActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inscriptionpatient);
         setTitle("Inscription Patient");
 
-        nom = findViewById(R.id.inscrip_nom_patient);
-        prenom = findViewById(R.id.inscrip_prenom_patient_edit);
-        date =findViewById(R.id.inscrip_date_patient_edit);
-        maladie = findViewById(R.id.inscrip_maladie_patient_edit);
-        numSecu = findViewById(R.id.inscrip_num_secu_patient_text);
-        numSecu.setText("Numéro de sécurité social : "+ getIntent().getStringExtra("numSecu"));
-        isApte = findViewById(R.id.inscrip_switch_apte_patient);
+        nom = findViewById(R.id.edit_nom);
+        prenom = findViewById(R.id.edit_prenom);
+        date =findViewById(R.id.edit_date);
+        maladie = findViewById(R.id.edit_maladie);
+        numSecu = findViewById(R.id.edit_secu);
+        numSecu.setText(getIntent().getStringExtra("numSecu"));
+        isApte = findViewById(R.id.switch_apte);
+        pb_loader = (ProgressBar) findViewById(R.id.pb_loader);
+
+        queue = VolleySingleton.getInstance(this).getRequestQueue();
+        request = new MyRequest(this, queue);
     }
 
     public void finish(View v){
@@ -91,8 +106,46 @@ public class InscriptionPatientActivity extends AppCompatActivity {
     }
 
     void openMainActivity(){
+        pb_loader.setVisibility(View.VISIBLE);
         Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        String Nom = nom.getText().toString();
+        String Prenom = prenom.getText().toString();
+        String Date = date.getText().toString();
+        String Maladie = maladie.getText().toString();
+        String NumSecu = numSecu.getText().toString();
+        switchState = isApte.isChecked();
+
+        if(switchState == true){
+            Apte = "1";
+        }
+        else{
+            Apte = "0";
+        }
+
+        request.registerPatient(Nom, Prenom, Date, Maladie, NumSecu, Apte, new MyRequest.InscripPatientCallback(){
+            @Override
+            public void onSucces(String nom,String prenom) {
+                Log.d("APP", "onSucces: OK POUR LINSTANT");
+                request.AjoutPatient(id_patient,id_gestionnaire);
+                startActivity(intent);
+                pb_loader.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onError(boolean[] errors) {
+                Log.d("APP", "onError: " + errors[0]+" " +errors[1]);
+                if(errors[0]) {
+                    Log.d("APP", "onError: nom dedans");
+                    nom.setError("Nom Incorrecte");
+                }
+                if(errors[1]) {
+                    Log.d("APP", "onError: prenom dedans");
+                    prenom.setError("Prenom Incorrecte");
+                }
+                pb_loader.setVisibility(View.GONE);
+
+            }
+        });
     }
 }
 

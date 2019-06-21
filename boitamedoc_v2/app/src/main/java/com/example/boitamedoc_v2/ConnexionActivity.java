@@ -2,54 +2,82 @@ package com.example.boitamedoc_v2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import app.akexorcist.bluetotohspp.library.BluetoothState;
-import app.akexorcist.bluetotohspp.library.DeviceList;
+import com.android.volley.RequestQueue;
+import com.example.boitamedoc_v2.myrequest.MyRequest;
 
 
 public class ConnexionActivity extends AppCompatActivity {
 
-    private EditText identifiant;
-    private EditText motDePasse;
-    private Button boutonConnexion;
+    private TextInputLayout til_email, til_mdp;
+    private ProgressBar pb_loader;
+    private RequestQueue queue;
+    private MyRequest request;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connexion);
         setTitle("Connexion");
-        identifiant=findViewById(R.id.log_username);
-        motDePasse=findViewById(R.id.log_password);
-        boutonConnexion=findViewById(R.id.ValidButton_connexion);
 
-        boutonConnexion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(identifiant.getText().toString().equals("admin")&&motDePasse.getText().toString().equals("admin")){
-                    Toast.makeText(getApplicationContext(),"Chargement en cours...",Toast.LENGTH_SHORT).show();
-                    //connexionBluetooth();
-                    openApplication();
-                    ConnexionActivity.this.finish();
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),"Identifiant ou mot de passe erroné !",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        til_email = (TextInputLayout) findViewById(R.id.log_username_text);
+        til_mdp = (TextInputLayout) findViewById(R.id.log_password_text);
+        pb_loader = (ProgressBar) findViewById(R.id.pb_loader);
+        queue = VolleySingleton.getInstance(this).getRequestQueue();
+        request = new MyRequest(this, queue);
+
     }
 
-    private void openApplication(){
+
+    public void ValidationConnexion(View v){
+        pb_loader.setVisibility(View.VISIBLE);
         Intent intent;
-        intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
+        String Email = til_email.getEditText().getText().toString();
+        String MDP = til_mdp.getEditText().getText().toString();
+        if (Email.isEmpty() && !MDP.isEmpty()) {
+            til_email.setError("Veuillez rentrer un email");
+            til_mdp.setError(null);
+            pb_loader.setVisibility(View.GONE);
+        }
+        else if(MDP.isEmpty() && !Email.isEmpty()){
+            til_mdp.setError("Veuillez rentrer un mot de passe");
+            til_email.setError(null);
+            pb_loader.setVisibility(View.GONE);
+        }
+        else if (Email.isEmpty() && MDP.isEmpty()) {
+            til_email.setError("Veuillez rentrer un email");
+            til_mdp.setError("Veuillez rentrer un mot de passe");
+            pb_loader.setVisibility(View.GONE);
+        }
+        else{
+            til_email.setError(null);
+            til_mdp.setError(null);
+            intent = new Intent(this, MainActivity.class);
 
-    public void connexionBluetooth(){
-        App.bluetooth_main.connect("00:06:66:6D:F1:75"); //A voir si on laisse ici...
+            request.connexion(Email, MDP, new MyRequest.ConnexionCallback(){
+                @Override
+                public void onSucces(String message) {
+                    pb_loader.setVisibility(View.GONE);
+                    startActivity(intent);
+                    ConnexionActivity.this.finish();
+                    Toast.makeText(getApplicationContext(), "Vous vous êtes bien connecté !", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onError(boolean error) {
+                    pb_loader.setVisibility(View.GONE);
+                    Log.d("APP", "onError: " + error);
+                    Toast.makeText(getApplicationContext(), "Email ou mot de passe incorrect", Toast.LENGTH_SHORT).show();
+                }
+
+            });
+        }
+
     }
 }

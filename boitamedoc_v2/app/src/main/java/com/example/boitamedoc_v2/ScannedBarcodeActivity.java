@@ -3,14 +3,12 @@ package com.example.boitamedoc_v2;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,7 +53,7 @@ public class ScannedBarcodeActivity extends AppCompatActivity{
 
     private void openAjoutMedo() {
         Intent intent;
-        intent = new Intent(this, AjoutMedocActivity.class).putExtra("value",intentData);
+        intent = new Intent(this, AjoutMedocActivity.class).putExtra("value",intentData).putExtra("numCase",this.getIntent().getStringExtra("numCase"));
         startActivity(intent);
     }
 
@@ -126,7 +124,7 @@ public class ScannedBarcodeActivity extends AppCompatActivity{
                             } else {
                                 intentData = barcodes.valueAt(0).displayValue;
                                 txtBarcodeValue.setText("QR CODE DETECTE !");
-                                if (intentData.length() > 0) {
+                                if (intentData.length() > 26) {
                                     openAjoutMedo();
                                 }
 

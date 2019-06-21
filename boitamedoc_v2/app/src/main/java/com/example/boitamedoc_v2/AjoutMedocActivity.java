@@ -1,42 +1,75 @@
 package com.example.boitamedoc_v2;
 
+import android.net.ParseException;
 import android.content.Intent;
 import android.net.ParseException;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.android.volley.RequestQueue;
+import com.example.boitamedoc_v2.myrequest.MyRequest;
+
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
-public class AjoutMedocActivity extends AppCompatActivity implements View.OnClickListener{
+public class AjoutMedocActivity extends AppCompatActivity {
     private TextView id_medoc_txt;
     private TextView num_lot_txt;
+    private TextView name_medoc;
     private TextView date_txt;
     private String qr_code;
     private String id_medoc;
     private String num_lot;
     private String date;
     private String date_ok;
-    private Button AjoutMedoc;
+    private String numCase;
+    private RequestQueue queue;
+    private MyRequest request;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajoutmedoc);
         setTitle("Boîte de médicament");
-        id_medoc_txt = (TextView) findViewById(R.id.id_medoc);
-        num_lot_txt = (TextView) findViewById(R.id.num_lot);
-        date_txt = (TextView) findViewById(R.id.date_exp);
-        AjoutMedoc = (Button) findViewById(R.id.validMedoc);
-
         qr_code = getIntent().getStringExtra("value");
         AjoutMedoc.setOnClickListener(this);
-
+        numCase = this.getIntent().getStringExtra("numCase");
+        id_medoc_txt = (TextView) findViewById(R.id.id_medoc);
+        name_medoc = findViewById(R.id.nom_medoc);
+        num_lot_txt = (TextView) findViewById(R.id.num_lot);
+        date_txt = (TextView) findViewById(R.id.date_exp);
+        qr_code = getIntent().getStringExtra("value");
+        queue = VolleySingleton.getInstance(this).getRequestQueue();
+        request = new MyRequest(this, queue);
         decoupe_qr_code(qr_code);
+
+        request.recupMedoc(id_medoc, new MyRequest.recupMedocInfoCallback() {
+            @Override
+            public void onSucces(JSONObject message) {
+                try {
+                    name_medoc.setText("Nom du médicament :\n"+ message.getString("nom"));
+                    Log.d("APP", "onSucces: " + numCase);
+                    request.insetMedoc(numCase,id_medoc,date_ok,num_lot)   ;
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onError(JSONObject message) {
+                name_medoc.setText("Nom du médicament :\n" + "Médicament inconnu");
+            }
+        });
     }
 
 
@@ -50,7 +83,6 @@ public class AjoutMedocActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
-
     public void decoupe_qr_code(String qr_code){
         int length = qr_code.length();
         id_medoc=qr_code.substring(4,17);
@@ -61,7 +93,7 @@ public class AjoutMedocActivity extends AppCompatActivity implements View.OnClic
         id_medoc_txt.setText("ID du médicament : "+id_medoc);
         num_lot_txt.setText("Numéro de lot : "+num_lot);
 
-       SimpleDateFormat tempo = new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat tempo = new SimpleDateFormat("yyyyMMdd");
         try {
             Date d = tempo.parse(date);
             tempo.applyPattern("dd/MM/yyyy");
@@ -75,13 +107,11 @@ public class AjoutMedocActivity extends AppCompatActivity implements View.OnClic
         date_txt.setText("Date d'expiration : "+date_ok);
     }
 
-
     public void openCalibrageActivity(){
         Intent intent;
         intent = new Intent(this, CalibrageActivity.class);
         startActivity(intent);
     }
-
 
 }
 

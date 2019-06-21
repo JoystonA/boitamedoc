@@ -12,12 +12,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.android.volley.RequestQueue;
+import com.example.boitamedoc_v2.myrequest.MyRequest;
+
 
 public class LibreServiceQuantiteeFragment extends Fragment {
-    private static TextInputLayout quantitee;
+    private TextInputLayout quantitee;
     private Button validButton;
     private String username;
     private String password;
+
+    private RequestQueue queue;
+    private MyRequest request;
+
 
     @Nullable
     @Override
@@ -26,32 +33,47 @@ public class LibreServiceQuantiteeFragment extends Fragment {
 
         quantitee = v.findViewById(R.id.edit_quantitee_text);
         validButton = v.findViewById(R.id.ModifButton);
+
+        queue = VolleySingleton.getInstance(getActivity()).getRequestQueue();
+        request = new MyRequest(getActivity(), queue);
+
         validButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if(quantiteeIsOk()){
-                    // ICI FAUT FAIRE EN SORTE DE CREER UNE FONCTION QUI ASK LA BDD //
-                    String quantiteeInput = quantitee.getEditText().getText().toString().trim();
-                    App.bluetooth_main.send("Case "+Integer.toString(LibreServiceFragment.CaseLibreService)+ "|" + quantiteeInput+ " comprime(s) de " + LibreServiceFragment.CaseNameLibreService, true);
-                    openPopUpInfoCase();
-                }
+                String num_case = getActivity().getIntent().getStringExtra("case");
+                quantiteeIsOk();
+                //App.bluetooth_main.send("Case "+num_case + "|" + quantiteeInput+ " comprime(s) de " + LibreServiceFragment.CaseNameLibreService, true);
+                //A MODIFIER RAPIDEMENT
                 return;
             }
         });
         return v;
     }
 
-    private boolean quantiteeIsOk() {
+    private void quantiteeIsOk() {
         String quantiteeInput = quantitee.getEditText().getText().toString().trim();
-
+        String num_case = getActivity().getIntent().getStringExtra("case");
         if (quantiteeInput.isEmpty() || quantiteeInput.equals("0")) {
             quantitee.setError("Rentrer quelque chose!");
-            //Limité avec le nombre de médicament des cases.
-            return false;
+            return;
         }
-        quantitee.setError(null);
-        return true;
+        request.quantiteeIsOk(num_case, quantiteeInput, new MyRequest.IsOkCallback() {
+            @Override
+            public void onSucces(boolean IsOK) {
+                Log.d("APP", "onSucces: "+ IsOK);
+                if(IsOK){
+                    quantitee.setError(null);
+                    openPopUpInfoCase();
+                }
+                else quantitee.setError("Quantitee trop grande");
+            }
+
+            @Override
+            public void onError(String message) {
+
+            }
+        });
+
     }
 
     private void openPopUpInfoCase() {
@@ -62,5 +84,4 @@ public class LibreServiceQuantiteeFragment extends Fragment {
     public static String getNbrComprime(){
         return quantitee.getEditText().getText().toString().trim();
     }
-
 }
