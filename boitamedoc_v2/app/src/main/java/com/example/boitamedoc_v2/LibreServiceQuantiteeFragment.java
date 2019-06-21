@@ -11,17 +11,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.example.boitamedoc_v2.myrequest.MyRequest;
+
+import org.json.JSONObject;
 
 
 public class LibreServiceQuantiteeFragment extends Fragment {
     private TextInputLayout quantitee;
     private Button validButton;
-    private String username;
-    private String password;
-
+    private TextView nom;
+    private TextView date;
+    private TextView lot;
+    private TextView Case;
     private RequestQueue queue;
     private MyRequest request;
 
@@ -33,9 +37,38 @@ public class LibreServiceQuantiteeFragment extends Fragment {
 
         quantitee = v.findViewById(R.id.edit_quantitee_text);
         validButton = v.findViewById(R.id.ModifButton);
+        nom = v.findViewById(R.id.MediTxt);
+        lot = v.findViewById(R.id.LotTxt);
+        date = v.findViewById(R.id.DateTxt);
+        Case = v.findViewById(R.id.CaseTxt);
 
+        Case.setText("Case "+getActivity().getIntent().getStringExtra("case"));
+        String num_case = getActivity().getIntent().getStringExtra("case");
         queue = VolleySingleton.getInstance(getActivity()).getRequestQueue();
         request = new MyRequest(getActivity(), queue);
+        request.recupMedocInfo(num_case,new MyRequest.recupMedocInfoCallback() {
+            @Override
+            public void onSucces(JSONObject message) {
+              try {
+                  Log.d("APP", "onSucces: " + message);
+
+                  String medoc = message.getString("nom");
+                  String date_exp = message.getString("date");
+                  String lot_txt = message.getString("num_lot");
+                  nom.setText(medoc);
+                  lot.setText(lot_txt);
+                  date.setText(date_exp);
+              }
+              catch (Exception e){
+
+              }
+            }
+
+            @Override
+            public void onError(JSONObject message) {
+
+            }
+        });
 
         validButton.setOnClickListener(new View.OnClickListener() {
             @Override
