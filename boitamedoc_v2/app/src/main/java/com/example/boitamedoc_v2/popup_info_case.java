@@ -28,7 +28,7 @@ public class popup_info_case extends AppCompatDialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.layout_popup_info_case, null);
         text = (TextView) view.findViewById(R.id.text_info_case);
-        if(Integer.parseInt(LibreServiceQuantiteeFragment.getNbrComprime())<=100) {
+        //(Integer.parseInt(LibreServiceQuantiteeFragment.getNbrComprime())<=100) {
             text.setText("Veuillez prendre vos médicaments !");
             builder.setView(view)
                     .setTitle("Vos médicaments !")
@@ -39,8 +39,8 @@ public class popup_info_case extends AppCompatDialogFragment {
                             openMainActivity();
                         }
                     });
-        }
-        else {
+        //}
+        /*else {
             text.setText("ATTENTION ! Il n'y pas assez de médicaments !");
             builder.setView(view)
                     .setTitle("ATTENTION !")
@@ -49,7 +49,7 @@ public class popup_info_case extends AppCompatDialogFragment {
                         public void onClick(DialogInterface dialog, int which) {
                         }
                     });
-        }
+        }*/
         return builder.create();
     }
 

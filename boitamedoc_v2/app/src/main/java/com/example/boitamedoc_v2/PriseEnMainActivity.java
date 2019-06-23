@@ -34,7 +34,7 @@ public class PriseEnMainActivity extends AppCompatActivity {
         }
 
         try {
-            int id = this.getRawResIdByName("demo_tuto");
+            int id = this.getRawResIdByName("tutoriel_v2");
             videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + id));
 
         } catch (Exception e) {

@@ -91,8 +91,6 @@ public class LibreServiceFragment extends Fragment implements View.OnClickListen
     }
 
     public void openLibreServiceQuantitee() {
-        Intent intent;
-        intent = new Intent(getActivity(), LibreServiceQuantiteeActivity.class);
         startActivity(intent);
     }
 }

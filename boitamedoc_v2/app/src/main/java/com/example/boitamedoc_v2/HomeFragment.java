@@ -2,9 +2,11 @@ package com.example.boitamedoc_v2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,12 +32,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private Button Case6;
     private Button Case7;
     private Button Case8;
+    private TextView Connexion;
     private Intent intent;
     private TextView name_user;
     private TextView name_patient;
     private TextView dernier_prise;
     private RequestQueue queue;
     private MyRequest request;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Nullable
     @Override
@@ -51,10 +55,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Case6 = (Button) v.findViewById(R.id.case6);
         Case7 = (Button) v.findViewById(R.id.case7);
         Case8 = (Button) v.findViewById(R.id.case8);
+        Connexion = (TextView) v.findViewById(R.id.ConnexionBoiteInfo);
         intent = new Intent(getActivity(), InfoCaseActivity.class);
         name_user = (TextView) v.findViewById(R.id.Name_User);
         dernier_prise = (TextView) v.findViewById(R.id.dernier_prise_de_medoc_accueil);
         name_patient = (TextView) v.findViewById(R.id.Name_Patient);
+        swipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.swipelayout);
         queue = VolleySingleton.getInstance(getActivity()).getRequestQueue();
         request = new MyRequest(getActivity(), queue);
         request.recupPatient(id_patient, new MyRequest.recupPatientCallback() {
@@ -103,6 +109,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Case8.setOnClickListener(this);
 
 
+        if (App.bluetooth_main.getServiceState() == 3) {
+            Connexion.setText("Boîte Connecté");
+            swipe_null();
+        }
+        else {
+            Connexion.setText("Impossible de se connecter à la boite !");
+            swipe_connexion();
+        }
+
+
         return v;
 
     }
@@ -148,5 +164,55 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     public void openInfoCase() {
         startActivity(intent);
+    }
+
+    public void swipe_connexion(){
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(true);
+                (new Handler()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+
+                        int min = 65;
+                        int max = 95;
+
+
+                        se_connecter_bluetooth();
+
+                    }
+                }, 3000);
+            }
+        });
+    }
+
+    public void swipe_null(){
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(true);
+                (new Handler()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+
+                        int min = 65;
+                        int max = 95;
+
+                        Connexion.setText("Boîte Connecté");
+                    }
+                }, 100);
+            }
+        });
+    }
+
+    public void se_connecter_bluetooth() {
+        Connexion.setText("Recherche en cours ...");
+        App.bluetooth_main.connect("00:06:66:6D:F1:75");
+        if (App.bluetooth_main.getServiceState() == 3) {
+            Connexion.setText("Boîte Connecté");
+        }
     }
 }

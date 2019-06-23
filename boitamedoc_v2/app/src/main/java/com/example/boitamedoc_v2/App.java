@@ -6,6 +6,8 @@ import android.app.NotificationManager;
 import android.os.Build;
 import android.os.StrictMode;
 import android.util.Log;
+import android.widget.Toast;
+
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 import app.akexorcist.bluetotohspp.library.BluetoothState;
 
@@ -15,7 +17,6 @@ public class App extends Application {
     public static String id_gestionnaire;
     public static String id_patient;
     public static String id_boite="0";
-    public static Connection conn;
     static BluetoothSPP bluetooth_main;
     public static final String CHANNEL_1_ID = "channel1";
 

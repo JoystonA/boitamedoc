@@ -109,7 +109,7 @@ public class TraitementAjoutFragment extends Fragment implements OnItemSelectedL
                                     i++;
                                 }
                                 JSONObject traitement_change = JSONTraitement.getJSONObject("traitement_"+trait_num);
-                                traitement_change.put("id_medoc",id_medoc_all[0])
+                                traitement_change.put("id_medoc",id_medoc_all[i])
                                         .put("matin",medoc_matin)
                                         .put("midi",medoc_midi)
                                         .put("soir",medoc_soir)

@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed-medium"
-            android:text="La prise de médicament devient un moment de plaisir ! "
+            android:text="L'électronique connectée à votre santé ! "
             android:textColor="@color/colorFont1"
             android:textAlignment="center"/>
 

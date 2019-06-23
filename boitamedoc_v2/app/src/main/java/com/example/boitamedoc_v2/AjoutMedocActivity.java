@@ -20,7 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-public class AjoutMedocActivity extends AppCompatActivity {
+public class AjoutMedocActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView id_medoc_txt;
     private TextView num_lot_txt;
     private TextView name_medoc;
@@ -33,6 +33,7 @@ public class AjoutMedocActivity extends AppCompatActivity {
     private String numCase;
     private RequestQueue queue;
     private MyRequest request;
+    private Button AjoutMedoc;
 
 
     @Override
@@ -41,6 +42,7 @@ public class AjoutMedocActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ajoutmedoc);
         setTitle("Boîte de médicament");
         qr_code = getIntent().getStringExtra("value");
+        AjoutMedoc = (Button) findViewById(R.id.validMedoc);
         AjoutMedoc.setOnClickListener(this);
         numCase = this.getIntent().getStringExtra("numCase");
         id_medoc_txt = (TextView) findViewById(R.id.id_medoc);
@@ -99,7 +101,7 @@ public class AjoutMedocActivity extends AppCompatActivity {
             tempo.applyPattern("dd/MM/yyyy");
             date_ok = tempo.format(d);
         } catch (ParseException e) {
-            Log.d("APP", "getParams: Date nul chiant JPP");
+            Log.d("APP", "getParams: Date Non Fonctionnel");
         } catch (java.text.ParseException e) {
             e.printStackTrace();
         }
