@@ -22,9 +22,6 @@ import static com.example.boitamedoc_v2.App.id_boite;
 import static com.example.boitamedoc_v2.App.id_gestionnaire;
 import static com.example.boitamedoc_v2.App.id_patient;
 
-/**
- * Created by ipsaous on 25/09/2015.
- */
 public class MyRequest {
 
     private Context context;
@@ -1024,6 +1021,51 @@ public class MyRequest {
         queue.add(request);
     }
 
+    public void modifDernierePrise(String id_patient, final String str_dernierePrise, modifDernierePriseCallback callback){
+
+        String url = url_debut + "ModifDernierePrise.php";
+
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                if(response!=null){
+                    //   Log.d("APP", "onResponse: " + response) ;
+                }
+                try {
+                    JSONObject reponse = new JSONObject(response);
+                    boolean error = reponse.getBoolean("error");
+                    if(error){
+                        callback.onError(error);
+                    }
+                    else{
+                        callback.onSucces();
+                    }
+                }
+                catch(Exception e){
+                    Log.d("APP", "onResponse: " + e.getMessage());
+                }// TRY get JSON RESPONSE
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> map = new HashMap<>();
+                map.put("id_patient", id_patient);
+                map.put("dernierePrise", str_dernierePrise);
+
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
     public void quantiteeIsOk(String num_case,String quantitee,IsOkCallback callback){
 
         String url = url_debut + "IsOk.php";
@@ -1161,6 +1203,11 @@ public class MyRequest {
     public interface modifProfilCallback{
         void onSucces();
         void onError(boolean errors[]);
+    }
+
+    public interface modifDernierePriseCallback{
+        void onSucces();
+        void onError(boolean errors);
     }
 
     public interface recupMedocCallback{

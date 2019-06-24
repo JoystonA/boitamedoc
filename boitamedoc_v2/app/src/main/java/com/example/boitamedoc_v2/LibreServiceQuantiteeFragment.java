@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.example.boitamedoc_v2.myrequest.MyRequest;
@@ -21,6 +22,9 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import static com.example.boitamedoc_v2.App.id_gestionnaire;
+import static com.example.boitamedoc_v2.App.id_patient;
 
 
 public class LibreServiceQuantiteeFragment extends Fragment {
@@ -100,7 +104,23 @@ public class LibreServiceQuantiteeFragment extends Fragment {
                 quantiteeIsOk();
                 App.bluetooth_main.send(num_case,true);
                 App.bluetooth_main.send("Case "+num_case + "|" + quantiteeInput+ " comprime(s) de " + LibreServiceFragment.CaseNameLibreService, true);
-                //A MODIFIER RAPIDEMENT
+                String dernierePrise = "Test";
+
+                queue = VolleySingleton.getInstance(getActivity()).getRequestQueue();
+                request = new MyRequest(getActivity(), queue);
+
+                request.modifDernierePrise(id_patient, dernierePrise, new MyRequest.modifDernierePriseCallback() {
+                    @Override
+                    public void onSucces() {
+                        Toast.makeText(getContext(), "Modifications sauvegardées", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(boolean error) {
+                        Toast.makeText(getContext(), "Une erreur est survenue", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
                 return;
             }
         });
