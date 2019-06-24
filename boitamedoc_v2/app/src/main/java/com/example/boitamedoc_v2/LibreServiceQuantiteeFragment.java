@@ -24,7 +24,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import app.akexorcist.bluetotohspp.library.BluetoothSPP;
+import static com.example.boitamedoc_v2.App.id_gestionnaire;
+import static com.example.boitamedoc_v2.App.id_patient;
 
 
 public class LibreServiceQuantiteeFragment extends Fragment {
@@ -108,8 +109,22 @@ public class LibreServiceQuantiteeFragment extends Fragment {
                 dernier_prise = "Case "+num_case + "|" + quantiteeInput+ " comprime(s) de " + medoc_lcd+"...";
                 App.bluetooth_main.send(dernier_prise, true);
                 //Envoie bdd
-                //String msg_derniere_prise = messageHeure()+dernier_prise;
-                //A MODIFIER RAPIDEMENT
+                String dernierePrise = messageHeure()+dernier_prise;
+                queue = VolleySingleton.getInstance(getActivity()).getRequestQueue();
+                request = new MyRequest(getActivity(), queue);
+
+                request.modifDernierePrise(id_patient, dernierePrise, new MyRequest.modifDernierePriseCallback() {
+                    @Override
+                    public void onSucces() {
+                        Toast.makeText(getContext(), "Modifications sauvegardées", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(boolean error) {
+                        Toast.makeText(getContext(), "Une erreur est survenue", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
                 return;
             }
         });
