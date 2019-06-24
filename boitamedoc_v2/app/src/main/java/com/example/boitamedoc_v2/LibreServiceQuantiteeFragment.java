@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.example.boitamedoc_v2.myrequest.MyRequest;
@@ -20,7 +21,10 @@ import com.example.boitamedoc_v2.myrequest.MyRequest;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+
+import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 
 
 public class LibreServiceQuantiteeFragment extends Fragment {
@@ -31,9 +35,11 @@ public class LibreServiceQuantiteeFragment extends Fragment {
     private String date_ok;
     private TextView lot;
     private TextView Case;
-
+    private String medoc_lcd;
+    private String dernier_prise;
     private RequestQueue queue;
     private MyRequest request;
+    private String heure;
 
 
     @Nullable
@@ -67,6 +73,7 @@ public class LibreServiceQuantiteeFragment extends Fragment {
                     nom.setText(medoc);
                     lot.setText("Numéro de lot : "+lot_txt);
 
+                    medoc_lcd =medoc.substring(0,10);
 
                     SimpleDateFormat tempo = new SimpleDateFormat("yyyy-MM-dd");
                     try {
@@ -98,8 +105,10 @@ public class LibreServiceQuantiteeFragment extends Fragment {
                 String num_case = getActivity().getIntent().getStringExtra("case");
                 String quantiteeInput = quantitee.getEditText().getText().toString().trim();
                 quantiteeIsOk();
-                App.bluetooth_main.send(num_case,true);
-                App.bluetooth_main.send("Case "+num_case + "|" + quantiteeInput+ " comprime(s) de " + LibreServiceFragment.CaseNameLibreService, true);
+                dernier_prise = "Case "+num_case + "|" + quantiteeInput+ " comprime(s) de " + medoc_lcd+"...";
+                App.bluetooth_main.send(dernier_prise, true);
+                //Envoie bdd
+                //String msg_derniere_prise = messageHeure()+dernier_prise;
                 //A MODIFIER RAPIDEMENT
                 return;
             }
@@ -143,5 +152,11 @@ public class LibreServiceQuantiteeFragment extends Fragment {
         String num_case = getActivity().getIntent().getStringExtra("case");
         String quantiteeInput = quantitee.getEditText().getText().toString().trim();
         App.bluetooth_main.send("Case "+num_case + "|" + quantiteeInput+ " comprime(s) de " + LibreServiceFragment.CaseNameLibreService, true);
+    }
+
+    public String messageHeure() {
+        Calendar c = Calendar.getInstance();
+        Date temp = c.getTime();
+        return temp.toString().substring(11,16) + " : ";
     }
 }

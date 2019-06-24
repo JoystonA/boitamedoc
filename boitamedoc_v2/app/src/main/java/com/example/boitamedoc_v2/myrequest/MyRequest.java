@@ -22,9 +22,6 @@ import static com.example.boitamedoc_v2.App.id_boite;
 import static com.example.boitamedoc_v2.App.id_gestionnaire;
 import static com.example.boitamedoc_v2.App.id_patient;
 
-/**
- * Created by ipsaous on 25/09/2015.
- */
 public class MyRequest {
 
     private Context context;

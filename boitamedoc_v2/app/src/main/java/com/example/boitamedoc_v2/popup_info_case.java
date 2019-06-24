@@ -18,6 +18,7 @@ import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 public class popup_info_case extends AppCompatDialogFragment {
 
     private TextView text;
+    private TextView heure;
 
 
     @Override
@@ -31,15 +32,16 @@ public class popup_info_case extends AppCompatDialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.layout_popup_info_case, null);
         text = (TextView) view.findViewById(R.id.text_info_case);
+        heure = (TextView) view.findViewById(R.id.heure);
         //(Integer.parseInt(LibreServiceQuantiteeFragment.getNbrComprime())<=100) {
             text.setText("Veuillez prendre vos médicaments !");
-            messageHeure();
+            //messageHeure();
             builder.setView(view)
                     .setTitle("Vos médicaments !")
                     .setPositiveButton("Fermer la case", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            App.bluetooth_main.send("0",true);
+                            App.bluetooth_main.send("Case 0",true);
                             openMainActivity();
                         }
                     });
@@ -65,16 +67,5 @@ public class popup_info_case extends AppCompatDialogFragment {
 
     public void messageHeure() {
 
-        App.bluetooth_main.setOnDataReceivedListener(new BluetoothSPP.OnDataReceivedListener() {
-            public void onDataReceived(byte[] data, String message) {
-                Toast.makeText(getActivity().getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-                try {
-                    String heure = message;
-                }
-                catch (NumberFormatException exception){}
-
-            }
-        });
     }
-
 }
