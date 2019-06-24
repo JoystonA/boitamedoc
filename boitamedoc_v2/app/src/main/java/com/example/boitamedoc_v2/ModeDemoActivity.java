@@ -24,7 +24,7 @@ public class ModeDemoActivity extends AppCompatActivity implements View.OnClickL
     final String AUTO_OFF = "41";
     final String ON = "42";
     final String OFF = "43";
-    final String NOTIFICATION = "44";
+    final String NOTIFICATION = "Case 9";
 
     public static String Title_Notification;
     public static String Message_Notification;
@@ -78,8 +78,6 @@ public class ModeDemoActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void createNotification() {
-        Title_Notification = "Votre prise de médicament de 9h30";
-        Message_Notification = "2 comprimés de DOLIPRANE 500mg | CASE 1";
         Title_Notification = "Votre prise de médicament de 9h30";
         Message_Notification = "2 comprimés de DOLIPRANE 500mg | CASE 1";
         Intent intent = new Intent(this, NotificationReceiver.class);
