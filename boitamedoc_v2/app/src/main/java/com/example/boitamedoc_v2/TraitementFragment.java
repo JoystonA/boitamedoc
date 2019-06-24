@@ -120,6 +120,7 @@ public class TraitementFragment extends Fragment implements View.OnClickListener
 
         Case_Ajouter = (Button) v.findViewById(R.id.button_ajouter);
 
+
         Case_Modifier.setOnClickListener(this);
         Case_Modifier2.setOnClickListener(this);
         Case_Modifier3.setOnClickListener(this);
@@ -220,7 +221,7 @@ public class TraitementFragment extends Fragment implements View.OnClickListener
             }
 
             @Override
-            public void onError() {
+            public void onError(boolean error) {
 
             }
         });
@@ -368,12 +369,14 @@ public class TraitementFragment extends Fragment implements View.OnClickListener
     public void openTraitementModifierPage(int i) {
         Intent intent;
         intent = new Intent(getActivity(), TraitementAjoutActivity.class).putExtra("num_trait",Integer.toString(i));
+        intent.putExtra("name_legende","Modification en cours");
         startActivity(intent);
     }
 
     public void openTraitementAjoutPage(int i) {
         Intent intent;
         intent = new Intent(getActivity(), TraitementAjoutActivity.class).putExtra("num_trait",Integer.toString(i+1));
+        intent.putExtra("name_legende","Ajout en cours");
         startActivity(intent);
     }
 

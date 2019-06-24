@@ -51,22 +51,27 @@
         android:orientation="vertical">
 
 
-        <ScrollView
+        <TextView
+            android:id="@+id/text_posologie3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/colorFont2"
+            android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/text_posologie"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="20dp"
-                android:fontFamily="sans-serif-condensed"
-                android:text="name_medicament 1\nname_medicament 1\nname_medicament 1\nname_medicament 1\nname_medicament 1"
-                android:textColor="@color/colorFont2"
-                android:textSize="14sp" />
-        </ScrollView>
+        <TextView
+            android:id="@+id/text_posologie7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_posologie3"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/colorFont2"
+            android:textSize="14sp" />
     </RelativeLayout>
 
     <RelativeLayout

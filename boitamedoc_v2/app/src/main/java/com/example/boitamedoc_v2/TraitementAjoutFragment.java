@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.example.boitamedoc_v2.myrequest.MyRequest;
@@ -44,7 +46,7 @@ public class TraitementAjoutFragment extends Fragment implements OnItemSelectedL
     private Button validButton;
     private Spinner spinner;
     private ArrayAdapter<String> dataAdapter;
-
+    private TextView name_legende;
     private String trait_num;
     private RequestQueue queue;
     private MyRequest request;
@@ -58,7 +60,9 @@ public class TraitementAjoutFragment extends Fragment implements OnItemSelectedL
         queue = VolleySingleton.getInstance(getActivity()).getRequestQueue();
         request = new MyRequest(getActivity(), queue);
 
+        name_legende=(TextView) v.findViewById(R.id.name_ajout_text);
         trait_num = getActivity().getIntent().getStringExtra("num_trait");
+        name_legende.setText(getActivity().getIntent().getStringExtra("name_legende"));
         nbre_medoc_ajout_matin = v.findViewById(R.id.nbr_ajout_medicament_matin);
         checkBox_verification_matin_ajout = (CheckBox) v.findViewById(R.id.checkBox_matin_ajout);
         nbre_medoc_ajout_midi = v.findViewById(R.id.nbr_ajout_medicament_midi);
@@ -92,7 +96,7 @@ public class TraitementAjoutFragment extends Fragment implements OnItemSelectedL
             @Override
             public void onClick(View v) {
                 String medoc_matin,medoc_midi,medoc_soir;
-                if(nbrMedocMatinIsOk()|nbrMedocMidiIsOk()|nbrMedocSoirIsOk()|nomMedecinIsOk()|dateDebutIsOk()|dateFinIsOk()){
+                if(nbrMedocMatinIsOk()&nbrMedocMidiIsOk()&nbrMedocSoirIsOk()&nomMedecinIsOk()&dateDebutIsOk()&dateFinIsOk()){
                     if (checkBox_verification_matin_ajout.isChecked()) medoc_matin= nbre_medoc_ajout_matin.getEditText().getText().toString().trim();
                     else medoc_matin = "0";
                     if (checkBox_verification_midi_ajout.isChecked()) medoc_midi= nbre_medoc_ajout_midi.getEditText().getText().toString().trim();
@@ -126,8 +130,7 @@ public class TraitementAjoutFragment extends Fragment implements OnItemSelectedL
                         }
 
                         @Override
-                        public void onError() {
-
+                        public void onError(boolean error) {
                         }
                     });
                 }
@@ -246,7 +249,7 @@ public class TraitementAjoutFragment extends Fragment implements OnItemSelectedL
                         String num_case = message.getString("case");
                         String name_medoc = message.getString("nom");
                         String id_medoc = message.getString("id_medoc");
-                        case_name_medoc_all[Integer.parseInt(num_case)-1] = "CASE " +num_case+" | "+name_medoc;
+                        case_name_medoc_all[Integer.parseInt(num_case)-1] = "CASE " +num_case+" | "+name_medoc.substring(0,18)+"...";
                         Log.d("APP", "onSucces: " + num_case+" " + id_medoc);
                         compartiment.add(case_name_medoc_all[Integer.parseInt(num_case)-1]);
                         id_medoc_all[Integer.parseInt(num_case)-1] = id_medoc;

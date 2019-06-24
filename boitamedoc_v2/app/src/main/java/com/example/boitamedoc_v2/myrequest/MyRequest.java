@@ -692,7 +692,7 @@ public class MyRequest {
                         Callback.onSucces(JSONtraitement);
                     }
                     else{
-                        Callback.onError();
+                        Callback.onError(error);
                         Log.d("APP", "onResponse: else " + json.getString("message"));
                     }
                 }
@@ -1182,7 +1182,7 @@ public class MyRequest {
 
     public interface traitementTestCallback{
         void onSucces(JSONObject JSONTraitement);
-        void onError();
+        void onError(boolean error);
     }
 
     public interface recupCompteCallback{
