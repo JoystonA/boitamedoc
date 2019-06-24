@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">"Boîta'Medoc"</string>
+    <string name="app_name">"Boîta'Médoc"</string>
     <string name="title_accueil">Accueil</string>
     <string name="title_traitement">Traitement</string>
     <string name="title_boite">Boîte</string>
     <string name="title_libre_service">Libre-Service</string>
     <string name="title_profil">Profil</string>
     <string name="txt">Pour plus d\'informations sur un médicament, Veuillez appuyer sur une case</string>
-    <string name="libreservicetext">Veuillez choisir le médicament que vous voulez</string>
+    <string name="libreservicetext">Veuillez choisir la case que vous désirez</string>
     <string name="title_settings">Settings</string>
     <color name="grey">#F7F7F7</color>
     <color name="grey2">#333333</color>
@@ -24,7 +24,7 @@
 
 
     <!--Boîte-->
-    <string name="infotext">Pour plus d\'information sur un médicament, Veuillez appuyer sur une case</string>
+    <string name="infotext">Pour plus d\'informations sur un médicament. Veuillez appuyer sur une case !</string>
     <string name="action_settings">Settings</string>
 
     <!--Traitement-->

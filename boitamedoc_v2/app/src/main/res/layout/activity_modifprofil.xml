@@ -98,7 +98,7 @@
         android:onClick="finish"
         android:text="Valider"
         android:textColor="#FFFFFF"
-        android:background="@drawable/ic_bouton"
+        android:background="@drawable/bouton"
         />
 
 </android.support.v7.widget.LinearLayoutCompat>

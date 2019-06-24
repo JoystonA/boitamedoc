@@ -1,6 +1,7 @@
 package com.example.boitamedoc_v2;
 
 import android.content.Intent;
+import android.net.ParseException;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -19,6 +20,9 @@ import com.android.volley.RequestQueue;
 import com.example.boitamedoc_v2.myrequest.MyRequest;
 
 import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class TraitementFragment extends Fragment implements View.OnClickListener {
@@ -44,6 +48,8 @@ public class TraitementFragment extends Fragment implements View.OnClickListener
     private  TextView tab_title_traiment[] = new TextView[8];
     private  TextView tab_comprimes[] = new TextView[8];
     private  TextView tab_med_date[] = new TextView[8];
+    private String date_debut_ok;
+    private String date_fin_ok;
 
     private RelativeLayout traitement[] = new RelativeLayout[8];
     private boolean trait_connue[] = {false,false,false,false,false,false,false,false};
@@ -173,9 +179,35 @@ public class TraitementFragment extends Fragment implements View.OnClickListener
 
                                 }
                             });
+
+
+                            String date_debut = json_trait.getString("Date_debut");
+                            SimpleDateFormat tempo = new SimpleDateFormat("yyyy-MM-dd");
+                            try {
+                                Date d = tempo.parse(date_debut);
+                                tempo.applyPattern("dd/MM/yyyy");
+                                date_debut_ok = tempo.format(d);
+                            } catch (ParseException e) {
+                                Log.d("APP", "getParams: Date Non Fonctionnel");
+                            } catch (java.text.ParseException e) {
+                                e.printStackTrace();
+                            }
+
+                            String date_fin = json_trait.getString("Date_fin");
+                            SimpleDateFormat tempo2 = new SimpleDateFormat("yyyy-MM-dd");
+                            try {
+                                Date d = tempo2.parse(date_fin);
+                                tempo2.applyPattern("dd/MM/yyyy");
+                                date_fin_ok = tempo.format(d);
+                            } catch (ParseException e) {
+                                Log.d("APP", "getParams: Date Non Fonctionnel");
+                            } catch (java.text.ParseException e) {
+                                e.printStackTrace();
+                            }
+
                             String comprimes = "Matin: " +json_trait.getString("matin")+", Midi: "+json_trait.getString("midi")+", Soir: "+json_trait.getString("soir");
                             tab_comprimes[i].setText(comprimes);
-                            String med_date = "Prescrit par le Dr."+json_trait.getString("nom_medecin")+"\ndu "+json_trait.getString("Date_debut")+" au "+json_trait.getString("Date_fin");
+                            String med_date = "Prescrit par le Dr."+json_trait.getString("nom_medecin")+"\ndu "+date_debut_ok+" au "+date_fin_ok;
                             tab_med_date[i].setText(med_date);
                         }
 
@@ -344,6 +376,7 @@ public class TraitementFragment extends Fragment implements View.OnClickListener
         intent = new Intent(getActivity(), TraitementAjoutActivity.class).putExtra("num_trait",Integer.toString(i+1));
         startActivity(intent);
     }
+
     public void affichageDynamiqueTraitement(){
         int compte = 0;
         for(int i=0;i<trait_connue.length;i++){

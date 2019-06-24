@@ -1,9 +1,14 @@
 package com.example.boitamedoc_v2;
 
 import android.net.ParseException;
+import android.content.Intent;
+import android.net.ParseException;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
@@ -13,8 +18,9 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
-public class AjoutMedocActivity extends AppCompatActivity {
+public class AjoutMedocActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView id_medoc_txt;
     private TextView num_lot_txt;
     private TextView name_medoc;
@@ -27,11 +33,17 @@ public class AjoutMedocActivity extends AppCompatActivity {
     private String numCase;
     private RequestQueue queue;
     private MyRequest request;
+    private Button AjoutMedoc;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajoutmedoc);
+        setTitle("Boîte de médicament");
+        qr_code = getIntent().getStringExtra("value");
+        AjoutMedoc = (Button) findViewById(R.id.validMedoc);
+        AjoutMedoc.setOnClickListener(this);
         numCase = this.getIntent().getStringExtra("numCase");
         id_medoc_txt = (TextView) findViewById(R.id.id_medoc);
         name_medoc = findViewById(R.id.nom_medoc);
@@ -45,10 +57,10 @@ public class AjoutMedocActivity extends AppCompatActivity {
         request.recupMedoc(id_medoc, new MyRequest.recupMedocInfoCallback() {
             @Override
             public void onSucces(JSONObject message) {
-                try {
+                try{
                     name_medoc.setText("Nom du médicament :\n"+ message.getString("nom"));
                     Log.d("APP", "onSucces: " + numCase);
-                    request.insetMedoc(numCase,id_medoc,date_ok,num_lot)   ;
+                    request.insetMedoc(numCase,id_medoc,date_ok,num_lot);
                 }
                 catch (Exception e) {
                     e.printStackTrace();
@@ -60,9 +72,18 @@ public class AjoutMedocActivity extends AppCompatActivity {
                 name_medoc.setText("Nom du médicament :\n" + "Médicament inconnu");
             }
         });
-
     }
 
+
+    @Override
+    public void onClick(View V) {
+        switch (V.getId()) {
+            case R.id.validMedoc:
+                //App.bluetooth_main.send("36",true);
+                openCalibrageActivity();
+                break;
+        }
+    }
 
     public void decoupe_qr_code(String qr_code){
         int length = qr_code.length();
@@ -80,7 +101,7 @@ public class AjoutMedocActivity extends AppCompatActivity {
             tempo.applyPattern("dd/MM/yyyy");
             date_ok = tempo.format(d);
         } catch (ParseException e) {
-            Log.d("APP", "getParams: Date nul chiant JPP");
+            Log.d("APP", "getParams: Date Non Fonctionnel");
         } catch (java.text.ParseException e) {
             e.printStackTrace();
         }
@@ -88,6 +109,11 @@ public class AjoutMedocActivity extends AppCompatActivity {
         date_txt.setText("Date d'expiration : "+date_ok);
     }
 
+    public void openCalibrageActivity(){
+        Intent intent;
+        intent = new Intent(this, AgencementMedocActivity.class);
+        startActivity(intent);
+    }
 
 }
 

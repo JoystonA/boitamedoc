@@ -1024,6 +1024,85 @@ public class MyRequest {
         queue.add(request);
     }
 
+    public void quantiteeIsOk(String num_case,String quantitee,IsOkCallback callback){
+
+        String url = url_debut + "IsOk.php";
+
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try{
+                    JSONObject json = new JSONObject(response);
+                    Log.d("APP", "onResponse: "+ json);
+                    boolean error = json.getBoolean("error");
+                    boolean isOk = json.getBoolean("isok");
+                    if(!error)
+                        callback.onSucces(isOk);
+                    else {
+                        String message = json.getString("message");
+                        callback.onError(message);
+                    }
+                }
+                catch (Exception e){
+
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> map = new HashMap<>();
+                map.put("id_boite",id_boite);
+                map.put("id_case",num_case);
+                map.put("quantitee",quantitee);
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
+    public void recupAllPatient(recupAllPatientCallback callback){
+
+        String url = url_debut + "recupAllPatient.php";
+
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try{
+                    JSONObject json = new JSONObject(response);
+                    if(json!= null) callback.onSucces(json);
+                    else callback.onError(json);
+                }
+                catch (Exception e){
+
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> map = new HashMap<>();
+                map.put("id_gerant",id_gestionnaire);
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
     public interface recupPatientCallback{
         void onSucces(JSONObject message);
         void onError(boolean error);
@@ -1087,6 +1166,16 @@ public class MyRequest {
     public interface recupMedocCallback{
         void onSucces(JSONObject message,int i);
         void onError(JSONObject message);
+    }
+
+    public interface recupAllPatientCallback{
+        void onSucces(JSONObject message);
+        void onError(JSONObject message);
+    }
+
+    public interface IsOkCallback{
+        void onSucces(boolean IsOK);
+        void onError(String message);
     }
 
 }

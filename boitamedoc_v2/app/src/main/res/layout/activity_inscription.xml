@@ -118,7 +118,7 @@
         android:text="Valider"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
-        android:background="@drawable/ic_bouton"
+        android:background="@drawable/bouton"
         android:textColor="#FFFFFF"/>
 
     <ProgressBar

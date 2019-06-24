@@ -5,10 +5,19 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.android.volley.RequestQueue;
+import com.example.boitamedoc_v2.myrequest.MyRequest;
+
+import org.json.JSONObject;
+
+import static com.example.boitamedoc_v2.App.id_patient;
 
 public class boiteFragment extends Fragment implements View.OnClickListener {
     //private Button ConnexionBoite;
@@ -20,7 +29,10 @@ public class boiteFragment extends Fragment implements View.OnClickListener {
     private Button Case6;
     private Button Case7;
     private Button Case8;
+    private TextView nom;
     private Intent intent;
+    private RequestQueue queue;
+    private MyRequest request;
 
     @Nullable
     @Override
@@ -36,6 +48,7 @@ public class boiteFragment extends Fragment implements View.OnClickListener {
        Case6 = (Button) v.findViewById(R.id.case6);
        Case7 = (Button) v.findViewById(R.id.case7);
        Case8 = (Button) v.findViewById(R.id.case8);
+       nom =(TextView) v.findViewById(R.id.name);
 
       //ConnexionBoite.setOnClickListener(this);
       Case1.setOnClickListener(this);
@@ -47,6 +60,26 @@ public class boiteFragment extends Fragment implements View.OnClickListener {
       Case7.setOnClickListener(this);
       Case8.setOnClickListener(this);
       intent = new Intent(getActivity(), InfoCaseActivity.class);
+      queue = VolleySingleton.getInstance(getActivity()).getRequestQueue();
+      request = new MyRequest(getActivity(), queue);
+
+        request.recupPatient(id_patient, new MyRequest.recupPatientCallback() {
+            @Override
+            public void onSucces(JSONObject message) {
+                String prenom_Patient="ERREUR";
+                try {
+                    prenom_Patient = message.getString("prenom");
+                }
+                catch (Exception e){
+                    Log.d("APP", "onSucces: C'esst pas normal "+e.getMessage());
+                }
+                nom.setText(prenom_Patient);
+            }
+            @Override
+            public void onError(boolean error) {
+                nom.setText("ERREUR ERREUR");
+            }
+        });
       return v;
 
     }

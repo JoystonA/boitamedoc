@@ -41,7 +41,7 @@
                 android:layout_height="91dp"
                 android:layout_weight="1"
                 android:text="Case 1"
-                android:background="@drawable/ic_bouton_case_vf_01"
+                android:background="@drawable/bouton_case_medoc"
                 android:fontFamily="sans-serif-condensed-medium"/>
 
             <Button
@@ -50,7 +50,7 @@
                 android:layout_height="91dp"
                 android:layout_weight="1"
                 android:text="Case 2"
-                android:background="@drawable/ic_bouton_case_vf_01"
+                android:background="@drawable/bouton_case_medoc"
                 android:fontFamily="sans-serif-condensed-medium"/>
 
             <Button
@@ -59,7 +59,7 @@
                 android:layout_height="91dp"
                 android:layout_weight="1"
                 android:text="Case 3"
-                android:background="@drawable/ic_bouton_case_vf_01"
+                android:background="@drawable/bouton_case_medoc"
                 android:fontFamily="sans-serif-condensed-medium"/>
 
             <Button
@@ -68,7 +68,7 @@
                 android:layout_height="91dp"
                 android:layout_weight="1"
                 android:text="Case 4"
-                android:background="@drawable/ic_bouton_case_vf_01"
+                android:background="@drawable/bouton_case_medoc"
                 android:fontFamily="sans-serif-condensed-medium"/>
         </TableRow>
 
@@ -83,7 +83,7 @@
                 android:layout_height="91dp"
                 android:layout_weight="1"
                 android:text="Case 5"
-                android:background="@drawable/ic_bouton_case_vf_01"
+                android:background="@drawable/bouton_case_medoc"
                 android:fontFamily="sans-serif-condensed-medium"/>
 
             <Button
@@ -92,7 +92,7 @@
                 android:layout_height="91dp"
                 android:layout_weight="1"
                 android:text="Case 6"
-                android:background="@drawable/ic_bouton_case_vf_01"
+                android:background="@drawable/bouton_case_medoc"
                 android:fontFamily="sans-serif-condensed-medium"/>
 
             <Button
@@ -101,7 +101,7 @@
                 android:layout_height="91dp"
                 android:layout_weight="1"
                 android:text="Case 7"
-                android:background="@drawable/ic_bouton_case_vf_01"
+                android:background="@drawable/bouton_case_medoc"
                 android:fontFamily="sans-serif-condensed-medium"/>
 
             <Button
@@ -110,7 +110,7 @@
                 android:layout_height="91dp"
                 android:layout_weight="1"
                 android:text="Case 8"
-                android:background="@drawable/ic_bouton_case_vf_01"
+                android:background="@drawable/bouton_case_medoc"
                 android:fontFamily="sans-serif-condensed-medium"/>
         </TableRow>
 
