@@ -1,44 +1,32 @@
 package com.example.boitamedoc_v2;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
-import android.net.ParseException;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.android.volley.RequestQueue;
 import com.example.boitamedoc_v2.myrequest.MyRequest;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
-import static com.example.boitamedoc_v2.App.id_gestionnaire;
-
-public class NotificationActivity extends AppCompatActivity {
+public class NotificationActivity extends AppCompatActivity implements View.OnClickListener{
 
     private RequestQueue queue;
     private MyRequest request;
     private TextView Case3;
     private TextView Case7;
+    private Button validPrise;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
-
+        validPrise = (Button)findViewById(R.id.validPrise);
+        validPrise.setOnClickListener(this);
         Case3 = (TextView) findViewById(R.id.text_posologie3);
         Case7 = (TextView) findViewById(R.id.text_posologie7);
         queue = VolleySingleton.getInstance(this).getRequestQueue();
@@ -76,5 +64,22 @@ public class NotificationActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.validPrise:
+                App.bluetooth_main.send("Case 0",true);
+                openConnexionActivity();
+                NotificationActivity.this.finish();
+                break;
+        }
+    }
+
+    public void openConnexionActivity(){
+        Intent intent;
+        intent = new Intent(this, ConnexionActivity.class);
+        startActivity(intent);
     }
 }

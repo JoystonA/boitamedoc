@@ -47,12 +47,13 @@
         android:layout_height="wrap_content"
         app:errorEnabled="true">
 
-        <android.support.design.widget.TextInputEditText
+        <com.santalu.maskedittext.MaskEditText
             android:id="@+id/edit_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Date de naissance (DD/M/AAAA)"
-            android:inputType="date" />
+            android:hint="Date de naissance (DD/MM/AAAA)"
+            android:inputType="date"
+            app:met_mask="##/##/####"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -73,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Numéro Sécurité Social :"
+            android:text="Numéro Sécurité Sociale :"
             android:textSize="18sp" />
     </android.support.design.widget.TextInputLayout>
 

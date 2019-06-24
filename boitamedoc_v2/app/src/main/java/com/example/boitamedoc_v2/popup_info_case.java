@@ -18,8 +18,6 @@ import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 public class popup_info_case extends AppCompatDialogFragment {
 
     private TextView text;
-    private TextView heure;
-
 
     @Override
     public void onAttach(Context context) {
@@ -32,10 +30,8 @@ public class popup_info_case extends AppCompatDialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.layout_popup_info_case, null);
         text = (TextView) view.findViewById(R.id.text_info_case);
-        heure = (TextView) view.findViewById(R.id.heure);
         //(Integer.parseInt(LibreServiceQuantiteeFragment.getNbrComprime())<=100) {
             text.setText("Veuillez prendre vos médicaments !");
-            //messageHeure();
             builder.setView(view)
                     .setTitle("Vos médicaments !")
                     .setPositiveButton("Fermer la case", new DialogInterface.OnClickListener() {
@@ -65,7 +61,5 @@ public class popup_info_case extends AppCompatDialogFragment {
         startActivity(intent);
     }
 
-    public void messageHeure() {
 
-    }
 }

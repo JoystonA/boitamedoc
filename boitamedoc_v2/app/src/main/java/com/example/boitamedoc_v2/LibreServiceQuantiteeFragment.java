@@ -106,7 +106,7 @@ public class LibreServiceQuantiteeFragment extends Fragment {
                 String num_case = getActivity().getIntent().getStringExtra("case");
                 String quantiteeInput = quantitee.getEditText().getText().toString().trim();
                 quantiteeIsOk();
-                dernier_prise = "Case "+num_case + "|" + quantiteeInput+ " comprime(s) de " + medoc_lcd+"...";
+                dernier_prise = "Case "+num_case + " : " + quantiteeInput+ " comprime(s) de " + medoc_lcd+"...";
                 App.bluetooth_main.send(dernier_prise, true);
                 //Envoie bdd
                 String dernierePrise = messageHeure()+dernier_prise;

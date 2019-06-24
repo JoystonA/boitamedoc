@@ -38,6 +38,35 @@
             android:layout_marginStart="57dp"
             android:layout_marginTop="5dp"/>
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="225dp"
+            android:layout_marginTop=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                "10dp"
+            app:srcCompat="@mipmap/ic_fond_case" />
+
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/relative_layout_page_traitement_boite"

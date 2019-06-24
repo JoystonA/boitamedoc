@@ -94,7 +94,7 @@ public class InfoCaseFragment extends Fragment {
         modifButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openScanBarcode();;
+                openScanBarcode();
             }
         });
         return v;

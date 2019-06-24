@@ -80,6 +80,9 @@ public class AjoutMedocActivity extends AppCompatActivity implements View.OnClic
         switch (V.getId()) {
             case R.id.validMedoc:
                 openAgencementMedocActivity();
+                int num= Integer.parseInt(numCase)+9;
+                String num_str = Integer.toString(num);
+                App.bluetooth_main.send("Case "+num_str,true);
                 break;
         }
     }

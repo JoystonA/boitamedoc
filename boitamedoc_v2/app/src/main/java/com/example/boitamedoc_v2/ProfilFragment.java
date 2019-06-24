@@ -55,7 +55,7 @@ public class ProfilFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onSucces(String nom, String prenom, String numero_securite_social, String id_boite, String date, String maladie, int apte) {
                 Prenom.setText(prenom);
-                Num_secu.setText("Numéro de sécurité social : "+numero_securite_social);
+                Num_secu.setText("Numéro de sécurité sociale : "+numero_securite_social);
                 Id_boite.setText("Identifiant boîte : "+id_boite);
                 Date.setText("Date de naissance : "+date);
                 Maladie.setText("Maladie : "+maladie);

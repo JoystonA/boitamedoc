@@ -87,9 +87,6 @@ public class boiteFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View V) {
         switch (V.getId()) {
-            /*case R.id.bouton_connexion_boite:
-                openConnexionBoite();
-                break;*/
             case R.id.case1:
                 intent.putExtra("num","1");
                 openInfoCase();

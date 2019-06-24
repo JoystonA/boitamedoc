@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.example.boitamedoc_v2.myrequest.MyRequest;
+import com.santalu.maskedittext.MaskEditText;
 
 import static com.example.boitamedoc_v2.App.id_gestionnaire;
 import static com.example.boitamedoc_v2.App.id_patient;
@@ -19,7 +20,7 @@ import static com.example.boitamedoc_v2.App.id_patient;
 public class InscriptionPatientActivity extends AppCompatActivity {
     private EditText nom;
     private EditText prenom;
-    private EditText date;
+    private MaskEditText date;
     private EditText maladie;
     private TextView numSecu;
     private Switch isApte;
