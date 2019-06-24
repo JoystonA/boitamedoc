@@ -7,6 +7,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.example.boitamedoc_v2.myrequest.MyRequest;
@@ -14,9 +15,10 @@ import com.example.boitamedoc_v2.myrequest.MyRequest;
 import org.json.JSONObject;
 
 
-public class AgencementMedocActivity extends AppCompatActivity implements View.OnClickListener {
+public class AgencementMedocActivity extends AppCompatActivity {
 
-    public TextInputLayout nbrmedoc;
+    public TextInputEditText nbrmedoc;
+    private String numCase;
     private RequestQueue queue;
     private MyRequest request;
 
@@ -25,75 +27,41 @@ public class AgencementMedocActivity extends AppCompatActivity implements View.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agencement);
         setTitle("Agencement de boîte");
-        nbrmedoc = (TextInputLayout)findViewById(R.id.agencement_quantite_edit);
 
-
-       /* numCase = this.getIntent().getStringExtra("numCase");
-
+        nbrmedoc = (TextInputEditText) findViewById(R.id.agencement_quantite_edit);
+        numCase = this.getIntent().getStringExtra("numCase");
         queue = VolleySingleton.getInstance(this).getRequestQueue();
         request = new MyRequest(this, queue);
 
-
-        request.recupNbrMedoc(id_medoc, new MyRequest.recupNbrMedocInfoCallback() {
-            @Override
-            public void onSucces(JSONObject message) {
-                try {
-                    Log.d("APP", "onSucces: " + numCase);
-                    request.insetMedoc(numCase,id_medoc,date_ok,num_lot);
-                }
-                catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onError(JSONObject message) {
-                name_medoc.setText("Nom du médicament :\n" + "Médicament inconnu");
-            }
-        });*/
-
     }
 
+    public void ValidationAgencement(View v) {
+        String Nbrmedoc = nbrmedoc.getText().toString().trim();
 
-    @Override
-    public void onClick(View V) {
-        switch (V.getId()) {
-            case R.id.validAgencement:
-                openAgencementActivity();
-                break;
+        if (!Nbrmedoc.isEmpty()) {
+            request.ajoutComprime(numCase, Nbrmedoc, new MyRequest.ajoutComprimeCallback() {
+                @Override
+                public void onSucces() {
+                    Toast.makeText(getApplicationContext(), "Médicaments ajoutés", Toast.LENGTH_SHORT).show();
+                    openMainActivity();
+                }
+
+                @Override
+                public void onError(boolean error) {
+                    Toast.makeText(getApplicationContext(), "Erreur", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
+        else {
+            nbrmedoc.setError("Veuillez entrer une valeur");
+        }
+
     }
 
-    public void openAgencementActivity(){
+    public void openMainActivity(){
         Intent intent;
         intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
-    /*private void quantiteeIsOk() {
-        String quantiteeInput = nbrmedoc.getEditText().getText().toString().trim();
-        String num_case = getIntent().getStringExtra("case");
-        Log.d("APP", "IsOk: "+ num_case);
-        if (quantiteeInput.isEmpty() || quantiteeInput.equals("0")) {
-            nbrmedoc.setError("Veuillez rentrer un chiffre !");
-            return;
-        }
-        request.quantiteeIsOk(num_case, quantiteeInput, new MyRequest.IsOkCallback() {
-            @Override
-            public void onSucces(boolean IsOK) {
-                Log.d("APP", "onSucces: "+ IsOK);
-                if(IsOK){
-                    quantitee.setError(null);
-                    openPopUpInfoCase();
-                }
-                else quantitee.setError("Quantité trop grande");
-            }
-
-            @Override
-            public void onError(String message) {
-
-            }
-        });
-    }*/
 }
 

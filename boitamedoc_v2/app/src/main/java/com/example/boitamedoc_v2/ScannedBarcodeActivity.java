@@ -30,6 +30,7 @@ public class ScannedBarcodeActivity extends AppCompatActivity{
     private static final int REQUEST_CAMERA_PERMISSION = 201;
     Button btnAction;
     String intentData = "";
+    String num_Case;
 
 
     @Override
@@ -39,6 +40,8 @@ public class ScannedBarcodeActivity extends AppCompatActivity{
         setTitle("Boîte de médicament");
         openPopUpInformation();
         initViews();
+        num_Case=this.getIntent().getStringExtra("numCase");
+        //System.out.println(num_Case);
     }
 
     private void openPopUpInformation() {
@@ -51,9 +54,10 @@ public class ScannedBarcodeActivity extends AppCompatActivity{
         surfaceView = findViewById(R.id.surfaceView);
     }
 
-    private void openAjoutMedo() {
+    private void openAjoutMedoc() {
         Intent intent;
-        intent = new Intent(this, AjoutMedocActivity.class).putExtra("value",intentData).putExtra("numCase",this.getIntent().getStringExtra("numCase"));
+        intent = new Intent(this, AjoutMedocActivity.class).putExtra("value",intentData);
+        intent.putExtra("numCase",num_Case);
         startActivity(intent);
     }
 
@@ -125,7 +129,7 @@ public class ScannedBarcodeActivity extends AppCompatActivity{
                                 intentData = barcodes.valueAt(0).displayValue;
                                 txtBarcodeValue.setText("QR CODE DETECTE !");
                                 if (intentData.length() > 26) {
-                                    openAjoutMedo();
+                                    openAjoutMedoc();
                                 }
 
                             }

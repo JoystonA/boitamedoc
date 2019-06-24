@@ -1145,6 +1145,51 @@ public class MyRequest {
         queue.add(request);
     }
 
+    public void ajoutComprime(final String id_case, final String str_comprime, ajoutComprimeCallback callback){
+
+        String url = url_debut + "AjoutComprime.php";
+
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                if(response!=null){
+                    //   Log.d("APP", "onResponse: " + response) ;
+                }
+                try {
+                    JSONObject reponse = new JSONObject(response);
+                    boolean error = reponse.getBoolean("error");
+                    if(error){
+                        callback.onError(error);
+                    }
+                    else{
+                        callback.onSucces();
+                    }
+                }
+                catch(Exception e){
+                    Log.d("APP", "onResponse: " + e.getMessage());
+                }// TRY get JSON RESPONSE
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("APP", "ERROR = " + error);
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> map = new HashMap<>();
+                map.put("id_case", id_case);
+                map.put("nbr_comprimes", str_comprime);
+
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
     public interface recupPatientCallback{
         void onSucces(JSONObject message);
         void onError(boolean error);
@@ -1206,6 +1251,11 @@ public class MyRequest {
     }
 
     public interface modifDernierePriseCallback{
+        void onSucces();
+        void onError(boolean errors);
+    }
+
+    public interface ajoutComprimeCallback{
         void onSucces();
         void onError(boolean errors);
     }

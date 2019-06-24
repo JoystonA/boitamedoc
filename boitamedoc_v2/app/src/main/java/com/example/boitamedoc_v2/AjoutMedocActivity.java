@@ -79,8 +79,7 @@ public class AjoutMedocActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View V) {
         switch (V.getId()) {
             case R.id.validMedoc:
-                //App.bluetooth_main.send("36",true);
-                openCalibrageActivity();
+                openAgencementMedocActivity();
                 break;
         }
     }
@@ -109,9 +108,10 @@ public class AjoutMedocActivity extends AppCompatActivity implements View.OnClic
         date_txt.setText("Date d'expiration : "+date_ok);
     }
 
-    public void openCalibrageActivity(){
+    public void openAgencementMedocActivity(){
         Intent intent;
         intent = new Intent(this, AgencementMedocActivity.class);
+        intent.putExtra("numCase",numCase);
         startActivity(intent);
     }
 
