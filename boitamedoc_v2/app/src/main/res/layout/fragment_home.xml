@@ -109,7 +109,7 @@
             <RelativeLayout
                 android:id="@+id/dernier_prise_de_medoc_accueil_layout"
                 android:layout_width="match_parent"
-                android:layout_height="130dp"
+                android:layout_height="100dp"
                 android:layout_marginBottom="10dp"
                 android:orientation="vertical"
                 android:background="@color/colorBackground"
@@ -134,9 +134,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:layout_below="@id/traitement_accueil2"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginLeft="30dp"
                 android:textColor="@color/colorFont2"/>
 
@@ -151,7 +151,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorBackground"
             android:layout_below="@id/dernier_prise_de_medoc_accueil_layout"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:orientation="vertical"
             android:layout_alignParentBottom="true"
