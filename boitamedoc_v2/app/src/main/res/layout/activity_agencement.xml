@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="14sp"
+            android:padding="30dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="PLACER LES MÉDICAMENTS DANS LA CASE ET RENTRER LE NOMBRE DE MÉDICAMENTS"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/agencement_quantite_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="30dp"
+            app:errorEnabled="true">
+
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/agencement_quantite_edit"
+                android:layout_width="match_parent"
+                android:hint="Quantité"
+                android:layout_height="wrap_content"
+                android:inputType="numberSigned"/>
+        </android.support.design.widget.TextInputLayout>
+
+</LinearLayout>
+
+        <Button
+            android:id="@+id/validAgencement"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:onClick="ValidationAgencement"
+            android:text="Valider l'agencement"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="75dp"
+            android:layout_marginEnd="75dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bouton"
+            android:textColor="#FFFFFF"/>
+
+</RelativeLayout>

@@ -57,10 +57,10 @@ public class AjoutMedocActivity extends AppCompatActivity implements View.OnClic
         request.recupMedoc(id_medoc, new MyRequest.recupMedocInfoCallback() {
             @Override
             public void onSucces(JSONObject message) {
-                try {
+                try{
                     name_medoc.setText("Nom du médicament :\n"+ message.getString("nom"));
                     Log.d("APP", "onSucces: " + numCase);
-                    request.insetMedoc(numCase,id_medoc,date_ok,num_lot)   ;
+                    request.insetMedoc(numCase,id_medoc,date_ok,num_lot);
                 }
                 catch (Exception e) {
                     e.printStackTrace();
@@ -79,7 +79,7 @@ public class AjoutMedocActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View V) {
         switch (V.getId()) {
             case R.id.validMedoc:
-                App.bluetooth_main.send("36",true);
+                //App.bluetooth_main.send("36",true);
                 openCalibrageActivity();
                 break;
         }
@@ -111,7 +111,7 @@ public class AjoutMedocActivity extends AppCompatActivity implements View.OnClic
 
     public void openCalibrageActivity(){
         Intent intent;
-        intent = new Intent(this, CalibrageActivity.class);
+        intent = new Intent(this, AgencementMedocActivity.class);
         startActivity(intent);
     }
 

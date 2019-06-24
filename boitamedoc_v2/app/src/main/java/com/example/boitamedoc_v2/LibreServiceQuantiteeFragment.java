@@ -96,9 +96,10 @@ public class LibreServiceQuantiteeFragment extends Fragment {
             public void onClick(View v) {
                 //String num_case = getActivity().getIntent().getStringExtra("case");
                 String num_case = getActivity().getIntent().getStringExtra("case");
+                String quantiteeInput = quantitee.getEditText().getText().toString().trim();
                 quantiteeIsOk();
                 App.bluetooth_main.send(num_case,true);
-                //App.bluetooth_main.send("Case "+num_case + "|" + quantiteeInput+ " comprime(s) de " + LibreServiceFragment.CaseNameLibreService, true);
+                App.bluetooth_main.send("Case "+num_case + "|" + quantiteeInput+ " comprime(s) de " + LibreServiceFragment.CaseNameLibreService, true);
                 //A MODIFIER RAPIDEMENT
                 return;
             }
@@ -138,8 +139,9 @@ public class LibreServiceQuantiteeFragment extends Fragment {
         popup.show(getActivity().getSupportFragmentManager(),"Information");
     }
 
-    public String getNbrComprime(){
+    public void getNbrComprime(){
+        String num_case = getActivity().getIntent().getStringExtra("case");
         String quantiteeInput = quantitee.getEditText().getText().toString().trim();
-        return quantiteeInput;
+        App.bluetooth_main.send("Case "+num_case + "|" + quantiteeInput+ " comprime(s) de " + LibreServiceFragment.CaseNameLibreService, true);
     }
 }

@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity{
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
-        scheduleNotification_matin(this,9,30);
+        //scheduleNotification_matin(this,01,42);
         setTitle("BOÎTA'MÉDOC");
 
     }
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity{
             PendingIntent pending = PendingIntent.getBroadcast(context, 42, intent, 0);
             // Schdedule notification
             AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-            manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY, pending);
+            manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),AlarmManager.INTERVAL_FIFTEEN_MINUTES/15, pending);
         }
     }
 }
