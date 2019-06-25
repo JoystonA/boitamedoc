@@ -20,16 +20,12 @@ import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 public class ModeDemoActivity extends AppCompatActivity implements View.OnClickListener {
 
     BluetoothSPP bluetooth;
-    final String AUTO_ON = "40";
-    final String AUTO_OFF = "41";
-    final String ON = "42";
-    final String OFF = "43";
+    final String ON = "manuel";
+    final String OFF = "Case 0";
     final String NOTIFICATION = "Case 9";
 
     public static String Title_Notification;
     public static String Message_Notification;
-    Button auto_on_button;
-    Button auto_off_button;
     Button manuel_on_button;
     Button manuel_off_button;
     Button notification;
@@ -42,14 +38,10 @@ public class ModeDemoActivity extends AppCompatActivity implements View.OnClickL
         setTitle("Mode Démo");
 
         bluetooth = App.bluetooth_main;
-        auto_on_button = (Button) findViewById(R.id.auto_on);
-        auto_off_button = (Button) findViewById(R.id.auto_off);
         manuel_on_button = (Button) findViewById(R.id.manuel_on);
         manuel_off_button = (Button) findViewById(R.id.manuel_off);
         notification = (Button) findViewById(R.id.notification);
 
-        auto_on_button.setOnClickListener(this);
-        auto_off_button.setOnClickListener(this);
         manuel_on_button.setOnClickListener(this);
         manuel_off_button.setOnClickListener(this);
         notification.setOnClickListener(this);
@@ -58,12 +50,6 @@ public class ModeDemoActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.auto_on:
-                bluetooth.send(AUTO_ON, true);
-                break;
-            case R.id.auto_off:
-                bluetooth.send(AUTO_ON, true);
-                break;
             case R.id.manuel_on:
                 bluetooth.send(ON, true);
                 break;

@@ -201,7 +201,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                         int min = 65;
                         int max = 95;
 
-                        Connexion.setText("Boîte Connecté");
+                        Connexion.setText("Boîte Connectée");
                     }
                 }, 100);
             }
@@ -212,7 +212,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Connexion.setText("Recherche en cours ...");
         App.bluetooth_main.connect("00:06:66:6D:F1:75");
         if (App.bluetooth_main.getServiceState() == 3) {
-            Connexion.setText("Boîte Connecté");
+            Connexion.setText("Boîte Connectée");
         }
     }
 }

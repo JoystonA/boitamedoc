@@ -20,28 +20,6 @@
             android:layout_marginBottom="20dp"/>
 
         <Button
-            android:id="@+id/auto_on"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Auto On"
-            android:background="@drawable/bouton"
-            android:textColor="#FFFFFF"
-            android:layout_marginBottom="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"/>
-
-        <Button
-            android:id="@+id/auto_off"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Auto Off"
-            android:background="@drawable/bouton"
-            android:textColor="#FFFFFF"
-            android:layout_marginBottom="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"/>
-
-        <Button
             android:id="@+id/manuel_on"
             android:layout_width="match_parent"
             android:layout_height="60dp"

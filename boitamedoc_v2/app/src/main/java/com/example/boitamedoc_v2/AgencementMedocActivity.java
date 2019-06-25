@@ -44,6 +44,7 @@ public class AgencementMedocActivity extends AppCompatActivity {
                 public void onSucces() {
                     Toast.makeText(getApplicationContext(), "Médicaments ajoutés", Toast.LENGTH_SHORT).show();
                     openMainActivity();
+                    App.bluetooth_main.send("Case 0",true);
                 }
 
                 @Override

@@ -34,6 +34,7 @@ public class AjoutMedocActivity extends AppCompatActivity implements View.OnClic
     private RequestQueue queue;
     private MyRequest request;
     private Button AjoutMedoc;
+    final String NAME = "b";
 
 
     @Override
@@ -61,6 +62,7 @@ public class AjoutMedocActivity extends AppCompatActivity implements View.OnClic
                     name_medoc.setText("Nom du médicament :\n"+ message.getString("nom"));
                     Log.d("APP", "onSucces: " + numCase);
                     request.insetMedoc(numCase,id_medoc,date_ok,num_lot);
+                    App.bluetooth_main.send("Case "+numCase,true);
                 }
                 catch (Exception e) {
                     e.printStackTrace();
@@ -80,9 +82,6 @@ public class AjoutMedocActivity extends AppCompatActivity implements View.OnClic
         switch (V.getId()) {
             case R.id.validMedoc:
                 openAgencementMedocActivity();
-                int num= Integer.parseInt(numCase)+9;
-                String num_str = Integer.toString(num);
-                App.bluetooth_main.send("Case "+num_str,true);
                 break;
         }
     }
